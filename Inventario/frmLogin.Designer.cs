@@ -33,12 +33,13 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Red;
             this.button1.Location = new System.Drawing.Point(115, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(523, 326);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // frmLogin
             // 
