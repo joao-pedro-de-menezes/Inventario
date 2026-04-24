@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Inventario
 {
-    public partial class frmPrincipal : Form
+    public partial class frmSplash : Form
     {
-        public frmPrincipal()
+        public frmSplash()
         {
             InitializeComponent();
         }
