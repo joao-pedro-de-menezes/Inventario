@@ -62,12 +62,28 @@ namespace Inventario
                     sql.Clear();
                     cmd.Parameters.Clear();
                     conexao.Open();
-                }
-                catch (Exception)
-                {
+                    sql.Append("UPDATE tbUsuario SET NomeUsuario = @NomeUsuario, Email = @Email, Cracha = @Cracha, Senha = @Senha, Situacao = @Situacao, Tipo = @Tipo");
+                    sql.Append(" WHERE codigo = @codigo");
 
+                    //Parâmetros
+                    cmd.Parameters.Add(new SqlParameter("@Codigo", Codigo));
+                    cmd.Parameters.Add(new SqlParameter("@NomeUsuario", NomeUsuario));
+                    cmd.Parameters.Add(new SqlParameter("@Email", Email));
+                    cmd.Parameters.Add(new SqlParameter("@Cracha", Cracha));
+                    cmd.Parameters.Add(new SqlParameter("@Senha", Senha));
+                    cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Tipo", Tipo));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao editar usuario{ex}");
                     throw;
                 }
+                finally { conexao.Close(); }
         }
     }
 }
