@@ -24,6 +24,12 @@ namespace Inventario
             banco.CriarBd();
         }
 
-      
+        private void tmrSplash_Tick(object sender, EventArgs e)
+        {
+            tmrSplash.Enabled = false;
+            frmLogin login = new frmLogin();
+            this.Hide();
+            login.ShowDialog();
+        }
     }
 }
