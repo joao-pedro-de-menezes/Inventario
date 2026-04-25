@@ -23,9 +23,10 @@ namespace Inventario
                     string CriarBd = "IF DB_ID('bdInventario') IS NULL CREATE DATABASE bdInventario;"; //Verificando se o banco está criado
                     using (SqlCommand cmd = new SqlCommand(CriarBd, conexao)) //aqui está mostrando oque o sql tem que executar, no caso executar as duas strings 
                     {
+                        conexao.Open();
                         cmd.ExecuteNonQuery();
                     }
-                    conexao.ChangeDatabase("bdContComissao"); // Após fazer a verificação/criar a database
+                    conexao.ChangeDatabase("bdInventario"); // Após fazer a verificação/criar a database
                     //Fazer as tabelas
                     string CriartbUsuario = @" IF OBJECT_ID('tbUsuario', 'U') IS NULL
                     CREATE TABLE tbUsuario (
@@ -36,7 +37,7 @@ namespace Inventario
                     Senha VARCHAR(50) NULL,
                     Situacao CHAR(1) NULL DEFAULT 'A',
                     Tipo INT NULL DEFAULT 0
-                    )";
+                    );";
 
                     using (SqlCommand cmd = new SqlCommand(CriartbUsuario, conexao)) //aqui está mostrando oque o sql tem que executar, no caso executar as duas strings 
                     {
@@ -47,7 +48,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao criar banco de dados" + ex.Message + ex);
+                MessageBox.Show("Erro ao criar banco de dados" + ex.Message);
                 throw;
             }
         }

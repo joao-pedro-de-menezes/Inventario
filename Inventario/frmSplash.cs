@@ -20,7 +20,8 @@ namespace Inventario
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            
+            clsCriarBanco banco = new clsCriarBanco();
+            banco.CriarBd();
         }
 
       
