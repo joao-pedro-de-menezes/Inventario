@@ -69,5 +69,15 @@ namespace Inventario.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2026_04_24_0015461 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2026-04-24 0015461", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
