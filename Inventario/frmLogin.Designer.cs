@@ -28,35 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogar = new System.Windows.Forms.Button();
+            this.mlblBemVindo = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
-            // button1
+            // btnLogar
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(115, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(523, 326);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnLogar.BackColor = System.Drawing.Color.White;
+            this.btnLogar.Location = new System.Drawing.Point(135, 122);
+            this.btnLogar.Name = "btnLogar";
+            this.btnLogar.Size = new System.Drawing.Size(125, 43);
+            this.btnLogar.TabIndex = 0;
+            this.btnLogar.Text = "Logar";
+            this.btnLogar.UseVisualStyleBackColor = false;
+            // 
+            // mlblBemVindo
+            // 
+            this.mlblBemVindo.AutoSize = true;
+            this.mlblBemVindo.Depth = 0;
+            this.mlblBemVindo.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mlblBemVindo.Location = new System.Drawing.Point(142, 25);
+            this.mlblBemVindo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mlblBemVindo.Name = "mlblBemVindo";
+            this.mlblBemVindo.Size = new System.Drawing.Size(78, 19);
+            this.mlblBemVindo.TabIndex = 1;
+            this.mlblBemVindo.Text = "Bem-Vindo";
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(430, 297);
+            this.Controls.Add(this.mlblBemVindo);
+            this.Controls.Add(this.btnLogar);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLogin";
+            this.Text = "Login";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogar;
+        private MaterialSkin.Controls.MaterialLabel mlblBemVindo;
     }
 }
