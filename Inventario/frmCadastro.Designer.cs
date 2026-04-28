@@ -36,7 +36,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "frmCadastro";
-            this.Text = "frmCadastro";
+            this.Text = "Cadastro De usuários";
+            this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.ResumeLayout(false);
 
         }

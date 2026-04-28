@@ -29,8 +29,8 @@ namespace Inventario
                     //Abre conexão 
                     conexao.Open();
                     //Insert na tabela
-                    sql.Append("INSERT INTO tbUsuario(NomeUsuario, Email, Cracha, Senha, Tipo");
-                    sql.Append(" VALUES (@NomeUsuario, @Email, @Cracha, @Senha, @Tipo");
+                    sql.Append("INSERT INTO tbUsuario(NomeUsuario, Email, Cracha, Senha, Tipo)");
+                    sql.Append(" VALUES (@NomeUsuario, @Email, @Cracha, @Senha, @Tipo)");
 
                     //Parâmetros
                     cmd.Parameters.Add(new SqlParameter("@NomeUsuario", NomeUsuario));
@@ -52,7 +52,7 @@ namespace Inventario
             
         }
 
-        //Metodo Editar
+        //Método Editar
 
         public void EditarUsu(int Codigo, string NomeUsuario, string Email, int Cracha, string Senha, string Situacao, int Tipo)
         {
@@ -85,5 +85,8 @@ namespace Inventario
                 }
                 finally { conexao.Close(); }
         }
+
+        //Método pesquisar Usuários
+
     }
 }
