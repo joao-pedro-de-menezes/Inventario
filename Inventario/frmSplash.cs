@@ -22,7 +22,13 @@ namespace Inventario
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             clsCriarBanco banco = new clsCriarBanco();
+            clsUsuario usuario = new clsUsuario();
             banco.CriarBd();
+            DataTable resultado = usuario.PesquisaNome("");
+            if (resultado.Rows.Count == 0)
+            {
+                usuario.SalvarUsu("Admin", "admin", 0, "admin", 0);
+            }
         }
 
         private void tmrSplash_Tick(object sender, EventArgs e) // alteração teste para fechar o splash após encerrar o programa

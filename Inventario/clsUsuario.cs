@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Animation;
 
 namespace Inventario
 {
@@ -46,7 +47,7 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao salvar usuário {ex}");
+                    MessageBox.Show($"Erro ao salvar usuário {ex}", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }finally { conexao.Close(); }
             
@@ -80,13 +81,126 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao editar usuario{ex}");
+                    MessageBox.Show($"Erro ao editar usuario{ex}", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
                 finally { conexao.Close(); }
         }
 
-        //Método pesquisar Usuários
+        //Para pesquisar usuários todos os selects serão feitos sem mostrar a senha para quem for consultar (proteção de dados)
+        //SELECT com Nome
+        public DataTable PesquisaNome(string NomeUsuario)
+        {
+            using(SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo FROM tbUsuario");
+                    sql.Append(" WHERE NomeUsuario LIKE '%' + @NomeUsuario + '%' ");
+                    sql.Append(" ORDER BY NomeUsuario");
+                    cmd.Parameters.Add(new SqlParameter("@NomeUsuario", NomeUsuario));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    dt.Load(cmd.ExecuteReader());
+                    return dt;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar Usuario pelo nome {ex}", "Nome", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+
+                }
+                finally { conexao.Close();  }
+        }
+        //SELECT com Codigo
+        public DataTable PesquisaCodigo(int Codigo)
+        {
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo FROM tbUsuario");
+                    sql.Append(" WHERE Codigo = @Codigo ");
+                    cmd.Parameters.Add(new SqlParameter("@Codigo", Codigo));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    dt.Load(cmd.ExecuteReader());
+                    return dt;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar Usuario pelo codigo {ex}", "Codigo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+
+                }
+                finally { conexao.Close(); }
+
+        }
+
+        //Vericficação do usuário existente
+        public bool ValidarLogin(string Email, string Senha)
+        {
+        using(SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+                    sql.Append("SELECT COUNT(1) FROM tbUsuario");
+                    sql.Append(" WHERE Email = @Email AND Senha = @Senha");
+                    cmd.Parameters.Add(new SqlParameter("@Email", Email));
+                    cmd.Parameters.Add(new SqlParameter("@Senha", Senha));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    //Aqui é oque vai enviar se o usuario existir
+                    int resul = Convert.ToInt32(cmd.ExecuteScalar());
+                    return resul == 1;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao entrar, {ex.Message}", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+               
+                }
+        }
+
+        public int Verifica_Tipo(string Email)
+        {
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+                    sql.Append("SELECT Tipo FROM tbUsuario");
+                    sql.Append(" WHERE Email = @Email");
+                    cmd.Parameters.Add(new SqlParameter("@Email", Email));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+
+                    object resul = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (resul != null && resul != DBNull.Value)
+                    {
+                        int tipo = Convert.ToInt32(resul);
+                        return tipo;
+                    }
+                    //se cair no -1 quer dizer que o usuário não existe
+                    return -1;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao validar o tipo do Usuario{ex}", "Tipo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return -1;
+                }
+        }
 
     }
 }

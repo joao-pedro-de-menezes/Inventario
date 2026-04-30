@@ -11,7 +11,7 @@ namespace Inventario
         //Classe conexão 
         //Criando conexão com Sql Server (Local)
 
-        private static string conexao = "Data Source=(localdb)\\MSSQLLocalDB ; Initial Catalog=bdIventario; Integrated Security = true;"; //Conexão para chamar para usar comandos
+        private static string conexao = "Data Source=(localdb)\\MSSQLLocalDB ; Initial Catalog=bdInventario; Integrated Security = true;"; //Conexão para chamar para usar comandos
 
         private static string conexaoCriar = "Data Source=(localdb)\\MSSQLLocalDB ; Initial Catalog=master; Integrated Security = true;"; //Conexao para criar banco sem senha
 

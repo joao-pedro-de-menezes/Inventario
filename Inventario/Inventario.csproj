@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="clsConexao.cs" />
     <Compile Include="clsCriarBanco.cs" />
+    <Compile Include="clsGuardarUsu.cs" />
+    <Compile Include="clsLog.cs" />
     <Compile Include="clsUsuario.cs" />
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>

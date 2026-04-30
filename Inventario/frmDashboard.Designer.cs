@@ -447,7 +447,7 @@
             this.iconeAvatar.IconColor = System.Drawing.Color.White;
             this.iconeAvatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconeAvatar.IconSize = 50;
-            this.iconeAvatar.Location = new System.Drawing.Point(569, 8);
+            this.iconeAvatar.Location = new System.Drawing.Point(550, 8);
             this.iconeAvatar.Name = "iconeAvatar";
             this.iconeAvatar.Size = new System.Drawing.Size(51, 50);
             this.iconeAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -461,7 +461,7 @@
             this.lblUsuarioLogado.Depth = 0;
             this.lblUsuarioLogado.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblUsuarioLogado.ForeColor = System.Drawing.Color.Black;
-            this.lblUsuarioLogado.Location = new System.Drawing.Point(626, 39);
+            this.lblUsuarioLogado.Location = new System.Drawing.Point(615, 39);
             this.lblUsuarioLogado.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblUsuarioLogado.Name = "lblUsuarioLogado";
             this.lblUsuarioLogado.Size = new System.Drawing.Size(95, 19);

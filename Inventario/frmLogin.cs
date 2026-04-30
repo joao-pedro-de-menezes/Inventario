@@ -47,7 +47,29 @@ namespace Inventario
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            txtEmail.Text = "Digite aqui seu E-mail";
+            txtSenha.Text = "Digite aqui sua Senha";
+        }
 
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSenha.Text))
+            {
+                txtSenha.Text = "Digite aqui sua senha";
+            }
+        }
+
+        private void txtSenha_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtEmail.Text))
+            {
+                txtEmail.Text = "Digite aqui seu E-mail";
+            }
         }
     }
 }
