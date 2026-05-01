@@ -15,6 +15,8 @@ namespace Inventario
 {
     public partial class frmLogin : MaterialForm // Herdando de MaterialForm para usar os temas do Material Design
     {
+        string email = "Digite aqui seu E-mail";
+        string senha = "Digite aqui sua Senha";
         // variável para o gerenciador de temas
         private readonly MaterialSkinManager materialSkinManager;
         public frmLogin()
@@ -47,8 +49,10 @@ namespace Inventario
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            txtEmail.Text = "Digite aqui seu E-mail";
-            txtSenha.Text = "Digite aqui sua Senha";
+          
+           txtEmail.Text = email;
+           txtSenha.Text = senha;
+            
 
         }
 
@@ -61,7 +65,11 @@ namespace Inventario
         {
             if (string.IsNullOrEmpty(txtSenha.Text))
             {
-                txtSenha.Text = "Digite aqui sua senha";
+                txtSenha.Text = senha;
+            }
+            if (txtEmail.Text == email)
+            {
+                txtEmail.Text = "";
             }
         }
 
@@ -69,17 +77,60 @@ namespace Inventario
         {
             if (string.IsNullOrEmpty(txtEmail.Text))
             {
-                txtEmail.Text = "Digite aqui seu E-mail";
+                txtEmail.Text = email;
+            }
+            if (txtSenha.Text == senha)
+            {
+                txtSenha.Text = "";
             }
         }
 
         private void frmLogin_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                Application.Exit(); // Arruma Ehdin
-            }
+        
                 
+        }
+
+    
+
+        private void txtEmail_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+
+            if (txtSenha.Text == senha)
+            {
+
+                if (e.KeyCode == Keys.Tab)
+                {
+                    if (txtSenha.Text == senha)
+                    {
+                        txtSenha.Clear();
+                    }
+
+                }
+
+            }
+        }
+
+        private void mbtnLogar_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (txtEmail.Text == email)
+            {
+           
+                if (e.KeyCode == Keys.Tab)
+                {
+                    txtEmail.Clear();
+                    txtSenha.Text = senha;
+                }
+            }
+        }
+
+        private void txtSenha_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                if (txtEmail.Text == "")
+                    txtEmail.Text = email;
+            }
         }
     }
 }
