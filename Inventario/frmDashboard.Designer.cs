@@ -38,7 +38,6 @@
             this.mlblNTotalMquinas = new MaterialSkin.Controls.MaterialLabel();
             this.mlblTotalMaquinas = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
-            this.iconeInstaladas = new FontAwesome.Sharp.IconPictureBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.mlblTotalInstaladas = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
@@ -57,11 +56,11 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconeAvatar = new FontAwesome.Sharp.IconPictureBox();
             this.lblUsuarioLogado = new MaterialSkin.Controls.MaterialLabel();
+            this.iconeInstaladas = new FontAwesome.Sharp.IconPictureBox();
             this.panel1.SuspendLayout();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconeTotalMaquinas)).BeginInit();
             this.materialCard5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconeInstaladas)).BeginInit();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.materialCard3.SuspendLayout();
@@ -69,6 +68,7 @@
             this.materialCard4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconeAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconeInstaladas)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -202,21 +202,6 @@
             this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard5.Size = new System.Drawing.Size(135, 100);
             this.materialCard5.TabIndex = 2;
-            // 
-            // iconeInstaladas
-            // 
-            this.iconeInstaladas.BackColor = System.Drawing.Color.White;
-            this.iconeInstaladas.ForeColor = System.Drawing.Color.Black;
-            this.iconeInstaladas.IconChar = FontAwesome.Sharp.IconChar.Ubuntu;
-            this.iconeInstaladas.IconColor = System.Drawing.Color.Black;
-            this.iconeInstaladas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconeInstaladas.IconSize = 38;
-            this.iconeInstaladas.InitialImage = null;
-            this.iconeInstaladas.Location = new System.Drawing.Point(12, 45);
-            this.iconeInstaladas.Name = "iconeInstaladas";
-            this.iconeInstaladas.Size = new System.Drawing.Size(43, 38);
-            this.iconeInstaladas.TabIndex = 1;
-            this.iconeInstaladas.TabStop = false;
             // 
             // materialLabel1
             // 
@@ -468,6 +453,21 @@
             this.lblUsuarioLogado.TabIndex = 4;
             this.lblUsuarioLogado.Text = "Carregando...";
             // 
+            // iconeInstaladas
+            // 
+            this.iconeInstaladas.BackColor = System.Drawing.Color.White;
+            this.iconeInstaladas.ForeColor = System.Drawing.Color.Black;
+            this.iconeInstaladas.IconChar = FontAwesome.Sharp.IconChar.Ubuntu;
+            this.iconeInstaladas.IconColor = System.Drawing.Color.Black;
+            this.iconeInstaladas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconeInstaladas.IconSize = 38;
+            this.iconeInstaladas.InitialImage = null;
+            this.iconeInstaladas.Location = new System.Drawing.Point(12, 45);
+            this.iconeInstaladas.Name = "iconeInstaladas";
+            this.iconeInstaladas.Size = new System.Drawing.Size(43, 38);
+            this.iconeInstaladas.TabIndex = 1;
+            this.iconeInstaladas.TabStop = false;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,7 +492,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconeTotalMaquinas)).EndInit();
             this.materialCard5.ResumeLayout(false);
             this.materialCard5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconeInstaladas)).EndInit();
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
@@ -503,6 +502,7 @@
             this.materialCard4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconeAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconeInstaladas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,7 +519,6 @@
         private MaterialSkin.Controls.MaterialLabel mlblNTotalMquinas;
         private FontAwesome.Sharp.IconPictureBox iconeTotalMaquinas;
         private MaterialSkin.Controls.MaterialCard materialCard5;
-        private FontAwesome.Sharp.IconPictureBox iconeInstaladas;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel mlblTotalInstaladas;
         private MaterialSkin.Controls.MaterialCard materialCard2;
@@ -538,5 +537,6 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconPictureBox iconeAvatar;
         private MaterialSkin.Controls.MaterialLabel lblUsuarioLogado;
+        private FontAwesome.Sharp.IconPictureBox iconeInstaladas;
     }
 }

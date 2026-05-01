@@ -72,7 +72,6 @@
             this.txtEmail.Text = "";
             this.txtEmail.TrailingIcon = null;
             this.txtEmail.Click += new System.EventHandler(this.txtEmail_Click);
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             this.txtEmail.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtEmail_PreviewKeyDown);
             // 
             // grbDados
@@ -119,7 +118,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.grbDados.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

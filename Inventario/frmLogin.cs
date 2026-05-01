@@ -1,5 +1,4 @@
-﻿using MaterialSkin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,11 +55,6 @@ namespace Inventario
 
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtEmail_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtSenha.Text))
@@ -84,14 +78,6 @@ namespace Inventario
                 txtSenha.Text = "";
             }
         }
-
-        private void frmLogin_KeyDown(object sender, KeyEventArgs e)
-        {
-        
-                
-        }
-
-    
 
         private void txtEmail_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
