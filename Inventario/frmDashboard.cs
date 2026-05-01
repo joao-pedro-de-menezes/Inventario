@@ -32,11 +32,11 @@ namespace Inventario
 
             // Define a paleta de cores (Baseado no exempo da nossa imagem dashboard azul marinho)
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.BlueGrey800,   // Cor principal (Barra de título)
+                Primary.Orange800,   // Cor principal (Barra de título)
                 Primary.BlueGrey900,   // Cor principal escura
                 Primary.BlueGrey500,   // Cor principal clara
                 Accent.LightBlue200,   // Cor de destaque (botões, etc)
-                TextShade.WHITE        // Cor do texto na barra de título
+                TextShade.WHITE      // Cor do texto na barra de título
             );
         }
 

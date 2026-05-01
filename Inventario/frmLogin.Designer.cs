@@ -96,7 +96,7 @@
             this.mbtnLogar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnLogar.Name = "mbtnLogar";
             this.mbtnLogar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnLogar.Size = new System.Drawing.Size(158, 36);
+            this.mbtnLogar.Size = new System.Drawing.Size(64, 36);
             this.mbtnLogar.TabIndex = 3;
             this.mbtnLogar.Text = "Login";
             this.mbtnLogar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;

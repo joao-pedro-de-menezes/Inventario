@@ -441,7 +441,7 @@
             // 
             // iconeAvatar
             // 
-            this.iconeAvatar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.iconeAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.iconeAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconeAvatar.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
             this.iconeAvatar.IconColor = System.Drawing.Color.White;
