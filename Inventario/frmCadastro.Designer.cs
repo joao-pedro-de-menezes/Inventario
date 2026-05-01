@@ -1,6 +1,6 @@
 ﻿namespace Inventario
 {
-    partial class frmCadastro
+    partial class frmCadastroUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // frmCadastro
+            // frmCadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "frmCadastro";
-            this.Text = "Cadastro De usuários";
+            this.Name = "frmCadastroUsuario";
+            this.Text = "Cadastro De Usuários";
             this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.ResumeLayout(false);
 

@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace Inventario
 {
-    public partial class frmCadastro : MaterialForm
+    public partial class frmCadastroUsuario : MaterialForm
     {
         private readonly MaterialSkinManager materialSkinManager;
-        public frmCadastro()
+        public frmCadastroUsuario()
         {
         
             // Configuração do Gerenciador de Temas
@@ -43,5 +43,9 @@ namespace Inventario
         {
 
         }
+
+      
     }
 }
+
+// 

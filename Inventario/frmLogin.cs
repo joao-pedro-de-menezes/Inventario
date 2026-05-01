@@ -49,6 +49,7 @@ namespace Inventario
         {
             txtEmail.Text = "Digite aqui seu E-mail";
             txtSenha.Text = "Digite aqui sua Senha";
+
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
@@ -70,6 +71,15 @@ namespace Inventario
             {
                 txtEmail.Text = "Digite aqui seu E-mail";
             }
+        }
+
+        private void frmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit(); // Arruma Ehdin
+            }
+                
         }
     }
 }

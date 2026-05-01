@@ -12,8 +12,8 @@ namespace Inventario
     //IMPORTANTE: A classe log deve ser chamada para cada ação que o usuário fazer, tudo que é clicável o log deve ser chamado com a sua mensagem e o usuario carregado pela classe clsGuarda
     internal class clsLog
     {
-        //Classe Log para analisar oque os usuários estão fazendo da pra fazer de várias formas aqui eu optei por fazer em uma pasta em arquivo txt mais tem como fazer mais legal e bonito só que da mais trampo
-        //Complicado mais intendível
+        //Classe Log para analisar oque os usuários estão fazendo, da pra fazer de várias formas aqui eu optei por fazer em uma pasta em arquivo txt mais tem como fazer mais legal e bonito só que da mais trampo
+        //Complicado mais intendível, João: Entendi
 
         //String do caminho da pasta
         private static string pastaLog = Path.Combine(Application.StartupPath, "Logs");
@@ -22,9 +22,9 @@ namespace Inventario
 
         /*"A Ehdin eu quero trocar a pasta pq eu so o jão e dou o cu" FODASSE
          mentira tem que fazer assim:
-        string rootPath = Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\")); Pega a pasta o caminho da pasta que você quer aqui ele volta as pasta mais a idéia é a mesma
+        string rootPath = Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\")); Pega a pasta, o caminho da pasta que você quer aqui ele volta as pasta, mas a idéia é a mesma
         private static string pastaLog = Path.Combine(rootPath, "Logs");  e combina com o log 
-        após isso vou voltar a fazer meu projeto obrigado denada Jão Pedro 
+        após isso vou voltar a fazer meu projeto obrigado denada, amado João Pedro 
         */
         //Método para o escrever o log
 
@@ -37,9 +37,9 @@ namespace Inventario
                 {
                     Directory.CreateDirectory(pastaLog);
                 }
-                //Após criado / verificado temos que fazer ele criar as pastas
+                //Após criado / verificado temos que fazer ele criar os arquivos
                 string NomeArquivo = $"Log_{DateTime.Now:yyyyMMdd}.txt";
-                //Toda vez que o dia trocar ele perceber q vai ser um dia diferente e cria um log da pra fazer depois verificar pro hora eai a cada 3 horas ele cria um log e depois zipa tudo em um dia muito foda isso
+                //Toda vez que o dia trocar ele perceber q vai ser um dia diferente e cria um log, da pra fazer depois verificar pro hora eai a cada 3 horas ele cria um log e depois zipa tudo em um dia muito foda isso
                 //Agora pegar o caminho inteiro da pasta e concatena com o arquivo
                 string CaminhoLog = Path.Combine(pastaLog, NomeArquivo);
                 //Frase do log
@@ -47,7 +47,7 @@ namespace Inventario
                 //Environment ele pula para linha debaixo após escrever o log
                 //E por ultimo salvar o arquivo log
                 File.AppendAllText(CaminhoLog, LinhaLog);
-                //Aqui ele verifica se o arquivo existe mesmo, se existir OK e junta com a ultima linha do log se não existir ele vai criar
+                //Aqui ele verifica se o arquivo existe mesmo, se existir OK e junta com a ultima linha do log, se não existir ele vai criar uma nova
 
             }
             catch (Exception ex)
