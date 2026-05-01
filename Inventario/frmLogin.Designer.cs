@@ -78,7 +78,7 @@
             // 
             this.grbDados.Controls.Add(this.txtEmail);
             this.grbDados.Controls.Add(this.txtSenha);
-            this.grbDados.Location = new System.Drawing.Point(31, 67);
+            this.grbDados.Location = new System.Drawing.Point(29, 81);
             this.grbDados.Name = "grbDados";
             this.grbDados.Size = new System.Drawing.Size(460, 208);
             this.grbDados.TabIndex = 0;
@@ -87,17 +87,18 @@
             // 
             // mbtnLogar
             // 
+            this.mbtnLogar.AutoSize = false;
             this.mbtnLogar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnLogar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.mbtnLogar.Depth = 0;
             this.mbtnLogar.HighEmphasis = true;
             this.mbtnLogar.Icon = null;
-            this.mbtnLogar.Location = new System.Drawing.Point(169, 298);
+            this.mbtnLogar.Location = new System.Drawing.Point(184, 298);
             this.mbtnLogar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnLogar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnLogar.Name = "mbtnLogar";
             this.mbtnLogar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnLogar.Size = new System.Drawing.Size(64, 36);
+            this.mbtnLogar.Size = new System.Drawing.Size(151, 36);
             this.mbtnLogar.TabIndex = 3;
             this.mbtnLogar.Text = "Login";
             this.mbtnLogar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -110,7 +111,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(520, 400);
+            this.ClientSize = new System.Drawing.Size(520, 359);
             this.Controls.Add(this.mbtnLogar);
             this.Controls.Add(this.grbDados);
             this.MaximizeBox = false;
@@ -120,7 +121,6 @@
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.grbDados.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
