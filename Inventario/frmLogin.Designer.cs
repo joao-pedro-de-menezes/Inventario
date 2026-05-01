@@ -40,7 +40,7 @@
             this.txtSenha.AnimateReadOnly = false;
             this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSenha.Depth = 0;
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSenha.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtSenha.LeadingIcon = null;
             this.txtSenha.Location = new System.Drawing.Point(89, 127);
             this.txtSenha.MaxLength = 50;
@@ -52,6 +52,7 @@
             this.txtSenha.Text = "";
             this.txtSenha.TrailingIcon = null;
             this.txtSenha.Click += new System.EventHandler(this.txtSenha_Click);
+            this.txtSenha.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtSenha_PreviewKeyDown);
             // 
             // txtEmail
             // 
@@ -72,6 +73,7 @@
             this.txtEmail.TrailingIcon = null;
             this.txtEmail.Click += new System.EventHandler(this.txtEmail_Click);
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtEmail_PreviewKeyDown);
             // 
             // grbDados
             // 
@@ -96,12 +98,13 @@
             this.mbtnLogar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnLogar.Name = "mbtnLogar";
             this.mbtnLogar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnLogar.Size = new System.Drawing.Size(158, 36);
+            this.mbtnLogar.Size = new System.Drawing.Size(64, 36);
             this.mbtnLogar.TabIndex = 3;
             this.mbtnLogar.Text = "Login";
             this.mbtnLogar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnLogar.UseAccentColor = false;
             this.mbtnLogar.UseVisualStyleBackColor = true;
+            this.mbtnLogar.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.mbtnLogar_PreviewKeyDown);
             // 
             // frmLogin
             // 
