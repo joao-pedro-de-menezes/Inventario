@@ -114,6 +114,7 @@
             this.ClientSize = new System.Drawing.Size(520, 400);
             this.Controls.Add(this.mbtnLogar);
             this.Controls.Add(this.grbDados);
+            this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
