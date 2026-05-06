@@ -163,4 +163,4 @@ namespace Inventario
     }
 }
 
-// 
+// João <-- Fazer a tela cadastro ficar com o visual laranja, deixar a tela de login com uma cor diferente e criar uma tela de Cadastro pra cada cadastro
