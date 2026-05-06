@@ -21,7 +21,11 @@ namespace Inventario
             get; set;
         }
         //Variável para guardar o tipo do usuário
-        public static int TipoUsuario
+        public static int TipoGuardado
+        {
+            get; set;
+        }
+        public static int CrachaGuardado
         {
             get; set;
         }

@@ -429,7 +429,7 @@
             this.iconeAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.iconeAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconeAvatar.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
-            this.iconeAvatar.IconColor = System.Drawing.Color.White;
+             this.iconeAvatar.IconColor = System.Drawing.Color.White;
             this.iconeAvatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconeAvatar.IconSize = 50;
             this.iconeAvatar.Location = new System.Drawing.Point(550, 8);

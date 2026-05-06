@@ -28,7 +28,7 @@ namespace Inventario
         */
         //Método para o escrever o log
 
-        private static void EscreverLog(string Mensagem)
+        public static void EscreverLog(string Mensagem)
         {
             try
             {
@@ -59,5 +59,6 @@ namespace Inventario
         }
 
 
+       
     }
 }

@@ -32,6 +32,7 @@
             this.txtEmail = new MaterialSkin.Controls.MaterialTextBox();
             this.grbDados = new System.Windows.Forms.GroupBox();
             this.mbtnLogar = new MaterialSkin.Controls.MaterialButton();
+            this.btnTestCadas = new System.Windows.Forms.Button();
             this.grbDados.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@
             this.mbtnLogar.Depth = 0;
             this.mbtnLogar.HighEmphasis = true;
             this.mbtnLogar.Icon = null;
-            this.mbtnLogar.Location = new System.Drawing.Point(169, 298);
+            this.mbtnLogar.Location = new System.Drawing.Point(225, 310);
             this.mbtnLogar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnLogar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnLogar.Name = "mbtnLogar";
@@ -103,7 +104,18 @@
             this.mbtnLogar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnLogar.UseAccentColor = false;
             this.mbtnLogar.UseVisualStyleBackColor = true;
+            this.mbtnLogar.Click += new System.EventHandler(this.mbtnLogar_Click);
             this.mbtnLogar.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.mbtnLogar_PreviewKeyDown);
+            // 
+            // btnTestCadas
+            // 
+            this.btnTestCadas.Location = new System.Drawing.Point(439, 371);
+            this.btnTestCadas.Name = "btnTestCadas";
+            this.btnTestCadas.Size = new System.Drawing.Size(75, 23);
+            this.btnTestCadas.TabIndex = 4;
+            this.btnTestCadas.Text = "Tela Cadas";
+            this.btnTestCadas.UseVisualStyleBackColor = true;
+            this.btnTestCadas.Click += new System.EventHandler(this.btnTestCadas_Click);
             // 
             // frmLogin
             // 
@@ -111,6 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(520, 400);
+            this.Controls.Add(this.btnTestCadas);
             this.Controls.Add(this.mbtnLogar);
             this.Controls.Add(this.grbDados);
             this.MaximizeBox = false;
@@ -129,5 +142,6 @@
         private MaterialSkin.Controls.MaterialTextBox txtEmail;
         private System.Windows.Forms.GroupBox grbDados;
         private MaterialSkin.Controls.MaterialButton mbtnLogar;
+        private System.Windows.Forms.Button btnTestCadas;
     }
 }

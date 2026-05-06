@@ -23,6 +23,8 @@ namespace Inventario
         {
             clsCriarBanco banco = new clsCriarBanco();
             clsUsuario usuario = new clsUsuario();
+            clsLog log = new clsLog();
+            
             banco.CriarBd();
             DataTable resultado = usuario.PesquisaNome("");
             if (resultado.Rows.Count == 0)

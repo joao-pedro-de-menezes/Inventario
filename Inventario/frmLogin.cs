@@ -14,12 +14,17 @@ namespace Inventario
 {
     public partial class frmLogin : MaterialForm // Herdando de MaterialForm para usar os temas do Material Design
     {
+        //Aqui to salvando as variáveis com a clsGuardaUsu porque vou usar essas informações mais pra frente
+        
+        int contador = 0;
+
         string email = "Digite aqui seu E-mail";
         string senha = "Digite aqui sua Senha";
         // variável para o gerenciador de temas
         private readonly MaterialSkinManager materialSkinManager;
         public frmLogin()
         {
+
             InitializeComponent();
             // Configuração do Gerenciador de Temas
             materialSkinManager = MaterialSkinManager.Instance;
@@ -55,6 +60,8 @@ namespace Inventario
 
         }
 
+         /*Fazer isso na tela do cadastro, para cada campo 1 event click e um preview key dps te explico isso direito */
+        //Começo de deixar vazio
         private void txtEmail_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtSenha.Text))
@@ -117,6 +124,64 @@ namespace Inventario
                 if (txtEmail.Text == "")
                     txtEmail.Text = email;
             }
+        }
+        //Final de deixar vazio
+
+
+
+        private void btnTestCadas_Click(object sender, EventArgs e)
+        {
+            frmCadastroUsuario cadastro = new frmCadastroUsuario();
+            this.Hide();
+            cadastro.ShowDialog();
+            this.Close();
+        }
+
+        private void mbtnLogar_Click(object sender, EventArgs e)
+        {
+            //Aqui guarda o email escrito na variável
+            clsGuardarUsu.EmailGuardado = txtEmail.Text;
+            clsUsuario clsUsu = new clsUsuario();
+            frmDashboard dash = new frmDashboard();
+
+            //Verificação das coisas
+
+            if (contador > 2)
+            {
+                MessageBox.Show("Não foi possível acessar o sistema, você ultrapassou o limite de tentativas", "Login", MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
+                Application.Exit();
+            }
+            if (string.IsNullOrEmpty(txtEmail.Text) || txtEmail.Text == email)
+            {
+                MessageBox.Show("O email não pode ser vazio ou a mensagem padrão", "Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtEmail.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(txtSenha.Text) || txtSenha.Text == senha)
+            {
+                MessageBox.Show("A senha não pode ser vazia ou a mensagem padrão", "Senha", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSenha.Focus();
+                return;
+            }
+            contador += 1; //Se errar as proximas validações fecha o sistema
+            if (!clsUsu.ValidarLogin(txtEmail.Text, txtSenha.Text))
+            {
+                MessageBox.Show("Email e senha incorretos", "Validar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEmail.Clear();
+                txtSenha.Clear();
+                return;
+            }
+            else
+            {
+             //Se tudo der certo dale
+                MessageBox.Show("Login feito com sucesso!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dash.ShowDialog();
+                this.Hide();
+                txtEmail.Clear();
+                txtSenha.Clear();
+            }
+
         }
     }
 }
