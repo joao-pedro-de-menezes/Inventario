@@ -436,25 +436,7 @@
             this.iconButton2.TabIndex = 0;
             this.iconButton2.Text = "Ver Mais";
             this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-<<<<<<< HEAD
-            // iconeAvatar
-            // 
-            this.iconeAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconeAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconeAvatar.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
-             this.iconeAvatar.IconColor = System.Drawing.Color.White;
-            this.iconeAvatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconeAvatar.IconSize = 50;
-            this.iconeAvatar.Location = new System.Drawing.Point(550, 8);
-            this.iconeAvatar.Name = "iconeAvatar";
-            this.iconeAvatar.Size = new System.Drawing.Size(51, 50);
-            this.iconeAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconeAvatar.TabIndex = 3;
-            this.iconeAvatar.TabStop = false;
-            // 
-=======
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
+
             // lblUsuarioLogado
             // 
             this.lblUsuarioLogado.AutoSize = true;

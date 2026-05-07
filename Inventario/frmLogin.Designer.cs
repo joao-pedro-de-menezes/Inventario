@@ -33,6 +33,7 @@
             this.grbDados = new System.Windows.Forms.GroupBox();
             this.mbtnLogar = new MaterialSkin.Controls.MaterialButton();
             this.btnTestCadas = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.grbDados.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,11 +95,7 @@
             this.mbtnLogar.Depth = 0;
             this.mbtnLogar.HighEmphasis = true;
             this.mbtnLogar.Icon = null;
-<<<<<<< HEAD
             this.mbtnLogar.Location = new System.Drawing.Point(225, 310);
-=======
-            this.mbtnLogar.Location = new System.Drawing.Point(184, 298);
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
             this.mbtnLogar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnLogar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnLogar.Name = "mbtnLogar";
@@ -120,19 +117,25 @@
             this.btnTestCadas.TabIndex = 4;
             this.btnTestCadas.Text = "Tela Cadas";
             this.btnTestCadas.UseVisualStyleBackColor = true;
-            this.btnTestCadas.Click += new System.EventHandler(this.btnTestCadas_Click);
+
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(501, 416);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 54);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(520, 400);
-            this.Controls.Add(this.btnTestCadas);
-=======
-            this.ClientSize = new System.Drawing.Size(520, 359);
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
+            this.ClientSize = new System.Drawing.Size(681, 511);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.mbtnLogar);
             this.Controls.Add(this.grbDados);
             this.MaximizeBox = false;
@@ -151,5 +154,6 @@
         private System.Windows.Forms.GroupBox grbDados;
         private MaterialSkin.Controls.MaterialButton mbtnLogar;
         private System.Windows.Forms.Button btnTestCadas;
+        private System.Windows.Forms.Button button1;
     }
 }

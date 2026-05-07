@@ -45,11 +45,7 @@ namespace Inventario
             );
         }
 
-        private void btnLogar_Click(object sender, EventArgs e)
-        {
-            frmDashboard dash = new frmDashboard();
-            dash.ShowDialog();
-        }
+    
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
@@ -129,13 +125,7 @@ namespace Inventario
 
 
 
-        private void btnTestCadas_Click(object sender, EventArgs e)
-        {
-            frmCadastroUsuario cadastro = new frmCadastroUsuario();
-            this.Hide();
-            cadastro.ShowDialog();
-            this.Close();
-        }
+     
 
         private void mbtnLogar_Click(object sender, EventArgs e)
         {
@@ -182,6 +172,14 @@ namespace Inventario
                 txtSenha.Clear();
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmCadastroUsuario cadastro = new frmCadastroUsuario();
+            this.Hide();
+            cadastro.ShowDialog();
+            this.Close();
         }
     }
 }

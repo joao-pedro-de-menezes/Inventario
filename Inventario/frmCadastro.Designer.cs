@@ -30,14 +30,13 @@
         {
             this.grbDados = new System.Windows.Forms.GroupBox();
             this.mtxtCracha = new MaterialSkin.Controls.MaterialTextBox();
-            this.mradioInativo = new MaterialSkin.Controls.MaterialRadioButton();
-            this.mradioAtivo = new MaterialSkin.Controls.MaterialRadioButton();
             this.mcmbTipo = new MaterialSkin.Controls.MaterialComboBox();
             this.mtxtConfirmaSenha = new MaterialSkin.Controls.MaterialTextBox();
             this.mtxtSenha = new MaterialSkin.Controls.MaterialTextBox();
             this.mtxtEmail = new MaterialSkin.Controls.MaterialTextBox();
             this.mtxtNome = new MaterialSkin.Controls.MaterialTextBox();
-<<<<<<< HEAD
+            this.mradioInativo = new MaterialSkin.Controls.MaterialRadioButton();
+            this.mradioAtivo = new MaterialSkin.Controls.MaterialRadioButton();
             this.mbtnCadastrar_Atualizar = new MaterialSkin.Controls.MaterialButton();
             this.mbtnPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.mbtnVoltar = new MaterialSkin.Controls.MaterialButton();
@@ -50,42 +49,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconeFoto)).BeginInit();
             this.grbBtns.SuspendLayout();
             this.grbAtivo.SuspendLayout();
-=======
-            this.mbtnVoltar = new MaterialSkin.Controls.MaterialButton();
-            this.grbDados.SuspendLayout();
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
             this.SuspendLayout();
             // 
             // grbDados
             // 
             this.grbDados.BackColor = System.Drawing.SystemColors.ActiveBorder;
-<<<<<<< HEAD
             this.grbDados.Controls.Add(this.mtxtCracha);
-=======
-            this.grbDados.Controls.Add(this.mradioInativo);
-            this.grbDados.Controls.Add(this.mradioAtivo);
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
             this.grbDados.Controls.Add(this.mcmbTipo);
             this.grbDados.Controls.Add(this.mtxtConfirmaSenha);
             this.grbDados.Controls.Add(this.mtxtSenha);
             this.grbDados.Controls.Add(this.mtxtEmail);
             this.grbDados.Controls.Add(this.mtxtNome);
-<<<<<<< HEAD
-            this.grbDados.Location = new System.Drawing.Point(61, 182);
+            this.grbDados.Location = new System.Drawing.Point(61, 168);
             this.grbDados.Name = "grbDados";
             this.grbDados.Size = new System.Drawing.Size(380, 401);
-=======
-            this.grbDados.Location = new System.Drawing.Point(70, 117);
-            this.grbDados.Name = "grbDados";
-            this.grbDados.Size = new System.Drawing.Size(380, 440);
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
             this.grbDados.TabIndex = 0;
             this.grbDados.TabStop = false;
             this.grbDados.Text = "Dados";
             // 
             // mtxtCracha
             // 
-<<<<<<< HEAD
             this.mtxtCracha.AnimateReadOnly = false;
             this.mtxtCracha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mtxtCracha.Depth = 0;
@@ -102,77 +85,6 @@
             this.mtxtCracha.TrailingIcon = null;
             this.mtxtCracha.UseTallSize = false;
             this.mtxtCracha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtCracha_KeyPress);
-=======
-            this.mbtnCadastrar_Atualizar.AutoSize = false;
-            this.mbtnCadastrar_Atualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnCadastrar_Atualizar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnCadastrar_Atualizar.Depth = 0;
-            this.mbtnCadastrar_Atualizar.HighEmphasis = true;
-            this.mbtnCadastrar_Atualizar.Icon = null;
-            this.mbtnCadastrar_Atualizar.Location = new System.Drawing.Point(311, 566);
-            this.mbtnCadastrar_Atualizar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnCadastrar_Atualizar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnCadastrar_Atualizar.Name = "mbtnCadastrar_Atualizar";
-            this.mbtnCadastrar_Atualizar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnCadastrar_Atualizar.Size = new System.Drawing.Size(109, 24);
-            this.mbtnCadastrar_Atualizar.TabIndex = 8;
-            this.mbtnCadastrar_Atualizar.Text = "Cadastrar";
-            this.mbtnCadastrar_Atualizar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnCadastrar_Atualizar.UseAccentColor = false;
-            this.mbtnCadastrar_Atualizar.UseVisualStyleBackColor = true;
-            // 
-            // mbtnPesquisar
-            // 
-            this.mbtnPesquisar.AutoSize = false;
-            this.mbtnPesquisar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnPesquisar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnPesquisar.Depth = 0;
-            this.mbtnPesquisar.HighEmphasis = true;
-            this.mbtnPesquisar.Icon = null;
-            this.mbtnPesquisar.Location = new System.Drawing.Point(100, 566);
-            this.mbtnPesquisar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnPesquisar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnPesquisar.Name = "mbtnPesquisar";
-            this.mbtnPesquisar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnPesquisar.Size = new System.Drawing.Size(109, 24);
-            this.mbtnPesquisar.TabIndex = 8;
-            this.mbtnPesquisar.Text = "Pesquisar";
-            this.mbtnPesquisar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnPesquisar.UseAccentColor = false;
-            this.mbtnPesquisar.UseVisualStyleBackColor = true;
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
-            // 
-            // mradioInativo
-            // 
-            this.mradioInativo.AutoCheck = false;
-            this.mradioInativo.Depth = 0;
-            this.mradioInativo.Location = new System.Drawing.Point(266, 16);
-            this.mradioInativo.Margin = new System.Windows.Forms.Padding(0);
-            this.mradioInativo.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.mradioInativo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mradioInativo.Name = "mradioInativo";
-            this.mradioInativo.Ripple = true;
-            this.mradioInativo.Size = new System.Drawing.Size(84, 27);
-            this.mradioInativo.TabIndex = 8;
-            this.mradioInativo.TabStop = true;
-            this.mradioInativo.Text = "Inativo";
-            this.mradioInativo.UseVisualStyleBackColor = true;
-            // 
-            // mradioAtivo
-            // 
-            this.mradioAtivo.AutoCheck = false;
-            this.mradioAtivo.Depth = 0;
-            this.mradioAtivo.Location = new System.Drawing.Point(30, 16);
-            this.mradioAtivo.Margin = new System.Windows.Forms.Padding(0);
-            this.mradioAtivo.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.mradioAtivo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mradioAtivo.Name = "mradioAtivo";
-            this.mradioAtivo.Ripple = true;
-            this.mradioAtivo.Size = new System.Drawing.Size(74, 27);
-            this.mradioAtivo.TabIndex = 7;
-            this.mradioAtivo.TabStop = true;
-            this.mradioAtivo.Text = "Ativo";
-            this.mradioAtivo.UseVisualStyleBackColor = true;
             // 
             // mcmbTipo
             // 
@@ -269,7 +181,39 @@
             this.mtxtNome.TrailingIcon = null;
             this.mtxtNome.UseTallSize = false;
             // 
-<<<<<<< HEAD
+            // mradioInativo
+            // 
+            this.mradioInativo.AutoCheck = false;
+            this.mradioInativo.Depth = 0;
+            this.mradioInativo.Location = new System.Drawing.Point(266, 16);
+            this.mradioInativo.Margin = new System.Windows.Forms.Padding(0);
+            this.mradioInativo.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.mradioInativo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mradioInativo.Name = "mradioInativo";
+            this.mradioInativo.Ripple = true;
+            this.mradioInativo.Size = new System.Drawing.Size(84, 27);
+            this.mradioInativo.TabIndex = 8;
+            this.mradioInativo.TabStop = true;
+            this.mradioInativo.Text = "Inativo";
+            this.mradioInativo.UseVisualStyleBackColor = true;
+            // 
+            // mradioAtivo
+            // 
+            this.mradioAtivo.AutoCheck = false;
+            this.mradioAtivo.Checked = true;
+            this.mradioAtivo.Depth = 0;
+            this.mradioAtivo.Location = new System.Drawing.Point(30, 16);
+            this.mradioAtivo.Margin = new System.Windows.Forms.Padding(0);
+            this.mradioAtivo.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.mradioAtivo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mradioAtivo.Name = "mradioAtivo";
+            this.mradioAtivo.Ripple = true;
+            this.mradioAtivo.Size = new System.Drawing.Size(74, 27);
+            this.mradioAtivo.TabIndex = 7;
+            this.mradioAtivo.TabStop = true;
+            this.mradioAtivo.Text = "Ativo";
+            this.mradioAtivo.UseVisualStyleBackColor = true;
+            // 
             // mbtnCadastrar_Atualizar
             // 
             this.mbtnCadastrar_Atualizar.AutoSize = false;
@@ -299,7 +243,7 @@
             this.mbtnPesquisar.Depth = 0;
             this.mbtnPesquisar.HighEmphasis = true;
             this.mbtnPesquisar.Icon = null;
-            this.mbtnPesquisar.Location = new System.Drawing.Point(264, 22);
+            this.mbtnPesquisar.Location = new System.Drawing.Point(241, 22);
             this.mbtnPesquisar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnPesquisar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnPesquisar.Name = "mbtnPesquisar";
@@ -311,8 +255,6 @@
             this.mbtnPesquisar.UseAccentColor = false;
             this.mbtnPesquisar.UseVisualStyleBackColor = true;
             // 
-=======
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
             // mbtnVoltar
             // 
             this.mbtnVoltar.AutoSize = false;
@@ -351,7 +293,6 @@
             this.iconeFundoFoto.TabIndex = 1;
             this.iconeFundoFoto.TabStop = false;
             // 
-<<<<<<< HEAD
             // iconeFoto
             // 
             this.iconeFoto.BackColor = System.Drawing.SystemColors.Control;
@@ -388,23 +329,15 @@
             this.grbAtivo.TabStop = false;
             this.grbAtivo.Text = "Usuário Ativo";
             // 
-=======
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
             // frmCadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(527, 793);
+            this.ClientSize = new System.Drawing.Size(527, 745);
             this.Controls.Add(this.grbAtivo);
             this.Controls.Add(this.grbBtns);
             this.Controls.Add(this.iconeFoto);
-=======
-            this.ClientSize = new System.Drawing.Size(522, 642);
-            this.Controls.Add(this.mbtnCadastrar_Atualizar);
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
             this.Controls.Add(this.mbtnVoltar);
-            this.Controls.Add(this.mbtnPesquisar);
             this.Controls.Add(this.grbDados);
             this.MaximizeBox = false;
             this.Name = "frmCadastroUsuario";
@@ -412,13 +345,10 @@
             this.Text = "Cadastro De Usuários";
             this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.grbDados.ResumeLayout(false);
-<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.iconeFundoFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconeFoto)).EndInit();
             this.grbBtns.ResumeLayout(false);
             this.grbAtivo.ResumeLayout(false);
-=======
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
             this.ResumeLayout(false);
 
         }
@@ -436,13 +366,10 @@
         private MaterialSkin.Controls.MaterialButton mbtnPesquisar;
         private MaterialSkin.Controls.MaterialButton mbtnCadastrar_Atualizar;
         private MaterialSkin.Controls.MaterialButton mbtnVoltar;
-<<<<<<< HEAD
         private FontAwesome.Sharp.IconPictureBox iconeFundoFoto;
         private FontAwesome.Sharp.IconPictureBox iconeFoto;
         private System.Windows.Forms.GroupBox grbBtns;
         private MaterialSkin.Controls.MaterialTextBox mtxtCracha;
         private System.Windows.Forms.GroupBox grbAtivo;
-=======
->>>>>>> 36176248683cada6bd2c3794d46798055adabddd
     }
 }
