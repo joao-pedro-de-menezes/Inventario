@@ -53,7 +53,7 @@ namespace Inventario
 
             // Define a paleta de cores (Baseado no exempo da nossa imagem dashboard azul marinho)
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Orange800,   // Cor principal (Barra de título)
+                Primary.BlueGrey800,   // Cor principal (Barra de título)
                 Primary.BlueGrey900,   // Cor principal escura
                 Primary.BlueGrey500,   // Cor principal clara
                 Accent.LightBlue200,   // Cor de destaque (botões, etc)
@@ -72,7 +72,7 @@ namespace Inventario
         }
 
 
-        //Aqui verifica o tipo do ususário pelo email ou seja ele puxa la da tabela os valores que está lá e define aqui, tipo 0 é adm, 1 é n sei oq e bla bla
+        //Aqui verifica o tipo do usuário pelo email ou seja ele puxa la da tabela os valores que está lá e define aqui, tipo 0 é adm, 1 é n sei oq e bla bla
         private void TipoUsu()
         {
             clsUsuario usu = new clsUsuario();
