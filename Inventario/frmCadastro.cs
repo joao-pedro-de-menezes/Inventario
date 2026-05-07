@@ -49,12 +49,13 @@ namespace Inventario
             mcmbTipo.Items.Add("PRESITENTE");
             mcmbTipo.Items.Add("DIRETOR");
             mcmbTipo.Items.Add("SUPERVISOR");
+            mcmbTipo.Items.Add("LIDER"); 
             mcmbTipo.Items.Add("ANALISTA");
             mcmbTipo.Items.Add("ASSISTENTE");
             mcmbTipo.Items.Add("AUXILIAR");
             mcmbTipo.Items.Add("APRENDIZ");
             mcmbTipo.Items.Add("");
-            mcmbTipo.SelectedIndex = 9;
+            mcmbTipo.SelectedIndex = 10;
 
 
         }

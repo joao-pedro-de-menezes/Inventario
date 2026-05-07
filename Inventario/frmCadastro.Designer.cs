@@ -41,12 +41,10 @@
             this.mbtnPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.mbtnVoltar = new MaterialSkin.Controls.MaterialButton();
             this.iconeFundoFoto = new FontAwesome.Sharp.IconPictureBox();
-            this.iconeFoto = new FontAwesome.Sharp.IconPictureBox();
             this.grbBtns = new System.Windows.Forms.GroupBox();
             this.grbAtivo = new System.Windows.Forms.GroupBox();
             this.grbDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconeFundoFoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconeFoto)).BeginInit();
             this.grbBtns.SuspendLayout();
             this.grbAtivo.SuspendLayout();
             this.SuspendLayout();
@@ -293,20 +291,6 @@
             this.iconeFundoFoto.TabIndex = 1;
             this.iconeFundoFoto.TabStop = false;
             // 
-            // iconeFoto
-            // 
-            this.iconeFoto.BackColor = System.Drawing.SystemColors.Control;
-            this.iconeFoto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.iconeFoto.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconeFoto.IconColor = System.Drawing.SystemColors.ControlText;
-            this.iconeFoto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconeFoto.IconSize = 81;
-            this.iconeFoto.Location = new System.Drawing.Point(212, 81);
-            this.iconeFoto.Name = "iconeFoto";
-            this.iconeFoto.Size = new System.Drawing.Size(90, 81);
-            this.iconeFoto.TabIndex = 9;
-            this.iconeFoto.TabStop = false;
-            // 
             // grbBtns
             // 
             this.grbBtns.Controls.Add(this.mbtnCadastrar_Atualizar);
@@ -336,7 +320,6 @@
             this.ClientSize = new System.Drawing.Size(527, 745);
             this.Controls.Add(this.grbAtivo);
             this.Controls.Add(this.grbBtns);
-            this.Controls.Add(this.iconeFoto);
             this.Controls.Add(this.mbtnVoltar);
             this.Controls.Add(this.grbDados);
             this.MaximizeBox = false;
@@ -346,7 +329,6 @@
             this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.grbDados.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconeFundoFoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconeFoto)).EndInit();
             this.grbBtns.ResumeLayout(false);
             this.grbAtivo.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -367,7 +349,6 @@
         private MaterialSkin.Controls.MaterialButton mbtnCadastrar_Atualizar;
         private MaterialSkin.Controls.MaterialButton mbtnVoltar;
         private FontAwesome.Sharp.IconPictureBox iconeFundoFoto;
-        private FontAwesome.Sharp.IconPictureBox iconeFoto;
         private System.Windows.Forms.GroupBox grbBtns;
         private MaterialSkin.Controls.MaterialTextBox mtxtCracha;
         private System.Windows.Forms.GroupBox grbAtivo;
