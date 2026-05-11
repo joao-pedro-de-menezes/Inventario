@@ -39,6 +39,11 @@ namespace Inventario
                     Tipo INT NULL DEFAULT 0
                     );";
 
+                    
+
+
+                    //XOÃO fazer tabelas novas para o ehdin fazer tela e código amoooooo <3;
+
                     using (SqlCommand cmd = new SqlCommand(CriartbUsuario, conexao)) //aqui está mostrando oque o sql tem que executar, no caso executar as duas strings 
                     {
                         cmd.ExecuteNonQuery();

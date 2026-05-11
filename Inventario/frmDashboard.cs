@@ -31,7 +31,6 @@ namespace Inventario
             get; private set;
         }
 
-
         // variável para o gerenciador de temas
         private readonly MaterialSkinManager materialSkinManager;
 
@@ -39,7 +38,7 @@ namespace Inventario
         {
             //Carregando o email para o dash
             this.emailSelecao = clsGuardarUsu.EmailGuardado;
-           
+
             InitializeComponent();
 
             // Configuração do Gerenciador de Temas
@@ -51,14 +50,18 @@ namespace Inventario
             // Define o Tema (claro ou escuro) oque eu n achei nessessario, mas adicionei para caso queira futuramente
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
-            // Define a paleta de cores (Baseado no exempo da nossa imagem dashboard azul marinho)
+            // Define a paleta de cores 
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.BlueGrey800,   // Cor principal (Barra de título)
-                Primary.BlueGrey900,   // Cor principal escura
-                Primary.BlueGrey500,   // Cor principal clara
-                Accent.LightBlue200,   // Cor de destaque (botões, etc)
-                TextShade.WHITE      // Cor do texto na barra de título
+               Primary.Indigo800,      // Cor principal (Barra de título) -> Azul um pouco mais claro para dar a divisória
+               Primary.Indigo900,      // Cor principal escura
+               Primary.Indigo500,      // Cor principal clara
+               Accent.LightBlue200,    // Cor de destaque (botões, etc)
+               TextShade.WHITE
             );
+
+            // Configurações adicionais para o painel de menu para deixar certinho
+            pnlMenu.BackColor = Color.FromArgb(26, 35, 126);
+            pnlMenu.BringToFront();
         }
 
         private void frmDashboard_Load(object sender, EventArgs e)
@@ -66,11 +69,13 @@ namespace Inventario
             TipoUsu();
             //Log aqui é o log fazendo a magia negra
             clsLog.EscreverLog($"O usuário {tipoUsuSelecao} iniciou o sistema cujo email é {emailSelecao} ");
+
             //Aqui manda o email pro label la de cima da dash
             lblUsuarioLogado.Text = emailSelecao;
-          
-        }
 
+            // Garante que o texto do usuário fique por cima de tudo
+            lblUsuarioLogado.BringToFront();
+        }
 
         //Aqui verifica o tipo do usuário pelo email ou seja ele puxa la da tabela os valores que está lá e define aqui, tipo 0 é adm, 1 é n sei oq e bla bla
         private void TipoUsu()
@@ -83,10 +88,14 @@ namespace Inventario
                     tipoUsuSelecao = "Administrador";
                     break;
 
-
                 default:
                     break;
             }
+        }
+
+        private void pnlMenu_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

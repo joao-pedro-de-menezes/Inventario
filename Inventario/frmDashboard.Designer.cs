@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlMenu = new System.Windows.Forms.Panel();
             this.iconButtonConfiguracoes = new FontAwesome.Sharp.IconButton();
             this.iconButtonMaquinas = new FontAwesome.Sharp.IconButton();
             this.iconButtonLicencas = new FontAwesome.Sharp.IconButton();
@@ -56,7 +56,7 @@
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.lblUsuarioLogado = new MaterialSkin.Controls.MaterialLabel();
-            this.panel1.SuspendLayout();
+            this.pnlMenu.SuspendLayout();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconeTotalMaquinas)).BeginInit();
             this.materialCard5.SuspendLayout();
@@ -69,17 +69,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlMenu
             // 
-            this.panel1.Controls.Add(this.iconButtonConfiguracoes);
-            this.panel1.Controls.Add(this.iconButtonMaquinas);
-            this.panel1.Controls.Add(this.iconButtonLicencas);
-            this.panel1.Controls.Add(this.iconButtonEquipamento);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(3, 64);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(163, 339);
-            this.panel1.TabIndex = 1;
+            this.pnlMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlMenu.Controls.Add(this.iconButtonConfiguracoes);
+            this.pnlMenu.Controls.Add(this.iconButtonMaquinas);
+            this.pnlMenu.Controls.Add(this.iconButtonLicencas);
+            this.pnlMenu.Controls.Add(this.iconButtonEquipamento);
+            this.pnlMenu.Location = new System.Drawing.Point(-5, 64);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(167, 348);
+            this.pnlMenu.TabIndex = 1;
+            this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
             // 
             // iconButtonConfiguracoes
             // 
@@ -436,7 +438,7 @@
             this.iconButton2.TabIndex = 0;
             this.iconButton2.Text = "Ver Mais";
             this.iconButton2.UseVisualStyleBackColor = false;
-
+            // 
             // lblUsuarioLogado
             // 
             this.lblUsuarioLogado.AutoSize = true;
@@ -457,18 +459,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(742, 406);
+            this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.lblUsuarioLogado);
             this.Controls.Add(this.materialCard5);
             this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.materialCard4);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.panel1);
             this.Name = "frmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashBoard";
             this.Load += new System.EventHandler(this.frmDashboard_Load);
-            this.panel1.ResumeLayout(false);
+            this.pnlMenu.ResumeLayout(false);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconeTotalMaquinas)).EndInit();
@@ -490,7 +492,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlMenu;
         private FontAwesome.Sharp.IconButton iconButtonEquipamento;
         private FontAwesome.Sharp.IconButton iconButtonConfiguracoes;
         private FontAwesome.Sharp.IconButton iconButtonMaquinas;
