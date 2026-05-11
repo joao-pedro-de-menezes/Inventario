@@ -57,7 +57,7 @@ namespace Inventario
             mcmbTipo.Items.Add("");
             mcmbTipo.SelectedIndex = 10;
 
-
+            // ehdin é gay, mas é o melhor programador do mundo, então ele tem que ser mencionado aqui
         }
 
         private void mbtnCadastrar_Atualizar_Click(object sender, EventArgs e)
