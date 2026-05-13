@@ -44,7 +44,7 @@
             this.txtSenha.Depth = 0;
             this.txtSenha.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtSenha.LeadingIcon = null;
-            this.txtSenha.Location = new System.Drawing.Point(89, 127);
+            this.txtSenha.Location = new System.Drawing.Point(6, 75);
             this.txtSenha.MaxLength = 50;
             this.txtSenha.MouseState = MaterialSkin.MouseState.OUT;
             this.txtSenha.Multiline = false;
@@ -53,8 +53,7 @@
             this.txtSenha.TabIndex = 2;
             this.txtSenha.Text = "";
             this.txtSenha.TrailingIcon = null;
-            this.txtSenha.Click += new System.EventHandler(this.txtSenha_Click);
-            this.txtSenha.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtSenha_PreviewKeyDown);
+
             // 
             // txtEmail
             // 
@@ -64,7 +63,7 @@
             this.txtEmail.Depth = 0;
             this.txtEmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtEmail.LeadingIcon = null;
-            this.txtEmail.Location = new System.Drawing.Point(89, 60);
+            this.txtEmail.Location = new System.Drawing.Point(6, 19);
             this.txtEmail.MaxLength = 50;
             this.txtEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.txtEmail.Multiline = false;
@@ -73,16 +72,14 @@
             this.txtEmail.TabIndex = 1;
             this.txtEmail.Text = "";
             this.txtEmail.TrailingIcon = null;
-            this.txtEmail.Click += new System.EventHandler(this.txtEmail_Click);
-            this.txtEmail.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtEmail_PreviewKeyDown);
             // 
             // grbDados
             // 
             this.grbDados.Controls.Add(this.txtEmail);
             this.grbDados.Controls.Add(this.txtSenha);
-            this.grbDados.Location = new System.Drawing.Point(29, 81);
+            this.grbDados.Location = new System.Drawing.Point(132, 116);
             this.grbDados.Name = "grbDados";
-            this.grbDados.Size = new System.Drawing.Size(460, 208);
+            this.grbDados.Size = new System.Drawing.Size(298, 134);
             this.grbDados.TabIndex = 0;
             this.grbDados.TabStop = false;
             this.grbDados.Text = "Dados";
@@ -95,7 +92,7 @@
             this.mbtnLogar.Depth = 0;
             this.mbtnLogar.HighEmphasis = true;
             this.mbtnLogar.Icon = null;
-            this.mbtnLogar.Location = new System.Drawing.Point(225, 310);
+            this.mbtnLogar.Location = new System.Drawing.Point(206, 282);
             this.mbtnLogar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnLogar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnLogar.Name = "mbtnLogar";
@@ -107,7 +104,7 @@
             this.mbtnLogar.UseAccentColor = false;
             this.mbtnLogar.UseVisualStyleBackColor = true;
             this.mbtnLogar.Click += new System.EventHandler(this.mbtnLogar_Click);
-            this.mbtnLogar.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.mbtnLogar_PreviewKeyDown);
+
             // 
             // btnTestCadas
             // 
@@ -117,13 +114,12 @@
             this.btnTestCadas.TabIndex = 4;
             this.btnTestCadas.Text = "Tela Cadas";
             this.btnTestCadas.UseVisualStyleBackColor = true;
-
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(501, 416);
+            this.button1.Location = new System.Drawing.Point(206, 327);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 54);
+            this.button1.Size = new System.Drawing.Size(151, 37);
             this.button1.TabIndex = 4;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -134,7 +130,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(681, 511);
+            this.ClientSize = new System.Drawing.Size(545, 427);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.mbtnLogar);
             this.Controls.Add(this.grbDados);

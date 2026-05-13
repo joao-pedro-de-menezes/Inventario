@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,14 @@ namespace Inventario
 {
     public partial class frmCadastroUsuario : MaterialForm
     {
+        //Variáveis de texto
+        string Temail = "Digite o Email";
+        string Tnome = "Digite o Nome";
+        string Tcracha = "Digite o Crachá";
+        string Tsenha = "Digite a Senha";
+        string TconfirmS = "Confirme a Senha";
+        string Selecione = "Selecione o tipo do Usuário";
+
         private readonly MaterialSkinManager materialSkinManager;
         public frmCadastroUsuario()
         {
@@ -38,24 +47,22 @@ namespace Inventario
                 );
 
             InitializeComponent();
+            //Agora usar aqui os método clsLimparCampos
+            nomes();
+            mtxtNome.LimparBtns(Tnome);
+            mtxtEmail.LimparBtns(Temail);
+            mtxtCracha.LimparBtns(Tcracha);
+            mtxtSenha.LimparBtns(Tsenha);
+            mtxtConfirmaSenha.LimparBtns(TconfirmS);
+     
+
         }
 
         private void frmCadastro_Load(object sender, EventArgs e)
         {
             //tag para iniciar ja o botão como novo
             mbtnCadastrar_Atualizar.Tag = "Novo";
-            mcmbTipo.Items.Add("ADMIN");
-            mcmbTipo.Items.Add("CEO");
-            mcmbTipo.Items.Add("PRESITENTE");
-            mcmbTipo.Items.Add("DIRETOR");
-            mcmbTipo.Items.Add("SUPERVISOR");
-            mcmbTipo.Items.Add("LIDER"); 
-            mcmbTipo.Items.Add("ANALISTA");
-            mcmbTipo.Items.Add("ASSISTENTE");
-            mcmbTipo.Items.Add("AUXILIAR");
-            mcmbTipo.Items.Add("APRENDIZ");
-            mcmbTipo.Items.Add("");
-            mcmbTipo.SelectedIndex = 10;
+            carregarCmb();
 
             // ehdin é gay, mas é o melhor programador do mundo, então ele tem que ser mencionado aqui
         }
@@ -161,7 +168,40 @@ namespace Inventario
             login.ShowDialog();
             this.Close();
         }
+
+        private void nomes()
+        {
+            string Temail = "Digite o Email";
+            mtxtEmail.Text = Temail;
+            string Tnome = "Digite o Nome";
+            mtxtNome.Text = Tnome;
+            string Tcracha = "Digite o Crachá";
+            mtxtCracha.Text = Tcracha;
+            string Tsenha = "Digite a Senha";
+            mtxtSenha.Text = Tsenha;
+            string TconfirmS = "Confirme a senha";
+            mtxtConfirmaSenha.Text = TconfirmS;
+            string Selecione = "Selecione o tipo do Usuário";
+            mcmbTipo.Text = Selecione;
+        }
+        private void carregarCmb()
+        {
+            mcmbTipo.Text = "Teste";
+            mcmbTipo.Items.Add("ADMIN");
+            mcmbTipo.Items.Add("CEO");
+            mcmbTipo.Items.Add("PRESITENTE");
+            mcmbTipo.Items.Add("DIRETOR");
+            mcmbTipo.Items.Add("SUPERVISOR");
+            mcmbTipo.Items.Add("LIDER");
+            mcmbTipo.Items.Add("ANALISTA");
+            mcmbTipo.Items.Add("ASSISTENTE");
+            mcmbTipo.Items.Add("AUXILIAR");
+            mcmbTipo.Items.Add("APRENDIZ");
+            mcmbTipo.Items.Add("");
+            mcmbTipo.SelectedIndex = 10;
+        }
     }
+
 }
 
 // João <-- Fazer a tela cadastro ficar com o visual laranja, deixar a tela de login com uma cor diferente e criar uma tela de Cadastro pra cada cadastro

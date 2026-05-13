@@ -10,22 +10,29 @@ using System.Windows.Forms;
 using MaterialSkin; // Biblioteca para temas Material Design
 using MaterialSkin.Controls; // Bilioteca para controles Material Design
 
+
 namespace Inventario
 {
     public partial class frmLogin : MaterialForm // Herdando de MaterialForm para usar os temas do Material Design
     {
-        //Aqui to salvando as variáveis com a clsGuardaUsu porque vou usar essas informações mais pra frente
-        
+        //Contador de erro
         int contador = 0;
 
+        //Armazenar variáveis para o método LimparBtns
         string email = "Digite aqui seu E-mail";
         string senha = "Digite aqui sua Senha";
+
         // variável para o gerenciador de temas
         private readonly MaterialSkinManager materialSkinManager;
         public frmLogin()
         {
-
+        
             InitializeComponent();
+            
+            //Usar método LimparBtns
+            txtEmail.LimparBtns(email); 
+            txtSenha.LimparBtns(senha);
+
             // Configuração do Gerenciador de Temas
             materialSkinManager = MaterialSkinManager.Instance;
 
@@ -49,14 +56,11 @@ namespace Inventario
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-          
-           txtEmail.Text = email;
-           txtSenha.Text = senha;
-            
-
+            carregar();
         }
 
-         /*Fazer isso na tela do cadastro, para cada campo 1 event click e um preview key dps te explico isso direito */
+        /* Método antigo
+         Fazer isso na tela do cadastro, para cada campo 1 event click e um preview key dps te explico isso direito 
         //Começo de deixar vazio
         private void txtEmail_Click(object sender, EventArgs e)
         {
@@ -97,10 +101,16 @@ namespace Inventario
 
                 }
 
+
             }
         }
 
-        private void mbtnLogar_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+
+
+        //Método para limpar as paradas automático
+
+       
+            private void mbtnLogar_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (txtEmail.Text == email)
             {
@@ -122,7 +132,7 @@ namespace Inventario
             }
         }
         //Final de deixar vazio
-
+    */
 
 
      
@@ -158,8 +168,6 @@ namespace Inventario
             if (!clsUsu.ValidarLogin(txtEmail.Text, txtSenha.Text))
             {
                 MessageBox.Show("Email e senha incorretos", "Validar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtEmail.Clear();
-                txtSenha.Clear();
                 return;
             }
             else
@@ -182,5 +190,14 @@ namespace Inventario
             cadastro.ShowDialog();
             this.Close();
         }
+        private void carregar()
+        {
+            string email = "Digite aqui seu E-mail";
+            txtEmail.Text = email;
+            string senha = "Digite aqui sua Senha";
+            txtSenha.Text = senha;
+
+        }
     }
+  
 }
