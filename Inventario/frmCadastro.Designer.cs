@@ -251,6 +251,7 @@
             this.mbtnPesquisar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnPesquisar.UseAccentColor = false;
             this.mbtnPesquisar.UseVisualStyleBackColor = true;
+            this.mbtnPesquisar.Click += new System.EventHandler(this.mbtnPesquisar_Click);
             // 
             // mbtnVoltar
             // 

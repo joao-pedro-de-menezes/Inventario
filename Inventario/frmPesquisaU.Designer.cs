@@ -34,18 +34,22 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.grpPesquisa = new System.Windows.Forms.GroupBox();
+            this.lblDataFim = new System.Windows.Forms.Label();
+            this.lblDataIn = new System.Windows.Forms.Label();
+            this.mskDataFim = new System.Windows.Forms.MaskedTextBox();
+            this.mskDataIni = new System.Windows.Forms.MaskedTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.grbOpcoes = new System.Windows.Forms.GroupBox();
-            this.mskDataIni = new System.Windows.Forms.MaskedTextBox();
-            this.mskDataFim = new System.Windows.Forms.MaskedTextBox();
-            this.lblDataIn = new System.Windows.Forms.Label();
-            this.lblDataFim = new System.Windows.Forms.Label();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mtbnfechar = new MaterialSkin.Controls.MaterialButton();
             this.grbGridUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsu)).BeginInit();
             this.grpPesquisa.SuspendLayout();
+            this.grbOpcoes.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +93,7 @@
             this.mbtnPesquisar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnPesquisar.UseAccentColor = false;
             this.mbtnPesquisar.UseVisualStyleBackColor = true;
+            this.mbtnPesquisar.Click += new System.EventHandler(this.mbtnPesquisar_Click);
             // 
             // txtCodigo
             // 
@@ -123,6 +128,42 @@
             this.grpPesquisa.TabStop = false;
             this.grpPesquisa.Text = "Pesquisar por:";
             // 
+            // lblDataFim
+            // 
+            this.lblDataFim.AutoSize = true;
+            this.lblDataFim.Location = new System.Drawing.Point(147, 65);
+            this.lblDataFim.Name = "lblDataFim";
+            this.lblDataFim.Size = new System.Drawing.Size(52, 13);
+            this.lblDataFim.TabIndex = 10;
+            this.lblDataFim.Text = "Data final";
+            // 
+            // lblDataIn
+            // 
+            this.lblDataIn.AutoSize = true;
+            this.lblDataIn.Location = new System.Drawing.Point(14, 65);
+            this.lblDataIn.Name = "lblDataIn";
+            this.lblDataIn.Size = new System.Drawing.Size(53, 13);
+            this.lblDataIn.TabIndex = 9;
+            this.lblDataIn.Text = "Data Inic.";
+            // 
+            // mskDataFim
+            // 
+            this.mskDataFim.Location = new System.Drawing.Point(150, 81);
+            this.mskDataFim.Mask = "00/00/0000";
+            this.mskDataFim.Name = "mskDataFim";
+            this.mskDataFim.Size = new System.Drawing.Size(123, 20);
+            this.mskDataFim.TabIndex = 8;
+            this.mskDataFim.ValidatingType = typeof(System.DateTime);
+            // 
+            // mskDataIni
+            // 
+            this.mskDataIni.Location = new System.Drawing.Point(9, 81);
+            this.mskDataIni.Mask = "00/00/0000";
+            this.mskDataIni.Name = "mskDataIni";
+            this.mskDataIni.Size = new System.Drawing.Size(123, 20);
+            this.mskDataIni.TabIndex = 7;
+            this.mskDataIni.ValidatingType = typeof(System.DateTime);
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(150, 38);
@@ -141,6 +182,9 @@
             // 
             // grbOpcoes
             // 
+            this.grbOpcoes.Controls.Add(this.checkBox3);
+            this.grbOpcoes.Controls.Add(this.checkBox2);
+            this.grbOpcoes.Controls.Add(this.checkBox1);
             this.grbOpcoes.Location = new System.Drawing.Point(12, 86);
             this.grbOpcoes.Name = "grbOpcoes";
             this.grbOpcoes.Size = new System.Drawing.Size(250, 138);
@@ -148,41 +192,35 @@
             this.grbOpcoes.TabStop = false;
             this.grbOpcoes.Text = "Opções";
             // 
-            // mskDataIni
+            // checkBox3
             // 
-            this.mskDataIni.Location = new System.Drawing.Point(9, 81);
-            this.mskDataIni.Mask = "00/00/0000";
-            this.mskDataIni.Name = "mskDataIni";
-            this.mskDataIni.Size = new System.Drawing.Size(123, 20);
-            this.mskDataIni.TabIndex = 7;
-            this.mskDataIni.ValidatingType = typeof(System.DateTime);
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(16, 68);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(80, 17);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.Text = "checkBox3";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // mskDataFim
+            // checkBox2
             // 
-            this.mskDataFim.Location = new System.Drawing.Point(150, 81);
-            this.mskDataFim.Mask = "00/00/0000";
-            this.mskDataFim.Name = "mskDataFim";
-            this.mskDataFim.Size = new System.Drawing.Size(123, 20);
-            this.mskDataFim.TabIndex = 8;
-            this.mskDataFim.ValidatingType = typeof(System.DateTime);
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(16, 45);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(80, 17);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "checkBox2";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // lblDataIn
+            // checkBox1
             // 
-            this.lblDataIn.AutoSize = true;
-            this.lblDataIn.Location = new System.Drawing.Point(14, 65);
-            this.lblDataIn.Name = "lblDataIn";
-            this.lblDataIn.Size = new System.Drawing.Size(53, 13);
-            this.lblDataIn.TabIndex = 9;
-            this.lblDataIn.Text = "Data Inic.";
-            // 
-            // lblDataFim
-            // 
-            this.lblDataFim.AutoSize = true;
-            this.lblDataFim.Location = new System.Drawing.Point(147, 65);
-            this.lblDataFim.Name = "lblDataFim";
-            this.lblDataFim.Size = new System.Drawing.Size(52, 13);
-            this.lblDataFim.TabIndex = 10;
-            this.lblDataFim.Text = "Data final";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(16, 22);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -225,12 +263,15 @@
             this.Controls.Add(this.grpPesquisa);
             this.Controls.Add(this.grbGridUsu);
             this.Name = "frmPesquisaU";
-            this.Text = "frmPesquisaU";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Pesquisa de Usuário";
             this.Load += new System.EventHandler(this.frmPesquisaU_Load);
             this.grbGridUsu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsu)).EndInit();
             this.grpPesquisa.ResumeLayout(false);
             this.grpPesquisa.PerformLayout();
+            this.grbOpcoes.ResumeLayout(false);
+            this.grbOpcoes.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -254,5 +295,8 @@
         private System.Windows.Forms.MaskedTextBox mskDataIni;
         private System.Windows.Forms.GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialButton mtbnfechar;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

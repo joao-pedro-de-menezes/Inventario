@@ -37,12 +37,16 @@ namespace Inventario
                 TextShade.WHITE        // Cor do texto na barra de título
             );
         }
-
+   
         private void frmPesquisaU_Load(object sender, EventArgs e)
         {
 
         }
 
-   
+        private void mbtnPesquisar_Click(object sender, EventArgs e)
+        {
+            clsUsuario clsUsu = new clsUsuario();
+            dgvUsu.DataSource = clsUsu.PesquisaCodigo(Convert.ToInt16(txtCodigo.Text));
+        }
     }
 }

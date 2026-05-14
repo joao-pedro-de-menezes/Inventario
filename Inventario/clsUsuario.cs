@@ -115,6 +115,30 @@ namespace Inventario
                 }
                 finally { conexao.Close();  }
         }
+
+        //SELECT COM DATA
+        public DataTable pesquisaData(DateTime dataInicial, DateTime dataFinal)
+        {
+            using(SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo FROM tbUsuario");
+                    sql.Append(" WHERE tbusuario.data BETWEEN @dataInicial AND @dataFinal ORDER BY tbusuario.data");
+                    cmd.Parameters.Add(new SqlParameter("@dataInicial", dataInicial));
+                    cmd.Parameters.Add(new SqlParameter("@dataFinal", dataInicial));
+                    cmd.CommandText = sql.ToString();
+                    dt.Load(cmd.ExecuteReader());
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar Usuario pela data{ex}", "Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+        }
         //SELECT com Codigo
         public DataTable PesquisaCodigo(int Codigo)
         {

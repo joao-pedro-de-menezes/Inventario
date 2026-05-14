@@ -200,6 +200,12 @@ namespace Inventario
             mcmbTipo.Items.Add("");
             mcmbTipo.SelectedIndex = 10;
         }
+
+        private void mbtnPesquisar_Click(object sender, EventArgs e)
+        {
+           frmPesquisaU PesquisaUsu = new frmPesquisaU();
+            PesquisaUsu.ShowDialog();
+        }
     }
 
 }
