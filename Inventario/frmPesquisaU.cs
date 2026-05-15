@@ -46,7 +46,20 @@ namespace Inventario
         private void mbtnPesquisar_Click(object sender, EventArgs e)
         {
             clsUsuario clsUsu = new clsUsuario();
-            dgvUsu.DataSource = clsUsu.PesquisaCodigo(Convert.ToInt16(txtCodigo.Text));
+            if (string.IsNullOrEmpty(txtCodigo.Text) || string.IsNullOrEmpty((txtNome.Text)))
+            {
+                if (MessageBox.Show("Seus campos estão vazios deseja fazer uma busca geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    dgvUsu.DataSource = clsUsu.PesquisaTodos();
+                }
+            } else if (!string.IsNullOrEmpty(txtCodigo.Text)){
+                dgvUsu.DataSource = clsUsu.PesquisaCodigo(Convert.ToInt16(txtCodigo.Text));
+            }else
+            {
+                dgvUsu.DataSource = clsUsu.PesquisaNome(txtNome.Text);
+            }
+          
+        
         }
     }
 }

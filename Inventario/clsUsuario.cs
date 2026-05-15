@@ -116,6 +116,31 @@ namespace Inventario
                 finally { conexao.Close();  }
         }
 
+        //Pesquisa todos
+        public DataTable PesquisaTodos()
+        {
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo FROM tbUsuario");
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    dt.Load(cmd.ExecuteReader());
+                    return dt;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar Usuario pelo nome {ex}", "Nome", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+
+                }
+                finally { conexao.Close(); }
+        }
+
         //SELECT COM DATA
         public DataTable pesquisaData(DateTime dataInicial, DateTime dataFinal)
         {
