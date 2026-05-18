@@ -78,7 +78,7 @@
             this.mtxtCracha.Multiline = false;
             this.mtxtCracha.Name = "mtxtCracha";
             this.mtxtCracha.Size = new System.Drawing.Size(320, 36);
-            this.mtxtCracha.TabIndex = 9;
+            this.mtxtCracha.TabIndex = 3;
             this.mtxtCracha.Text = "";
             this.mtxtCracha.TrailingIcon = null;
             this.mtxtCracha.UseTallSize = false;
@@ -267,7 +267,7 @@
             this.mbtnVoltar.Name = "mbtnVoltar";
             this.mbtnVoltar.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbtnVoltar.Size = new System.Drawing.Size(109, 24);
-            this.mbtnVoltar.TabIndex = 8;
+            this.mbtnVoltar.TabIndex = 11;
             this.mbtnVoltar.Text = "Voltar";
             this.mbtnVoltar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnVoltar.UseAccentColor = false;
@@ -298,7 +298,7 @@
             this.grbBtns.Location = new System.Drawing.Point(61, 650);
             this.grbBtns.Name = "grbBtns";
             this.grbBtns.Size = new System.Drawing.Size(380, 58);
-            this.grbBtns.TabIndex = 10;
+            this.grbBtns.TabIndex = 0;
             this.grbBtns.TabStop = false;
             this.grbBtns.Text = "Botões";
             // 
@@ -309,7 +309,7 @@
             this.grbAtivo.Location = new System.Drawing.Point(61, 589);
             this.grbAtivo.Name = "grbAtivo";
             this.grbAtivo.Size = new System.Drawing.Size(380, 55);
-            this.grbAtivo.TabIndex = 11;
+            this.grbAtivo.TabIndex = 0;
             this.grbAtivo.TabStop = false;
             this.grbAtivo.Text = "Usuário Ativo";
             // 

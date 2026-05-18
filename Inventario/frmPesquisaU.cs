@@ -61,5 +61,11 @@ namespace Inventario
           
         
         }
+
+        private void mtbnfechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
     }
 }

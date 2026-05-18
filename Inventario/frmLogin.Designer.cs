@@ -33,7 +33,7 @@
             this.grbDados = new System.Windows.Forms.GroupBox();
             this.mbtnLogar = new MaterialSkin.Controls.MaterialButton();
             this.btnTestCadas = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.mbtnRegistrar = new MaterialSkin.Controls.MaterialButton();
             this.grbDados.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,6 @@
             this.txtSenha.TabIndex = 2;
             this.txtSenha.Text = "";
             this.txtSenha.TrailingIcon = null;
-
             // 
             // txtEmail
             // 
@@ -104,7 +103,6 @@
             this.mbtnLogar.UseAccentColor = false;
             this.mbtnLogar.UseVisualStyleBackColor = true;
             this.mbtnLogar.Click += new System.EventHandler(this.mbtnLogar_Click);
-
             // 
             // btnTestCadas
             // 
@@ -115,15 +113,26 @@
             this.btnTestCadas.Text = "Tela Cadas";
             this.btnTestCadas.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // mbtnRegistrar
             // 
-            this.button1.Location = new System.Drawing.Point(206, 327);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 37);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.mbtnRegistrar.AutoSize = false;
+            this.mbtnRegistrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbtnRegistrar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbtnRegistrar.Depth = 0;
+            this.mbtnRegistrar.HighEmphasis = true;
+            this.mbtnRegistrar.Icon = null;
+            this.mbtnRegistrar.Location = new System.Drawing.Point(206, 330);
+            this.mbtnRegistrar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbtnRegistrar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnRegistrar.Name = "mbtnRegistrar";
+            this.mbtnRegistrar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbtnRegistrar.Size = new System.Drawing.Size(151, 43);
+            this.mbtnRegistrar.TabIndex = 4;
+            this.mbtnRegistrar.Text = "Registrar";
+            this.mbtnRegistrar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbtnRegistrar.UseAccentColor = false;
+            this.mbtnRegistrar.UseVisualStyleBackColor = true;
+            this.mbtnRegistrar.Click += new System.EventHandler(this.mbtnRegistrar_Click);
             // 
             // frmLogin
             // 
@@ -131,7 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(545, 427);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.mbtnRegistrar);
             this.Controls.Add(this.mbtnLogar);
             this.Controls.Add(this.grbDados);
             this.MaximizeBox = false;
@@ -150,6 +159,6 @@
         private System.Windows.Forms.GroupBox grbDados;
         private MaterialSkin.Controls.MaterialButton mbtnLogar;
         private System.Windows.Forms.Button btnTestCadas;
-        private System.Windows.Forms.Button button1;
+        private MaterialSkin.Controls.MaterialButton mbtnRegistrar;
     }
 }

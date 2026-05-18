@@ -54,7 +54,7 @@ namespace Inventario
             mtxtCracha.LimparBtns(Tcracha);
             mtxtSenha.LimparBtns(Tsenha);
             mtxtConfirmaSenha.LimparBtns(TconfirmS);
-     
+
 
         }
 
@@ -118,11 +118,11 @@ namespace Inventario
                     MessageBox.Show("Usuário cadastrado com sucesso!", "Cadastro", MessageBoxButtons.OK);
                     resetar();
                     mtxtNome.Focus();
-                    
+
 
                 }
-              
-               catch (Exception ex)
+
+                catch (Exception ex)
                 {
                     MessageBox.Show($"Erro ao salvar usuário {ex}", "SalvarUsu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     throw;
@@ -136,7 +136,7 @@ namespace Inventario
 
 
         }
-          
+
         private void mtxtCracha_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Aqui é pra toda vez que o usuário tentar colocar letras no trem ele da erro porque o crachá tem q ser números
@@ -202,12 +202,28 @@ namespace Inventario
         }
 
         private void mbtnPesquisar_Click(object sender, EventArgs e)
-        {
-           frmPesquisaU PesquisaUsu = new frmPesquisaU();
+        { 
+            // O unico jeito que eu achei pra arrumar o bug de cores é fazer a tela anterior esconder quando a nova tela abrir
+            this.Hide();
+
+            frmPesquisaU PesquisaUsu = new frmPesquisaU();
             PesquisaUsu.ShowDialog();
+
+            // Porem assim que a tela for voltar temos que devolver os valores de cor para dar tudo certo
+            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Orange800,
+                Primary.Orange900,
+                Primary.Orange500,
+                Accent.Orange700,
+                TextShade.WHITE
+            );
+
+            this.Show(); // e mostramos a tela de cadastro novamente
+
+
         }
     }
-
 }
 
 // João <-- Fazer a tela cadastro ficar com o visual laranja, deixar a tela de login com uma cor diferente e criar uma tela de Cadastro pra cada cadastro

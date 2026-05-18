@@ -33,11 +33,11 @@
             this.mbtnPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.grpPesquisa = new System.Windows.Forms.GroupBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mtbnfechar = new MaterialSkin.Controls.MaterialButton();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
             this.grbGridUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsu)).BeginInit();
             this.grpPesquisa.SuspendLayout();
@@ -106,6 +106,13 @@
             this.grpPesquisa.TabStop = false;
             this.grpPesquisa.Text = "Pesquisar por:";
             // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(150, 38);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(387, 20);
+            this.txtNome.TabIndex = 6;
+            // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
@@ -114,6 +121,15 @@
             this.lblCodigo.Size = new System.Drawing.Size(43, 13);
             this.lblCodigo.TabIndex = 5;
             this.lblCodigo.Text = "Código:";
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(147, 22);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(38, 13);
+            this.lblNome.TabIndex = 4;
+            this.lblNome.Text = "Nome:";
             // 
             // groupBox1
             // 
@@ -145,22 +161,7 @@
             this.mtbnfechar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mtbnfechar.UseAccentColor = false;
             this.mtbnfechar.UseVisualStyleBackColor = true;
-            // 
-            // lblNome
-            // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(147, 22);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(38, 13);
-            this.lblNome.TabIndex = 4;
-            this.lblNome.Text = "Nome:";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(150, 38);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(387, 20);
-            this.txtNome.TabIndex = 6;
+            this.mtbnfechar.Click += new System.EventHandler(this.mtbnfechar_Click);
             // 
             // frmPesquisaU
             // 

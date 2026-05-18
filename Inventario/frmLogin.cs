@@ -183,13 +183,7 @@ namespace Inventario
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmCadastroUsuario cadastro = new frmCadastroUsuario();
-            this.Hide();
-            cadastro.ShowDialog();
-            this.Close();
-        }
+        
         private void carregar()
         {
             string email = "Digite aqui seu E-mail";
@@ -197,6 +191,14 @@ namespace Inventario
             string senha = "Digite aqui sua Senha";
             txtSenha.Text = senha;
 
+        }
+
+        private void mbtnRegistrar_Click(object sender, EventArgs e)
+        {
+            frmCadastroUsuario cadastro = new frmCadastroUsuario();
+            this.Hide();
+            cadastro.ShowDialog();
+            this.Close();
         }
     }
   
