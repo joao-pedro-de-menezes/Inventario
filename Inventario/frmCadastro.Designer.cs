@@ -181,7 +181,6 @@
             // 
             // mradioInativo
             // 
-            this.mradioInativo.AutoCheck = false;
             this.mradioInativo.Depth = 0;
             this.mradioInativo.Location = new System.Drawing.Point(266, 16);
             this.mradioInativo.Margin = new System.Windows.Forms.Padding(0);
@@ -197,7 +196,6 @@
             // 
             // mradioAtivo
             // 
-            this.mradioAtivo.AutoCheck = false;
             this.mradioAtivo.Depth = 0;
             this.mradioAtivo.Location = new System.Drawing.Point(30, 16);
             this.mradioAtivo.Margin = new System.Windows.Forms.Padding(0);
