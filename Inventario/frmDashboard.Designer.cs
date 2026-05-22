@@ -56,6 +56,7 @@
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.lblUsuarioLogado = new MaterialSkin.Controls.MaterialLabel();
+            this.mbtnAdmin = new MaterialSkin.Controls.MaterialButton();
             this.pnlMenu.SuspendLayout();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconeTotalMaquinas)).BeginInit();
@@ -73,13 +74,14 @@
             // 
             this.pnlMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlMenu.Controls.Add(this.mbtnAdmin);
             this.pnlMenu.Controls.Add(this.iconButtonConfiguracoes);
             this.pnlMenu.Controls.Add(this.iconButtonMaquinas);
             this.pnlMenu.Controls.Add(this.iconButtonLicencas);
             this.pnlMenu.Controls.Add(this.iconButtonEquipamento);
             this.pnlMenu.Location = new System.Drawing.Point(-5, 64);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(167, 348);
+            this.pnlMenu.Size = new System.Drawing.Size(167, 414);
             this.pnlMenu.TabIndex = 1;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
             // 
@@ -106,6 +108,7 @@
             this.iconButtonMaquinas.TabIndex = 0;
             this.iconButtonMaquinas.Text = "Maquinas";
             this.iconButtonMaquinas.UseVisualStyleBackColor = true;
+            this.iconButtonMaquinas.Click += new System.EventHandler(this.iconButtonMaquinas_Click);
             // 
             // iconButtonLicencas
             // 
@@ -118,6 +121,7 @@
             this.iconButtonLicencas.TabIndex = 0;
             this.iconButtonLicencas.Text = "Licenças";
             this.iconButtonLicencas.UseVisualStyleBackColor = true;
+            this.iconButtonLicencas.Click += new System.EventHandler(this.iconButtonLicencas_Click);
             // 
             // iconButtonEquipamento
             // 
@@ -130,6 +134,7 @@
             this.iconButtonEquipamento.TabIndex = 0;
             this.iconButtonEquipamento.Text = "Equipamentos";
             this.iconButtonEquipamento.UseVisualStyleBackColor = true;
+            this.iconButtonEquipamento.Click += new System.EventHandler(this.iconButtonEquipamento_Click);
             // 
             // materialCard1
             // 
@@ -453,12 +458,34 @@
             this.lblUsuarioLogado.TabIndex = 4;
             this.lblUsuarioLogado.Text = "Carregando...";
             // 
+            // mbtnAdmin
+            // 
+            this.mbtnAdmin.AutoSize = false;
+            this.mbtnAdmin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbtnAdmin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbtnAdmin.Depth = 0;
+            this.mbtnAdmin.HighEmphasis = true;
+            this.mbtnAdmin.Icon = null;
+            this.mbtnAdmin.Location = new System.Drawing.Point(26, 281);
+            this.mbtnAdmin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbtnAdmin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnAdmin.Name = "mbtnAdmin";
+            this.mbtnAdmin.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbtnAdmin.Size = new System.Drawing.Size(104, 32);
+            this.mbtnAdmin.TabIndex = 1;
+            this.mbtnAdmin.Text = "admin";
+            this.mbtnAdmin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbtnAdmin.UseAccentColor = false;
+            this.mbtnAdmin.UseVisualStyleBackColor = true;
+            this.mbtnAdmin.Visible = false;
+            this.mbtnAdmin.Click += new System.EventHandler(this.mbtnAdmin_Click);
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(742, 406);
+            this.ClientSize = new System.Drawing.Size(742, 472);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.lblUsuarioLogado);
             this.Controls.Add(this.materialCard5);
@@ -520,5 +547,6 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private MaterialSkin.Controls.MaterialLabel lblUsuarioLogado;
         private FontAwesome.Sharp.IconPictureBox iconeInstaladas;
+        private MaterialSkin.Controls.MaterialButton mbtnAdmin;
     }
 }

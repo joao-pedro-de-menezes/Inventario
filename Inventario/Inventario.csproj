@@ -93,6 +93,18 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTelaLicencas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTelaLicencas.Designer.cs">
+      <DependentUpon>frmTelaLicencas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTelaMaquinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTelaMaquinas.Designer.cs">
+      <DependentUpon>frmTelaMaquinas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmDashboard.resx">
@@ -109,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTelaLicencas.resx">
+      <DependentUpon>frmTelaLicencas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

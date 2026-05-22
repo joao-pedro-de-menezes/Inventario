@@ -97,7 +97,7 @@ namespace Inventario
                     sql.Clear();
                     cmd.Parameters.Clear();
                     conexao.Open();
-                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo FROM tbUsuario");
+                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo, Senha FROM tbUsuario");
                     sql.Append(" WHERE NomeUsuario LIKE '%' + @NomeUsuario + '%' ");
                     sql.Append(" ORDER BY NomeUsuario");
                     cmd.Parameters.Add(new SqlParameter("@NomeUsuario", NomeUsuario));
@@ -125,7 +125,7 @@ namespace Inventario
                     sql.Clear();
                     cmd.Parameters.Clear();
                     conexao.Open();
-                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo FROM tbUsuario");
+                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo, Senha FROM tbUsuario");
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
                     dt.Load(cmd.ExecuteReader());
@@ -150,7 +150,7 @@ namespace Inventario
                     sql.Clear();
                     cmd.Parameters.Clear();
                     conexao.Open();
-                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo FROM tbUsuario");
+                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo, Senha FROM tbUsuario");
                     sql.Append(" WHERE tbusuario.data BETWEEN @dataInicial AND @dataFinal ORDER BY tbusuario.data");
                     cmd.Parameters.Add(new SqlParameter("@dataInicial", dataInicial));
                     cmd.Parameters.Add(new SqlParameter("@dataFinal", dataInicial));
@@ -173,7 +173,7 @@ namespace Inventario
                     sql.Clear();
                     cmd.Parameters.Clear();
                     conexao.Open();
-                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo FROM tbUsuario");
+                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo, Senha FROM tbUsuario");
                     sql.Append(" WHERE Codigo = @Codigo ");
                     cmd.Parameters.Add(new SqlParameter("@Codigo", Codigo));
                     cmd.CommandText = sql.ToString();

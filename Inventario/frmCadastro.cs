@@ -22,7 +22,7 @@ namespace Inventario
         string Tcracha = "Digite o Crachá";
         string Tsenha = "Digite a Senha";
         string TconfirmS = "Confirme a Senha";
-        string Selecione = "Selecione o tipo do Usuário";
+
 
         private readonly MaterialSkinManager materialSkinManager;
         public frmCadastroUsuario()
@@ -47,14 +47,11 @@ namespace Inventario
                 );
 
             InitializeComponent();
+
             //Agora usar aqui os método clsLimparCampos
-            nomes();
-            mtxtNome.LimparBtns(Tnome);
-            mtxtEmail.LimparBtns(Temail);
-            mtxtCracha.LimparBtns(Tcracha);
-            mtxtSenha.LimparBtns(Tsenha);
-            mtxtConfirmaSenha.LimparBtns(TconfirmS);
-     
+            carregar();
+           
+
 
         }
 
@@ -62,6 +59,8 @@ namespace Inventario
         {
             //tag para iniciar ja o botão como novo
             mbtnCadastrar_Atualizar.Tag = "Novo";
+            mradioInativo.Enabled = false;
+            txtCodigo.Visible = false;
             carregarCmb();
 
             // ehdin é gay, mas é o melhor programador do mundo, então ele tem que ser mencionado aqui
@@ -69,9 +68,6 @@ namespace Inventario
 
         private void mbtnCadastrar_Atualizar_Click(object sender, EventArgs e)
         {
-            //Definindo os valores das variáveis
-
-
 
             //btn cadastrar verificações
             if (string.IsNullOrEmpty(mtxtNome.Text))
@@ -109,35 +105,75 @@ namespace Inventario
                 return;
             }
             // Se tudo estiver certo vai pra cá
-            if (MessageBox.Show("Deseja realmente salvar este usuário?", "Salvar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+
+            //tag NOVO
+            if (Convert.ToString(mbtnCadastrar_Atualizar.Tag) == "Novo")
             {
-        
-                try
+                if (MessageBox.Show("Deseja realmente salvar este usuário?", "Salvar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    clsUsuario usuario = new clsUsuario();
-                    usuario.SalvarUsu(mtxtNome.Text, mtxtEmail.Text, Convert.ToInt32(mtxtCracha.Text), mtxtSenha.Text, Convert.ToInt16(mcmbTipo.SelectedIndex));
-                    MessageBox.Show("Usuário cadastrado com sucesso!", "Cadastro", MessageBoxButtons.OK);
-                    resetar();
-                    mtxtNome.Focus();
-                    
 
-                }
-              
-               catch (Exception ex)
-                {
-                    MessageBox.Show($"Erro ao salvar usuário {ex}", "SalvarUsu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    throw;
-                }
 
+                    try
+                    {
+                        clsUsuario usuario = new clsUsuario();
+                        usuario.SalvarUsu(mtxtNome.Text, mtxtEmail.Text, Convert.ToInt32(mtxtCracha.Text), mtxtSenha.Text, Convert.ToInt16(mcmbTipo.SelectedIndex));
+                        MessageBox.Show("Usuário cadastrado com sucesso!", "Cadastro", MessageBoxButtons.OK);
+                        resetar();
+                        mtxtNome.Focus();
+                        carregar();
+                        carregarCmb();
+
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao salvar usuário {ex}", "SalvarUsu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        throw;
+                    }
+                }
+            } //tag Editar
+            else
+            {
+                if(Convert.ToString(mbtnCadastrar_Atualizar.Tag) == "Editar"){
+
+                    if (MessageBox.Show("Deseja realmente editar este usuário?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        //Aqui define se ele vai ser A ou I
+                        string situacao = "";
+                        if (mradioAtivo.Checked)
+                        {
+                            situacao = "A";
+                        } else if (mradioInativo.Checked)
+                        {
+                            situacao = "I";
+                        }
+
+                        try
+                        {
+                            //Método padrão para editar
+                            clsUsuario usuario = new clsUsuario();
+                            usuario.EditarUsu( Convert.ToInt32(txtCodigo.Text), mtxtNome.Text, mtxtEmail.Text, Convert.ToInt32(mtxtCracha.Text), mtxtSenha.Text, situacao, Convert.ToInt16(mcmbTipo.SelectedIndex));
+                            MessageBox.Show("Usuário Editado com sucesso!", "Editar", MessageBoxButtons.OK);
+                            resetar();
+
+                            //Aqui é se tudo der certo ele carrega os txt tudo denovo e limpa os campos
+                            mtxtNome.Focus();
+                            carregar();
+                            carregarCmb();
+
+                        }
+
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Erro ao editar usuário {ex}", "EditarUsu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            throw;
+                        }
+                    }
+                }
             }
-
-
-
-
-
-
         }
-          
+
         private void mtxtCracha_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Aqui é pra toda vez que o usuário tentar colocar letras no trem ele da erro porque o crachá tem q ser números
@@ -164,11 +200,89 @@ namespace Inventario
 
         private void mbtnVoltar_Click(object sender, EventArgs e)
         {
-            frmLogin login = new frmLogin();
+            frmDashboard dash = new frmDashboard();
             this.Hide();
-            login.ShowDialog();
+            dash.ShowDialog();
             this.Close();
         }
+
+        
+
+        private void mbtnPesquisar_Click(object sender, EventArgs e)
+        {
+           
+            // O unico jeito que eu achei pra arrumar o bug de cores é fazer a tela anterior esconder quando a nova tela abrir
+            this.Hide();
+         
+            using (frmPesquisaU pesquisa = new frmPesquisaU())
+            {
+                string situacao = "";
+                if (mradioAtivo.Checked)
+                {
+                    situacao = "A";
+                }
+                else if (mradioInativo.Checked)
+                {
+                    situacao = "I";
+                }
+
+                if (pesquisa.ShowDialog() == DialogResult.OK)
+                {
+                   
+                    mradioInativo.Enabled = true;
+                    txtCodigo.Text = Convert.ToInt16(pesquisa.codigoSelecao).ToString();
+                    mtxtNome.Text = pesquisa.nomeSelecao.ToString();
+                    mtxtEmail.Text = pesquisa.emailSelecao.ToString();
+                    mtxtCracha.Text = Convert.ToInt32(pesquisa.crachaSelecao).ToString();
+                    situacao = pesquisa.situacaoSelecao.ToString();
+                    mcmbTipo.SelectedIndex = Convert.ToInt16(pesquisa.tipoSelecao);
+                    mtxtConfirmaSenha.Text = pesquisa.senhaSelecao.ToString();
+                    mtxtSenha.Text = pesquisa.senhaSelecao.ToString();
+
+                    txtCodigo.Visible = true;
+                    mbtnCadastrar_Atualizar.Text = "Editar";
+                    mbtnCadastrar_Atualizar.Tag = "Editar";
+
+                }
+            }
+            // Porem assim que a tela for voltar temos que devolver os valores de cor para dar tudo certo
+            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Orange800,
+                Primary.Orange900,
+                Primary.Orange500,
+                Accent.Orange700,
+                TextShade.WHITE
+            );
+
+            this.Show(); // e mostramos a tela de cadastro novamente
+
+
+            
+
+
+
+        }
+        public void carregar()
+        {
+            //Método para reutilizar a bagaça
+            if (string.IsNullOrEmpty(mtxtNome.Text))
+            {
+                nomes();
+                mtxtNome.LimparBtns(Tnome);
+                mtxtEmail.LimparBtns(Temail);
+                mtxtCracha.LimparBtns(Tcracha);
+                mtxtSenha.LimparBtns(Tsenha);
+                mtxtConfirmaSenha.LimparBtns(TconfirmS);
+                lblCodig.Visible = false;
+                txtCodigo.Visible = false;
+                mbtnCadastrar_Atualizar.Text = "Cadastrar";
+                mradioAtivo.Checked = true;
+                mradioInativo.Enabled = false;
+
+            }
+        }
+
 
         private void nomes()
         {
@@ -201,14 +315,7 @@ namespace Inventario
             mcmbTipo.Items.Add("");
             mcmbTipo.SelectedIndex = 10;
         }
-
-        private void mbtnPesquisar_Click(object sender, EventArgs e)
-        {
-           frmPesquisaU PesquisaUsu = new frmPesquisaU();
-            PesquisaUsu.ShowDialog();
-        }
     }
-
 }
 
 // João <-- Fazer a tela cadastro ficar com o visual laranja, deixar a tela de login com uma cor diferente e criar uma tela de Cadastro pra cada cadastro

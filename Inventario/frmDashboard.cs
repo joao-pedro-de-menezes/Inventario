@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -86,6 +87,7 @@ namespace Inventario
             {
                 case 0:
                     tipoUsuSelecao = "Administrador";
+                    mbtnAdmin.Visible = true;
                     break;
 
                 default:
@@ -96,6 +98,33 @@ namespace Inventario
         private void pnlMenu_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void iconButtonEquipamento_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void iconButtonMaquinas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmTelaMaquinas telaMaquinas = new frmTelaMaquinas();
+            telaMaquinas.ShowDialog();
+        }
+
+        private void iconButtonLicencas_Click(object sender, EventArgs e)
+        {
+            frmTelaLicencas telaLicencas = new frmTelaLicencas();
+            telaLicencas.ShowDialog();
+            this.Hide(); 
+        }
+
+        private void mbtnAdmin_Click(object sender, EventArgs e)
+        {
+            frmCadastroUsuario cadastro = new frmCadastroUsuario();
+            this.Hide();
+            cadastro.ShowDialog();
+            this.Close();
         }
     }
 }

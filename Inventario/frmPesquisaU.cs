@@ -13,6 +13,35 @@ namespace Inventario
 {
     public partial class frmPesquisaU : MaterialForm
     {
+        //Seguinte aqui é OBRIGATÓRIO carregar as variáveis pra mandar pro outro forms, da pra usar a cls guarda usu, mass é melhor deixar a guarda usuario para quando for manipular os dados quando ja for LOGADO
+        public int codigoSelecao
+        {
+            get; private set;
+        }
+        public string nomeSelecao
+        {
+            get; private set;
+        }
+        public string emailSelecao
+        {
+            get; private set;
+        }
+        public int crachaSelecao
+        {
+            get; private set;
+        }
+        public string senhaSelecao
+        {
+            get; private set;
+        }
+        public int tipoSelecao
+        {
+            get; private set;
+        }
+        public string situacaoSelecao
+        {
+            get; private set;
+        }
 
         // variável para o gerenciador de temas
         private readonly MaterialSkinManager materialSkinManager;
@@ -46,12 +75,12 @@ namespace Inventario
         private void mbtnPesquisar_Click(object sender, EventArgs e)
         {
             clsUsuario clsUsu = new clsUsuario();
-            if (string.IsNullOrEmpty(txtCodigo.Text) || string.IsNullOrEmpty((txtNome.Text)))
+            if (string.IsNullOrEmpty(txtCodigo.Text) && string.IsNullOrEmpty((txtNome.Text)))
             {
                 if (MessageBox.Show("Seus campos estão vazios deseja fazer uma busca geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     dgvUsu.DataSource = clsUsu.PesquisaTodos();
-                }
+              }
             } else if (!string.IsNullOrEmpty(txtCodigo.Text)){
                 dgvUsu.DataSource = clsUsu.PesquisaCodigo(Convert.ToInt16(txtCodigo.Text));
             }else
@@ -60,6 +89,44 @@ namespace Inventario
             }
           
         
+        }
+
+        private void mtbnfechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
+
+        private void dgvUsu_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+
+               
+               
+                codigoSelecao = Convert.ToInt32(dgvUsu.CurrentRow.Cells[0].Value);
+                nomeSelecao = dgvUsu.CurrentRow.Cells[1].Value.ToString();
+                emailSelecao = dgvUsu.CurrentRow.Cells[2].Value.ToString();
+                crachaSelecao = Convert.ToInt32(dgvUsu.CurrentRow.Cells[3].Value);
+                situacaoSelecao = dgvUsu.CurrentRow.Cells[4].Value.ToString();
+                tipoSelecao = Convert.ToInt16(dgvUsu.CurrentRow.Cells[5].Value);
+                senhaSelecao = dgvUsu.CurrentRow.Cells[6].Value.ToString();
+                this.DialogResult = DialogResult.OK;
+                frmCadastroUsuario cadastro = new frmCadastroUsuario();
+                this.Hide();
+              
+                this.Close();
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Erro{ex}");
+            }
+           
+           
         }
     }
 }

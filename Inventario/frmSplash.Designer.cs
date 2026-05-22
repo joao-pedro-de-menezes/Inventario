@@ -45,6 +45,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = global::Inventario.Properties.Resources.Captura_de_tela_2026_04_24_001546;
             this.ClientSize = new System.Drawing.Size(476, 351);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSplash";

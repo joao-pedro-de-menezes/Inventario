@@ -33,11 +33,11 @@
             this.mbtnPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.grpPesquisa = new System.Windows.Forms.GroupBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mtbnfechar = new MaterialSkin.Controls.MaterialButton();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
             this.grbGridUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsu)).BeginInit();
             this.grpPesquisa.SuspendLayout();
@@ -65,6 +65,7 @@
             this.dgvUsu.ReadOnly = true;
             this.dgvUsu.Size = new System.Drawing.Size(776, 517);
             this.dgvUsu.TabIndex = 0;
+            this.dgvUsu.DoubleClick += new System.EventHandler(this.dgvUsu_DoubleClick);
             // 
             // mbtnPesquisar
             // 
@@ -106,6 +107,13 @@
             this.grpPesquisa.TabStop = false;
             this.grpPesquisa.Text = "Pesquisar por:";
             // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(150, 38);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(387, 20);
+            this.txtNome.TabIndex = 6;
+            // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
@@ -114,6 +122,15 @@
             this.lblCodigo.Size = new System.Drawing.Size(43, 13);
             this.lblCodigo.TabIndex = 5;
             this.lblCodigo.Text = "Código:";
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(147, 22);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(38, 13);
+            this.lblNome.TabIndex = 4;
+            this.lblNome.Text = "Nome:";
             // 
             // groupBox1
             // 
@@ -145,22 +162,7 @@
             this.mtbnfechar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mtbnfechar.UseAccentColor = false;
             this.mtbnfechar.UseVisualStyleBackColor = true;
-            // 
-            // lblNome
-            // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(147, 22);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(38, 13);
-            this.lblNome.TabIndex = 4;
-            this.lblNome.Text = "Nome:";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(150, 38);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(387, 20);
-            this.txtNome.TabIndex = 6;
+            this.mtbnfechar.Click += new System.EventHandler(this.mtbnfechar_Click);
             // 
             // frmPesquisaU
             // 
@@ -170,6 +172,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpPesquisa);
             this.Controls.Add(this.grbGridUsu);
+            this.MaximizeBox = false;
             this.Name = "frmPesquisaU";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pesquisa de Usuário";
