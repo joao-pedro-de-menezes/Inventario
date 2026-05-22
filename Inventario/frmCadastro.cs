@@ -111,6 +111,7 @@ namespace Inventario
             // Se tudo estiver certo vai pra cá
             if (MessageBox.Show("Deseja realmente salvar este usuário?", "Salvar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+        
                 try
                 {
                     clsUsuario usuario = new clsUsuario();
