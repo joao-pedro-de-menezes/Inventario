@@ -106,6 +106,7 @@
             this.iconButtonMaquinas.TabIndex = 0;
             this.iconButtonMaquinas.Text = "Maquinas";
             this.iconButtonMaquinas.UseVisualStyleBackColor = true;
+            this.iconButtonMaquinas.Click += new System.EventHandler(this.iconButtonMaquinas_Click);
             // 
             // iconButtonLicencas
             // 
@@ -118,6 +119,7 @@
             this.iconButtonLicencas.TabIndex = 0;
             this.iconButtonLicencas.Text = "Licenças";
             this.iconButtonLicencas.UseVisualStyleBackColor = true;
+            this.iconButtonLicencas.Click += new System.EventHandler(this.iconButtonLicencas_Click);
             // 
             // iconButtonEquipamento
             // 
@@ -130,6 +132,7 @@
             this.iconButtonEquipamento.TabIndex = 0;
             this.iconButtonEquipamento.Text = "Equipamentos";
             this.iconButtonEquipamento.UseVisualStyleBackColor = true;
+            this.iconButtonEquipamento.Click += new System.EventHandler(this.iconButtonEquipamento_Click);
             // 
             // materialCard1
             // 
