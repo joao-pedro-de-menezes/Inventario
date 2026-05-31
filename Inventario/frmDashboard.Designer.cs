@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.mbtnAdmin = new MaterialSkin.Controls.MaterialButton();
             this.iconButtonConfiguracoes = new FontAwesome.Sharp.IconButton();
             this.iconButtonMaquinas = new FontAwesome.Sharp.IconButton();
             this.iconButtonLicencas = new FontAwesome.Sharp.IconButton();
@@ -56,7 +57,15 @@
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.lblUsuarioLogado = new MaterialSkin.Controls.MaterialLabel();
-            this.mbtnAdmin = new MaterialSkin.Controls.MaterialButton();
+            this.pnlSubLicencas = new System.Windows.Forms.Panel();
+            this.iconButtonExibirLicencas = new FontAwesome.Sharp.IconButton();
+            this.iconButtonCadastrarLicencas = new FontAwesome.Sharp.IconButton();
+            this.pnlSubEquipamentos = new System.Windows.Forms.Panel();
+            this.iconButtonExibirEquipamentos = new FontAwesome.Sharp.IconButton();
+            this.iconButtonCadastrarEquipamentos = new FontAwesome.Sharp.IconButton();
+            this.pnlSubMaquinas = new System.Windows.Forms.Panel();
+            this.iconButtonExibirMaquinas = new FontAwesome.Sharp.IconButton();
+            this.iconButtonCadastrarMaquinas = new FontAwesome.Sharp.IconButton();
             this.pnlMenu.SuspendLayout();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconeTotalMaquinas)).BeginInit();
@@ -68,6 +77,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             this.materialCard4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.pnlSubLicencas.SuspendLayout();
+            this.pnlSubEquipamentos.SuspendLayout();
+            this.pnlSubMaquinas.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -84,6 +96,28 @@
             this.pnlMenu.Size = new System.Drawing.Size(167, 414);
             this.pnlMenu.TabIndex = 1;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
+            // 
+            // mbtnAdmin
+            // 
+            this.mbtnAdmin.AutoSize = false;
+            this.mbtnAdmin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbtnAdmin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbtnAdmin.Depth = 0;
+            this.mbtnAdmin.HighEmphasis = true;
+            this.mbtnAdmin.Icon = null;
+            this.mbtnAdmin.Location = new System.Drawing.Point(26, 281);
+            this.mbtnAdmin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbtnAdmin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnAdmin.Name = "mbtnAdmin";
+            this.mbtnAdmin.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbtnAdmin.Size = new System.Drawing.Size(104, 32);
+            this.mbtnAdmin.TabIndex = 1;
+            this.mbtnAdmin.Text = "admin";
+            this.mbtnAdmin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbtnAdmin.UseAccentColor = false;
+            this.mbtnAdmin.UseVisualStyleBackColor = true;
+            this.mbtnAdmin.Visible = false;
+            this.mbtnAdmin.Click += new System.EventHandler(this.mbtnAdmin_Click);
             // 
             // iconButtonConfiguracoes
             // 
@@ -458,27 +492,119 @@
             this.lblUsuarioLogado.TabIndex = 4;
             this.lblUsuarioLogado.Text = "Carregando...";
             // 
-            // mbtnAdmin
+            // pnlSubLicencas
             // 
-            this.mbtnAdmin.AutoSize = false;
-            this.mbtnAdmin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnAdmin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnAdmin.Depth = 0;
-            this.mbtnAdmin.HighEmphasis = true;
-            this.mbtnAdmin.Icon = null;
-            this.mbtnAdmin.Location = new System.Drawing.Point(26, 281);
-            this.mbtnAdmin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnAdmin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnAdmin.Name = "mbtnAdmin";
-            this.mbtnAdmin.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnAdmin.Size = new System.Drawing.Size(104, 32);
-            this.mbtnAdmin.TabIndex = 1;
-            this.mbtnAdmin.Text = "admin";
-            this.mbtnAdmin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnAdmin.UseAccentColor = false;
-            this.mbtnAdmin.UseVisualStyleBackColor = true;
-            this.mbtnAdmin.Visible = false;
-            this.mbtnAdmin.Click += new System.EventHandler(this.mbtnAdmin_Click);
+            this.pnlSubLicencas.BackColor = System.Drawing.Color.MidnightBlue;
+            this.pnlSubLicencas.Controls.Add(this.iconButtonCadastrarLicencas);
+            this.pnlSubLicencas.Controls.Add(this.iconButtonExibirLicencas);
+            this.pnlSubLicencas.Location = new System.Drawing.Point(291, 393);
+            this.pnlSubLicencas.Name = "pnlSubLicencas";
+            this.pnlSubLicencas.Size = new System.Drawing.Size(110, 73);
+            this.pnlSubLicencas.TabIndex = 5;
+            this.pnlSubLicencas.Visible = false;
+            // 
+            // iconButtonExibirLicencas
+            // 
+            this.iconButtonExibirLicencas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButtonExibirLicencas.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButtonExibirLicencas.IconColor = System.Drawing.Color.Black;
+            this.iconButtonExibirLicencas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonExibirLicencas.Location = new System.Drawing.Point(3, 3);
+            this.iconButtonExibirLicencas.Name = "iconButtonExibirLicencas";
+            this.iconButtonExibirLicencas.Size = new System.Drawing.Size(104, 31);
+            this.iconButtonExibirLicencas.TabIndex = 0;
+            this.iconButtonExibirLicencas.Text = "Exibir Tudo";
+            this.iconButtonExibirLicencas.UseVisualStyleBackColor = true;
+            // 
+            // iconButtonCadastrarLicencas
+            // 
+            this.iconButtonCadastrarLicencas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButtonCadastrarLicencas.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButtonCadastrarLicencas.IconColor = System.Drawing.Color.Black;
+            this.iconButtonCadastrarLicencas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonCadastrarLicencas.Location = new System.Drawing.Point(3, 38);
+            this.iconButtonCadastrarLicencas.Name = "iconButtonCadastrarLicencas";
+            this.iconButtonCadastrarLicencas.Size = new System.Drawing.Size(104, 31);
+            this.iconButtonCadastrarLicencas.TabIndex = 0;
+            this.iconButtonCadastrarLicencas.Text = "Cadastrar";
+            this.iconButtonCadastrarLicencas.UseVisualStyleBackColor = true;
+            this.iconButtonCadastrarLicencas.Click += new System.EventHandler(this.iconButtonCadastrarLicencas_Click);
+            // 
+            // pnlSubEquipamentos
+            // 
+            this.pnlSubEquipamentos.Controls.Add(this.iconButtonCadastrarEquipamentos);
+            this.pnlSubEquipamentos.Controls.Add(this.iconButtonExibirEquipamentos);
+            this.pnlSubEquipamentos.Location = new System.Drawing.Point(168, 393);
+            this.pnlSubEquipamentos.Name = "pnlSubEquipamentos";
+            this.pnlSubEquipamentos.Size = new System.Drawing.Size(110, 73);
+            this.pnlSubEquipamentos.TabIndex = 6;
+            this.pnlSubEquipamentos.Visible = false;
+            // 
+            // iconButtonExibirEquipamentos
+            // 
+            this.iconButtonExibirEquipamentos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButtonExibirEquipamentos.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButtonExibirEquipamentos.IconColor = System.Drawing.Color.Black;
+            this.iconButtonExibirEquipamentos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonExibirEquipamentos.Location = new System.Drawing.Point(3, 3);
+            this.iconButtonExibirEquipamentos.Name = "iconButtonExibirEquipamentos";
+            this.iconButtonExibirEquipamentos.Size = new System.Drawing.Size(104, 31);
+            this.iconButtonExibirEquipamentos.TabIndex = 0;
+            this.iconButtonExibirEquipamentos.Text = "Exibir Tudo";
+            this.iconButtonExibirEquipamentos.UseVisualStyleBackColor = true;
+            this.iconButtonExibirEquipamentos.Click += new System.EventHandler(this.iconButtonCadastrarLicencas_Click);
+            // 
+            // iconButtonCadastrarEquipamentos
+            // 
+            this.iconButtonCadastrarEquipamentos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButtonCadastrarEquipamentos.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButtonCadastrarEquipamentos.IconColor = System.Drawing.Color.Black;
+            this.iconButtonCadastrarEquipamentos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonCadastrarEquipamentos.Location = new System.Drawing.Point(3, 39);
+            this.iconButtonCadastrarEquipamentos.Name = "iconButtonCadastrarEquipamentos";
+            this.iconButtonCadastrarEquipamentos.Size = new System.Drawing.Size(104, 31);
+            this.iconButtonCadastrarEquipamentos.TabIndex = 0;
+            this.iconButtonCadastrarEquipamentos.Text = "Cadastrar";
+            this.iconButtonCadastrarEquipamentos.UseVisualStyleBackColor = true;
+            this.iconButtonCadastrarEquipamentos.Click += new System.EventHandler(this.iconButtonCadastrarLicencas_Click);
+            // 
+            // pnlSubMaquinas
+            // 
+            this.pnlSubMaquinas.Controls.Add(this.iconButtonCadastrarMaquinas);
+            this.pnlSubMaquinas.Controls.Add(this.iconButtonExibirMaquinas);
+            this.pnlSubMaquinas.Location = new System.Drawing.Point(407, 391);
+            this.pnlSubMaquinas.Name = "pnlSubMaquinas";
+            this.pnlSubMaquinas.Size = new System.Drawing.Size(110, 75);
+            this.pnlSubMaquinas.TabIndex = 2;
+            this.pnlSubMaquinas.Visible = false;
+            // 
+            // iconButtonExibirMaquinas
+            // 
+            this.iconButtonExibirMaquinas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButtonExibirMaquinas.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButtonExibirMaquinas.IconColor = System.Drawing.Color.Black;
+            this.iconButtonExibirMaquinas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonExibirMaquinas.Location = new System.Drawing.Point(3, 3);
+            this.iconButtonExibirMaquinas.Name = "iconButtonExibirMaquinas";
+            this.iconButtonExibirMaquinas.Size = new System.Drawing.Size(104, 31);
+            this.iconButtonExibirMaquinas.TabIndex = 0;
+            this.iconButtonExibirMaquinas.Text = "Exibir Tudo";
+            this.iconButtonExibirMaquinas.UseVisualStyleBackColor = true;
+            this.iconButtonExibirMaquinas.Click += new System.EventHandler(this.iconButtonCadastrarLicencas_Click);
+            // 
+            // iconButtonCadastrarMaquinas
+            // 
+            this.iconButtonCadastrarMaquinas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButtonCadastrarMaquinas.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButtonCadastrarMaquinas.IconColor = System.Drawing.Color.Black;
+            this.iconButtonCadastrarMaquinas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonCadastrarMaquinas.Location = new System.Drawing.Point(3, 40);
+            this.iconButtonCadastrarMaquinas.Name = "iconButtonCadastrarMaquinas";
+            this.iconButtonCadastrarMaquinas.Size = new System.Drawing.Size(104, 31);
+            this.iconButtonCadastrarMaquinas.TabIndex = 0;
+            this.iconButtonCadastrarMaquinas.Text = "Cadastrar";
+            this.iconButtonCadastrarMaquinas.UseVisualStyleBackColor = true;
+            this.iconButtonCadastrarMaquinas.Click += new System.EventHandler(this.iconButtonCadastrarLicencas_Click);
             // 
             // frmDashboard
             // 
@@ -486,6 +612,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(742, 472);
+            this.Controls.Add(this.pnlSubMaquinas);
+            this.Controls.Add(this.pnlSubEquipamentos);
+            this.Controls.Add(this.pnlSubLicencas);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.lblUsuarioLogado);
             this.Controls.Add(this.materialCard5);
@@ -513,6 +642,9 @@
             this.materialCard4.ResumeLayout(false);
             this.materialCard4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            this.pnlSubLicencas.ResumeLayout(false);
+            this.pnlSubEquipamentos.ResumeLayout(false);
+            this.pnlSubMaquinas.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,5 +680,14 @@
         private MaterialSkin.Controls.MaterialLabel lblUsuarioLogado;
         private FontAwesome.Sharp.IconPictureBox iconeInstaladas;
         private MaterialSkin.Controls.MaterialButton mbtnAdmin;
+        private System.Windows.Forms.Panel pnlSubLicencas;
+        private FontAwesome.Sharp.IconButton iconButtonCadastrarLicencas;
+        private FontAwesome.Sharp.IconButton iconButtonExibirLicencas;
+        private System.Windows.Forms.Panel pnlSubEquipamentos;
+        private FontAwesome.Sharp.IconButton iconButtonCadastrarEquipamentos;
+        private FontAwesome.Sharp.IconButton iconButtonExibirEquipamentos;
+        private System.Windows.Forms.Panel pnlSubMaquinas;
+        private FontAwesome.Sharp.IconButton iconButtonCadastrarMaquinas;
+        private FontAwesome.Sharp.IconButton iconButtonExibirMaquinas;
     }
 }

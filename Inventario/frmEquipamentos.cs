@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Inventario
 {
-    public partial class frmTelaLicencas : Form
+    public partial class frmEquipamentos : Form
     {
-        public frmTelaLicencas()
+        public frmEquipamentos()
         {
             InitializeComponent();
-        }
-
-        private void frmTelaLicencas_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mbFechar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

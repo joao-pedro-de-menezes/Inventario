@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grbDados = new System.Windows.Forms.GroupBox();
+            this.lblCodig = new MaterialSkin.Controls.MaterialLabel();
+            this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.mtxtCracha = new MaterialSkin.Controls.MaterialTextBox();
             this.mcmbTipo = new MaterialSkin.Controls.MaterialComboBox();
             this.mtxtConfirmaSenha = new MaterialSkin.Controls.MaterialTextBox();
@@ -43,8 +45,6 @@
             this.iconeFundoFoto = new FontAwesome.Sharp.IconPictureBox();
             this.grbBtns = new System.Windows.Forms.GroupBox();
             this.grbAtivo = new System.Windows.Forms.GroupBox();
-            this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
-            this.lblCodig = new MaterialSkin.Controls.MaterialLabel();
             this.grbDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconeFundoFoto)).BeginInit();
             this.grbBtns.SuspendLayout();
@@ -69,6 +69,37 @@
             this.grbDados.TabStop = false;
             this.grbDados.Text = "Dados";
             // 
+            // lblCodig
+            // 
+            this.lblCodig.AutoSize = true;
+            this.lblCodig.Depth = 0;
+            this.lblCodig.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCodig.Location = new System.Drawing.Point(27, 41);
+            this.lblCodig.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblCodig.Name = "lblCodig";
+            this.lblCodig.Size = new System.Drawing.Size(108, 19);
+            this.lblCodig.TabIndex = 8;
+            this.lblCodig.Text = "Código usuário";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.AnimateReadOnly = false;
+            this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodigo.Depth = 0;
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCodigo.LeadingIcon = null;
+            this.txtCodigo.Location = new System.Drawing.Point(30, 63);
+            this.txtCodigo.MaxLength = 50;
+            this.txtCodigo.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCodigo.Multiline = false;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(74, 36);
+            this.txtCodigo.TabIndex = 7;
+            this.txtCodigo.Text = "";
+            this.txtCodigo.TrailingIcon = null;
+            this.txtCodigo.UseTallSize = false;
+            // 
             // mtxtCracha
             // 
             this.mtxtCracha.AnimateReadOnly = false;
@@ -76,7 +107,7 @@
             this.mtxtCracha.Depth = 0;
             this.mtxtCracha.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mtxtCracha.LeadingIcon = null;
-            this.mtxtCracha.Location = new System.Drawing.Point(30, 199);
+            this.mtxtCracha.Location = new System.Drawing.Point(30, 201);
             this.mtxtCracha.MaxLength = 50;
             this.mtxtCracha.MouseState = MaterialSkin.MouseState.OUT;
             this.mtxtCracha.Multiline = false;
@@ -118,7 +149,7 @@
             this.mtxtConfirmaSenha.Depth = 0;
             this.mtxtConfirmaSenha.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mtxtConfirmaSenha.LeadingIcon = null;
-            this.mtxtConfirmaSenha.Location = new System.Drawing.Point(30, 292);
+            this.mtxtConfirmaSenha.Location = new System.Drawing.Point(30, 297);
             this.mtxtConfirmaSenha.MaxLength = 50;
             this.mtxtConfirmaSenha.MouseState = MaterialSkin.MouseState.OUT;
             this.mtxtConfirmaSenha.Multiline = false;
@@ -136,7 +167,7 @@
             this.mtxtSenha.Depth = 0;
             this.mtxtSenha.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mtxtSenha.LeadingIcon = null;
-            this.mtxtSenha.Location = new System.Drawing.Point(30, 250);
+            this.mtxtSenha.Location = new System.Drawing.Point(30, 249);
             this.mtxtSenha.MaxLength = 50;
             this.mtxtSenha.MouseState = MaterialSkin.MouseState.OUT;
             this.mtxtSenha.Multiline = false;
@@ -154,7 +185,7 @@
             this.mtxtEmail.Depth = 0;
             this.mtxtEmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mtxtEmail.LeadingIcon = null;
-            this.mtxtEmail.Location = new System.Drawing.Point(30, 147);
+            this.mtxtEmail.Location = new System.Drawing.Point(30, 153);
             this.mtxtEmail.MaxLength = 50;
             this.mtxtEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.mtxtEmail.Multiline = false;
@@ -314,37 +345,6 @@
             this.grbAtivo.TabIndex = 0;
             this.grbAtivo.TabStop = false;
             this.grbAtivo.Text = "Usuário Ativo";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.AnimateReadOnly = false;
-            this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCodigo.Depth = 0;
-            this.txtCodigo.Enabled = false;
-            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtCodigo.LeadingIcon = null;
-            this.txtCodigo.Location = new System.Drawing.Point(30, 63);
-            this.txtCodigo.MaxLength = 50;
-            this.txtCodigo.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCodigo.Multiline = false;
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(74, 36);
-            this.txtCodigo.TabIndex = 7;
-            this.txtCodigo.Text = "";
-            this.txtCodigo.TrailingIcon = null;
-            this.txtCodigo.UseTallSize = false;
-            // 
-            // lblCodig
-            // 
-            this.lblCodig.AutoSize = true;
-            this.lblCodig.Depth = 0;
-            this.lblCodig.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCodig.Location = new System.Drawing.Point(27, 41);
-            this.lblCodig.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblCodig.Name = "lblCodig";
-            this.lblCodig.Size = new System.Drawing.Size(108, 19);
-            this.lblCodig.TabIndex = 8;
-            this.lblCodig.Text = "Codigo usuário";
             // 
             // frmCadastroUsuario
             // 

@@ -65,8 +65,12 @@ namespace Inventario
             pnlMenu.BringToFront();
         }
 
-        private void frmDashboard_Load(object sender, EventArgs e)
+        private void frmDashboard_Load(object sender, EventArgs e) // Ajeitar pra ficar paralelo com os botões do menu !!!!!!!!
         {
+            pnlSubEquipamentos.Location = new Point(168, 150); // Define a posição do submenu de equipamentos
+            pnlSubLicencas.Location = new Point(168, 203); 
+            pnlSubMaquinas.Location = new Point(168, 242);
+
             TipoUsu();
             //Log aqui é o log fazendo a magia negra
             clsLog.EscreverLog($"O usuário {tipoUsuSelecao} iniciou o sistema cujo email é {emailSelecao} ");
@@ -78,7 +82,8 @@ namespace Inventario
             lblUsuarioLogado.BringToFront();
         }
 
-        //Aqui verifica o tipo do usuário pelo email ou seja ele puxa la da tabela os valores que está lá e define aqui, tipo 0 é adm, 1 é n sei oq e bla bla
+        //Aqui verifica o tipo do usuário pelo email ou seja ele puxa la
+        //da tabela os valores que está lá e define aqui, tipo 0 é adm, 1 é n sei oq e bla bla
         private void TipoUsu()
         {
             clsUsuario usu = new clsUsuario();
@@ -102,21 +107,42 @@ namespace Inventario
 
         private void iconButtonEquipamento_Click(object sender, EventArgs e)
         {
-            
+            bool EstavaAberto = pnlSubEquipamentos.Visible;
+            EsconderSubMenus();
+
+            if (EstavaAberto == false)
+            {
+                pnlSubEquipamentos.Visible = true;
+                pnlSubEquipamentos.BringToFront(); 
+            }
         }
 
         private void iconButtonMaquinas_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmTelaMaquinas telaMaquinas = new frmTelaMaquinas();
-            telaMaquinas.ShowDialog();
+            bool EstavaAberto = pnlSubMaquinas.Visible;
+            EsconderSubMenus();
+
+            if (EstavaAberto == false)
+            {
+                pnlSubMaquinas.Visible = true;
+                pnlSubMaquinas.BringToFront();
+            }
         }
 
         private void iconButtonLicencas_Click(object sender, EventArgs e)
         {
-            frmTelaLicencas telaLicencas = new frmTelaLicencas();
-            telaLicencas.ShowDialog();
-            this.Hide(); 
+            bool EstavaAberto = pnlSubLicencas.Visible; // Verifica se o submenu já estava aberto
+            EsconderSubMenus();
+
+            if (EstavaAberto == false)
+            {
+                pnlSubLicencas.Visible = true;
+                pnlSubLicencas.BringToFront(); // Trase o painel para a frente para garantir que ele fique visível
+            }
+            /* frmTelaLicencas telaLicencas = new frmTelaLicencas();
+             this.Hide();
+             telaLicencas.ShowDialog();
+             this.Show();? */
         }
 
         private void mbtnAdmin_Click(object sender, EventArgs e)
@@ -124,7 +150,20 @@ namespace Inventario
             frmCadastroUsuario cadastro = new frmCadastroUsuario();
             this.Hide();
             cadastro.ShowDialog();
-            this.Close();
+            this.Show();
+        }
+
+        private void iconButtonCadastrarLicencas_Click(object sender, EventArgs e)
+        {
+            pnlSubLicencas.Visible = false;
+        }
+
+        private void EsconderSubMenus()
+        {
+            pnlSubEquipamentos.Visible = false;
+            pnlSubLicencas.Visible = false;
+            pnlSubMaquinas.Visible = false;
+           // pnlSubConfig.Visible = false;
         }
     }
 }
