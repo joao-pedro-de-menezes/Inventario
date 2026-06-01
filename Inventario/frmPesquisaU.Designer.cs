@@ -65,6 +65,7 @@
             this.dgvUsu.ReadOnly = true;
             this.dgvUsu.Size = new System.Drawing.Size(776, 517);
             this.dgvUsu.TabIndex = 0;
+            this.dgvUsu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsu_CellContentClick);
             this.dgvUsu.DoubleClick += new System.EventHandler(this.dgvUsu_DoubleClick);
             // 
             // mbtnPesquisar
@@ -89,7 +90,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(9, 38);
+            this.txtCodigo.Location = new System.Drawing.Point(6, 38);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(123, 20);
             this.txtCodigo.TabIndex = 3;

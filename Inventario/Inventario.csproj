@@ -60,6 +60,7 @@
     <Compile Include="clsConexao.cs" />
     <Compile Include="clsCriarBanco.cs" />
     <Compile Include="clsGuardarUsu.cs" />
+    <Compile Include="clsLicenca.cs" />
     <Compile Include="clsLimparCampos.cs" />
     <Compile Include="clsLog.cs" />
     <Compile Include="clsUsuario.cs" />
@@ -69,11 +70,11 @@
     <Compile Include="frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEquipamentos.cs">
+    <Compile Include="frmTelaEquipamentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEquipamentos.Designer.cs">
-      <DependentUpon>frmEquipamentos.cs</DependentUpon>
+    <Compile Include="frmTelaEquipamentos.Designer.cs">
+      <DependentUpon>frmTelaEquipamentos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPesquisaU.cs">
       <SubType>Form</SubType>

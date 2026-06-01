@@ -1,6 +1,6 @@
 ﻿namespace Inventario
 {
-    partial class frmEquipamentos
+    partial class frmTelaEquipamentos
     {
         /// <summary>
         /// Required designer variable.

@@ -48,22 +48,19 @@ namespace Inventario
         public frmPesquisaU()
         {
             InitializeComponent();
-            // Configuração do Gerenciador de Temas
+           
             materialSkinManager = MaterialSkinManager.Instance;
-
-            // Avisa ao Gerenciador para cuidar DESTE formulário, caso haja mais de um formulário, ele pode gerenciar todos viu EDHIN
+           
             materialSkinManager.AddFormToManage(this);
 
-            // Define o Tema (claro ou escuro) oque eu n achei nessessario, mas adicionei para caso queira futuramente
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
-            // Define a paleta de cores (Baseado no exempo da nossa imagem dashboard azul marinho)
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue800,   // Cor principal (Barra de título)
-                Primary.Blue900,   // Cor principal escura
-                Primary.Blue500,   // Cor principal clara
-                Accent.LightBlue200,   // Cor de destaque (botões, etc)
-                TextShade.WHITE        // Cor do texto na barra de título
+                Primary.Blue800,  
+                Primary.Blue900,  
+                Primary.Blue500,   
+                Accent.LightBlue200,   
+                TextShade.WHITE      
             );
         }
    
@@ -127,6 +124,11 @@ namespace Inventario
             }
            
            
+        }
+
+        private void dgvUsu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

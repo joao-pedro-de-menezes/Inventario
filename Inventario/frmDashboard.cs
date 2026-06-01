@@ -153,10 +153,7 @@ namespace Inventario
             this.Show();
         }
 
-        private void iconButtonCadastrarLicencas_Click(object sender, EventArgs e)
-        {
-            pnlSubLicencas.Visible = false;
-        }
+        
 
         private void EsconderSubMenus()
         {
@@ -164,6 +161,45 @@ namespace Inventario
             pnlSubLicencas.Visible = false;
             pnlSubMaquinas.Visible = false;
            // pnlSubConfig.Visible = false;
+        }
+
+        private void iconButtonCadastrarEquipamentos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButtonCadastrarLicencas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButtonCadastrarMaquinas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButtonExibirEquipamentos_Click(object sender, EventArgs e)
+        {
+            frmTelaEquipamentos telaEquipamentos = new frmTelaEquipamentos();
+            this.Hide();
+            telaEquipamentos.ShowDialog();
+            this.Show();
+        }
+
+        private void iconButtonExibirLicencas_Click(object sender, EventArgs e)
+        {
+            frmTelaLicencas telaLicencas = new frmTelaLicencas();
+            this.Hide();
+            telaLicencas.ShowDialog();
+            this.Show();
+        }
+
+        private void iconButtonExibirMaquinas_Click(object sender, EventArgs e)
+        {
+            frmTelaMaquinas telaMaquinas = new frmTelaMaquinas();
+            this.Hide();
+            telaMaquinas.ShowDialog();
+            this.Show();
         }
     }
 }
