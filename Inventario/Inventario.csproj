@@ -64,6 +64,12 @@
     <Compile Include="clsLimparCampos.cs" />
     <Compile Include="clsLog.cs" />
     <Compile Include="clsUsuario.cs" />
+    <Compile Include="frmCadastroLi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroLi.Designer.cs">
+      <DependentUpon>frmCadastroLi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCadastroLi.resx">
+      <DependentUpon>frmCadastroLi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>

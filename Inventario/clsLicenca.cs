@@ -49,7 +49,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarLicenca(int ID, string TipoLicenca, int NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento)
+        public void EditarLicenca(int ID, string TipoLicenca, int NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento, string Situacao)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -58,7 +58,7 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("UPDATE tbLicencas SET TipoLicenca = @TipoLicenca, NumeroSerie = @NumeroSerie, DataAtivacao = @DataAtivacao, DataVencimento = @DataVencimento");
+                    sql.Append("UPDATE tbLicencas SET TipoLicenca = @TipoLicenca, NumeroSerie = @NumeroSerie, DataAtivacao = @DataAtivacao, DataVencimento = @DataVencimento, Situacao = @Situacao");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
@@ -66,6 +66,7 @@ namespace Inventario
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@DataAtivacao", DataAtivacao));
                     cmd.Parameters.Add(new SqlParameter("@DataVencimento", DataVencimento));
+                    cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -93,7 +94,7 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento FROM tbLicencas");
+                    sql.Append("SELECT * FROM tbLicencas");
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;              
                     dtLocal.Load(cmd.ExecuteReader());

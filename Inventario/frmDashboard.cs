@@ -170,7 +170,8 @@ namespace Inventario
 
         private void iconButtonCadastrarLicencas_Click(object sender, EventArgs e)
         {
-
+            frmCadastroLi cadastroli = new frmCadastroLi();
+            cadastroli.ShowDialog();
         }
 
         private void iconButtonCadastrarMaquinas_Click(object sender, EventArgs e)

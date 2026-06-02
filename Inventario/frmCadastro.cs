@@ -70,13 +70,13 @@ namespace Inventario
         {
 
             //btn cadastrar verificações
-            if (string.IsNullOrEmpty(mtxtNome.Text))
+            if (string.IsNullOrEmpty(mtxtNome.Text) || mtxtNome.Text == Tnome)
             {
                 MessageBox.Show("O nome do usuário deve ser preenchido", "Nome", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 mtxtNome.Focus();
                 return;
             }
-            else if (string.IsNullOrEmpty(mtxtEmail.Text))
+            else if (string.IsNullOrEmpty(mtxtEmail.Text) || mtxtEmail.Text == Temail)
             {
                 MessageBox.Show("O Email do usuário deve ser preenchido", "Email", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 mtxtEmail.Focus();
@@ -91,7 +91,7 @@ namespace Inventario
                 return;
 
             }
-            else if (string.IsNullOrEmpty(mtxtSenha.Text))
+            else if (string.IsNullOrEmpty(mtxtSenha.Text) || mtxtSenha.Text == Tsenha)
             {
                 MessageBox.Show("A senha do usuário deve ser preenchida", "Senha", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 mtxtSenha.Focus();

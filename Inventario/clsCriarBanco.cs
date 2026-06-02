@@ -70,7 +70,8 @@ namespace Inventario
                     TipoLicenca VARCHAR(50) NOT NULL,       
                     NumeroSerie INT NOT NULL,
                     DataAtivacao DATE NOT NULL,
-                    DataVencimento DATE NOT NULL
+                    DataVencimento DATE NOT NULL,   
+                    Situacao CHAR(1) NULL DEFAULT 'A'
                     )";
                     using (SqlCommand cmd = new SqlCommand(CriartbLicencas, conexao))
                     {

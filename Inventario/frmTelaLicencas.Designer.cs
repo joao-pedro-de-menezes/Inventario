@@ -34,16 +34,16 @@
             this.grbOpcoes = new System.Windows.Forms.GroupBox();
             this.mbPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.grbPesquisa = new System.Windows.Forms.GroupBox();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.lblAtivacao = new System.Windows.Forms.Label();
-            this.lblTipo = new System.Windows.Forms.Label();
-            this.txtLicenca = new System.Windows.Forms.TextBox();
-            this.lblVencimento = new System.Windows.Forms.Label();
-            this.mskAtivacao = new System.Windows.Forms.MaskedTextBox();
-            this.mskVencimento = new System.Windows.Forms.MaskedTextBox();
-            this.lblNumeroSerie = new System.Windows.Forms.Label();
             this.txtNumeroSerie = new System.Windows.Forms.TextBox();
+            this.lblNumeroSerie = new System.Windows.Forms.Label();
+            this.mskVencimento = new System.Windows.Forms.MaskedTextBox();
+            this.mskAtivacao = new System.Windows.Forms.MaskedTextBox();
+            this.lblVencimento = new System.Windows.Forms.Label();
+            this.txtLicenca = new System.Windows.Forms.TextBox();
+            this.lblTipo = new System.Windows.Forms.Label();
+            this.lblAtivacao = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridLicencas)).BeginInit();
             this.grbGridLicencas.SuspendLayout();
             this.grbOpcoes.SuspendLayout();
@@ -141,73 +141,12 @@
             this.grbPesquisa.TabStop = false;
             this.grbPesquisa.Text = "Perquisar por:";
             // 
-            // lblCodigo
+            // txtNumeroSerie
             // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(6, 16);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(43, 13);
-            this.lblCodigo.TabIndex = 0;
-            this.lblCodigo.Text = "Código:";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(6, 32);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(79, 20);
-            this.txtCodigo.TabIndex = 1;
-            // 
-            // lblAtivacao
-            // 
-            this.lblAtivacao.AutoSize = true;
-            this.lblAtivacao.Location = new System.Drawing.Point(242, 16);
-            this.lblAtivacao.Name = "lblAtivacao";
-            this.lblAtivacao.Size = new System.Drawing.Size(78, 13);
-            this.lblAtivacao.TabIndex = 2;
-            this.lblAtivacao.Text = "Data Ativação:";
-            // 
-            // lblTipo
-            // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(6, 68);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(69, 13);
-            this.lblTipo.TabIndex = 3;
-            this.lblTipo.Text = "Tipo Licença";
-            // 
-            // txtLicenca
-            // 
-            this.txtLicenca.Location = new System.Drawing.Point(6, 84);
-            this.txtLicenca.Name = "txtLicenca";
-            this.txtLicenca.Size = new System.Drawing.Size(210, 20);
-            this.txtLicenca.TabIndex = 2;
-            // 
-            // lblVencimento
-            // 
-            this.lblVencimento.AutoSize = true;
-            this.lblVencimento.Location = new System.Drawing.Point(242, 68);
-            this.lblVencimento.Name = "lblVencimento";
-            this.lblVencimento.Size = new System.Drawing.Size(92, 13);
-            this.lblVencimento.TabIndex = 5;
-            this.lblVencimento.Text = "Data Vencimento:";
-            // 
-            // mskAtivacao
-            // 
-            this.mskAtivacao.Location = new System.Drawing.Point(245, 32);
-            this.mskAtivacao.Mask = "00/00/0000";
-            this.mskAtivacao.Name = "mskAtivacao";
-            this.mskAtivacao.Size = new System.Drawing.Size(75, 20);
-            this.mskAtivacao.TabIndex = 3;
-            this.mskAtivacao.ValidatingType = typeof(System.DateTime);
-            // 
-            // mskVencimento
-            // 
-            this.mskVencimento.Location = new System.Drawing.Point(245, 84);
-            this.mskVencimento.Mask = "00/00/0000";
-            this.mskVencimento.Name = "mskVencimento";
-            this.mskVencimento.Size = new System.Drawing.Size(75, 20);
-            this.mskVencimento.TabIndex = 4;
-            this.mskVencimento.ValidatingType = typeof(System.DateTime);
+            this.txtNumeroSerie.Location = new System.Drawing.Point(116, 32);
+            this.txtNumeroSerie.Name = "txtNumeroSerie";
+            this.txtNumeroSerie.Size = new System.Drawing.Size(100, 20);
+            this.txtNumeroSerie.TabIndex = 7;
             // 
             // lblNumeroSerie
             // 
@@ -218,12 +157,73 @@
             this.lblNumeroSerie.TabIndex = 6;
             this.lblNumeroSerie.Text = "Número Série:";
             // 
-            // txtNumeroSerie
+            // mskVencimento
             // 
-            this.txtNumeroSerie.Location = new System.Drawing.Point(116, 32);
-            this.txtNumeroSerie.Name = "txtNumeroSerie";
-            this.txtNumeroSerie.Size = new System.Drawing.Size(100, 20);
-            this.txtNumeroSerie.TabIndex = 7;
+            this.mskVencimento.Location = new System.Drawing.Point(245, 84);
+            this.mskVencimento.Mask = "00/00/0000";
+            this.mskVencimento.Name = "mskVencimento";
+            this.mskVencimento.Size = new System.Drawing.Size(75, 20);
+            this.mskVencimento.TabIndex = 4;
+            this.mskVencimento.ValidatingType = typeof(System.DateTime);
+            // 
+            // mskAtivacao
+            // 
+            this.mskAtivacao.Location = new System.Drawing.Point(245, 32);
+            this.mskAtivacao.Mask = "00/00/0000";
+            this.mskAtivacao.Name = "mskAtivacao";
+            this.mskAtivacao.Size = new System.Drawing.Size(75, 20);
+            this.mskAtivacao.TabIndex = 3;
+            this.mskAtivacao.ValidatingType = typeof(System.DateTime);
+            // 
+            // lblVencimento
+            // 
+            this.lblVencimento.AutoSize = true;
+            this.lblVencimento.Location = new System.Drawing.Point(242, 68);
+            this.lblVencimento.Name = "lblVencimento";
+            this.lblVencimento.Size = new System.Drawing.Size(92, 13);
+            this.lblVencimento.TabIndex = 5;
+            this.lblVencimento.Text = "Data Vencimento:";
+            // 
+            // txtLicenca
+            // 
+            this.txtLicenca.Location = new System.Drawing.Point(6, 84);
+            this.txtLicenca.Name = "txtLicenca";
+            this.txtLicenca.Size = new System.Drawing.Size(210, 20);
+            this.txtLicenca.TabIndex = 2;
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Location = new System.Drawing.Point(6, 68);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(69, 13);
+            this.lblTipo.TabIndex = 3;
+            this.lblTipo.Text = "Tipo Licença";
+            // 
+            // lblAtivacao
+            // 
+            this.lblAtivacao.AutoSize = true;
+            this.lblAtivacao.Location = new System.Drawing.Point(242, 16);
+            this.lblAtivacao.Name = "lblAtivacao";
+            this.lblAtivacao.Size = new System.Drawing.Size(78, 13);
+            this.lblAtivacao.TabIndex = 2;
+            this.lblAtivacao.Text = "Data Ativação:";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(6, 32);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(79, 20);
+            this.txtCodigo.TabIndex = 1;
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(6, 16);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(43, 13);
+            this.lblCodigo.TabIndex = 0;
+            this.lblCodigo.Text = "Código:";
             // 
             // frmTelaLicencas
             // 
