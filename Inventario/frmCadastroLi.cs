@@ -140,7 +140,38 @@ namespace Inventario
                     }
 
                 }
-                
+
+            }
+            else if(Convert.ToString(mbtnCadastrar.Tag) == "Editar")
+            {
+
+                string situacao = "";
+                if (mRadioAtivo.Checked)
+                {
+                    situacao = "A";
+                }
+                else if (mRadioInativo.Checked)
+                {
+                    situacao = "I";
+                }
+                try
+                {
+                    if (MessageBox.Show("Deseja realmente editar esta licença?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        clsLicenca licenca = new clsLicenca();
+                        licenca.EditarLicenca(Convert.ToInt32(txtCodigo.Text), txtTipoLicenca.Text.ToString(), Convert.ToInt32(txtNumeroLicenca.Text), Convert.ToDateTime(mskAtivacao.Text), Convert.ToDateTime(mskVencimento.Text), Convert.ToString(situacao));
+                        MessageBox.Show("Licença Alterada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        resetar();
+                        carregar();
+                        dgvLicenca.DataSource = null;
+                    }
+                    
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
           
         }
@@ -155,6 +186,12 @@ namespace Inventario
                 if (ctl is MaterialMaskedTextBox)
                     ctl.Text = "  /  /";
             }
+
+            mRadioInativo.Enabled = false;
+            txtCodigo.Visible = false;
+            txtCodigo.Visible = false;
+            mbtnCadastrar.Tag = "Novo";
+            mbtnCadastrar.Text = "Cadastrar";
         }
 
         private void txtNumeroLicenca_KeyPress(object sender, KeyPressEventArgs e)
@@ -174,8 +211,126 @@ namespace Inventario
         {
             //ACABAR DE FAZER
             clsLicenca licenca = new clsLicenca();
-            dgvLicenca.DataSource = licenca.PesquisaTodos();
+            if (!string.IsNullOrEmpty(txtCodigoP.Text))
+            {
+                dgvLicenca.DataSource = licenca.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));
+                txtCodigoP.Focus();
+                return;
+             
+            }
+            else if (!string.IsNullOrEmpty(txtNumeroSerieP.Text))
+            {
+                dgvLicenca.DataSource = licenca.PesquisaNumero(Convert.ToInt16(txtNumeroSerieP.Text));
+                
+            }
+            else if (!string.IsNullOrEmpty(txtLicencaP.Text))
+            {
+                dgvLicenca.DataSource = licenca.PesquisaTipo(txtLicencaP.Text);
+            }
+            else if (mskAtivacaoP.MaskCompleted && !mskVencimentoP.MaskCompleted)
+            {
+                MessageBox.Show("Para fazer a pesquisa de data, a ativação e o vencimento devem ser preenchidas");
+            }
+            else if (mskAtivacaoP.MaskCompleted && mskVencimentoP.MaskCompleted)
+            {
+                dgvLicenca.DataSource = licenca.PesquisaData(Convert.ToDateTime(mskAtivacaoP.Text), Convert.ToDateTime(mskVencimentoP.Text));
+            }
+            else
+            {
+                if (MessageBox.Show("Nenhum parâmetro foi colocado deseja fazer uma pesquisa geral?", "Parametro", MessageBoxButtons.YesNo , MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    dgvLicenca.DataSource = licenca.PesquisaTodos();
+                }
+            }
+           
+                
 
+        }
+
+        private void txtNumeroSerieP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Bloqueia a tecla (isso impede vírgula, ponto, letras e símbolos)
+                e.Handled = true;
+
+                // Exibe o aviso para o usuário
+                MessageBox.Show("O Numero da licença não pode conter letras.", "NumeroLi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
+        private void txtCodigoP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Bloqueia a tecla (isso impede vírgula, ponto, letras e símbolos)
+                e.Handled = true;
+
+                // Exibe o aviso para o usuário
+                MessageBox.Show("O código não pode conter letras.", "NumeroLi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
+        private void dgvLicenca_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt16(dgvLicenca.CurrentRow.Cells[0].Value) > 0)
+                {
+                    string situacao = "";
+                    if (mRadioAtivo.Checked)
+                    {
+                        situacao = "A";
+                    }
+                    else if (mRadioInativo.Checked)
+                    {
+                        situacao = "I";
+                    }
+                    mRadioInativo.Enabled = true;
+
+                    tabCntrCadastro.SelectedIndex = 1;
+                    txtCodigo.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[0].Value);
+                    txtTipoLicenca.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[1].Value);
+                    txtNumeroLicenca.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[2].Value);
+                    mskAtivacao.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[3].Value);
+                    mskVencimento.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[4].Value);
+                    situacao = dgvLicenca.CurrentRow.Cells[5].Value.ToString();
+                    mbtnCadastrar.Text = "Editar";
+                    mbtnCadastrar.Tag = "Editar";
+                    txtCodigo.Visible = true;
+
+                }
+               
+
+            }
+            catch (Exception ex )
+            {
+                MessageBox.Show($"ERRO, ${ex}");
+                throw;
+            }
+        }
+
+        private void mbtnCancelar_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Deseja Cancelar? (Alterará todos os campos para o padrão)","Cancelar",  MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                resetar();
+                carregar();
+                dgvLicenca.DataSource = null;
+            }
+           
+        }
+
+        private void mbVoltar_Click(object sender, EventArgs e)
+        {
+            frmDashboard dash = new frmDashboard();
+            this.Hide();
+            dash.ShowDialog();
+            this.Close();
+            
         }
     }
 }

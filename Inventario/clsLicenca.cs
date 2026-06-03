@@ -13,7 +13,7 @@ namespace Inventario
     {
         SqlCommand cmd = new SqlCommand();
         StringBuilder sql = new StringBuilder();
-       
+        DataTable dt = new DataTable();
 
         public void SalvarLicenca(string TipoLicenca, int NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento)
         {
@@ -170,9 +170,72 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao pesquisar licenças por data {ex}", "Pesquisar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Erro ao pesquisar licenças por data {ex}", "Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
+                finally
+                {
+                    conexao.Close();
+                }
         }
+
+        public DataTable PesquisaCodigo(int Codigo)
+        {
+        using(SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+
+                    sql.Append("Select * FROM tbLicencas");
+                    sql.Append(" WHERE ID = @Codigo");
+                    cmd.Parameters.Add(new SqlParameter("@Codigo", Codigo));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    dt.Load(cmd.ExecuteReader());
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar licenças por Codigo {ex}", "Codigo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+                finally
+                {
+                    conexao.Close();
+                }
+        }
+        public DataTable PesquisaNumero(int NumeroSerie)
+        {
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+                    sql.Append("SELECT * FROM tbLicencas");
+                    sql.Append(" WHERE NumeroSerie = @NumeroSerie");
+                    cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+
+                    dt.Load(cmd.ExecuteReader());
+                    return dt;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar licenças por Numero Serie {ex}", "Numero", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+                finally
+                {
+                    conexao.Close();
+                }
+        }
+
+
+
     }
 }

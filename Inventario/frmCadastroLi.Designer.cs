@@ -63,6 +63,7 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
+            this.mbtnCancelar = new MaterialSkin.Controls.MaterialButton();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridLicencas.SuspendLayout();
@@ -122,6 +123,7 @@
             this.dgvLicenca.ReadOnly = true;
             this.dgvLicenca.Size = new System.Drawing.Size(798, 422);
             this.dgvLicenca.TabIndex = 0;
+            this.dgvLicenca.DoubleClick += new System.EventHandler(this.dgvLicenca_DoubleClick);
             // 
             // grbOpcoesP
             // 
@@ -174,6 +176,7 @@
             this.mbVoltar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbVoltar.UseAccentColor = false;
             this.mbVoltar.UseVisualStyleBackColor = true;
+            this.mbVoltar.Click += new System.EventHandler(this.mbVoltar_Click);
             // 
             // grbPesquisa
             // 
@@ -200,6 +203,7 @@
             this.txtNumeroSerieP.Name = "txtNumeroSerieP";
             this.txtNumeroSerieP.Size = new System.Drawing.Size(100, 20);
             this.txtNumeroSerieP.TabIndex = 7;
+            this.txtNumeroSerieP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroSerieP_KeyPress);
             // 
             // lblNumeroSerieP
             // 
@@ -268,6 +272,7 @@
             this.txtCodigoP.Name = "txtCodigoP";
             this.txtCodigoP.Size = new System.Drawing.Size(79, 20);
             this.txtCodigoP.TabIndex = 1;
+            this.txtCodigoP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoP_KeyPress);
             // 
             // lblCodigoP
             // 
@@ -293,6 +298,7 @@
             // 
             // grbOpcoes
             // 
+            this.grbOpcoes.Controls.Add(this.mbtnCancelar);
             this.grbOpcoes.Controls.Add(this.mbtnPesquisar);
             this.grbOpcoes.Controls.Add(this.mbtnCadastrar);
             this.grbOpcoes.Location = new System.Drawing.Point(223, 473);
@@ -324,6 +330,7 @@
             // 
             // mbtnCadastrar
             // 
+            this.mbtnCadastrar.AutoSize = false;
             this.mbtnCadastrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnCadastrar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.mbtnCadastrar.Depth = 0;
@@ -334,7 +341,7 @@
             this.mbtnCadastrar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnCadastrar.Name = "mbtnCadastrar";
             this.mbtnCadastrar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnCadastrar.Size = new System.Drawing.Size(106, 36);
+            this.mbtnCadastrar.Size = new System.Drawing.Size(114, 36);
             this.mbtnCadastrar.TabIndex = 2;
             this.mbtnCadastrar.Text = "Cadastrar";
             this.mbtnCadastrar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -581,6 +588,27 @@
             this.tbSelecionar.TabIndex = 2;
             this.tbSelecionar.Text = "materialTabSelector1";
             // 
+            // mbtnCancelar
+            // 
+            this.mbtnCancelar.AutoSize = false;
+            this.mbtnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbtnCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbtnCancelar.Depth = 0;
+            this.mbtnCancelar.HighEmphasis = true;
+            this.mbtnCancelar.Icon = null;
+            this.mbtnCancelar.Location = new System.Drawing.Point(140, 22);
+            this.mbtnCancelar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbtnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnCancelar.Name = "mbtnCancelar";
+            this.mbtnCancelar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbtnCancelar.Size = new System.Drawing.Size(114, 36);
+            this.mbtnCancelar.TabIndex = 4;
+            this.mbtnCancelar.Text = "Cancelar";
+            this.mbtnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbtnCancelar.UseAccentColor = false;
+            this.mbtnCancelar.UseVisualStyleBackColor = true;
+            this.mbtnCancelar.Click += new System.EventHandler(this.mbtnCancelar_Click);
+            // 
             // frmCadastroLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -647,5 +675,6 @@
         private MaterialSkin.Controls.MaterialRadioButton mRadioAtivo;
         private MaterialSkin.Controls.MaterialRadioButton mRadioInativo;
         private MaterialSkin.Controls.MaterialButton mbtnPesquisar;
+        private MaterialSkin.Controls.MaterialButton mbtnCancelar;
     }
 }
