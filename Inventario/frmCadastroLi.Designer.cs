@@ -48,6 +48,7 @@
             this.lblCodigoP = new System.Windows.Forms.Label();
             this.tbCadastro = new System.Windows.Forms.TabPage();
             this.grbOpcoes = new System.Windows.Forms.GroupBox();
+            this.mbtnCancelar = new MaterialSkin.Controls.MaterialButton();
             this.mbtnPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.mbtnCadastrar = new MaterialSkin.Controls.MaterialButton();
             this.grbSituacao = new System.Windows.Forms.GroupBox();
@@ -63,7 +64,6 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
-            this.mbtnCancelar = new MaterialSkin.Controls.MaterialButton();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridLicencas.SuspendLayout();
@@ -308,6 +308,27 @@
             this.grbOpcoes.TabStop = false;
             this.grbOpcoes.Text = "Opções";
             // 
+            // mbtnCancelar
+            // 
+            this.mbtnCancelar.AutoSize = false;
+            this.mbtnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbtnCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbtnCancelar.Depth = 0;
+            this.mbtnCancelar.HighEmphasis = true;
+            this.mbtnCancelar.Icon = null;
+            this.mbtnCancelar.Location = new System.Drawing.Point(140, 22);
+            this.mbtnCancelar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbtnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnCancelar.Name = "mbtnCancelar";
+            this.mbtnCancelar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mbtnCancelar.Size = new System.Drawing.Size(114, 36);
+            this.mbtnCancelar.TabIndex = 4;
+            this.mbtnCancelar.Text = "Cancelar";
+            this.mbtnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbtnCancelar.UseAccentColor = false;
+            this.mbtnCancelar.UseVisualStyleBackColor = true;
+            this.mbtnCancelar.Click += new System.EventHandler(this.mbtnCancelar_Click);
+            // 
             // mbtnPesquisar
             // 
             this.mbtnPesquisar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -418,7 +439,6 @@
             this.lblAtivacao.Size = new System.Drawing.Size(52, 13);
             this.lblAtivacao.TabIndex = 9;
             this.lblAtivacao.Text = "Ativação:";
-            this.lblAtivacao.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -587,27 +607,6 @@
             this.tbSelecionar.Size = new System.Drawing.Size(398, 48);
             this.tbSelecionar.TabIndex = 2;
             this.tbSelecionar.Text = "materialTabSelector1";
-            // 
-            // mbtnCancelar
-            // 
-            this.mbtnCancelar.AutoSize = false;
-            this.mbtnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnCancelar.Depth = 0;
-            this.mbtnCancelar.HighEmphasis = true;
-            this.mbtnCancelar.Icon = null;
-            this.mbtnCancelar.Location = new System.Drawing.Point(140, 22);
-            this.mbtnCancelar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnCancelar.Name = "mbtnCancelar";
-            this.mbtnCancelar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnCancelar.Size = new System.Drawing.Size(114, 36);
-            this.mbtnCancelar.TabIndex = 4;
-            this.mbtnCancelar.Text = "Cancelar";
-            this.mbtnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnCancelar.UseAccentColor = false;
-            this.mbtnCancelar.UseVisualStyleBackColor = true;
-            this.mbtnCancelar.Click += new System.EventHandler(this.mbtnCancelar_Click);
             // 
             // frmCadastroLi
             // 

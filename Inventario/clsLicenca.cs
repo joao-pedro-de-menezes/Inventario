@@ -15,7 +15,7 @@ namespace Inventario
         StringBuilder sql = new StringBuilder();
         DataTable dt = new DataTable();
 
-        public void SalvarLicenca(string TipoLicenca, int NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento)
+        public void SalvarLicenca(string TipoLicenca, string NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento, string Situacao)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
 
@@ -26,13 +26,14 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbLicencas(TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento)");
-                    sql.Append(" VALUES (@TipoLicenca, @NumeroSerie, @DataAtivacao, @DataVencimento)");
+                    sql.Append("INSERT INTO tbLicencas(TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao)");
+                    sql.Append(" VALUES (@TipoLicenca, @NumeroSerie, @DataAtivacao, @DataVencimento, @Situacao)");
 
                     cmd.Parameters.Add(new SqlParameter("@TipoLicenca", TipoLicenca));
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@DataAtivacao", DataAtivacao));
                     cmd.Parameters.Add(new SqlParameter("@DataVencimento", DataVencimento));
+                    cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -49,7 +50,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarLicenca(int ID, string TipoLicenca, int NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento, string Situacao)
+        public void EditarLicenca(int ID, string TipoLicenca, string NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento, string Situacao)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -122,7 +123,7 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento FROM tbLicencas");
+                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao FROM tbLicencas");
                     sql.Append(" WHERE TipoLicenca LIKE '%' + @TipoLicenca + '%' ");
                     sql.Append(" ORDER BY TipoLicenca");
                     cmd.Parameters.Add(new SqlParameter("@TipoLicenca", TipoLicenca));
@@ -154,7 +155,7 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento FROM tbLicencas");
+                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao FROM tbLicencas");
                     sql.Append(" WHERE DataVencimento BETWEEN @dataInicio AND @dataFim");
                     sql.Append(" ORDER BY DataVencimento ASC");
 
@@ -181,20 +182,22 @@ namespace Inventario
 
         public DataTable PesquisaCodigo(int Codigo)
         {
-        using(SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+            DataTable dtLocal = new DataTable();
+
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
                 {
                     sql.Clear();
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("Select * FROM tbLicencas");
+                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao FROM tbLicencas");
                     sql.Append(" WHERE ID = @Codigo");
                     cmd.Parameters.Add(new SqlParameter("@Codigo", Codigo));
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
-                    dt.Load(cmd.ExecuteReader());
-                    return dt;
+                    dtLocal.Load(cmd.ExecuteReader());
+                    return dtLocal;
                 }
                 catch (Exception ex)
                 {
@@ -206,22 +209,24 @@ namespace Inventario
                     conexao.Close();
                 }
         }
-        public DataTable PesquisaNumero(int NumeroSerie)
+        public DataTable PesquisaNumero(string NumeroSerie)
         {
+            DataTable dtLocal = new DataTable();
+
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
                 {
                     sql.Clear();
                     cmd.Parameters.Clear();
                     conexao.Open();
-                    sql.Append("SELECT * FROM tbLicencas");
+                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao FROM tbLicencas");
                     sql.Append(" WHERE NumeroSerie = @NumeroSerie");
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
 
-                    dt.Load(cmd.ExecuteReader());
-                    return dt;
+                    dtLocal.Load(cmd.ExecuteReader());
+                    return dtLocal;
 
                 }
                 catch (Exception ex)

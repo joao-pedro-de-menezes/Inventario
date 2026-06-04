@@ -45,14 +45,9 @@ namespace Inventario
         {
             // 1. Diz que o tamanho das abas será fixo
             tabCntrCadastro.SizeMode = TabSizeMode.Fixed;
-            // 2. Define a largura e a altura das abas para ZERO (0, 1) Isso faz com que os cabeçalhos fiquem invisíveis/escondidos na 
+            // 2. Define a largura e a altura das abas para ZERO (0, 1) Isso faz com que os cabeçalhos fiquem invisíveis/escondidos na interface
             tabCntrCadastro.ItemSize = new Size(0, 1);
             mbtnCadastrar.Tag = "Novo";
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -79,7 +74,7 @@ namespace Inventario
 
         private void mbtnCadastrar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtTipoLicenca.Text) || txtTipoLicenca.Text == Tlicenca)
+            if (string.IsNullOrEmpty(txtTipoLicenca.Text) || txtTipoLicenca.Text == Tlicenca) 
             {
                 MessageBox.Show("O tipo da licença deve ser preenchido", "Tipo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtTipoLicenca.Focus();
@@ -127,7 +122,7 @@ namespace Inventario
                     try
                     {
                         clsLicenca licenca = new clsLicenca();
-                        licenca.SalvarLicenca(txtTipoLicenca.Text, Convert.ToInt32(txtNumeroLicenca.Text), Convert.ToDateTime(mskAtivacao.Text), Convert.ToDateTime(mskVencimento.Text));
+                        licenca.SalvarLicenca(txtTipoLicenca.Text, (txtNumeroLicenca.Text), Convert.ToDateTime(mskAtivacao.Text), Convert.ToDateTime(mskVencimento.Text), "A");
                         resetar();
                         MessageBox.Show("Licença Cadastrado com sucesso!", "SalvLicença", MessageBoxButtons.OK);
                         carregar();
@@ -159,7 +154,7 @@ namespace Inventario
                     if (MessageBox.Show("Deseja realmente editar esta licença?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         clsLicenca licenca = new clsLicenca();
-                        licenca.EditarLicenca(Convert.ToInt32(txtCodigo.Text), txtTipoLicenca.Text.ToString(), Convert.ToInt32(txtNumeroLicenca.Text), Convert.ToDateTime(mskAtivacao.Text), Convert.ToDateTime(mskVencimento.Text), Convert.ToString(situacao));
+                        licenca.EditarLicenca(Convert.ToInt32(txtCodigo.Text), txtTipoLicenca.Text.ToString(), (txtNumeroLicenca.Text), Convert.ToDateTime(mskAtivacao.Text), Convert.ToDateTime(mskVencimento.Text), Convert.ToString(situacao));
                         MessageBox.Show("Licença Alterada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         resetar();
                         carregar();
@@ -167,9 +162,9 @@ namespace Inventario
                     }
                     
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    MessageBox.Show($"Erro ao editar Licença {ex}", "EditarLi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     throw;
                 }
             }
@@ -196,13 +191,14 @@ namespace Inventario
 
         private void txtNumeroLicenca_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            // devemos utilizar o IsLetterOrDigit para permitir letras e números, a licença pode ter os dois
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '-') 
             {
-                // Bloqueia a tecla (isso impede vírgula, ponto, letras e símbolos)
+                // Bloqueia a tecla (isso impede tudo aquilo que não colocamos no if acima)
                 e.Handled = true;
 
                 // Exibe o aviso para o usuário
-                MessageBox.Show("O Numero da licença não pode conter letras.", "NumeroLi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("A licença deve conter apenas letras, números e traços (-).", "NumeroLi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -220,7 +216,7 @@ namespace Inventario
             }
             else if (!string.IsNullOrEmpty(txtNumeroSerieP.Text))
             {
-                dgvLicenca.DataSource = licenca.PesquisaNumero(Convert.ToInt16(txtNumeroSerieP.Text));
+                dgvLicenca.DataSource = licenca.PesquisaNumero(txtNumeroSerieP.Text);
                 
             }
             else if (!string.IsNullOrEmpty(txtLicencaP.Text))
@@ -249,17 +245,16 @@ namespace Inventario
 
         private void txtNumeroSerieP_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+         
+        
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '-')
             {
-                // Bloqueia a tecla (isso impede vírgula, ponto, letras e símbolos)
                 e.Handled = true;
-
-                // Exibe o aviso para o usuário
-                MessageBox.Show("O Numero da licença não pode conter letras.", "NumeroLi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("O Número da licença deve conter apenas letras, números e traços (-).", "NumeroLi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
-
+    
         private void txtCodigoP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -279,24 +274,27 @@ namespace Inventario
             {
                 if (Convert.ToInt16(dgvLicenca.CurrentRow.Cells[0].Value) > 0)
                 {
-                    string situacao = "";
-                    if (mRadioAtivo.Checked)
-                    {
-                        situacao = "A";
-                    }
-                    else if (mRadioInativo.Checked)
-                    {
-                        situacao = "I";
-                    }
                     mRadioInativo.Enabled = true;
-
                     tabCntrCadastro.SelectedIndex = 1;
+
                     txtCodigo.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[0].Value);
                     txtTipoLicenca.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[1].Value);
                     txtNumeroLicenca.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[2].Value);
                     mskAtivacao.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[3].Value);
                     mskVencimento.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[4].Value);
-                    situacao = dgvLicenca.CurrentRow.Cells[5].Value.ToString();
+
+                
+                    string situacao = dgvLicenca.CurrentRow.Cells[5].Value.ToString();
+                    if (situacao == "A")
+                    {
+                        mRadioAtivo.Checked = true;
+                    }
+                    
+                    else if (situacao == "I")
+                    {
+                        mRadioInativo.Checked = true;
+                    }
+
                     mbtnCadastrar.Text = "Editar";
                     mbtnCadastrar.Tag = "Editar";
                     txtCodigo.Visible = true;
@@ -307,7 +305,7 @@ namespace Inventario
             }
             catch (Exception ex )
             {
-                MessageBox.Show($"ERRO, ${ex}");
+                MessageBox.Show($"ERRO, {ex}");
                 throw;
             }
         }
@@ -326,11 +324,11 @@ namespace Inventario
 
         private void mbVoltar_Click(object sender, EventArgs e)
         {
-            frmDashboard dash = new frmDashboard();
-            this.Hide();
-            dash.ShowDialog();
+
             this.Close();
             
         }
+
+    
     }
 }
