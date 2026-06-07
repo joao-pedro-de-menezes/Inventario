@@ -41,7 +41,7 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao salvar licença {ex}", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Erro ao salvar licença {ex.Message}", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
                 finally 
@@ -75,7 +75,7 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao editar licença {ex}", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Erro ao editar licença {ex.Message}", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
                 finally
@@ -103,7 +103,7 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao pesquisar licenças {ex}", "Pesquisar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Erro ao pesquisar licenças {ex.Message}", "Pesquisar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
                 finally
@@ -135,7 +135,7 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao pesquisar Licença pelo Tipo {ex}", "Nome", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Erro ao pesquisar Licença pelo Tipo {ex.Message}", "Nome", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
                 finally 
@@ -171,7 +171,7 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao pesquisar licenças por data {ex}", "Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Erro ao pesquisar licenças por data {ex.Message}", "Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
                 finally
@@ -201,7 +201,7 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao pesquisar licenças por Codigo {ex}", "Codigo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Erro ao pesquisar licenças por Codigo {ex.Message}", "Codigo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
                 finally
@@ -231,7 +231,7 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao pesquisar licenças por Numero Serie {ex}", "Numero", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Erro ao pesquisar licenças por Numero Serie {ex.Message}", "Numero", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
                 finally

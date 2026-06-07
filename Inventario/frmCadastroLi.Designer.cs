@@ -81,12 +81,12 @@
             this.tabCntrCadastro.Controls.Add(this.tbSelecao);
             this.tabCntrCadastro.Controls.Add(this.tbCadastro);
             this.tabCntrCadastro.Depth = 0;
-            this.tabCntrCadastro.Location = new System.Drawing.Point(6, 121);
+            this.tabCntrCadastro.Location = new System.Drawing.Point(6, 111);
             this.tabCntrCadastro.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabCntrCadastro.Multiline = true;
             this.tabCntrCadastro.Name = "tabCntrCadastro";
             this.tabCntrCadastro.SelectedIndex = 0;
-            this.tabCntrCadastro.Size = new System.Drawing.Size(833, 600);
+            this.tabCntrCadastro.Size = new System.Drawing.Size(833, 560);
             this.tabCntrCadastro.TabIndex = 1;
             // 
             // tbSelecao
@@ -97,7 +97,7 @@
             this.tbSelecao.Location = new System.Drawing.Point(4, 22);
             this.tbSelecao.Name = "tbSelecao";
             this.tbSelecao.Padding = new System.Windows.Forms.Padding(3);
-            this.tbSelecao.Size = new System.Drawing.Size(825, 574);
+            this.tbSelecao.Size = new System.Drawing.Size(825, 534);
             this.tbSelecao.TabIndex = 0;
             this.tbSelecao.Text = "Seleção";
             this.tbSelecao.UseVisualStyleBackColor = true;
@@ -105,9 +105,9 @@
             // grbGridLicencas
             // 
             this.grbGridLicencas.Controls.Add(this.dgvLicenca);
-            this.grbGridLicencas.Location = new System.Drawing.Point(12, 122);
+            this.grbGridLicencas.Location = new System.Drawing.Point(6, 122);
             this.grbGridLicencas.Name = "grbGridLicencas";
-            this.grbGridLicencas.Size = new System.Drawing.Size(807, 447);
+            this.grbGridLicencas.Size = new System.Drawing.Size(807, 411);
             this.grbGridLicencas.TabIndex = 5;
             this.grbGridLicencas.TabStop = false;
             this.grbGridLicencas.Text = "Licenças";
@@ -121,7 +121,7 @@
             this.dgvLicenca.Location = new System.Drawing.Point(3, 19);
             this.dgvLicenca.Name = "dgvLicenca";
             this.dgvLicenca.ReadOnly = true;
-            this.dgvLicenca.Size = new System.Drawing.Size(798, 422);
+            this.dgvLicenca.Size = new System.Drawing.Size(798, 389);
             this.dgvLicenca.TabIndex = 0;
             this.dgvLicenca.DoubleClick += new System.EventHandler(this.dgvLicenca_DoubleClick);
             // 
@@ -129,7 +129,7 @@
             // 
             this.grbOpcoesP.Controls.Add(this.mbPesquisar);
             this.grbOpcoesP.Controls.Add(this.mbVoltar);
-            this.grbOpcoesP.Location = new System.Drawing.Point(516, 16);
+            this.grbOpcoesP.Location = new System.Drawing.Point(523, 22);
             this.grbOpcoesP.Name = "grbOpcoesP";
             this.grbOpcoesP.Size = new System.Drawing.Size(223, 71);
             this.grbOpcoesP.TabIndex = 4;
@@ -291,7 +291,7 @@
             this.tbCadastro.Location = new System.Drawing.Point(4, 22);
             this.tbCadastro.Name = "tbCadastro";
             this.tbCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tbCadastro.Size = new System.Drawing.Size(825, 574);
+            this.tbCadastro.Size = new System.Drawing.Size(825, 547);
             this.tbCadastro.TabIndex = 1;
             this.tbCadastro.Text = "Cadastro";
             this.tbCadastro.UseVisualStyleBackColor = true;
@@ -601,7 +601,7 @@
             this.tbSelecionar.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
             this.tbSelecionar.Depth = 0;
             this.tbSelecionar.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.tbSelecionar.Location = new System.Drawing.Point(233, 78);
+            this.tbSelecionar.Location = new System.Drawing.Point(233, 57);
             this.tbSelecionar.MouseState = MaterialSkin.MouseState.HOVER;
             this.tbSelecionar.Name = "tbSelecionar";
             this.tbSelecionar.Size = new System.Drawing.Size(398, 48);
@@ -612,7 +612,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 727);
+            this.ClientSize = new System.Drawing.Size(843, 676);
             this.Controls.Add(this.tbSelecionar);
             this.Controls.Add(this.tabCntrCadastro);
             this.Name = "frmCadastroLi";
