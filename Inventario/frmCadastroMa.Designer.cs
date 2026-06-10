@@ -36,6 +36,8 @@
             this.mbPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.mbVoltar = new MaterialSkin.Controls.MaterialButton();
             this.grbPesquisa = new System.Windows.Forms.GroupBox();
+            this.txtFrenteP = new System.Windows.Forms.TextBox();
+            this.txtFrotaP = new System.Windows.Forms.TextBox();
             this.lblFrente = new System.Windows.Forms.Label();
             this.lblFrota = new System.Windows.Forms.Label();
             this.txtSituacaoP = new System.Windows.Forms.TextBox();
@@ -53,14 +55,12 @@
             this.mRadioAtivo = new MaterialSkin.Controls.MaterialRadioButton();
             this.mRadioInativo = new MaterialSkin.Controls.MaterialRadioButton();
             this.grbCampos = new System.Windows.Forms.GroupBox();
+            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.mtxtFrente = new MaterialSkin.Controls.MaterialTextBox();
             this.mtxtFrota = new MaterialSkin.Controls.MaterialTextBox();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
-            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
-            this.txtFrotaP = new System.Windows.Forms.TextBox();
-            this.txtFrenteP = new System.Windows.Forms.TextBox();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridMaquinas.SuspendLayout();
@@ -191,6 +191,22 @@
             this.grbPesquisa.TabIndex = 0;
             this.grbPesquisa.TabStop = false;
             this.grbPesquisa.Text = "Perquisar por:";
+            // 
+            // txtFrenteP
+            // 
+            this.txtFrenteP.Location = new System.Drawing.Point(199, 32);
+            this.txtFrenteP.Name = "txtFrenteP";
+            this.txtFrenteP.Size = new System.Drawing.Size(52, 20);
+            this.txtFrenteP.TabIndex = 13;
+            this.txtFrenteP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFrenteP_KeyPress);
+            // 
+            // txtFrotaP
+            // 
+            this.txtFrotaP.Location = new System.Drawing.Point(119, 32);
+            this.txtFrotaP.Name = "txtFrotaP";
+            this.txtFrotaP.Size = new System.Drawing.Size(52, 20);
+            this.txtFrotaP.TabIndex = 13;
+            this.txtFrotaP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFrotaP_KeyPress);
             // 
             // lblFrente
             // 
@@ -405,6 +421,28 @@
             this.grbCampos.TabIndex = 1;
             this.grbCampos.TabStop = false;
             // 
+            // materialComboBox1
+            // 
+            this.materialComboBox1.AutoResize = false;
+            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBox1.Depth = 0;
+            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBox1.DropDownHeight = 174;
+            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBox1.DropDownWidth = 121;
+            this.materialComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBox1.FormattingEnabled = true;
+            this.materialComboBox1.IntegralHeight = false;
+            this.materialComboBox1.ItemHeight = 43;
+            this.materialComboBox1.Location = new System.Drawing.Point(6, 159);
+            this.materialComboBox1.MaxDropDownItems = 4;
+            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBox1.Name = "materialComboBox1";
+            this.materialComboBox1.Size = new System.Drawing.Size(384, 49);
+            this.materialComboBox1.StartIndex = 0;
+            this.materialComboBox1.TabIndex = 4;
+            // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
@@ -420,7 +458,7 @@
             this.mtxtFrente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mtxtFrente.Depth = 0;
             this.mtxtFrente.Enabled = false;
-            this.mtxtFrente.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mtxtFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.mtxtFrente.LeadingIcon = null;
             this.mtxtFrente.Location = new System.Drawing.Point(201, 102);
             this.mtxtFrente.MaxLength = 10000000;
@@ -439,7 +477,7 @@
             this.mtxtFrota.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mtxtFrota.Depth = 0;
             this.mtxtFrota.Enabled = false;
-            this.mtxtFrota.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mtxtFrota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.mtxtFrota.LeadingIcon = null;
             this.mtxtFrota.Location = new System.Drawing.Point(6, 102);
             this.mtxtFrota.MaxLength = 10000000;
@@ -477,50 +515,12 @@
             this.tbSelecionar.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
             this.tbSelecionar.Depth = 0;
             this.tbSelecionar.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.tbSelecionar.Location = new System.Drawing.Point(233, 55);
+            this.tbSelecionar.Location = new System.Drawing.Point(232, 67);
             this.tbSelecionar.MouseState = MaterialSkin.MouseState.HOVER;
             this.tbSelecionar.Name = "tbSelecionar";
             this.tbSelecionar.Size = new System.Drawing.Size(398, 48);
             this.tbSelecionar.TabIndex = 11;
             this.tbSelecionar.Text = "materialTabSelector1";
-            // 
-            // materialComboBox1
-            // 
-            this.materialComboBox1.AutoResize = false;
-            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBox1.Depth = 0;
-            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox1.DropDownHeight = 174;
-            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox1.DropDownWidth = 121;
-            this.materialComboBox1.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBox1.FormattingEnabled = true;
-            this.materialComboBox1.IntegralHeight = false;
-            this.materialComboBox1.ItemHeight = 43;
-            this.materialComboBox1.Location = new System.Drawing.Point(6, 159);
-            this.materialComboBox1.MaxDropDownItems = 4;
-            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox1.Name = "materialComboBox1";
-            this.materialComboBox1.Size = new System.Drawing.Size(384, 49);
-            this.materialComboBox1.StartIndex = 0;
-            this.materialComboBox1.TabIndex = 4;
-            // 
-            // txtFrotaP
-            // 
-            this.txtFrotaP.Location = new System.Drawing.Point(119, 32);
-            this.txtFrotaP.Name = "txtFrotaP";
-            this.txtFrotaP.Size = new System.Drawing.Size(52, 20);
-            this.txtFrotaP.TabIndex = 13;
-            this.txtFrotaP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFrotaP_KeyPress);
-            // 
-            // txtFrenteP
-            // 
-            this.txtFrenteP.Location = new System.Drawing.Point(199, 32);
-            this.txtFrenteP.Name = "txtFrenteP";
-            this.txtFrenteP.Size = new System.Drawing.Size(52, 20);
-            this.txtFrenteP.TabIndex = 13;
-            this.txtFrenteP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFrenteP_KeyPress);
             // 
             // frmCadastroMa
             // 

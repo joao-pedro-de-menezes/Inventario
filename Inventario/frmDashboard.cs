@@ -165,7 +165,8 @@ namespace Inventario
 
         private void iconButtonCadastrarEquipamentos_Click(object sender, EventArgs e)
         {
-
+            frmCadastroMa maq = new frmCadastroMa();
+            maq.ShowDialog();
         }
 
         private void iconButtonCadastrarLicencas_Click(object sender, EventArgs e)

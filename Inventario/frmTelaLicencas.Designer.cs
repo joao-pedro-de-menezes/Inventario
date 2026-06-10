@@ -31,7 +31,6 @@
             this.mbVoltar = new MaterialSkin.Controls.MaterialButton();
             this.GridLicencas = new System.Windows.Forms.DataGridView();
             this.grbGridLicencas = new System.Windows.Forms.GroupBox();
-            this.grbOpcoes = new System.Windows.Forms.GroupBox();
             this.mbPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.grbPesquisa = new System.Windows.Forms.GroupBox();
             this.txtNumeroSerie = new System.Windows.Forms.TextBox();
@@ -46,7 +45,6 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridLicencas)).BeginInit();
             this.grbGridLicencas.SuspendLayout();
-            this.grbOpcoes.SuspendLayout();
             this.grbPesquisa.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +56,7 @@
             this.mbVoltar.Depth = 0;
             this.mbVoltar.HighEmphasis = true;
             this.mbVoltar.Icon = null;
-            this.mbVoltar.Location = new System.Drawing.Point(115, 19);
+            this.mbVoltar.Location = new System.Drawing.Point(116, 61);
             this.mbVoltar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbVoltar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbVoltar.Name = "mbVoltar";
@@ -90,17 +88,6 @@
             this.grbGridLicencas.TabStop = false;
             this.grbGridLicencas.Text = "Licenças";
             // 
-            // grbOpcoes
-            // 
-            this.grbOpcoes.Controls.Add(this.mbPesquisar);
-            this.grbOpcoes.Controls.Add(this.mbVoltar);
-            this.grbOpcoes.Location = new System.Drawing.Point(570, 83);
-            this.grbOpcoes.Name = "grbOpcoes";
-            this.grbOpcoes.Size = new System.Drawing.Size(223, 71);
-            this.grbOpcoes.TabIndex = 3;
-            this.grbOpcoes.TabStop = false;
-            this.grbOpcoes.Text = "Opções";
-            // 
             // mbPesquisar
             // 
             this.mbPesquisar.AutoSize = false;
@@ -109,7 +96,7 @@
             this.mbPesquisar.Depth = 0;
             this.mbPesquisar.HighEmphasis = true;
             this.mbPesquisar.Icon = null;
-            this.mbPesquisar.Location = new System.Drawing.Point(7, 19);
+            this.mbPesquisar.Location = new System.Drawing.Point(7, 61);
             this.mbPesquisar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbPesquisar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbPesquisar.Name = "mbPesquisar";
@@ -124,6 +111,8 @@
             // 
             // grbPesquisa
             // 
+            this.grbPesquisa.Controls.Add(this.mbVoltar);
+            this.grbPesquisa.Controls.Add(this.mbPesquisar);
             this.grbPesquisa.Controls.Add(this.txtNumeroSerie);
             this.grbPesquisa.Controls.Add(this.lblNumeroSerie);
             this.grbPesquisa.Controls.Add(this.mskVencimento);
@@ -136,7 +125,7 @@
             this.grbPesquisa.Controls.Add(this.lblCodigo);
             this.grbPesquisa.Location = new System.Drawing.Point(12, 67);
             this.grbPesquisa.Name = "grbPesquisa";
-            this.grbPesquisa.Size = new System.Drawing.Size(344, 110);
+            this.grbPesquisa.Size = new System.Drawing.Size(775, 110);
             this.grbPesquisa.TabIndex = 2;
             this.grbPesquisa.TabStop = false;
             this.grbPesquisa.Text = "Perquisar por:";
@@ -159,7 +148,7 @@
             // 
             // mskVencimento
             // 
-            this.mskVencimento.Location = new System.Drawing.Point(245, 84);
+            this.mskVencimento.Location = new System.Drawing.Point(524, 32);
             this.mskVencimento.Mask = "00/00/0000";
             this.mskVencimento.Name = "mskVencimento";
             this.mskVencimento.Size = new System.Drawing.Size(75, 20);
@@ -168,7 +157,7 @@
             // 
             // mskAtivacao
             // 
-            this.mskAtivacao.Location = new System.Drawing.Point(245, 32);
+            this.mskAtivacao.Location = new System.Drawing.Point(440, 32);
             this.mskAtivacao.Mask = "00/00/0000";
             this.mskAtivacao.Name = "mskAtivacao";
             this.mskAtivacao.Size = new System.Drawing.Size(75, 20);
@@ -178,7 +167,7 @@
             // lblVencimento
             // 
             this.lblVencimento.AutoSize = true;
-            this.lblVencimento.Location = new System.Drawing.Point(242, 68);
+            this.lblVencimento.Location = new System.Drawing.Point(521, 16);
             this.lblVencimento.Name = "lblVencimento";
             this.lblVencimento.Size = new System.Drawing.Size(92, 13);
             this.lblVencimento.TabIndex = 5;
@@ -186,7 +175,7 @@
             // 
             // txtLicenca
             // 
-            this.txtLicenca.Location = new System.Drawing.Point(6, 84);
+            this.txtLicenca.Location = new System.Drawing.Point(222, 32);
             this.txtLicenca.Name = "txtLicenca";
             this.txtLicenca.Size = new System.Drawing.Size(210, 20);
             this.txtLicenca.TabIndex = 2;
@@ -194,7 +183,7 @@
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(6, 68);
+            this.lblTipo.Location = new System.Drawing.Point(222, 16);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(69, 13);
             this.lblTipo.TabIndex = 3;
@@ -203,7 +192,7 @@
             // lblAtivacao
             // 
             this.lblAtivacao.AutoSize = true;
-            this.lblAtivacao.Location = new System.Drawing.Point(242, 16);
+            this.lblAtivacao.Location = new System.Drawing.Point(437, 16);
             this.lblAtivacao.Name = "lblAtivacao";
             this.lblAtivacao.Size = new System.Drawing.Size(78, 13);
             this.lblAtivacao.TabIndex = 2;
@@ -211,7 +200,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(6, 32);
+            this.txtCodigo.Location = new System.Drawing.Point(21, 32);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(79, 20);
             this.txtCodigo.TabIndex = 1;
@@ -219,7 +208,7 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(6, 16);
+            this.lblCodigo.Location = new System.Drawing.Point(21, 16);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(43, 13);
             this.lblCodigo.TabIndex = 0;
@@ -231,7 +220,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 707);
             this.Controls.Add(this.grbPesquisa);
-            this.Controls.Add(this.grbOpcoes);
             this.Controls.Add(this.grbGridLicencas);
             this.MaximizeBox = false;
             this.Name = "frmTelaLicencas";
@@ -240,7 +228,6 @@
             this.Load += new System.EventHandler(this.frmTelaLicencas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridLicencas)).EndInit();
             this.grbGridLicencas.ResumeLayout(false);
-            this.grbOpcoes.ResumeLayout(false);
             this.grbPesquisa.ResumeLayout(false);
             this.grbPesquisa.PerformLayout();
             this.ResumeLayout(false);
@@ -252,7 +239,6 @@
         private MaterialSkin.Controls.MaterialButton mbVoltar;
         private System.Windows.Forms.DataGridView GridLicencas;
         private System.Windows.Forms.GroupBox grbGridLicencas;
-        private System.Windows.Forms.GroupBox grbOpcoes;
         private MaterialSkin.Controls.MaterialButton mbPesquisar;
         private System.Windows.Forms.GroupBox grbPesquisa;
         private System.Windows.Forms.Label lblCodigo;
