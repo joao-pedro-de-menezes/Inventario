@@ -26,11 +26,11 @@ namespace Inventario
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue800,
-                Primary.Blue900,
-                Primary.Blue500,
-                Accent.LightBlue200,
-                TextShade.WHITE
+              Primary.Green800,       // Cor principal (Barra de título e abas superiores)
+                Primary.Green900,       // Cor principal mais escura (usada em detalhes e sombras)
+                Primary.Green500,       // Cor principal mais clara
+                Accent.Green400,        // Cor de destaque (linhas de seleção, inputs focados)
+                TextShade.WHITE         // Cor do texto que fica em cima das cores escuras (Branco)
                 );
         }
 
@@ -80,6 +80,22 @@ namespace Inventario
                 e.Handled = true;
                 MessageBox.Show("A Frente deve ter apenas numeros inteiros.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void mbVoltar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            frmDashboard dashboard = new frmDashboard();
+            dashboard.ShowDialog();
+        
+        }
+
+        private void frmCadastroMa_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            frmDashboard dashboard = new frmDashboard();
+            dashboard.ShowDialog();
+            this.Dispose();
         }
     }
 }

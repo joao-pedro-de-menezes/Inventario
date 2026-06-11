@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,8 +20,8 @@ namespace Inventario
         int contador = 0;
 
         //Armazenar variáveis para o método LimparBtns
-        string email = "Digite aqui seu E-mail";
-        string senha = "Digite aqui sua Senha";
+        string email = "E-mail";
+        string senha = "Senha";
 
         // variável para o gerenciador de temas
         private readonly MaterialSkinManager materialSkinManager;
@@ -44,11 +45,12 @@ namespace Inventario
 
             // Define a paleta de cores (Baseado no exempo da nossa imagem dashboard azul marinho)
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue800,   // Cor principal (Barra de título)
-                Primary.Blue900,   // Cor principal escura
-                Primary.Blue500,   // Cor principal clara
-                Accent.LightBlue200,   // Cor de destaque (botões, etc)
-                TextShade.WHITE        // Cor do texto na barra de título
+              Primary.Green800,       // Cor principal (Barra de título e abas superiores)
+                Primary.Green900,       // Cor principal mais escura (usada em detalhes e sombras)
+                Primary.Green500,       // Cor principal mais clara
+                Accent.Green400,        // Cor de destaque (linhas de seleção, inputs focados)
+                TextShade.WHITE      // Cor do texto que fica em cima das cores escuras (Branco)
+            
             );
         }
 
@@ -57,6 +59,7 @@ namespace Inventario
         private void frmLogin_Load(object sender, EventArgs e)
         {
             carregar();
+            titulo();
         }
 
         /* Método antigo
@@ -148,18 +151,21 @@ namespace Inventario
 
             if (contador > 2)
             {
+                titulo();
                 MessageBox.Show("Não foi possível acessar o sistema, você ultrapassou o limite de tentativas", "Login", MessageBoxButtons.OK,
                    MessageBoxIcon.Information);
                 Application.Exit();
             }
             if (string.IsNullOrEmpty(txtEmail.Text) || txtEmail.Text == email)
             {
+                titulo();
                 MessageBox.Show("O email não pode ser vazio ou a mensagem padrão", "Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtEmail.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(txtSenha.Text) || txtSenha.Text == senha)
             {
+                titulo();
                 MessageBox.Show("A senha não pode ser vazia ou a mensagem padrão", "Senha", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSenha.Focus();
                 return;
@@ -167,18 +173,22 @@ namespace Inventario
             contador += 1; //Se errar as proximas validações fecha o sistema
             if (!clsUsu.ValidarLogin(txtEmail.Text, txtSenha.Text))
             {
+                titulo();
                 MessageBox.Show("Email e senha incorretos", "Validar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+     
                 return;
             }
             else
             {
-             //Se tudo der certo dale
+                titulo();   
+                //Se tudo der certo dale
                 MessageBox.Show("Login feito com sucesso!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Hide();
                 dash.ShowDialog();
                 this.Close();
                 txtEmail.Clear();
                 txtSenha.Clear();
+                
             }
 
         }
@@ -186,10 +196,11 @@ namespace Inventario
         
         private void carregar()
         {
-            string email = "Digite aqui seu E-mail";
+            string email = "E-mail";
             txtEmail.Text = email;
-            string senha = "Digite aqui sua Senha";
+            string senha = "Senha";
             txtSenha.Text = senha;
+           
 
         }
 
@@ -199,6 +210,20 @@ namespace Inventario
             this.Hide();
             cadastro.ShowDialog();
             this.Close();
+        }
+
+        private void titulo()
+        {
+            // 1. Remove o texto padrão que o Material Skin joga na esquerda
+            this.Text = "";
+
+            // 2. Força o fundo do label a ser o Verde 800 exato da barra
+            lblLogin.BackColor = Color.FromArgb(46, 125, 50);
+
+            // 3. Garante que a letra fique branca e por cima de tudo
+            lblLogin.ForeColor = Color.White;
+            lblLogin.BringToFront();
+            lblLogin.FontType = MaterialSkinManager.fontType.H5;
         }
     }
   

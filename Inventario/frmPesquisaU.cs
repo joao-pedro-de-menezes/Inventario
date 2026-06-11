@@ -56,11 +56,11 @@ namespace Inventario
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue800,  
-                Primary.Blue900,  
-                Primary.Blue500,   
-                Accent.LightBlue200,   
-                TextShade.WHITE      
+               Primary.Green800,       // Cor principal (Barra de título e abas superiores)
+                Primary.Green900,       // Cor principal mais escura (usada em detalhes e sombras)
+                Primary.Green500,       // Cor principal mais clara
+                Accent.Green400,        // Cor de destaque (linhas de seleção, inputs focados)
+                TextShade.WHITE         // Cor do texto que fica em cima das cores escuras (Branco)
             );
         }
    
@@ -90,7 +90,9 @@ namespace Inventario
 
         private void mtbnfechar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
+            frmCadastroUsuario cadastro = new frmCadastroUsuario();
+            cadastro.ShowDialog();
             
         }
 
@@ -129,6 +131,14 @@ namespace Inventario
         private void dgvUsu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void frmPesquisaU_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+            frmCadastroUsuario cadastro = new frmCadastroUsuario();
+            cadastro.ShowDialog();
+            this.Close();
         }
     }
 }

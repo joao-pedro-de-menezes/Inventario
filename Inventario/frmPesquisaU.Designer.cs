@@ -177,6 +177,7 @@
             this.Name = "frmPesquisaU";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pesquisa de Usuário";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPesquisaU_FormClosed);
             this.Load += new System.EventHandler(this.frmPesquisaU_Load);
             this.grbGridUsu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsu)).EndInit();

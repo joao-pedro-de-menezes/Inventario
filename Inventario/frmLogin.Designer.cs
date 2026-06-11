@@ -34,6 +34,7 @@
             this.mbtnLogar = new MaterialSkin.Controls.MaterialButton();
             this.btnTestCadas = new System.Windows.Forms.Button();
             this.mbtnRegistrar = new MaterialSkin.Controls.MaterialButton();
+            this.lblLogin = new MaterialSkin.Controls.MaterialLabel();
             this.grbDados.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,12 +77,11 @@
             // 
             this.grbDados.Controls.Add(this.txtEmail);
             this.grbDados.Controls.Add(this.txtSenha);
-            this.grbDados.Location = new System.Drawing.Point(132, 116);
+            this.grbDados.Location = new System.Drawing.Point(132, 129);
             this.grbDados.Name = "grbDados";
             this.grbDados.Size = new System.Drawing.Size(298, 134);
             this.grbDados.TabIndex = 0;
             this.grbDados.TabStop = false;
-            this.grbDados.Text = "Dados";
             // 
             // mbtnLogar
             // 
@@ -91,14 +91,14 @@
             this.mbtnLogar.Depth = 0;
             this.mbtnLogar.HighEmphasis = true;
             this.mbtnLogar.Icon = null;
-            this.mbtnLogar.Location = new System.Drawing.Point(206, 282);
+            this.mbtnLogar.Location = new System.Drawing.Point(206, 295);
             this.mbtnLogar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnLogar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnLogar.Name = "mbtnLogar";
             this.mbtnLogar.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbtnLogar.Size = new System.Drawing.Size(151, 36);
             this.mbtnLogar.TabIndex = 3;
-            this.mbtnLogar.Text = "Login";
+            this.mbtnLogar.Text = "Acessar";
             this.mbtnLogar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnLogar.UseAccentColor = false;
             this.mbtnLogar.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@
             this.mbtnRegistrar.Depth = 0;
             this.mbtnRegistrar.HighEmphasis = true;
             this.mbtnRegistrar.Icon = null;
-            this.mbtnRegistrar.Location = new System.Drawing.Point(206, 330);
+            this.mbtnRegistrar.Location = new System.Drawing.Point(206, 343);
             this.mbtnRegistrar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnRegistrar.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnRegistrar.Name = "mbtnRegistrar";
@@ -135,12 +135,26 @@
             this.mbtnRegistrar.Visible = false;
             this.mbtnRegistrar.Click += new System.EventHandler(this.mbtnRegistrar_Click);
             // 
+            // lblLogin
+            // 
+            this.lblLogin.BackColor = System.Drawing.Color.Transparent;
+            this.lblLogin.Depth = 0;
+            this.lblLogin.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Location = new System.Drawing.Point(243, 28);
+            this.lblLogin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(79, 36);
+            this.lblLogin.TabIndex = 5;
+            this.lblLogin.Text = "Login";
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(545, 427);
+            this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.mbtnRegistrar);
             this.Controls.Add(this.mbtnLogar);
             this.Controls.Add(this.grbDados);
@@ -161,5 +175,6 @@
         private MaterialSkin.Controls.MaterialButton mbtnLogar;
         private System.Windows.Forms.Button btnTestCadas;
         private MaterialSkin.Controls.MaterialButton mbtnRegistrar;
+        private MaterialSkin.Controls.MaterialLabel lblLogin;
     }
 }

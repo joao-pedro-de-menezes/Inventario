@@ -618,6 +618,7 @@
             this.Name = "frmCadastroLi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de licenças";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCadastroLi_FormClosed);
             this.Load += new System.EventHandler(this.frmCadastroLi_Load);
             this.tabCntrCadastro.ResumeLayout(false);
             this.tbSelecao.ResumeLayout(false);

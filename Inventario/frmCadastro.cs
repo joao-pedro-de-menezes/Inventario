@@ -39,11 +39,11 @@ namespace Inventario
 
             // Define a paleta de cores (Baseado no exempo da nossa imagem dashboard azul marinho)
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Orange800,   // Cor principal (Barra de título)
-                Primary.Orange900,   // Cor principal escura
-                Primary.Orange500,   // Cor principal clara
-                Accent.Orange700,   // Cor de destaque (botões, etc)
-                TextShade.WHITE        // Cor do texto na barra de título
+               Primary.Green800,       // Cor principal (Barra de título e abas superiores)
+                Primary.Green900,       // Cor principal mais escura (usada em detalhes e sombras)
+                Primary.Green500,       // Cor principal mais clara
+                Accent.Green400,        // Cor de destaque (linhas de seleção, inputs focados)
+                TextShade.WHITE         // Cor do texto que fica em cima das cores escuras (Branco)
                 );
 
             InitializeComponent();
@@ -62,6 +62,7 @@ namespace Inventario
             mradioInativo.Enabled = false;
             txtCodigo.Visible = false;
             carregarCmb();
+            titulo();
 
             // ehdin é gay, mas é o melhor programador do mundo, então ele tem que ser mencionado aqui
         }
@@ -201,9 +202,9 @@ namespace Inventario
         private void mbtnVoltar_Click(object sender, EventArgs e)
         {
             frmDashboard dash = new frmDashboard();
-            this.Hide();
+            this.Dispose();
             dash.ShowDialog();
-            this.Close();
+           
         }
 
         
@@ -246,17 +247,10 @@ namespace Inventario
                 }
             }
             // Porem assim que a tela for voltar temos que devolver os valores de cor para dar tudo certo
-            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Orange800,
-                Primary.Orange900,
-                Primary.Orange500,
-                Accent.Orange700,
-                TextShade.WHITE
-            );
-
+      
+            
             this.Show(); // e mostramos a tela de cadastro novamente
-
+            titulo();
 
             
 
@@ -315,7 +309,34 @@ namespace Inventario
             mcmbTipo.Items.Add("");
             mcmbTipo.SelectedIndex = 10;
         }
+
+        private void titulo()
+        {
+            // 1. Remove o texto padrão que o Material Skin joga na esquerda
+            this.Text = "";
+
+            // 2. Força o fundo do label a ser o Verde 800 exato da barra
+            lblTitulo.BackColor = Color.FromArgb(46, 125, 50);
+           
+
+
+            // 3. Garante que a letra fique branca e por cima de tudo
+            
+            lblTitulo.ForeColor = Color.White;
+            lblTitulo.BringToFront();
+            lblTitulo.FontType = MaterialSkinManager.fontType.H5;
+           
+        }
+
+        private void frmCadastroUsuario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+            frmDashboard dashboard = new frmDashboard();
+            dashboard.ShowDialog();
+
+        }
     }
+
 }
 
 // João <-- Fazer a tela cadastro ficar com o visual laranja, deixar a tela de login com uma cor diferente e criar uma tela de Cadastro pra cada cadastro

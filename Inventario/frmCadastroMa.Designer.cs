@@ -172,6 +172,7 @@
             this.mbVoltar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbVoltar.UseAccentColor = false;
             this.mbVoltar.UseVisualStyleBackColor = true;
+            this.mbVoltar.Click += new System.EventHandler(this.mbVoltar_Click);
             // 
             // grbPesquisa
             // 
@@ -533,6 +534,7 @@
             this.Name = "frmCadastroMa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Maquinas";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCadastroMa_FormClosed);
             this.Load += new System.EventHandler(this.frmCadastroMa_Load);
             this.tabCntrCadastro.ResumeLayout(false);
             this.tbSelecao.ResumeLayout(false);

@@ -45,6 +45,7 @@
             this.iconeFundoFoto = new FontAwesome.Sharp.IconPictureBox();
             this.grbBtns = new System.Windows.Forms.GroupBox();
             this.grbAtivo = new System.Windows.Forms.GroupBox();
+            this.lblTitulo = new MaterialSkin.Controls.MaterialLabel();
             this.grbDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconeFundoFoto)).BeginInit();
             this.grbBtns.SuspendLayout();
@@ -346,11 +347,24 @@
             this.grbAtivo.TabStop = false;
             this.grbAtivo.Text = "Usuário Ativo";
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Depth = 0;
+            this.lblTitulo.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblTitulo.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblTitulo.Location = new System.Drawing.Point(167, 28);
+            this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(262, 35);
+            this.lblTitulo.TabIndex = 12;
+            this.lblTitulo.Text = "Cadastro De Usuários";
+            // 
             // frmCadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 745);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.grbAtivo);
             this.Controls.Add(this.grbBtns);
             this.Controls.Add(this.mbtnVoltar);
@@ -359,6 +373,7 @@
             this.Name = "frmCadastroUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro De Usuários";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCadastroUsuario_FormClosed);
             this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.grbDados.ResumeLayout(false);
             this.grbDados.PerformLayout();
@@ -388,5 +403,6 @@
         private System.Windows.Forms.GroupBox grbAtivo;
         private MaterialSkin.Controls.MaterialLabel lblCodig;
         private MaterialSkin.Controls.MaterialTextBox txtCodigo;
+        private MaterialSkin.Controls.MaterialLabel lblTitulo;
     }
 }
