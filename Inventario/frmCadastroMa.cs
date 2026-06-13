@@ -84,17 +84,11 @@ namespace Inventario
 
         private void mbVoltar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            frmDashboard dashboard = new frmDashboard();
-            dashboard.ShowDialog();
-        
+            this.Close();
         }
 
         private void frmCadastroMa_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
-            frmDashboard dashboard = new frmDashboard();
-            dashboard.ShowDialog();
             this.Dispose();
         }
     }

@@ -201,10 +201,7 @@ namespace Inventario
 
         private void mbtnVoltar_Click(object sender, EventArgs e)
         {
-            frmDashboard dash = new frmDashboard();
-            this.Dispose();
-            dash.ShowDialog();
-           
+            this.Close();
         }
 
         
@@ -213,7 +210,7 @@ namespace Inventario
         {
            
             // O unico jeito que eu achei pra arrumar o bug de cores é fazer a tela anterior esconder quando a nova tela abrir
-            this.Hide();
+
          
             using (frmPesquisaU pesquisa = new frmPesquisaU())
             {
@@ -331,9 +328,6 @@ namespace Inventario
         private void frmCadastroUsuario_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
-            frmDashboard dashboard = new frmDashboard();
-            dashboard.ShowDialog();
-
         }
     }
 

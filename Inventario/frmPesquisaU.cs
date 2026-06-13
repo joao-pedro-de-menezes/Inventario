@@ -90,10 +90,7 @@ namespace Inventario
 
         private void mtbnfechar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            frmCadastroUsuario cadastro = new frmCadastroUsuario();
-            cadastro.ShowDialog();
-            
+            this.Dispose();  
         }
 
         private void dgvUsu_DoubleClick(object sender, EventArgs e)
@@ -136,9 +133,6 @@ namespace Inventario
         private void frmPesquisaU_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
-            frmCadastroUsuario cadastro = new frmCadastroUsuario();
-            cadastro.ShowDialog();
-            this.Close();
         }
     }
 }

@@ -112,10 +112,29 @@ namespace Inventario
 
         private void mbtnAdmin_Click(object sender, EventArgs e)
         {
-            frmCadastroUsuario cadastro = new frmCadastroUsuario();
-            this.Hide();
-            cadastro.ShowDialog();
-            this.Show();
+       
+            //Comando para pegar tela aberta e armazenar na váriavel, esses FirstOrDefault é arrow function pra ler o array da memória e busca os parâmetros que foi passado, no caso o => é arrow function então ele ta falando "Busque na memória a tela aberta cujo o nome é frmCadastroMa e me retorna ela dentro desta variável TelaMaqAber
+            Form TelaAdm = this.MdiChildren.FirstOrDefault(f => f is frmCadastroUsuario);
+            if (TelaAdm != null)
+            {
+                EsconderSubMenus();
+                titulo();
+                TelaAdm.BringToFront();
+                TelaAdm.Focus();
+            }
+            else
+            {
+                frmCadastroUsuario cadastroUsu = new frmCadastroUsuario();
+                cadastroUsu.MdiParent = this;
+                grbDados.Visible = false;
+                if (this.MdiChildren.Length == 1)
+                {
+                    cadastroUsu.FormClosed += Reativar;
+                }
+                cadastroUsu.Show();
+                EsconderSubMenus();
+                titulo();
+            }
         }
 
         
@@ -135,16 +154,58 @@ namespace Inventario
 
         private void iconButtonCadastrarLicencas_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmCadastroLi cadastroli = new frmCadastroLi();
-            cadastroli.ShowDialog();
-            this.Close();
+            
+            //Comando para pegar tela aberta e armazenar na váriavel, esses FirstOrDefault é arrow function pra ler o array da memória e busca os parâmetros que foi passado, no caso o => é arrow function então ele ta falando "Busque na memória a tela aberta cujo o nome é frmCadastroMa e me retorna ela dentro desta variável TelaMaqAber
+            Form TelaLiAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroLi);
+            if (TelaLiAber != null)
+            {
+                EsconderSubMenus();
+                titulo();
+                TelaLiAber.BringToFront();
+                TelaLiAber.Focus();
+            }
+            else
+            {
+                frmCadastroLi cadastroli = new frmCadastroLi();
+                cadastroli.MdiParent = this;
+                grbDados.Visible = false;
+                if (this.MdiChildren.Length == 1)
+                {
+                    cadastroli.FormClosed += Reativar;
+                }
+                cadastroli.Show();
+                EsconderSubMenus();
+                titulo();
+            }
+
+
         }
 
         private void iconButtonCadastrarMaquinas_Click(object sender, EventArgs e)
         {
-            frmCadastroMa maq = new frmCadastroMa();
-            maq.ShowDialog();
+            //Comando para pegar tela aberta e armazenar na váriavel, esses FirstOrDefault é arrow function pra ler o array da memória e busca os parâmetros que foi passado, no caso o => é arrow function então ele ta falando "Busque na memória a tela aberta cujo o nome é frmCadastroMa e me retorna ela dentro desta variável TelaMaqAber
+            Form TelaMaqAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroMa);
+            if (TelaMaqAber != null)
+            {
+                EsconderSubMenus();
+                titulo();
+                TelaMaqAber.BringToFront();
+                TelaMaqAber.Focus();
+            }
+            else
+            {
+                frmCadastroMa maq = new frmCadastroMa();
+                maq.MdiParent = this;
+                grbDados.Visible = false;
+                if (this.MdiChildren.Length == 1)
+                {
+                    maq.FormClosed += Reativar;
+                }
+                maq.Show();
+                EsconderSubMenus();
+                titulo();
+            }
+            
         }
 
         private void iconButtonExibirEquipamentos_Click(object sender, EventArgs e)
@@ -200,6 +261,7 @@ namespace Inventario
 
         private void carregarBtn()
         {
+          
             // Força os botões a irem para a frente do painel verde
             mbtnEquipamentos.BringToFront();
             mbtnLicenca.BringToFront();
@@ -223,6 +285,11 @@ namespace Inventario
 
         private void titulo()
         {
+
+            //Teste da barra lateral:
+
+            pnlMenu.BringToFront();
+            pnlMenu.BackColor = Color.FromArgb(46, 125, 50);
             // 1. Remove o texto padrão que o Material Skin joga na esquerda
             this.Text = "";
 
@@ -242,6 +309,13 @@ namespace Inventario
         private void frmDashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Reativar(object sender, FormClosedEventArgs e)
+        {
+            //Método legal par reativar coisas quando for abrir outra tela na dash
+            grbDados.Visible = true;
+
         }
     }
 }

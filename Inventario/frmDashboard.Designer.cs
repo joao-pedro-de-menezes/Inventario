@@ -67,6 +67,7 @@
             this.iconButtonExibirMaquinas = new FontAwesome.Sharp.IconButton();
             this.iconButtonCadastrarMaquinas = new FontAwesome.Sharp.IconButton();
             this.lblTitulo = new MaterialSkin.Controls.MaterialLabel();
+            this.grbDados = new System.Windows.Forms.GroupBox();
             this.pnlMenu.SuspendLayout();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconeTotalMaquinas)).BeginInit();
@@ -81,6 +82,7 @@
             this.pnlSubLicencas.SuspendLayout();
             this.pnlSubEquipamentos.SuspendLayout();
             this.pnlSubMaquinas.SuspendLayout();
+            this.grbDados.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -212,7 +214,7 @@
             this.materialCard1.Controls.Add(this.mlblTotalMaquinas);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(183, 119);
+            this.materialCard1.Location = new System.Drawing.Point(8, 37);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
@@ -268,7 +270,7 @@
             this.materialCard5.Controls.Add(this.mlblTotalInstaladas);
             this.materialCard5.Depth = 0;
             this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard5.Location = new System.Drawing.Point(346, 119);
+            this.materialCard5.Location = new System.Drawing.Point(163, 51);
             this.materialCard5.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard5.Name = "materialCard5";
@@ -325,7 +327,7 @@
             this.materialCard2.Controls.Add(this.iconButton1);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(183, 275);
+            this.materialCard2.Location = new System.Drawing.Point(11, 207);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
@@ -394,7 +396,7 @@
             this.materialCard3.Controls.Add(this.materialLabel5);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(509, 119);
+            this.materialCard3.Location = new System.Drawing.Point(326, 51);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
@@ -451,7 +453,7 @@
             this.materialCard4.Controls.Add(this.iconButton2);
             this.materialCard4.Depth = 0;
             this.materialCard4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard4.Location = new System.Drawing.Point(423, 275);
+            this.materialCard4.Location = new System.Drawing.Point(240, 207);
             this.materialCard4.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
@@ -651,23 +653,34 @@
             this.lblTitulo.TabIndex = 8;
             this.lblTitulo.Text = "DashBoard";
             // 
+            // grbDados
+            // 
+            this.grbDados.BackColor = System.Drawing.Color.Transparent;
+            this.grbDados.Controls.Add(this.materialCard1);
+            this.grbDados.Controls.Add(this.materialCard5);
+            this.grbDados.Controls.Add(this.materialCard3);
+            this.grbDados.Controls.Add(this.materialCard4);
+            this.grbDados.Controls.Add(this.materialCard2);
+            this.grbDados.Location = new System.Drawing.Point(168, 68);
+            this.grbDados.Name = "grbDados";
+            this.grbDados.Size = new System.Drawing.Size(568, 322);
+            this.grbDados.TabIndex = 10;
+            this.grbDados.TabStop = false;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(742, 472);
+            this.Controls.Add(this.grbDados);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.pnlSubMaquinas);
             this.Controls.Add(this.pnlSubEquipamentos);
             this.Controls.Add(this.pnlSubLicencas);
             this.Controls.Add(this.lblUsuarioLogado);
-            this.Controls.Add(this.materialCard5);
-            this.Controls.Add(this.materialCard3);
-            this.Controls.Add(this.materialCard4);
-            this.Controls.Add(this.materialCard2);
-            this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.pnlMenu);
+            this.IsMdiContainer = true;
             this.Name = "frmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashBoard";
@@ -692,6 +705,7 @@
             this.pnlSubLicencas.ResumeLayout(false);
             this.pnlSubEquipamentos.ResumeLayout(false);
             this.pnlSubMaquinas.ResumeLayout(false);
+            this.grbDados.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -736,5 +750,6 @@
         private MaterialSkin.Controls.MaterialButton mbtnMaquinas;
         private MaterialSkin.Controls.MaterialButton mbtnConfig;
         private MaterialSkin.Controls.MaterialLabel lblTitulo;
+        private System.Windows.Forms.GroupBox grbDados;
     }
 }

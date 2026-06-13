@@ -352,10 +352,10 @@
             this.lblTitulo.Depth = 0;
             this.lblTitulo.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblTitulo.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblTitulo.Location = new System.Drawing.Point(167, 28);
+            this.lblTitulo.Location = new System.Drawing.Point(109, 31);
             this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(262, 35);
+            this.lblTitulo.Size = new System.Drawing.Size(332, 24);
             this.lblTitulo.TabIndex = 12;
             this.lblTitulo.Text = "Cadastro De Usuários";
             // 
