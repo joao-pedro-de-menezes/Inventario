@@ -540,7 +540,7 @@
             this.txtNumeroLicenca.Depth = 0;
             this.txtNumeroLicenca.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtNumeroLicenca.LeadingIcon = null;
-            this.txtNumeroLicenca.Location = new System.Drawing.Point(8, 168);
+            this.txtNumeroLicenca.Location = new System.Drawing.Point(8, 172);
             this.txtNumeroLicenca.MaxLength = 50;
             this.txtNumeroLicenca.MouseState = MaterialSkin.MouseState.OUT;
             this.txtNumeroLicenca.Multiline = false;

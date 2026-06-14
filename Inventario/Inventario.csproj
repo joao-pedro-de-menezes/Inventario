@@ -128,12 +128,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ucCadastroMonitor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucCadastroMonitor.Designer.cs">
-      <DependentUpon>ucCadastroMonitor.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmCadastroEq.resx">
       <DependentUpon>frmCadastroEq.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,9 +165,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ucCadastroMonitor.resx">
-      <DependentUpon>ucCadastroMonitor.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

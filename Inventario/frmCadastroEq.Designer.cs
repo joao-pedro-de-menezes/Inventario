@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabCntrCadastro = new MaterialSkin.Controls.MaterialTabControl();
             this.tbSelecao = new System.Windows.Forms.TabPage();
@@ -60,15 +60,22 @@
             this.mbtnCancelar = new MaterialSkin.Controls.MaterialButton();
             this.mbtnPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.mbtnCadastrar = new MaterialSkin.Controls.MaterialButton();
-            this.grbOpcoesCadastro = new System.Windows.Forms.GroupBox();
-            this.mbtnMonitor = new MaterialSkin.Controls.MaterialButton();
-            this.mbtnNav900 = new MaterialSkin.Controls.MaterialButton();
-            this.mbtnNav2e3 = new MaterialSkin.Controls.MaterialButton();
-            this.mbtnTm200 = new MaterialSkin.Controls.MaterialButton();
-            this.mbtnAntenaAg25 = new MaterialSkin.Controls.MaterialButton();
-            this.mbtnControladorTaxa = new MaterialSkin.Controls.MaterialButton();
-            this.mbtnBotoeira = new MaterialSkin.Controls.MaterialButton();
-            this.pnlContainer = new System.Windows.Forms.Panel();
+            this.grbSituacao = new System.Windows.Forms.GroupBox();
+            this.mRadioAtivo = new MaterialSkin.Controls.MaterialRadioButton();
+            this.mRadioInativo = new MaterialSkin.Controls.MaterialRadioButton();
+            this.grbCampos = new System.Windows.Forms.GroupBox();
+            this.lblAtivacao = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.mskVencimento = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.mskAtivacao = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.txtNumeroLicenca = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtTipoLicenca = new MaterialSkin.Controls.MaterialTextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
+            this.dgvLi = new System.Windows.Forms.DataGridView();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.lblPesquisar = new System.Windows.Forms.Label();
+            this.mTxtPesquisa = new MaterialSkin.Controls.MaterialTextBox2();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridEquipamentos.SuspendLayout();
@@ -77,7 +84,9 @@
             this.grbPesquisa.SuspendLayout();
             this.tbCadastro.SuspendLayout();
             this.grbOpcoes.SuspendLayout();
-            this.grbOpcoesCadastro.SuspendLayout();
+            this.grbSituacao.SuspendLayout();
+            this.grbCampos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLi)).BeginInit();
             this.SuspendLayout();
             // 
             // tbSelecionar
@@ -103,7 +112,7 @@
             this.tabCntrCadastro.Multiline = true;
             this.tabCntrCadastro.Name = "tabCntrCadastro";
             this.tabCntrCadastro.SelectedIndex = 0;
-            this.tabCntrCadastro.Size = new System.Drawing.Size(827, 567);
+            this.tabCntrCadastro.Size = new System.Drawing.Size(1015, 641);
             this.tabCntrCadastro.TabIndex = 12;
             // 
             // tbSelecao
@@ -135,34 +144,34 @@
             this.dgvEquipamentos.AllowUserToAddRows = false;
             this.dgvEquipamentos.AllowUserToDeleteRows = false;
             this.dgvEquipamentos.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEquipamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEquipamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEquipamentos.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEquipamentos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEquipamentos.Location = new System.Drawing.Point(5, 16);
             this.dgvEquipamentos.Name = "dgvEquipamentos";
             this.dgvEquipamentos.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEquipamentos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipamentos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEquipamentos.Size = new System.Drawing.Size(798, 394);
             this.dgvEquipamentos.TabIndex = 0;
             // 
@@ -380,13 +389,17 @@
             // 
             // tbCadastro
             // 
-            this.tbCadastro.Controls.Add(this.pnlContainer);
-            this.tbCadastro.Controls.Add(this.grbOpcoesCadastro);
+            this.tbCadastro.Controls.Add(this.mTxtPesquisa);
+            this.tbCadastro.Controls.Add(this.lblPesquisar);
+            this.tbCadastro.Controls.Add(this.materialButton1);
+            this.tbCadastro.Controls.Add(this.dgvLi);
             this.tbCadastro.Controls.Add(this.grbOpcoes);
+            this.tbCadastro.Controls.Add(this.grbSituacao);
+            this.tbCadastro.Controls.Add(this.grbCampos);
             this.tbCadastro.Location = new System.Drawing.Point(4, 22);
             this.tbCadastro.Name = "tbCadastro";
             this.tbCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tbCadastro.Size = new System.Drawing.Size(819, 541);
+            this.tbCadastro.Size = new System.Drawing.Size(1007, 615);
             this.tbCadastro.TabIndex = 1;
             this.tbCadastro.Text = "Cadastro";
             this.tbCadastro.UseVisualStyleBackColor = true;
@@ -396,10 +409,10 @@
             this.grbOpcoes.Controls.Add(this.mbtnCancelar);
             this.grbOpcoes.Controls.Add(this.mbtnPesquisar);
             this.grbOpcoes.Controls.Add(this.mbtnCadastrar);
-            this.grbOpcoes.Location = new System.Drawing.Point(274, 472);
+            this.grbOpcoes.Location = new System.Drawing.Point(30, 470);
             this.grbOpcoes.Name = "grbOpcoes";
             this.grbOpcoes.Size = new System.Drawing.Size(398, 69);
-            this.grbOpcoes.TabIndex = 14;
+            this.grbOpcoes.TabIndex = 17;
             this.grbOpcoes.TabStop = false;
             this.grbOpcoes.Text = "Opções";
             // 
@@ -417,7 +430,7 @@
             this.mbtnCancelar.Name = "mbtnCancelar";
             this.mbtnCancelar.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbtnCancelar.Size = new System.Drawing.Size(114, 36);
-            this.mbtnCancelar.TabIndex = 9;
+            this.mbtnCancelar.TabIndex = 4;
             this.mbtnCancelar.Text = "Cancelar";
             this.mbtnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnCancelar.UseAccentColor = false;
@@ -436,7 +449,7 @@
             this.mbtnPesquisar.Name = "mbtnPesquisar";
             this.mbtnPesquisar.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbtnPesquisar.Size = new System.Drawing.Size(100, 36);
-            this.mbtnPesquisar.TabIndex = 10;
+            this.mbtnPesquisar.TabIndex = 3;
             this.mbtnPesquisar.Text = "Pesquisar";
             this.mbtnPesquisar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnPesquisar.UseAccentColor = false;
@@ -456,181 +469,310 @@
             this.mbtnCadastrar.Name = "mbtnCadastrar";
             this.mbtnCadastrar.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbtnCadastrar.Size = new System.Drawing.Size(114, 36);
-            this.mbtnCadastrar.TabIndex = 8;
+            this.mbtnCadastrar.TabIndex = 2;
             this.mbtnCadastrar.Text = "Cadastrar";
             this.mbtnCadastrar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnCadastrar.UseAccentColor = false;
             this.mbtnCadastrar.UseVisualStyleBackColor = true;
             // 
-            // grbOpcoesCadastro
+            // grbSituacao
             // 
-            this.grbOpcoesCadastro.Controls.Add(this.mbtnBotoeira);
-            this.grbOpcoesCadastro.Controls.Add(this.mbtnControladorTaxa);
-            this.grbOpcoesCadastro.Controls.Add(this.mbtnAntenaAg25);
-            this.grbOpcoesCadastro.Controls.Add(this.mbtnTm200);
-            this.grbOpcoesCadastro.Controls.Add(this.mbtnNav2e3);
-            this.grbOpcoesCadastro.Controls.Add(this.mbtnNav900);
-            this.grbOpcoesCadastro.Controls.Add(this.mbtnMonitor);
-            this.grbOpcoesCadastro.Location = new System.Drawing.Point(10, 26);
-            this.grbOpcoesCadastro.Name = "grbOpcoesCadastro";
-            this.grbOpcoesCadastro.Size = new System.Drawing.Size(156, 383);
-            this.grbOpcoesCadastro.TabIndex = 15;
-            this.grbOpcoesCadastro.TabStop = false;
-            this.grbOpcoesCadastro.Text = "Opções de Cadastro";
+            this.grbSituacao.Controls.Add(this.mRadioAtivo);
+            this.grbSituacao.Controls.Add(this.mRadioInativo);
+            this.grbSituacao.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.grbSituacao.Location = new System.Drawing.Point(30, 406);
+            this.grbSituacao.Name = "grbSituacao";
+            this.grbSituacao.Size = new System.Drawing.Size(398, 58);
+            this.grbSituacao.TabIndex = 16;
+            this.grbSituacao.TabStop = false;
+            this.grbSituacao.Text = "Situação";
             // 
-            // mbtnMonitor
+            // mRadioAtivo
             // 
-            this.mbtnMonitor.AutoSize = false;
-            this.mbtnMonitor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnMonitor.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnMonitor.Depth = 0;
-            this.mbtnMonitor.HighEmphasis = true;
-            this.mbtnMonitor.Icon = null;
-            this.mbtnMonitor.Location = new System.Drawing.Point(5, 40);
-            this.mbtnMonitor.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnMonitor.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnMonitor.Name = "mbtnMonitor";
-            this.mbtnMonitor.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnMonitor.Size = new System.Drawing.Size(143, 36);
-            this.mbtnMonitor.TabIndex = 0;
-            this.mbtnMonitor.Text = "Monitor";
-            this.mbtnMonitor.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnMonitor.UseAccentColor = false;
-            this.mbtnMonitor.UseVisualStyleBackColor = true;
-            this.mbtnMonitor.Click += new System.EventHandler(this.mbtnMonitor_Click);
+            this.mRadioAtivo.AutoSize = true;
+            this.mRadioAtivo.Depth = 0;
+            this.mRadioAtivo.Location = new System.Drawing.Point(16, 16);
+            this.mRadioAtivo.Margin = new System.Windows.Forms.Padding(0);
+            this.mRadioAtivo.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.mRadioAtivo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mRadioAtivo.Name = "mRadioAtivo";
+            this.mRadioAtivo.Ripple = true;
+            this.mRadioAtivo.Size = new System.Drawing.Size(71, 37);
+            this.mRadioAtivo.TabIndex = 12;
+            this.mRadioAtivo.TabStop = true;
+            this.mRadioAtivo.Text = "Ativo";
+            this.mRadioAtivo.UseVisualStyleBackColor = true;
             // 
-            // mbtnNav900
+            // mRadioInativo
             // 
-            this.mbtnNav900.AutoSize = false;
-            this.mbtnNav900.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnNav900.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnNav900.Depth = 0;
-            this.mbtnNav900.HighEmphasis = true;
-            this.mbtnNav900.Icon = null;
-            this.mbtnNav900.Location = new System.Drawing.Point(5, 88);
-            this.mbtnNav900.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnNav900.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnNav900.Name = "mbtnNav900";
-            this.mbtnNav900.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnNav900.Size = new System.Drawing.Size(143, 36);
-            this.mbtnNav900.TabIndex = 0;
-            this.mbtnNav900.Text = "Nav 900";
-            this.mbtnNav900.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnNav900.UseAccentColor = false;
-            this.mbtnNav900.UseVisualStyleBackColor = true;
+            this.mRadioInativo.AutoSize = true;
+            this.mRadioInativo.Depth = 0;
+            this.mRadioInativo.Location = new System.Drawing.Point(294, 16);
+            this.mRadioInativo.Margin = new System.Windows.Forms.Padding(0);
+            this.mRadioInativo.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.mRadioInativo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mRadioInativo.Name = "mRadioInativo";
+            this.mRadioInativo.Ripple = true;
+            this.mRadioInativo.Size = new System.Drawing.Size(83, 37);
+            this.mRadioInativo.TabIndex = 11;
+            this.mRadioInativo.TabStop = true;
+            this.mRadioInativo.Text = "Inativo";
+            this.mRadioInativo.UseVisualStyleBackColor = true;
             // 
-            // mbtnNav2e3
+            // grbCampos
             // 
-            this.mbtnNav2e3.AutoSize = false;
-            this.mbtnNav2e3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnNav2e3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnNav2e3.Depth = 0;
-            this.mbtnNav2e3.HighEmphasis = true;
-            this.mbtnNav2e3.Icon = null;
-            this.mbtnNav2e3.Location = new System.Drawing.Point(5, 136);
-            this.mbtnNav2e3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnNav2e3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnNav2e3.Name = "mbtnNav2e3";
-            this.mbtnNav2e3.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnNav2e3.Size = new System.Drawing.Size(143, 36);
-            this.mbtnNav2e3.TabIndex = 0;
-            this.mbtnNav2e3.Text = "Nav 2 e 3";
-            this.mbtnNav2e3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnNav2e3.UseAccentColor = false;
-            this.mbtnNav2e3.UseVisualStyleBackColor = true;
+            this.grbCampos.Controls.Add(this.lblAtivacao);
+            this.grbCampos.Controls.Add(this.label1);
+            this.grbCampos.Controls.Add(this.mskVencimento);
+            this.grbCampos.Controls.Add(this.mskAtivacao);
+            this.grbCampos.Controls.Add(this.txtNumeroLicenca);
+            this.grbCampos.Controls.Add(this.txtTipoLicenca);
+            this.grbCampos.Controls.Add(this.lblCodigo);
+            this.grbCampos.Controls.Add(this.txtCodigo);
+            this.grbCampos.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.grbCampos.Location = new System.Drawing.Point(30, 6);
+            this.grbCampos.Name = "grbCampos";
+            this.grbCampos.Size = new System.Drawing.Size(398, 394);
+            this.grbCampos.TabIndex = 15;
+            this.grbCampos.TabStop = false;
             // 
-            // mbtnTm200
+            // lblAtivacao
             // 
-            this.mbtnTm200.AutoSize = false;
-            this.mbtnTm200.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnTm200.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnTm200.Depth = 0;
-            this.mbtnTm200.HighEmphasis = true;
-            this.mbtnTm200.Icon = null;
-            this.mbtnTm200.Location = new System.Drawing.Point(5, 184);
-            this.mbtnTm200.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnTm200.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnTm200.Name = "mbtnTm200";
-            this.mbtnTm200.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnTm200.Size = new System.Drawing.Size(143, 36);
-            this.mbtnTm200.TabIndex = 0;
-            this.mbtnTm200.Text = "Tm 200";
-            this.mbtnTm200.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnTm200.UseAccentColor = false;
-            this.mbtnTm200.UseVisualStyleBackColor = true;
+            this.lblAtivacao.AutoSize = true;
+            this.lblAtivacao.Location = new System.Drawing.Point(9, 229);
+            this.lblAtivacao.Name = "lblAtivacao";
+            this.lblAtivacao.Size = new System.Drawing.Size(52, 13);
+            this.lblAtivacao.TabIndex = 9;
+            this.lblAtivacao.Text = "Ativação:";
             // 
-            // mbtnAntenaAg25
+            // label1
             // 
-            this.mbtnAntenaAg25.AutoSize = false;
-            this.mbtnAntenaAg25.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnAntenaAg25.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnAntenaAg25.Depth = 0;
-            this.mbtnAntenaAg25.HighEmphasis = true;
-            this.mbtnAntenaAg25.Icon = null;
-            this.mbtnAntenaAg25.Location = new System.Drawing.Point(5, 232);
-            this.mbtnAntenaAg25.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnAntenaAg25.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnAntenaAg25.Name = "mbtnAntenaAg25";
-            this.mbtnAntenaAg25.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnAntenaAg25.Size = new System.Drawing.Size(143, 36);
-            this.mbtnAntenaAg25.TabIndex = 0;
-            this.mbtnAntenaAg25.Text = "Antena ag25";
-            this.mbtnAntenaAg25.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnAntenaAg25.UseAccentColor = false;
-            this.mbtnAntenaAg25.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 309);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Vencimento:";
             // 
-            // mbtnControladorTaxa
+            // mskVencimento
             // 
-            this.mbtnControladorTaxa.AutoSize = false;
-            this.mbtnControladorTaxa.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnControladorTaxa.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnControladorTaxa.Depth = 0;
-            this.mbtnControladorTaxa.HighEmphasis = true;
-            this.mbtnControladorTaxa.Icon = null;
-            this.mbtnControladorTaxa.Location = new System.Drawing.Point(5, 280);
-            this.mbtnControladorTaxa.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnControladorTaxa.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnControladorTaxa.Name = "mbtnControladorTaxa";
-            this.mbtnControladorTaxa.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnControladorTaxa.Size = new System.Drawing.Size(143, 36);
-            this.mbtnControladorTaxa.TabIndex = 0;
-            this.mbtnControladorTaxa.Text = "Controlador de Taxa";
-            this.mbtnControladorTaxa.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnControladorTaxa.UseAccentColor = false;
-            this.mbtnControladorTaxa.UseVisualStyleBackColor = true;
+            this.mskVencimento.AllowPromptAsInput = true;
+            this.mskVencimento.AnimateReadOnly = false;
+            this.mskVencimento.AsciiOnly = false;
+            this.mskVencimento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.mskVencimento.BeepOnError = false;
+            this.mskVencimento.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.mskVencimento.Depth = 0;
+            this.mskVencimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mskVencimento.HidePromptOnLeave = false;
+            this.mskVencimento.HideSelection = true;
+            this.mskVencimento.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.mskVencimento.LeadingIcon = null;
+            this.mskVencimento.Location = new System.Drawing.Point(9, 325);
+            this.mskVencimento.Mask = "00/00/0000";
+            this.mskVencimento.MaxLength = 32767;
+            this.mskVencimento.MouseState = MaterialSkin.MouseState.OUT;
+            this.mskVencimento.Name = "mskVencimento";
+            this.mskVencimento.PasswordChar = '\0';
+            this.mskVencimento.PrefixSuffixText = null;
+            this.mskVencimento.PromptChar = '_';
+            this.mskVencimento.ReadOnly = false;
+            this.mskVencimento.RejectInputOnFirstFailure = false;
+            this.mskVencimento.ResetOnPrompt = true;
+            this.mskVencimento.ResetOnSpace = true;
+            this.mskVencimento.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mskVencimento.SelectedText = "";
+            this.mskVencimento.SelectionLength = 0;
+            this.mskVencimento.SelectionStart = 0;
+            this.mskVencimento.ShortcutsEnabled = true;
+            this.mskVencimento.Size = new System.Drawing.Size(382, 48);
+            this.mskVencimento.SkipLiterals = true;
+            this.mskVencimento.TabIndex = 7;
+            this.mskVencimento.TabStop = false;
+            this.mskVencimento.Text = "  /  /";
+            this.mskVencimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.mskVencimento.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.mskVencimento.TrailingIcon = null;
+            this.mskVencimento.UseSystemPasswordChar = false;
+            this.mskVencimento.ValidatingType = null;
             // 
-            // mbtnBotoeira
+            // mskAtivacao
             // 
-            this.mbtnBotoeira.AutoSize = false;
-            this.mbtnBotoeira.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnBotoeira.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnBotoeira.Depth = 0;
-            this.mbtnBotoeira.HighEmphasis = true;
-            this.mbtnBotoeira.Icon = null;
-            this.mbtnBotoeira.Location = new System.Drawing.Point(5, 328);
-            this.mbtnBotoeira.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnBotoeira.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnBotoeira.Name = "mbtnBotoeira";
-            this.mbtnBotoeira.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnBotoeira.Size = new System.Drawing.Size(143, 36);
-            this.mbtnBotoeira.TabIndex = 0;
-            this.mbtnBotoeira.Text = "Botoeira";
-            this.mbtnBotoeira.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnBotoeira.UseAccentColor = false;
-            this.mbtnBotoeira.UseVisualStyleBackColor = true;
+            this.mskAtivacao.AllowPromptAsInput = true;
+            this.mskAtivacao.AnimateReadOnly = false;
+            this.mskAtivacao.AsciiOnly = false;
+            this.mskAtivacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.mskAtivacao.BeepOnError = false;
+            this.mskAtivacao.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.mskAtivacao.Depth = 0;
+            this.mskAtivacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mskAtivacao.HidePromptOnLeave = false;
+            this.mskAtivacao.HideSelection = true;
+            this.mskAtivacao.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.mskAtivacao.LeadingIcon = null;
+            this.mskAtivacao.Location = new System.Drawing.Point(6, 245);
+            this.mskAtivacao.Mask = "00/00/0000";
+            this.mskAtivacao.MaxLength = 32767;
+            this.mskAtivacao.MouseState = MaterialSkin.MouseState.OUT;
+            this.mskAtivacao.Name = "mskAtivacao";
+            this.mskAtivacao.PasswordChar = '\0';
+            this.mskAtivacao.PrefixSuffixText = null;
+            this.mskAtivacao.PromptChar = '_';
+            this.mskAtivacao.ReadOnly = false;
+            this.mskAtivacao.RejectInputOnFirstFailure = false;
+            this.mskAtivacao.ResetOnPrompt = true;
+            this.mskAtivacao.ResetOnSpace = true;
+            this.mskAtivacao.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mskAtivacao.SelectedText = "";
+            this.mskAtivacao.SelectionLength = 0;
+            this.mskAtivacao.SelectionStart = 0;
+            this.mskAtivacao.ShortcutsEnabled = true;
+            this.mskAtivacao.Size = new System.Drawing.Size(385, 48);
+            this.mskAtivacao.SkipLiterals = true;
+            this.mskAtivacao.TabIndex = 6;
+            this.mskAtivacao.TabStop = false;
+            this.mskAtivacao.Text = "  /  /";
+            this.mskAtivacao.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.mskAtivacao.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.mskAtivacao.TrailingIcon = null;
+            this.mskAtivacao.UseSystemPasswordChar = false;
+            this.mskAtivacao.ValidatingType = null;
             // 
-            // pnlContainer
+            // txtNumeroLicenca
             // 
-            this.pnlContainer.Location = new System.Drawing.Point(246, 36);
-            this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(460, 431);
-            this.pnlContainer.TabIndex = 16;
+            this.txtNumeroLicenca.AnimateReadOnly = false;
+            this.txtNumeroLicenca.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumeroLicenca.Depth = 0;
+            this.txtNumeroLicenca.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtNumeroLicenca.LeadingIcon = null;
+            this.txtNumeroLicenca.Location = new System.Drawing.Point(8, 172);
+            this.txtNumeroLicenca.MaxLength = 50;
+            this.txtNumeroLicenca.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtNumeroLicenca.Multiline = false;
+            this.txtNumeroLicenca.Name = "txtNumeroLicenca";
+            this.txtNumeroLicenca.Size = new System.Drawing.Size(383, 50);
+            this.txtNumeroLicenca.TabIndex = 5;
+            this.txtNumeroLicenca.Text = "";
+            this.txtNumeroLicenca.TrailingIcon = null;
+            // 
+            // txtTipoLicenca
+            // 
+            this.txtTipoLicenca.AnimateReadOnly = false;
+            this.txtTipoLicenca.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTipoLicenca.Depth = 0;
+            this.txtTipoLicenca.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtTipoLicenca.LeadingIcon = null;
+            this.txtTipoLicenca.Location = new System.Drawing.Point(8, 112);
+            this.txtTipoLicenca.MaxLength = 50;
+            this.txtTipoLicenca.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtTipoLicenca.Multiline = false;
+            this.txtTipoLicenca.Name = "txtTipoLicenca";
+            this.txtTipoLicenca.Size = new System.Drawing.Size(383, 50);
+            this.txtTipoLicenca.TabIndex = 4;
+            this.txtTipoLicenca.Text = "";
+            this.txtTipoLicenca.TrailingIcon = null;
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(6, 30);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(81, 13);
+            this.lblCodigo.TabIndex = 3;
+            this.lblCodigo.Text = "Código Licença";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.AnimateReadOnly = false;
+            this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodigo.Depth = 0;
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCodigo.LeadingIcon = null;
+            this.txtCodigo.Location = new System.Drawing.Point(6, 46);
+            this.txtCodigo.MaxLength = 50;
+            this.txtCodigo.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCodigo.Multiline = false;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 50);
+            this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.Text = "";
+            this.txtCodigo.TrailingIcon = null;
+            // 
+            // dgvLi
+            // 
+            this.dgvLi.AllowUserToAddRows = false;
+            this.dgvLi.AllowUserToDeleteRows = false;
+            this.dgvLi.AllowUserToOrderColumns = true;
+            this.dgvLi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLi.Location = new System.Drawing.Point(442, 92);
+            this.dgvLi.Name = "dgvLi";
+            this.dgvLi.ReadOnly = true;
+            this.dgvLi.Size = new System.Drawing.Size(559, 517);
+            this.dgvLi.TabIndex = 18;
+            // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(900, 52);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(100, 36);
+            this.materialButton1.TabIndex = 19;
+            this.materialButton1.Text = "Pesquisar";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            // 
+            // lblPesquisar
+            // 
+            this.lblPesquisar.AutoSize = true;
+            this.lblPesquisar.Location = new System.Drawing.Point(439, 17);
+            this.lblPesquisar.Name = "lblPesquisar";
+            this.lblPesquisar.Size = new System.Drawing.Size(97, 13);
+            this.lblPesquisar.TabIndex = 20;
+            this.lblPesquisar.Text = "Pesquisar Licença:";
+            // 
+            // mTxtPesquisa
+            // 
+            this.mTxtPesquisa.AnimateReadOnly = false;
+            this.mTxtPesquisa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.mTxtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.mTxtPesquisa.Depth = 0;
+            this.mTxtPesquisa.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mTxtPesquisa.HideSelection = true;
+            this.mTxtPesquisa.LeadingIcon = null;
+            this.mTxtPesquisa.Location = new System.Drawing.Point(442, 40);
+            this.mTxtPesquisa.MaxLength = 32767;
+            this.mTxtPesquisa.MouseState = MaterialSkin.MouseState.OUT;
+            this.mTxtPesquisa.Name = "mTxtPesquisa";
+            this.mTxtPesquisa.PasswordChar = '\0';
+            this.mTxtPesquisa.PrefixSuffixText = null;
+            this.mTxtPesquisa.ReadOnly = false;
+            this.mTxtPesquisa.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mTxtPesquisa.SelectedText = "";
+            this.mTxtPesquisa.SelectionLength = 0;
+            this.mTxtPesquisa.SelectionStart = 0;
+            this.mTxtPesquisa.ShortcutsEnabled = true;
+            this.mTxtPesquisa.Size = new System.Drawing.Size(451, 48);
+            this.mTxtPesquisa.TabIndex = 21;
+            this.mTxtPesquisa.TabStop = false;
+            this.mTxtPesquisa.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.mTxtPesquisa.TrailingIcon = null;
+            this.mTxtPesquisa.UseSystemPasswordChar = false;
             // 
             // frmCadastroEq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 679);
+            this.ClientSize = new System.Drawing.Size(1026, 756);
             this.Controls.Add(this.tbSelecionar);
             this.Controls.Add(this.tabCntrCadastro);
             this.Name = "frmCadastroEq";
@@ -645,9 +787,14 @@
             this.grbPesquisa.ResumeLayout(false);
             this.grbPesquisa.PerformLayout();
             this.tbCadastro.ResumeLayout(false);
+            this.tbCadastro.PerformLayout();
             this.grbOpcoes.ResumeLayout(false);
             this.grbOpcoes.PerformLayout();
-            this.grbOpcoesCadastro.ResumeLayout(false);
+            this.grbSituacao.ResumeLayout(false);
+            this.grbSituacao.PerformLayout();
+            this.grbCampos.ResumeLayout(false);
+            this.grbCampos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -668,10 +815,6 @@
         private System.Windows.Forms.TextBox txtCodigoP;
         private System.Windows.Forms.Label lblCodigoP;
         private System.Windows.Forms.TabPage tbCadastro;
-        private System.Windows.Forms.GroupBox grbOpcoes;
-        private MaterialSkin.Controls.MaterialButton mbtnCancelar;
-        private MaterialSkin.Controls.MaterialButton mbtnPesquisar;
-        private MaterialSkin.Controls.MaterialButton mbtnCadastrar;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ComboBox cmbTipoP;
@@ -683,14 +826,25 @@
         private System.Windows.Forms.Label lblLocali;
         private System.Windows.Forms.TextBox txtNSerieP;
         private System.Windows.Forms.Label lblNSerieP;
-        private System.Windows.Forms.GroupBox grbOpcoesCadastro;
-        private MaterialSkin.Controls.MaterialButton mbtnControladorTaxa;
-        private MaterialSkin.Controls.MaterialButton mbtnAntenaAg25;
-        private MaterialSkin.Controls.MaterialButton mbtnTm200;
-        private MaterialSkin.Controls.MaterialButton mbtnNav2e3;
-        private MaterialSkin.Controls.MaterialButton mbtnNav900;
-        private MaterialSkin.Controls.MaterialButton mbtnMonitor;
-        private System.Windows.Forms.Panel pnlContainer;
-        private MaterialSkin.Controls.MaterialButton mbtnBotoeira;
+        private System.Windows.Forms.GroupBox grbOpcoes;
+        private MaterialSkin.Controls.MaterialButton mbtnCancelar;
+        private MaterialSkin.Controls.MaterialButton mbtnPesquisar;
+        private MaterialSkin.Controls.MaterialButton mbtnCadastrar;
+        private System.Windows.Forms.GroupBox grbSituacao;
+        private MaterialSkin.Controls.MaterialRadioButton mRadioAtivo;
+        private MaterialSkin.Controls.MaterialRadioButton mRadioInativo;
+        private System.Windows.Forms.GroupBox grbCampos;
+        private System.Windows.Forms.Label lblAtivacao;
+        private System.Windows.Forms.Label label1;
+        private MaterialSkin.Controls.MaterialMaskedTextBox mskVencimento;
+        private MaterialSkin.Controls.MaterialMaskedTextBox mskAtivacao;
+        private MaterialSkin.Controls.MaterialTextBox txtNumeroLicenca;
+        private MaterialSkin.Controls.MaterialTextBox txtTipoLicenca;
+        private System.Windows.Forms.Label lblCodigo;
+        private MaterialSkin.Controls.MaterialTextBox txtCodigo;
+        private MaterialSkin.Controls.MaterialTextBox2 mTxtPesquisa;
+        private System.Windows.Forms.Label lblPesquisar;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private System.Windows.Forms.DataGridView dgvLi;
     }
 }

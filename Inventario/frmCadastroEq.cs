@@ -39,16 +39,36 @@ namespace Inventario
 
         }
 
-        private void AbrirTelaCadastro(UserControl tela)
+        private void mbtnCancelar_Click(object sender, EventArgs e)
         {
-            pnlContainer.Controls.Clear(); // Limpa a tela de cadastro anterior
-            tela.Dock = DockStyle.None;    // Faz a nova tela preencher o espaço definido no forms
-            pnlContainer.Controls.Add(tela); // "Gruda" a nova tela no formulário
+
         }
 
-        private void mbtnMonitor_Click(object sender, EventArgs e)
+        private void mbtnPesquisar_Click(object sender, EventArgs e)
         {
-            AbrirTelaCadastro(new ucCadastroMonitor());
+
+        }
+
+        private void mbtnCadastrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNumeroLicenca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(mTxtPesquisa.Text))
+            {
+                if (MessageBox.Show("Nenhum parâmetro foi passado, deseja fazer buscar geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    clsLicenca licenca = new clsLicenca();
+                    dgvLi.DataSource = licenca.PesquisaTodos();
+                }
+            }
         }
     }
 }
