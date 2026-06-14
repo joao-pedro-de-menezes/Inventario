@@ -427,7 +427,7 @@
             this.grbCampos.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.grbCampos.Location = new System.Drawing.Point(223, 9);
             this.grbCampos.Name = "grbCampos";
-            this.grbCampos.Size = new System.Drawing.Size(398, 393);
+            this.grbCampos.Size = new System.Drawing.Size(398, 394);
             this.grbCampos.TabIndex = 1;
             this.grbCampos.TabStop = false;
             // 
@@ -443,7 +443,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 303);
+            this.label1.Location = new System.Drawing.Point(6, 309);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 8;
@@ -463,7 +463,7 @@
             this.mskVencimento.HideSelection = true;
             this.mskVencimento.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
             this.mskVencimento.LeadingIcon = null;
-            this.mskVencimento.Location = new System.Drawing.Point(6, 319);
+            this.mskVencimento.Location = new System.Drawing.Point(9, 325);
             this.mskVencimento.Mask = "00/00/0000";
             this.mskVencimento.MaxLength = 32767;
             this.mskVencimento.MouseState = MaterialSkin.MouseState.OUT;
@@ -522,7 +522,7 @@
             this.mskAtivacao.SelectionLength = 0;
             this.mskAtivacao.SelectionStart = 0;
             this.mskAtivacao.ShortcutsEnabled = true;
-            this.mskAtivacao.Size = new System.Drawing.Size(382, 48);
+            this.mskAtivacao.Size = new System.Drawing.Size(385, 48);
             this.mskAtivacao.SkipLiterals = true;
             this.mskAtivacao.TabIndex = 6;
             this.mskAtivacao.TabStop = false;

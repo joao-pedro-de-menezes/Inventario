@@ -116,7 +116,7 @@
             this.dgvMaquinas.AllowUserToDeleteRows = false;
             this.dgvMaquinas.AllowUserToOrderColumns = true;
             this.dgvMaquinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaquinas.Location = new System.Drawing.Point(3, 19);
+            this.dgvMaquinas.Location = new System.Drawing.Point(6, 19);
             this.dgvMaquinas.Name = "dgvMaquinas";
             this.dgvMaquinas.ReadOnly = true;
             this.dgvMaquinas.Size = new System.Drawing.Size(798, 394);

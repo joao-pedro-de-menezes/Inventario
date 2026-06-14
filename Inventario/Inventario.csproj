@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="clsConexao.cs" />
     <Compile Include="clsCriarBanco.cs" />
+    <Compile Include="clsEquipamentoGeral.cs" />
     <Compile Include="clsGuardarUsu.cs" />
     <Compile Include="clsLicenca.cs" />
     <Compile Include="clsLimparCampos.cs" />
@@ -82,6 +83,12 @@
     </Compile>
     <Compile Include="frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastroEq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroEq.Designer.cs">
+      <DependentUpon>frmCadastroEq.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTelaEquipamentos.cs">
       <SubType>Form</SubType>
@@ -121,6 +128,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucCadastroMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCadastroMonitor.Designer.cs">
+      <DependentUpon>ucCadastroMonitor.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmCadastroEq.resx">
+      <DependentUpon>frmCadastroEq.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroLi.resx">
       <DependentUpon>frmCadastroLi.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +171,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucCadastroMonitor.resx">
+      <DependentUpon>ucCadastroMonitor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

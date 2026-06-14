@@ -149,7 +149,27 @@ namespace Inventario
 
         private void iconButtonCadastrarEquipamentos_Click(object sender, EventArgs e)
         {
-      
+            Form TelaEqAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroEq);
+            if (TelaEqAber != null)
+            {
+                EsconderSubMenus();
+                titulo();
+                TelaEqAber.BringToFront();
+                TelaEqAber.Focus();
+            }
+            else
+            {
+                frmCadastroEq cadastroeq = new frmCadastroEq();
+                cadastroeq.MdiParent = this;
+                grbDados.Visible = false;
+                if (this.MdiChildren.Length == 1)
+                {
+                    cadastroeq.FormClosed += Reativar;
+                }
+                cadastroeq.Show();
+                EsconderSubMenus();
+                titulo();
+            }
         }
 
         private void iconButtonCadastrarLicencas_Click(object sender, EventArgs e)
