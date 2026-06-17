@@ -115,6 +115,7 @@ namespace Inventario
        
             //Comando para pegar tela aberta e armazenar na váriavel, esses FirstOrDefault é arrow function pra ler o array da memória e busca os parâmetros que foi passado, no caso o => é arrow function então ele ta falando "Busque na memória a tela aberta cujo o nome é frmCadastroMa e me retorna ela dentro desta variável TelaMaqAber
             Form TelaAdm = this.MdiChildren.FirstOrDefault(f => f is frmCadastroUsuario);
+            Form TelaPesquisa = this.MdiChildren.FirstOrDefault(f => f is frmPesquisaU);
             if (TelaAdm != null)
             {
                 EsconderSubMenus();

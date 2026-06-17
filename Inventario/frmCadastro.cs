@@ -208,13 +208,64 @@ namespace Inventario
 
         private void mbtnPesquisar_Click(object sender, EventArgs e)
         {
-           
-            // O unico jeito que eu achei pra arrumar o bug de cores é fazer a tela anterior esconder quando a nova tela abrir
 
-         
-            using (frmPesquisaU pesquisa = new frmPesquisaU())
-            {
-                string situacao = "";
+            // O unico jeito que eu achei pra arrumar o bug de cores é fazer a tela anterior esconder quando a nova tela abrir
+            /*
+                       frmDashboard dash = new frmDashboard();
+
+                       Form TelaPesquisa = dash.MdiChildren.FirstOrDefault(f => f is frmPesquisaU);
+                          if (TelaPesquisa != null)
+                          {
+
+                              titulo();
+                              TelaPesquisa.BringToFront();
+                              TelaPesquisa.Focus();
+                          }
+                          else
+                          {
+                              string situacao = "";
+                              if (mradioAtivo.Checked)
+                              {
+                                  situacao = "A";
+                              }
+                              else if (mradioInativo.Checked)
+                              {
+                                  situacao = "I";
+                              }
+                              frmPesquisaU pesquisa = new frmPesquisaU();
+
+                           pesquisa.MdiParent = dash;
+                           pesquisa.Show();
+
+                              if (this.MdiChildren.Length == 3)
+                              {
+                                  mradioInativo.Enabled = true;
+                                  txtCodigo.Text = Convert.ToInt16(pesquisa.codigoSelecao).ToString();
+                                  mtxtNome.Text = pesquisa.nomeSelecao.ToString();
+                                  mtxtEmail.Text = pesquisa.emailSelecao.ToString();
+                                  mtxtCracha.Text = Convert.ToInt32(pesquisa.crachaSelecao).ToString();
+                                  situacao = pesquisa.situacaoSelecao.ToString();
+                                  mcmbTipo.SelectedIndex = Convert.ToInt16(pesquisa.tipoSelecao);
+                                  mtxtConfirmaSenha.Text = pesquisa.senhaSelecao.ToString();
+                                  mtxtSenha.Text = pesquisa.senhaSelecao.ToString();
+
+                                  txtCodigo.Visible = true;
+                                  mbtnCadastrar_Atualizar.Text = "Editar";
+                                  mbtnCadastrar_Atualizar.Tag = "Editar";
+                                  titulo();
+                              }
+
+
+
+
+                          }
+
+            */
+
+            frmDashboard dash = new frmDashboard();
+            frmPesquisaU pesquisa = new frmPesquisaU();
+            pesquisa.MdiParent = dash;
+            string situacao = "";
                 if (mradioAtivo.Checked)
                 {
                     situacao = "A";
@@ -226,7 +277,7 @@ namespace Inventario
 
                 if (pesquisa.ShowDialog() == DialogResult.OK)
                 {
-                   
+
                     mradioInativo.Enabled = true;
                     txtCodigo.Text = Convert.ToInt16(pesquisa.codigoSelecao).ToString();
                     mtxtNome.Text = pesquisa.nomeSelecao.ToString();
@@ -240,17 +291,18 @@ namespace Inventario
                     txtCodigo.Visible = true;
                     mbtnCadastrar_Atualizar.Text = "Editar";
                     mbtnCadastrar_Atualizar.Tag = "Editar";
+                    titulo();
 
                 }
-            }
+
             // Porem assim que a tela for voltar temos que devolver os valores de cor para dar tudo certo
-      
-            
-            this.Show(); // e mostramos a tela de cadastro novamente
+
+
+             // e mostramos a tela de cadastro novamente
             titulo();
 
-            
 
+         
 
 
         }

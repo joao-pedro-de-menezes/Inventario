@@ -97,7 +97,7 @@
             this.pnlMenu.Controls.Add(this.mbtnAdmin);
             this.pnlMenu.Location = new System.Drawing.Point(-5, 64);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(167, 414);
+            this.pnlMenu.Size = new System.Drawing.Size(167, 609);
             this.pnlMenu.TabIndex = 1;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
             // 
@@ -672,7 +672,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(742, 472);
+            this.ClientSize = new System.Drawing.Size(1238, 667);
             this.Controls.Add(this.grbDados);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.pnlSubMaquinas);
