@@ -107,9 +107,9 @@ namespace Inventario
                 situacaoSelecao = dgvUsu.CurrentRow.Cells[4].Value.ToString();
                 tipoSelecao = Convert.ToInt16(dgvUsu.CurrentRow.Cells[5].Value);
                 senhaSelecao = dgvUsu.CurrentRow.Cells[6].Value.ToString();
-                this.DialogResult = DialogResult.OK;
-                frmCadastroUsuario cadastro = new frmCadastroUsuario();
-                this.Hide();
+                //this.DialogResult = DialogResult.OK;
+                //frmCadastroUsuario cadastro = new frmCadastroUsuario();
+                //this.Hide();
               
                 this.Close();
 

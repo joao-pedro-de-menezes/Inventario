@@ -264,7 +264,8 @@ namespace Inventario
 
             frmDashboard dash = new frmDashboard();
             frmPesquisaU pesquisa = new frmPesquisaU();
-            pesquisa.MdiParent = dash;
+            pesquisa.ShowDialog();
+       
             string situacao = "";
                 if (mradioAtivo.Checked)
                 {
@@ -275,8 +276,8 @@ namespace Inventario
                     situacao = "I";
                 }
 
-                if (pesquisa.ShowDialog() == DialogResult.OK)
-                {
+                //if (pesquisa.ShowDialog() == DialogResult.OK)
+                //{
 
                     mradioInativo.Enabled = true;
                     txtCodigo.Text = Convert.ToInt16(pesquisa.codigoSelecao).ToString();
@@ -293,7 +294,7 @@ namespace Inventario
                     mbtnCadastrar_Atualizar.Tag = "Editar";
                     titulo();
 
-                }
+               // }
 
             // Porem assim que a tela for voltar temos que devolver os valores de cor para dar tudo certo
 
