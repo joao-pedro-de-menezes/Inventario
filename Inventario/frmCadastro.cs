@@ -196,7 +196,8 @@ namespace Inventario
             {
                 if (ctl is MaterialTextBox) ctl.Text = "";
             }
-            mcmbTipo.SelectedIndex = 9;
+            mcmbTipo.SelectedIndex = 10;
+            mbtnCadastrar_Atualizar.Text = "Cadastrar";
         }
 
         private void mbtnVoltar_Click(object sender, EventArgs e)
@@ -208,104 +209,7 @@ namespace Inventario
 
         private void mbtnPesquisar_Click(object sender, EventArgs e)
         {
-
-            // O unico jeito que eu achei pra arrumar o bug de cores é fazer a tela anterior esconder quando a nova tela abrir
-            /*
-                       frmDashboard dash = new frmDashboard();
-
-                       Form TelaPesquisa = dash.MdiChildren.FirstOrDefault(f => f is frmPesquisaU);
-                          if (TelaPesquisa != null)
-                          {
-
-                              titulo();
-                              TelaPesquisa.BringToFront();
-                              TelaPesquisa.Focus();
-                          }
-                          else
-                          {
-                              string situacao = "";
-                              if (mradioAtivo.Checked)
-                              {
-                                  situacao = "A";
-                              }
-                              else if (mradioInativo.Checked)
-                              {
-                                  situacao = "I";
-                              }
-                              frmPesquisaU pesquisa = new frmPesquisaU();
-
-                           pesquisa.MdiParent = dash;
-                           pesquisa.Show();
-
-                              if (this.MdiChildren.Length == 3)
-                              {
-                                  mradioInativo.Enabled = true;
-                                  txtCodigo.Text = Convert.ToInt16(pesquisa.codigoSelecao).ToString();
-                                  mtxtNome.Text = pesquisa.nomeSelecao.ToString();
-                                  mtxtEmail.Text = pesquisa.emailSelecao.ToString();
-                                  mtxtCracha.Text = Convert.ToInt32(pesquisa.crachaSelecao).ToString();
-                                  situacao = pesquisa.situacaoSelecao.ToString();
-                                  mcmbTipo.SelectedIndex = Convert.ToInt16(pesquisa.tipoSelecao);
-                                  mtxtConfirmaSenha.Text = pesquisa.senhaSelecao.ToString();
-                                  mtxtSenha.Text = pesquisa.senhaSelecao.ToString();
-
-                                  txtCodigo.Visible = true;
-                                  mbtnCadastrar_Atualizar.Text = "Editar";
-                                  mbtnCadastrar_Atualizar.Tag = "Editar";
-                                  titulo();
-                              }
-
-
-
-
-                          }
-
-            */
-
-            frmDashboard dash = new frmDashboard();
-            frmPesquisaU pesquisa = new frmPesquisaU();
-            pesquisa.ShowDialog();
-       
-            string situacao = "";
-                if (mradioAtivo.Checked)
-                {
-                    situacao = "A";
-                }
-                else if (mradioInativo.Checked)
-                {
-                    situacao = "I";
-                }
-
-                //if (pesquisa.ShowDialog() == DialogResult.OK)
-                //{
-
-                    mradioInativo.Enabled = true;
-                    txtCodigo.Text = Convert.ToInt16(pesquisa.codigoSelecao).ToString();
-                    mtxtNome.Text = pesquisa.nomeSelecao.ToString();
-                    mtxtEmail.Text = pesquisa.emailSelecao.ToString();
-                    mtxtCracha.Text = Convert.ToInt32(pesquisa.crachaSelecao).ToString();
-                    situacao = pesquisa.situacaoSelecao.ToString();
-                    mcmbTipo.SelectedIndex = Convert.ToInt16(pesquisa.tipoSelecao);
-                    mtxtConfirmaSenha.Text = pesquisa.senhaSelecao.ToString();
-                    mtxtSenha.Text = pesquisa.senhaSelecao.ToString();
-
-                    txtCodigo.Visible = true;
-                    mbtnCadastrar_Atualizar.Text = "Editar";
-                    mbtnCadastrar_Atualizar.Tag = "Editar";
-                    titulo();
-
-               // }
-
-            // Porem assim que a tela for voltar temos que devolver os valores de cor para dar tudo certo
-
-
-             // e mostramos a tela de cadastro novamente
-            titulo();
-
-
-         
-
-
+            tbControlUsu.SelectedIndex = 0;
         }
         public void carregar()
         {
@@ -382,8 +286,103 @@ namespace Inventario
         {
             this.Dispose();
         }
+
+        private void mbPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string situacao = "";
+                if (rdbAtivo.Checked)
+                {
+                    situacao = "A";
+                }
+                else if (rdbInativo.Checked)
+                {
+                    situacao = "I";
+                }
+                clsUsuario Usu = new clsUsuario();
+                if (!string.IsNullOrEmpty(txtCodigoP.Text))
+                {
+                    dgvUsuario.DataSource = Usu.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));
+                }
+                else if (!string.IsNullOrEmpty(txtNomeP.Text))
+                {
+                    dgvUsuario.DataSource = Usu.PesquisaNome(txtNomeP.Text);
+                }
+                else if (rdbAtivo.Checked || rdbInativo.Checked)
+                {
+                    dgvUsuario.DataSource = Usu.PesquisaSituacao(situacao);
+                }
+                else if (!string.IsNullOrEmpty(txtemailP.Text))
+                {
+                    dgvUsuario.DataSource = Usu.PésquisaEmail(txtemailP.Text);
+                }
+                else
+                {
+                    if (MessageBox.Show("Nenhum parâmetro passado deseja fazer uma busca geral dos usuários?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        dgvUsuario.DataSource = Usu.PesquisaTodos();
+                    }
+
+                }
+            }
+            catch (Exception ex )
+            {
+
+                MessageBox.Show($"Erro ao fazer busca {ex}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+        private void dgvUsuario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt16(dgvUsuario.CurrentRow.Cells[0].Value) > 0)
+                {
+                    mbtnCadastrar_Atualizar.Tag = "Editar";
+                    mbtnCadastrar_Atualizar.Text = "Editar";
+
+                    tbControlUsu.SelectedIndex = 1;
+                    txtCodigo.Visible = true;
+                    mradioInativo.Enabled = true;
+                    txtCodigo.Text = Convert.ToString(dgvUsuario.CurrentRow.Cells[0].Value);
+                    mtxtNome.Text = Convert.ToString(dgvUsuario.CurrentRow.Cells[1].Value);
+                    mtxtEmail.Text = Convert.ToString(dgvUsuario.CurrentRow.Cells[2].Value);
+                    mtxtSenha.Text = Convert.ToString(dgvUsuario.CurrentRow.Cells[3].Value);
+                    mtxtConfirmaSenha.Text = Convert.ToString(dgvUsuario.CurrentRow.Cells[3].Value);
+                    mcmbTipo.SelectedIndex = Convert.ToInt16(Convert.ToInt16(dgvUsuario.CurrentRow.Cells[5].Value));
+
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void mbtnCancelar_Click(object sender, EventArgs e)
+        {
+            //Limpando dados
+            if (MessageBox.Show("Deseja cancelar? (Isso vai redefinir todos os campos)", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                resetar();
+                carregar();
+                if (tbControlUsu.SelectedIndex == 1)
+                {
+                    tbControlUsu.SelectedIndex = 0;
+                }
+            
+            }
+           
+        }
+
+   
+
     }
 
 }
 
-// João <-- Fazer a tela cadastro ficar com o visual laranja, deixar a tela de login com uma cor diferente e criar uma tela de Cadastro pra cada cadastro
+// João <-- Fazer a tela cadastro ficar com o visual        e criar uma tela de Cadastro pra cada cadastro

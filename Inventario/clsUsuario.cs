@@ -250,6 +250,57 @@ namespace Inventario
                     return -1;
                 }
         }
+        public DataTable PesquisaSituacao(string Situacao)
+        {
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo, Senha FROM tbUsuario");
+                    sql.Append(" WHERE Situacao = @Situacao ");
+                    cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    dt.Load(cmd.ExecuteReader());
+                    return dt;
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar Usuario pela Situacao {ex}", "Situacao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+
+                }
+                finally { conexao.Close(); }
+
+        }
+
+        public DataTable PésquisaEmail(string Email )
+        {
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+                    sql.Append("SELECT Codigo, NomeUsuario, Email, Cracha, Situacao, Tipo, Senha FROM tbUsuario");
+                    sql.Append(" WHERE Email = @Email ");
+                    cmd.Parameters.Add(new SqlParameter("@Email", Email));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    dt.Load(cmd.ExecuteReader());
+                    return dt;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar Usuario pelo Email {ex}", "Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+
+                }
+                finally { conexao.Close(); }
+        }
     }
 }

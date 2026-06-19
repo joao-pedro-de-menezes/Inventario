@@ -56,6 +56,10 @@
             this.lblCodigoP = new System.Windows.Forms.Label();
             this.lblAtivacaoP = new System.Windows.Forms.Label();
             this.tbCadastro = new System.Windows.Forms.TabPage();
+            this.mTxtPesquisa = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblPesquisar = new System.Windows.Forms.Label();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.dgvLi = new System.Windows.Forms.DataGridView();
             this.grbOpcoes = new System.Windows.Forms.GroupBox();
             this.mbtnCancelar = new MaterialSkin.Controls.MaterialButton();
             this.mbtnPesquisar = new MaterialSkin.Controls.MaterialButton();
@@ -72,10 +76,6 @@
             this.txtTipoLicenca = new MaterialSkin.Controls.MaterialTextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
-            this.dgvLi = new System.Windows.Forms.DataGridView();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            this.lblPesquisar = new System.Windows.Forms.Label();
-            this.mTxtPesquisa = new MaterialSkin.Controls.MaterialTextBox2();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridEquipamentos.SuspendLayout();
@@ -83,10 +83,10 @@
             this.grbOpcoesP.SuspendLayout();
             this.grbPesquisa.SuspendLayout();
             this.tbCadastro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLi)).BeginInit();
             this.grbOpcoes.SuspendLayout();
             this.grbSituacao.SuspendLayout();
             this.grbCampos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLi)).BeginInit();
             this.SuspendLayout();
             // 
             // tbSelecionar
@@ -123,7 +123,7 @@
             this.tbSelecao.Location = new System.Drawing.Point(4, 22);
             this.tbSelecao.Name = "tbSelecao";
             this.tbSelecao.Padding = new System.Windows.Forms.Padding(3);
-            this.tbSelecao.Size = new System.Drawing.Size(819, 541);
+            this.tbSelecao.Size = new System.Drawing.Size(1007, 615);
             this.tbSelecao.TabIndex = 0;
             this.tbSelecao.Text = "Seleção";
             this.tbSelecao.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@
             this.grbGridEquipamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbGridEquipamentos.Location = new System.Drawing.Point(6, 122);
             this.grbGridEquipamentos.Name = "grbGridEquipamentos";
-            this.grbGridEquipamentos.Size = new System.Drawing.Size(809, 416);
+            this.grbGridEquipamentos.Size = new System.Drawing.Size(995, 487);
             this.grbGridEquipamentos.TabIndex = 5;
             this.grbGridEquipamentos.TabStop = false;
             this.grbGridEquipamentos.Text = "Equipamentos";
@@ -172,7 +172,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvEquipamentos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvEquipamentos.Size = new System.Drawing.Size(798, 394);
+            this.dgvEquipamentos.Size = new System.Drawing.Size(984, 465);
             this.dgvEquipamentos.TabIndex = 0;
             // 
             // grbOpcoesP
@@ -403,6 +403,75 @@
             this.tbCadastro.TabIndex = 1;
             this.tbCadastro.Text = "Cadastro";
             this.tbCadastro.UseVisualStyleBackColor = true;
+            // 
+            // mTxtPesquisa
+            // 
+            this.mTxtPesquisa.AnimateReadOnly = false;
+            this.mTxtPesquisa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.mTxtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.mTxtPesquisa.Depth = 0;
+            this.mTxtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mTxtPesquisa.HideSelection = true;
+            this.mTxtPesquisa.LeadingIcon = null;
+            this.mTxtPesquisa.Location = new System.Drawing.Point(442, 40);
+            this.mTxtPesquisa.MaxLength = 32767;
+            this.mTxtPesquisa.MouseState = MaterialSkin.MouseState.OUT;
+            this.mTxtPesquisa.Name = "mTxtPesquisa";
+            this.mTxtPesquisa.PasswordChar = '\0';
+            this.mTxtPesquisa.PrefixSuffixText = null;
+            this.mTxtPesquisa.ReadOnly = false;
+            this.mTxtPesquisa.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mTxtPesquisa.SelectedText = "";
+            this.mTxtPesquisa.SelectionLength = 0;
+            this.mTxtPesquisa.SelectionStart = 0;
+            this.mTxtPesquisa.ShortcutsEnabled = true;
+            this.mTxtPesquisa.Size = new System.Drawing.Size(451, 48);
+            this.mTxtPesquisa.TabIndex = 21;
+            this.mTxtPesquisa.TabStop = false;
+            this.mTxtPesquisa.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.mTxtPesquisa.TrailingIcon = null;
+            this.mTxtPesquisa.UseSystemPasswordChar = false;
+            // 
+            // lblPesquisar
+            // 
+            this.lblPesquisar.AutoSize = true;
+            this.lblPesquisar.Location = new System.Drawing.Point(439, 17);
+            this.lblPesquisar.Name = "lblPesquisar";
+            this.lblPesquisar.Size = new System.Drawing.Size(97, 13);
+            this.lblPesquisar.TabIndex = 20;
+            this.lblPesquisar.Text = "Pesquisar Licença:";
+            // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(900, 52);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(100, 36);
+            this.materialButton1.TabIndex = 19;
+            this.materialButton1.Text = "Pesquisar";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            // 
+            // dgvLi
+            // 
+            this.dgvLi.AllowUserToAddRows = false;
+            this.dgvLi.AllowUserToDeleteRows = false;
+            this.dgvLi.AllowUserToOrderColumns = true;
+            this.dgvLi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLi.Location = new System.Drawing.Point(442, 92);
+            this.dgvLi.Name = "dgvLi";
+            this.dgvLi.ReadOnly = true;
+            this.dgvLi.Size = new System.Drawing.Size(559, 517);
+            this.dgvLi.TabIndex = 18;
             // 
             // grbOpcoes
             // 
@@ -643,7 +712,7 @@
             this.txtNumeroLicenca.AnimateReadOnly = false;
             this.txtNumeroLicenca.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumeroLicenca.Depth = 0;
-            this.txtNumeroLicenca.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtNumeroLicenca.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtNumeroLicenca.LeadingIcon = null;
             this.txtNumeroLicenca.Location = new System.Drawing.Point(8, 172);
             this.txtNumeroLicenca.MaxLength = 50;
@@ -660,7 +729,7 @@
             this.txtTipoLicenca.AnimateReadOnly = false;
             this.txtTipoLicenca.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTipoLicenca.Depth = 0;
-            this.txtTipoLicenca.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtTipoLicenca.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtTipoLicenca.LeadingIcon = null;
             this.txtTipoLicenca.Location = new System.Drawing.Point(8, 112);
             this.txtTipoLicenca.MaxLength = 50;
@@ -687,7 +756,7 @@
             this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCodigo.Depth = 0;
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCodigo.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtCodigo.LeadingIcon = null;
             this.txtCodigo.Location = new System.Drawing.Point(6, 46);
             this.txtCodigo.MaxLength = 50;
@@ -698,75 +767,6 @@
             this.txtCodigo.TabIndex = 2;
             this.txtCodigo.Text = "";
             this.txtCodigo.TrailingIcon = null;
-            // 
-            // dgvLi
-            // 
-            this.dgvLi.AllowUserToAddRows = false;
-            this.dgvLi.AllowUserToDeleteRows = false;
-            this.dgvLi.AllowUserToOrderColumns = true;
-            this.dgvLi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLi.Location = new System.Drawing.Point(442, 92);
-            this.dgvLi.Name = "dgvLi";
-            this.dgvLi.ReadOnly = true;
-            this.dgvLi.Size = new System.Drawing.Size(559, 517);
-            this.dgvLi.TabIndex = 18;
-            // 
-            // materialButton1
-            // 
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(900, 52);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(100, 36);
-            this.materialButton1.TabIndex = 19;
-            this.materialButton1.Text = "Pesquisar";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
-            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
-            // 
-            // lblPesquisar
-            // 
-            this.lblPesquisar.AutoSize = true;
-            this.lblPesquisar.Location = new System.Drawing.Point(439, 17);
-            this.lblPesquisar.Name = "lblPesquisar";
-            this.lblPesquisar.Size = new System.Drawing.Size(97, 13);
-            this.lblPesquisar.TabIndex = 20;
-            this.lblPesquisar.Text = "Pesquisar Licença:";
-            // 
-            // mTxtPesquisa
-            // 
-            this.mTxtPesquisa.AnimateReadOnly = false;
-            this.mTxtPesquisa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.mTxtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.mTxtPesquisa.Depth = 0;
-            this.mTxtPesquisa.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mTxtPesquisa.HideSelection = true;
-            this.mTxtPesquisa.LeadingIcon = null;
-            this.mTxtPesquisa.Location = new System.Drawing.Point(442, 40);
-            this.mTxtPesquisa.MaxLength = 32767;
-            this.mTxtPesquisa.MouseState = MaterialSkin.MouseState.OUT;
-            this.mTxtPesquisa.Name = "mTxtPesquisa";
-            this.mTxtPesquisa.PasswordChar = '\0';
-            this.mTxtPesquisa.PrefixSuffixText = null;
-            this.mTxtPesquisa.ReadOnly = false;
-            this.mTxtPesquisa.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mTxtPesquisa.SelectedText = "";
-            this.mTxtPesquisa.SelectionLength = 0;
-            this.mTxtPesquisa.SelectionStart = 0;
-            this.mTxtPesquisa.ShortcutsEnabled = true;
-            this.mTxtPesquisa.Size = new System.Drawing.Size(451, 48);
-            this.mTxtPesquisa.TabIndex = 21;
-            this.mTxtPesquisa.TabStop = false;
-            this.mTxtPesquisa.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.mTxtPesquisa.TrailingIcon = null;
-            this.mTxtPesquisa.UseSystemPasswordChar = false;
             // 
             // frmCadastroEq
             // 
@@ -788,13 +788,13 @@
             this.grbPesquisa.PerformLayout();
             this.tbCadastro.ResumeLayout(false);
             this.tbCadastro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLi)).EndInit();
             this.grbOpcoes.ResumeLayout(false);
             this.grbOpcoes.PerformLayout();
             this.grbSituacao.ResumeLayout(false);
             this.grbSituacao.PerformLayout();
             this.grbCampos.ResumeLayout(false);
             this.grbCampos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLi)).EndInit();
             this.ResumeLayout(false);
 
         }

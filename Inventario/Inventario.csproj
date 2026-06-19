@@ -96,12 +96,6 @@
     <Compile Include="frmTelaEquipamentos.Designer.cs">
       <DependentUpon>frmTelaEquipamentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPesquisaU.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPesquisaU.Designer.cs">
-      <DependentUpon>frmPesquisaU.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,9 +133,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPesquisaU.resx">
-      <DependentUpon>frmPesquisaU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSplash.resx">
       <DependentUpon>frmSplash.cs</DependentUpon>
