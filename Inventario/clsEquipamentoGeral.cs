@@ -17,7 +17,7 @@ namespace Inventario
         StringBuilder sql = new StringBuilder();
         DataTable dt = new DataTable();
 
-        public void SalvarMonitor(int NumeroSerie, string LicencaAti, string Situacao, DateTime DataAtivacao, DateTime DataVencimento)
+        public void SalvarMonitor(int NumeroSerie, string LicencaAti, string Situacao, double Valor, DateTime DataAtivacao, DateTime DataVencimento)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -27,12 +27,13 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbMonitor (NumeroSerie, LicencaAti, Situacao, DataAtivacao, DataVencimento)");
-                    sql.Append(" VALUES (@NumeroSerie, @LicencaAti, @Situacao, @DataAtivacao, @DataVencimento)");
+                    sql.Append("INSERT INTO tbMonitor (NumeroSerie, LicencaAti, Situacao, Valor, DataAtivacao, DataVencimento)");
+                    sql.Append(" VALUES (@NumeroSerie, @LicencaAti, @Situacao, @Valor, @DataAtivacao, @DataVencimento)");
 
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@LicencaAti", LicencaAti));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
                     cmd.Parameters.Add(new SqlParameter("@DataAtivacao", DataAtivacao));
                     cmd.Parameters.Add(new SqlParameter("@DataVencimento", DataVencimento));
 
@@ -52,7 +53,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarMonitor(int ID, int NumeroSerie, string LicencaAti, string Situacao, DateTime DataAtivacao, DateTime DataVencimento)
+        public void EditarMonitor(int ID, int NumeroSerie, string LicencaAti, string Situacao, double Valor, DateTime DataAtivacao, DateTime DataVencimento)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -62,7 +63,7 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("UPDATE tbMonitor SET NumeroSerie = @NumeroSerie, LicencaAti = @LicencaAti, Situacao = @Situacao, DataAtivacao = @DataAtivacao, DataVencimento = @DataVencimento");
+                    sql.Append("UPDATE tbMonitor SET NumeroSerie = @NumeroSerie, LicencaAti = @LicencaAti, Situacao = @Situacao, Valor = @valor, DataAtivacao = @DataAtivacao, DataVencimento = @DataVencimento");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
@@ -87,7 +88,7 @@ namespace Inventario
                 }
         }
 
-        public void SalvarNav900(int NumeroSerie, string LicencaAti, string Situacao, DateTime DataAtivacao, DateTime DataVencimento)
+        public void SalvarNav900(int NumeroSerie, string LicencaAti, string Situacao, double Valor, DateTime DataAtivacao, DateTime DataVencimento)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -97,12 +98,13 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbNav900 (NumeroSerie, LicencaAti, Situacao, DataAtivacao, DataVencimento)");
-                    sql.Append(" VALUES (@NumeroSerie, @LicencaAti, @Situacao, @DataAtivacao, @DataVencimento)");
+                    sql.Append("INSERT INTO tbNav900 (NumeroSerie, LicencaAti, Situacao, Valor, DataAtivacao, DataVencimento)");
+                    sql.Append(" VALUES (@NumeroSerie, @LicencaAti, @Situacao, @Valor, @DataAtivacao, @DataVencimento)");
 
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@LicencaAti", LicencaAti));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
                     cmd.Parameters.Add(new SqlParameter("@DataAtivacao", DataAtivacao));
                     cmd.Parameters.Add(new SqlParameter("@DataVencimento", DataVencimento));
 
@@ -122,7 +124,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarNav900(int ID, int NumeroSerie, string LicencaAti, string Situacao, DateTime DataAtivacao, DateTime DataVencimento)
+        public void EditarNav900(int ID, int NumeroSerie, string LicencaAti, string Situacao, double Valor, DateTime DataAtivacao, DateTime DataVencimento)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -132,13 +134,14 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("UPDATE tbNav900 SET NumeroSerie = @NumeroSerie, LicencaAti = @LicencaAti, Situacao = @Situacao, DataAtivacao = @DataAtivacao, DataVencimento = @DataVencimento");
+                    sql.Append("UPDATE tbNav900 SET NumeroSerie = @NumeroSerie, LicencaAti = @LicencaAti, Situacao = @Situacao, Valor = @Valor, DataAtivacao = @DataAtivacao, DataVencimento = @DataVencimento");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@LicencaAti", LicencaAti));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
                     cmd.Parameters.Add(new SqlParameter("@DataAtivacao", DataAtivacao));
                     cmd.Parameters.Add(new SqlParameter("@DataVencimento", DataVencimento));
 
@@ -157,7 +160,7 @@ namespace Inventario
                 }
         }
 
-        public void SalvarNav2(int NumeroSerie, string Situacao)
+        public void SalvarNav2(int NumeroSerie, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -167,10 +170,11 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbNav2 (NumeroSerie, Situacao)");
-                    sql.Append(" VALUES (@NumeroSerie, @Situacao)");
+                    sql.Append("INSERT INTO tbNav2 (NumeroSerie, Situacao, Valor)");
+                    sql.Append(" VALUES (@NumeroSerie, @Situacao, @Valor)");
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -187,7 +191,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarNav2(int ID, int NumeroSerie, string Situacao)
+        public void EditarNav2(int ID, int NumeroSerie, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -197,12 +201,13 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("UPDATE tbNav2 SET NumeroSerie = @NumeroSerie, Situacao = @Situacao");
+                    sql.Append("UPDATE tbNav2 SET NumeroSerie = @NumeroSerie, Situacao = @Situacao, Valor = @Valor");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -219,7 +224,7 @@ namespace Inventario
                 }
         }
 
-        public void SalvarNav3(int NumeroSerie, string Situacao)
+        public void SalvarNav3(int NumeroSerie, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -229,10 +234,11 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbNav3 (NumeroSerie, Situacao)");
-                    sql.Append(" VALUES (@NumeroSerie, @Situacao)");
+                    sql.Append("INSERT INTO tbNav3 (NumeroSerie, Situacao, Valor)");
+                    sql.Append(" VALUES (@NumeroSerie, @Situacao, @Valor)");
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -249,7 +255,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarNav3(int ID, int NumeroSerie, string Situacao)
+        public void EditarNav3(int ID, int NumeroSerie, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -259,12 +265,13 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("UPDATE tbNav3 SET NumeroSerie = @NumeroSerie, Situacao = @Situacao");
+                    sql.Append("UPDATE tbNav3 SET NumeroSerie = @NumeroSerie, Situacao = @Situacao, Valor = @Valor");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -281,7 +288,7 @@ namespace Inventario
                 }
         }
 
-        public void SalvarTm200(int NumeroSerie, string Situacao)
+        public void SalvarTm200(int NumeroSerie, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -291,10 +298,11 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbTm200 (NumeroSerie, Situacao)");
-                    sql.Append(" VALUES (@NumeroSerie, @Situacao)");
+                    sql.Append("INSERT INTO tbTm200 (NumeroSerie, Situacao, Valor)");
+                    sql.Append(" VALUES (@NumeroSerie, @Situacao, @Valor)");
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -311,7 +319,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarTm200(int ID, int NumeroSerie, string Situacao)
+        public void EditarTm200(int ID, int NumeroSerie, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -321,12 +329,13 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("UPDATE tbTm200 SET NumeroSerie = @NumeroSerie, Situacao = @Situacao");
+                    sql.Append("UPDATE tbTm200 SET NumeroSerie = @NumeroSerie, Situacao = @Situacao, Valor = @Valor");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -343,7 +352,7 @@ namespace Inventario
                 }
         }
 
-        public void SalvarAntenaAg25(string NumeroSerie, string Situacao)
+        public void SalvarAntenaAg25(string NumeroSerie, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -353,11 +362,12 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbAntenaAg25 (NumeroSerie, Situacao)");
-                    sql.Append(" VALUES (@NumeroSerie, @Situacao)");
+                    sql.Append("INSERT INTO tbAntenaAg25 (NumeroSerie, Situacao, Valor)");
+                    sql.Append(" VALUES (@NumeroSerie, @Situacao, @Valor)");
 
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -374,7 +384,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarAntenaAg25(int ID, string NumeroSerie, string Situacao)
+        public void EditarAntenaAg25(int ID, string NumeroSerie, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -384,12 +394,13 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("UPDATE tbAntenaAg25 SET NumeroSerie = @NumeroSerie, Situacao = @Situacao");
+                    sql.Append("UPDATE tbAntenaAg25 SET NumeroSerie = @NumeroSerie, Situacao = @Situacao, Valor = @Valor");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -406,7 +417,7 @@ namespace Inventario
                 }
         }
 
-        public void SalvarControladorTaxa(string NumeroSerie, string Marca, string Situacao)
+        public void SalvarControladorTaxa(string NumeroSerie, string Marca, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -416,12 +427,13 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbControladorTaxa (NumeroSerie, Marca, Situacao)");
-                    sql.Append(" VALUES (@NumeroSerie, @Marca, @Situacao)");
+                    sql.Append("INSERT INTO tbControladorTaxa (NumeroSerie, Marca, Situacao, Valor)");
+                    sql.Append(" VALUES (@NumeroSerie, @Marca, @Situacao, @Valor)");
 
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Marca", Marca));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -438,7 +450,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarControladorTaxa(int ID, string NumeroSerie, string Marca, string Situacao)
+        public void EditarControladorTaxa(int ID, string NumeroSerie, string Marca, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -448,13 +460,14 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("UPDATE tbControladorTaxa SET NumeroSerie = @NumeroSerie, Marca = @Marca, Situacao = @Situacao");
+                    sql.Append("UPDATE tbControladorTaxa SET NumeroSerie = @NumeroSerie, Marca = @Marca, Situacao = @Situacao, Valor = @Valor");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Marca", Marca));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -471,7 +484,7 @@ namespace Inventario
                 }
         }
 
-        public void SalvarBotoeira(string NumeroSerie, string Situacao)
+        public void SalvarBotoeira(string NumeroSerie, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -481,11 +494,12 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbBotoeira (NumeroSerie, Situacao)");
-                    sql.Append(" VALUES (@NumeroSerie, @Situacao)");
+                    sql.Append("INSERT INTO tbBotoeira (NumeroSerie, Situacao, Valor)");
+                    sql.Append(" VALUES (@NumeroSerie, @Situacao, @Valor)");
 
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -502,7 +516,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarBotoeira(int ID, string NumeroSerie, string Situacao)
+        public void EditarBotoeira(int ID, string NumeroSerie, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -512,12 +526,13 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("UPDATE tbBotoeira SET NumeroSerie = @NumeroSerie, Situacao = @Situacao");
+                    sql.Append("UPDATE tbBotoeira SET NumeroSerie = @NumeroSerie, Situacao = @Situacao, Valor = @Valor");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;

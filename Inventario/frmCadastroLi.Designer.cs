@@ -64,6 +64,10 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
+            this.lblValor = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.txtValorLicenca = new MaterialSkin.Controls.MaterialTextBox();
+            this.lblValorEditar = new System.Windows.Forms.Label();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridLicencas.SuspendLayout();
@@ -180,7 +184,9 @@
             // 
             // grbPesquisa
             // 
+            this.grbPesquisa.Controls.Add(this.txtValor);
             this.grbPesquisa.Controls.Add(this.txtNumeroSerieP);
+            this.grbPesquisa.Controls.Add(this.lblValor);
             this.grbPesquisa.Controls.Add(this.lblNumeroSerieP);
             this.grbPesquisa.Controls.Add(this.mskVencimentoP);
             this.grbPesquisa.Controls.Add(this.mskAtivacaoP);
@@ -192,14 +198,14 @@
             this.grbPesquisa.Controls.Add(this.lblCodigoP);
             this.grbPesquisa.Location = new System.Drawing.Point(6, 6);
             this.grbPesquisa.Name = "grbPesquisa";
-            this.grbPesquisa.Size = new System.Drawing.Size(377, 110);
+            this.grbPesquisa.Size = new System.Drawing.Size(479, 110);
             this.grbPesquisa.TabIndex = 3;
             this.grbPesquisa.TabStop = false;
             this.grbPesquisa.Text = "Perquisar por:";
             // 
             // txtNumeroSerieP
             // 
-            this.txtNumeroSerieP.Location = new System.Drawing.Point(116, 32);
+            this.txtNumeroSerieP.Location = new System.Drawing.Point(101, 32);
             this.txtNumeroSerieP.Name = "txtNumeroSerieP";
             this.txtNumeroSerieP.Size = new System.Drawing.Size(100, 20);
             this.txtNumeroSerieP.TabIndex = 7;
@@ -208,7 +214,7 @@
             // lblNumeroSerieP
             // 
             this.lblNumeroSerieP.AutoSize = true;
-            this.lblNumeroSerieP.Location = new System.Drawing.Point(113, 13);
+            this.lblNumeroSerieP.Location = new System.Drawing.Point(98, 13);
             this.lblNumeroSerieP.Name = "lblNumeroSerieP";
             this.lblNumeroSerieP.Size = new System.Drawing.Size(74, 13);
             this.lblNumeroSerieP.TabIndex = 6;
@@ -216,7 +222,7 @@
             // 
             // mskVencimentoP
             // 
-            this.mskVencimentoP.Location = new System.Drawing.Point(245, 84);
+            this.mskVencimentoP.Location = new System.Drawing.Point(327, 84);
             this.mskVencimentoP.Mask = "00/00/0000";
             this.mskVencimentoP.Name = "mskVencimentoP";
             this.mskVencimentoP.Size = new System.Drawing.Size(75, 20);
@@ -225,7 +231,7 @@
             // 
             // mskAtivacaoP
             // 
-            this.mskAtivacaoP.Location = new System.Drawing.Point(245, 32);
+            this.mskAtivacaoP.Location = new System.Drawing.Point(327, 32);
             this.mskAtivacaoP.Mask = "00/00/0000";
             this.mskAtivacaoP.Name = "mskAtivacaoP";
             this.mskAtivacaoP.Size = new System.Drawing.Size(75, 20);
@@ -235,7 +241,7 @@
             // lblVencimentoP
             // 
             this.lblVencimentoP.AutoSize = true;
-            this.lblVencimentoP.Location = new System.Drawing.Point(242, 68);
+            this.lblVencimentoP.Location = new System.Drawing.Point(324, 68);
             this.lblVencimentoP.Name = "lblVencimentoP";
             this.lblVencimentoP.Size = new System.Drawing.Size(92, 13);
             this.lblVencimentoP.TabIndex = 5;
@@ -260,7 +266,7 @@
             // lblAtivacaoP
             // 
             this.lblAtivacaoP.AutoSize = true;
-            this.lblAtivacaoP.Location = new System.Drawing.Point(242, 16);
+            this.lblAtivacaoP.Location = new System.Drawing.Point(324, 16);
             this.lblAtivacaoP.Name = "lblAtivacaoP";
             this.lblAtivacaoP.Size = new System.Drawing.Size(78, 13);
             this.lblAtivacaoP.TabIndex = 2;
@@ -421,7 +427,9 @@
             this.grbCampos.Controls.Add(this.mskVencimento);
             this.grbCampos.Controls.Add(this.mskAtivacao);
             this.grbCampos.Controls.Add(this.txtNumeroLicenca);
+            this.grbCampos.Controls.Add(this.txtValorLicenca);
             this.grbCampos.Controls.Add(this.txtTipoLicenca);
+            this.grbCampos.Controls.Add(this.lblValorEditar);
             this.grbCampos.Controls.Add(this.lblCodigo);
             this.grbCampos.Controls.Add(this.txtCodigo);
             this.grbCampos.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -608,6 +616,49 @@
             this.tbSelecionar.TabIndex = 2;
             this.tbSelecionar.Text = "materialTabSelector1";
             // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Location = new System.Drawing.Point(213, 13);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(34, 13);
+            this.lblValor.TabIndex = 6;
+            this.lblValor.Text = "Valor:";
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(216, 32);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(100, 20);
+            this.txtValor.TabIndex = 7;
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroSerieP_KeyPress);
+            // 
+            // txtValorLicenca
+            // 
+            this.txtValorLicenca.AnimateReadOnly = false;
+            this.txtValorLicenca.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtValorLicenca.Depth = 0;
+            this.txtValorLicenca.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtValorLicenca.LeadingIcon = null;
+            this.txtValorLicenca.Location = new System.Drawing.Point(204, 46);
+            this.txtValorLicenca.MaxLength = 50;
+            this.txtValorLicenca.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtValorLicenca.Multiline = false;
+            this.txtValorLicenca.Name = "txtValorLicenca";
+            this.txtValorLicenca.Size = new System.Drawing.Size(187, 50);
+            this.txtValorLicenca.TabIndex = 4;
+            this.txtValorLicenca.Text = "";
+            this.txtValorLicenca.TrailingIcon = null;
+            // 
+            // lblValorEditar
+            // 
+            this.lblValorEditar.AutoSize = true;
+            this.lblValorEditar.Location = new System.Drawing.Point(201, 30);
+            this.lblValorEditar.Name = "lblValorEditar";
+            this.lblValorEditar.Size = new System.Drawing.Size(87, 13);
+            this.lblValorEditar.TabIndex = 3;
+            this.lblValorEditar.Text = "Valor da Licença";
+            // 
             // frmCadastroLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -676,5 +727,9 @@
         private MaterialSkin.Controls.MaterialRadioButton mRadioInativo;
         private MaterialSkin.Controls.MaterialButton mbtnPesquisar;
         private MaterialSkin.Controls.MaterialButton mbtnCancelar;
+        private System.Windows.Forms.Label lblValor;
+        private System.Windows.Forms.TextBox txtValor;
+        private MaterialSkin.Controls.MaterialTextBox txtValorLicenca;
+        private System.Windows.Forms.Label lblValorEditar;
     }
 }

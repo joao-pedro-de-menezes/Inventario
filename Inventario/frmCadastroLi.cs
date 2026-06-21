@@ -123,7 +123,14 @@ namespace Inventario
                     try
                     {
                         clsLicenca licenca = new clsLicenca();
-                        licenca.SalvarLicenca(txtTipoLicenca.Text, (txtNumeroLicenca.Text), Convert.ToDateTime(mskAtivacao.Text), Convert.ToDateTime(mskVencimento.Text), "A");
+                        licenca.SalvarLicenca(
+                            txtTipoLicenca.Text, 
+                            (txtNumeroLicenca.Text), 
+                            Convert.ToDateTime(mskAtivacao.Text), 
+                            Convert.ToDateTime(mskVencimento.Text), 
+                            "A",
+                            Convert.ToDouble(txtValor.Text)
+                            );
                         resetar();
                         MessageBox.Show("Licença Cadastrado com sucesso!", "SalvLicença", MessageBoxButtons.OK);
                         carregar();
@@ -155,7 +162,15 @@ namespace Inventario
                     if (MessageBox.Show("Deseja realmente editar esta licença?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         clsLicenca licenca = new clsLicenca();
-                        licenca.EditarLicenca(Convert.ToInt32(txtCodigo.Text), txtTipoLicenca.Text.ToString(), (txtNumeroLicenca.Text), Convert.ToDateTime(mskAtivacao.Text), Convert.ToDateTime(mskVencimento.Text), Convert.ToString(situacao));
+                        licenca.EditarLicenca(
+                            Convert.ToInt32(txtCodigo.Text), 
+                            txtTipoLicenca.Text.ToString(), 
+                            (txtNumeroLicenca.Text), 
+                            Convert.ToDateTime(mskAtivacao.Text), 
+                            Convert.ToDateTime(mskVencimento.Text), 
+                            Convert.ToString(situacao),
+                            Convert.ToDouble(txtValorLicenca.Text)
+                            );
                         MessageBox.Show("Licença Alterada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         resetar();
                         carregar();

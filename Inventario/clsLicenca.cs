@@ -15,7 +15,7 @@ namespace Inventario
         StringBuilder sql = new StringBuilder();
         DataTable dt = new DataTable();
 
-        public void SalvarLicenca(string TipoLicenca, string NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento, string Situacao)
+        public void SalvarLicenca(string TipoLicenca, string NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
 
@@ -26,14 +26,15 @@ namespace Inventario
 
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbLicencas(TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao)");
-                    sql.Append(" VALUES (@TipoLicenca, @NumeroSerie, @DataAtivacao, @DataVencimento, @Situacao)");
+                    sql.Append("INSERT INTO tbLicencas(TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao, Valor)");
+                    sql.Append(" VALUES (@TipoLicenca, @NumeroSerie, @DataAtivacao, @DataVencimento, @Situacao, @Valor)");
 
                     cmd.Parameters.Add(new SqlParameter("@TipoLicenca", TipoLicenca));
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@DataAtivacao", DataAtivacao));
-                    cmd.Parameters.Add(new SqlParameter("@DataVencimento", DataVencimento));
+                    cmd.Parameters.Add(new SqlParameter("@DataVencimento", DataVencimento));                  
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -50,7 +51,7 @@ namespace Inventario
                 }
         }
 
-        public void EditarLicenca(int ID, string TipoLicenca, string NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento, string Situacao)
+        public void EditarLicenca(int ID, string TipoLicenca, string NumeroSerie, DateTime DataAtivacao, DateTime DataVencimento, string Situacao, double Valor)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -59,7 +60,7 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("UPDATE tbLicencas SET TipoLicenca = @TipoLicenca, NumeroSerie = @NumeroSerie, DataAtivacao = @DataAtivacao, DataVencimento = @DataVencimento, Situacao = @Situacao");
+                    sql.Append("UPDATE tbLicencas SET TipoLicenca = @TipoLicenca, NumeroSerie = @NumeroSerie, DataAtivacao = @DataAtivacao, DataVencimento = @DataVencimento, Situacao = @Situacao, Valor = @Valor");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
@@ -68,6 +69,7 @@ namespace Inventario
                     cmd.Parameters.Add(new SqlParameter("@DataAtivacao", DataAtivacao));
                     cmd.Parameters.Add(new SqlParameter("@DataVencimento", DataVencimento));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
@@ -123,7 +125,7 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao FROM tbLicencas");
+                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao, Valor FROM tbLicencas");
                     sql.Append(" WHERE TipoLicenca LIKE '%' + @TipoLicenca + '%' ");
                     sql.Append(" ORDER BY TipoLicenca");
                     cmd.Parameters.Add(new SqlParameter("@TipoLicenca", TipoLicenca));
@@ -155,7 +157,7 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao FROM tbLicencas");
+                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao, Valor FROM tbLicencas");
                     sql.Append(" WHERE DataVencimento BETWEEN @dataInicio AND @dataFim");
                     sql.Append(" ORDER BY DataVencimento ASC");
 
@@ -191,7 +193,7 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao FROM tbLicencas");
+                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao, Valor FROM tbLicencas");
                     sql.Append(" WHERE ID = @Codigo");
                     cmd.Parameters.Add(new SqlParameter("@Codigo", Codigo));
                     cmd.CommandText = sql.ToString();
@@ -219,7 +221,7 @@ namespace Inventario
                     sql.Clear();
                     cmd.Parameters.Clear();
                     conexao.Open();
-                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao FROM tbLicencas");
+                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao, Valor FROM tbLicencas");
                     sql.Append(" WHERE NumeroSerie = @NumeroSerie");
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.CommandText = sql.ToString();
