@@ -40,8 +40,6 @@
             this.txtFrotaP = new System.Windows.Forms.TextBox();
             this.lblFrente = new System.Windows.Forms.Label();
             this.lblFrota = new System.Windows.Forms.Label();
-            this.txtSituacaoP = new System.Windows.Forms.TextBox();
-            this.lblSituacaoP = new System.Windows.Forms.Label();
             this.txtTipoMaquinaP = new System.Windows.Forms.TextBox();
             this.lblTipoMaquinaP = new System.Windows.Forms.Label();
             this.txtCodigoP = new System.Windows.Forms.TextBox();
@@ -55,14 +53,16 @@
             this.mRadioAtivo = new MaterialSkin.Controls.MaterialRadioButton();
             this.mRadioInativo = new MaterialSkin.Controls.MaterialRadioButton();
             this.grbCampos = new System.Windows.Forms.GroupBox();
+            this.mtxtFrente = new MaterialSkin.Controls.MaterialTextBox();
+            this.mtxtFrota = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtObservacao = new System.Windows.Forms.TextBox();
             this.mcmbTipo = new MaterialSkin.Controls.MaterialComboBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
-            this.txtObservacao = new System.Windows.Forms.TextBox();
-            this.mbtnVoltar = new MaterialSkin.Controls.MaterialButton();
-            this.mtxtFrota = new MaterialSkin.Controls.MaterialTextBox();
-            this.mtxtFrente = new MaterialSkin.Controls.MaterialTextBox();
+            this.rdbInativo = new System.Windows.Forms.RadioButton();
+            this.rdbAtivo = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridMaquinas.SuspendLayout();
@@ -179,12 +179,13 @@
             // 
             // grbPesquisa
             // 
+            this.grbPesquisa.Controls.Add(this.rdbInativo);
+            this.grbPesquisa.Controls.Add(this.rdbAtivo);
+            this.grbPesquisa.Controls.Add(this.label1);
             this.grbPesquisa.Controls.Add(this.txtFrenteP);
             this.grbPesquisa.Controls.Add(this.txtFrotaP);
             this.grbPesquisa.Controls.Add(this.lblFrente);
             this.grbPesquisa.Controls.Add(this.lblFrota);
-            this.grbPesquisa.Controls.Add(this.txtSituacaoP);
-            this.grbPesquisa.Controls.Add(this.lblSituacaoP);
             this.grbPesquisa.Controls.Add(this.txtTipoMaquinaP);
             this.grbPesquisa.Controls.Add(this.lblTipoMaquinaP);
             this.grbPesquisa.Controls.Add(this.txtCodigoP);
@@ -231,23 +232,6 @@
             this.lblFrota.Size = new System.Drawing.Size(40, 13);
             this.lblFrota.TabIndex = 9;
             this.lblFrota.Text = "Frota:";
-            // 
-            // txtSituacaoP
-            // 
-            this.txtSituacaoP.Location = new System.Drawing.Point(148, 84);
-            this.txtSituacaoP.Name = "txtSituacaoP";
-            this.txtSituacaoP.Size = new System.Drawing.Size(100, 20);
-            this.txtSituacaoP.TabIndex = 5;
-            // 
-            // lblSituacaoP
-            // 
-            this.lblSituacaoP.AutoSize = true;
-            this.lblSituacaoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSituacaoP.Location = new System.Drawing.Point(145, 68);
-            this.lblSituacaoP.Name = "lblSituacaoP";
-            this.lblSituacaoP.Size = new System.Drawing.Size(61, 13);
-            this.lblSituacaoP.TabIndex = 6;
-            this.lblSituacaoP.Text = "Situação:";
             // 
             // txtTipoMaquinaP
             // 
@@ -428,6 +412,51 @@
             this.grbCampos.TabIndex = 1;
             this.grbCampos.TabStop = false;
             // 
+            // mtxtFrente
+            // 
+            this.mtxtFrente.AnimateReadOnly = false;
+            this.mtxtFrente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mtxtFrente.Depth = 0;
+            this.mtxtFrente.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mtxtFrente.LeadingIcon = null;
+            this.mtxtFrente.Location = new System.Drawing.Point(201, 103);
+            this.mtxtFrente.MaxLength = 50;
+            this.mtxtFrente.MouseState = MaterialSkin.MouseState.OUT;
+            this.mtxtFrente.Multiline = false;
+            this.mtxtFrente.Name = "mtxtFrente";
+            this.mtxtFrente.Size = new System.Drawing.Size(189, 50);
+            this.mtxtFrente.TabIndex = 18;
+            this.mtxtFrente.Text = "";
+            this.mtxtFrente.TrailingIcon = null;
+            this.mtxtFrente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtFrente_KeyPress);
+            // 
+            // mtxtFrota
+            // 
+            this.mtxtFrota.AnimateReadOnly = false;
+            this.mtxtFrota.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mtxtFrota.Depth = 0;
+            this.mtxtFrota.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mtxtFrota.LeadingIcon = null;
+            this.mtxtFrota.Location = new System.Drawing.Point(9, 103);
+            this.mtxtFrota.MaxLength = 50;
+            this.mtxtFrota.MouseState = MaterialSkin.MouseState.OUT;
+            this.mtxtFrota.Multiline = false;
+            this.mtxtFrota.Name = "mtxtFrota";
+            this.mtxtFrota.Size = new System.Drawing.Size(186, 50);
+            this.mtxtFrota.TabIndex = 16;
+            this.mtxtFrota.Text = "";
+            this.mtxtFrota.TrailingIcon = null;
+            this.mtxtFrota.TextChanged += new System.EventHandler(this.mtxtFrota_TextChanged);
+            this.mtxtFrota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtFrota_KeyPress);
+            // 
+            // txtObservacao
+            // 
+            this.txtObservacao.Location = new System.Drawing.Point(23, 229);
+            this.txtObservacao.Multiline = true;
+            this.txtObservacao.Name = "txtObservacao";
+            this.txtObservacao.Size = new System.Drawing.Size(348, 134);
+            this.txtObservacao.TabIndex = 15;
+            // 
             // mcmbTipo
             // 
             this.mcmbTipo.AutoResize = false;
@@ -491,78 +520,43 @@
             this.tbSelecionar.TabIndex = 11;
             this.tbSelecionar.Text = "materialTabSelector1";
             // 
-            // txtObservacao
+            // rdbInativo
             // 
-            this.txtObservacao.Location = new System.Drawing.Point(23, 229);
-            this.txtObservacao.Multiline = true;
-            this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(348, 134);
-            this.txtObservacao.TabIndex = 15;
+            this.rdbInativo.AutoSize = true;
+            this.rdbInativo.Location = new System.Drawing.Point(204, 87);
+            this.rdbInativo.Name = "rdbInativo";
+            this.rdbInativo.Size = new System.Drawing.Size(79, 17);
+            this.rdbInativo.TabIndex = 14;
+            this.rdbInativo.TabStop = true;
+            this.rdbInativo.Text = "Desativado";
+            this.rdbInativo.UseVisualStyleBackColor = true;
             // 
-            // mbtnVoltar
+            // rdbAtivo
             // 
-            this.mbtnVoltar.AutoSize = false;
-            this.mbtnVoltar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnVoltar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.mbtnVoltar.Depth = 0;
-            this.mbtnVoltar.HighEmphasis = true;
-            this.mbtnVoltar.Icon = null;
-            this.mbtnVoltar.Location = new System.Drawing.Point(6, 76);
-            this.mbtnVoltar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnVoltar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnVoltar.Name = "mbtnVoltar";
-            this.mbtnVoltar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.mbtnVoltar.Size = new System.Drawing.Size(109, 24);
-            this.mbtnVoltar.TabIndex = 12;
-            this.mbtnVoltar.Text = "Voltar";
-            this.mbtnVoltar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.mbtnVoltar.UseAccentColor = false;
-            this.mbtnVoltar.UseVisualStyleBackColor = true;
-            this.mbtnVoltar.Click += new System.EventHandler(this.mbtnVoltar_Click);
+            this.rdbAtivo.AutoSize = true;
+            this.rdbAtivo.Location = new System.Drawing.Point(137, 87);
+            this.rdbAtivo.Name = "rdbAtivo";
+            this.rdbAtivo.Size = new System.Drawing.Size(61, 17);
+            this.rdbAtivo.TabIndex = 16;
+            this.rdbAtivo.TabStop = true;
+            this.rdbAtivo.Text = "Ativado";
+            this.rdbAtivo.UseVisualStyleBackColor = true;
             // 
-            // mtxtFrota
+            // label1
             // 
-            this.mtxtFrota.AnimateReadOnly = false;
-            this.mtxtFrota.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mtxtFrota.Depth = 0;
-            this.mtxtFrota.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mtxtFrota.LeadingIcon = null;
-            this.mtxtFrota.Location = new System.Drawing.Point(9, 103);
-            this.mtxtFrota.MaxLength = 50;
-            this.mtxtFrota.MouseState = MaterialSkin.MouseState.OUT;
-            this.mtxtFrota.Multiline = false;
-            this.mtxtFrota.Name = "mtxtFrota";
-            this.mtxtFrota.Size = new System.Drawing.Size(186, 50);
-            this.mtxtFrota.TabIndex = 16;
-            this.mtxtFrota.Text = "";
-            this.mtxtFrota.TrailingIcon = null;
-            this.mtxtFrota.TextChanged += new System.EventHandler(this.mtxtFrota_TextChanged);
-            this.mtxtFrota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtFrota_KeyPress);
-            // 
-            // mtxtFrente
-            // 
-            this.mtxtFrente.AnimateReadOnly = false;
-            this.mtxtFrente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mtxtFrente.Depth = 0;
-            this.mtxtFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mtxtFrente.LeadingIcon = null;
-            this.mtxtFrente.Location = new System.Drawing.Point(201, 103);
-            this.mtxtFrente.MaxLength = 50;
-            this.mtxtFrente.MouseState = MaterialSkin.MouseState.OUT;
-            this.mtxtFrente.Multiline = false;
-            this.mtxtFrente.Name = "mtxtFrente";
-            this.mtxtFrente.Size = new System.Drawing.Size(189, 50);
-            this.mtxtFrente.TabIndex = 18;
-            this.mtxtFrente.Text = "";
-            this.mtxtFrente.TrailingIcon = null;
-            this.mtxtFrente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtFrente_KeyPress);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(182, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Situação:";
             // 
             // frmCadastroMa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 682);
-            this.Controls.Add(this.mbtnVoltar);
             this.Controls.Add(this.tbSelecionar);
             this.Controls.Add(this.tabCntrCadastro);
             this.MaximizeBox = false;
@@ -599,8 +593,6 @@
         private MaterialSkin.Controls.MaterialButton mbtnPesquisarP;
         private MaterialSkin.Controls.MaterialButton mbVoltar;
         private System.Windows.Forms.GroupBox grbPesquisa;
-        private System.Windows.Forms.TextBox txtSituacaoP;
-        private System.Windows.Forms.Label lblSituacaoP;
         private System.Windows.Forms.TextBox txtTipoMaquinaP;
         private System.Windows.Forms.Label lblTipoMaquinaP;
         private System.Windows.Forms.TextBox txtCodigoP;
@@ -623,8 +615,10 @@
         private System.Windows.Forms.TextBox txtFrenteP;
         private System.Windows.Forms.TextBox txtFrotaP;
         private System.Windows.Forms.TextBox txtObservacao;
-        private MaterialSkin.Controls.MaterialButton mbtnVoltar;
         private MaterialSkin.Controls.MaterialTextBox mtxtFrota;
         private MaterialSkin.Controls.MaterialTextBox mtxtFrente;
+        private System.Windows.Forms.RadioButton rdbInativo;
+        private System.Windows.Forms.RadioButton rdbAtivo;
+        private System.Windows.Forms.Label label1;
     }
 }

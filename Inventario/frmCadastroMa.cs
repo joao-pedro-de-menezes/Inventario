@@ -17,6 +17,7 @@ namespace Inventario
 
         string Tfrente = "Digite a Frente";
         string Tfrota = "Digite a Frota";
+        string Tobs = "Digite a observação";
 
 
         private readonly MaterialSkinManager materialSkinManager;
@@ -45,6 +46,7 @@ namespace Inventario
             mRadioInativo.Checked = false;
             txtCodigo.Visible = false;
             carregarCmb();
+            carregar();
             
         }
 
@@ -234,6 +236,7 @@ namespace Inventario
             {
                 mtxtFrente.LimparBtns(Tfrente);
                 mtxtFrota.LimparBtns(Tfrota);
+                txtObservacao.LimparBtns(Tobs);
                 mbtnCadastrar_Atualizar.Text = "Cadastrar";
                 mRadioAtivo.Checked = true;
                 mRadioInativo.Enabled = false;
@@ -269,11 +272,11 @@ namespace Inventario
             try
             {
                 string situacao = "";
-                if (mRadioAtivo.Checked)
+                if (rdbAtivo.Checked)
                 {
                     situacao = "A";
                 }
-                else if (mRadioInativo.Checked)
+                else if (rdbInativo.Checked)
                 {
                     situacao = "I";
                 }
@@ -298,14 +301,13 @@ namespace Inventario
                 {
                     dgvMaquinas.DataSource = maquina.PesquisaMaquina(txtTipoMaquinaP.Text);
                 }
-                else
+                
+                if (MessageBox.Show("Nenhum parâmetro passado deseja fazer uma busca geral dos usuários?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Nenhum parâmetro passado deseja fazer uma busca geral dos usuários?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        dgvMaquinas.DataSource = maquina.PesquisaTodos();
-                    }
-
+                    dgvMaquinas.DataSource = maquina.PesquisaTodos();
                 }
+
+                
             }
             catch (Exception ex)
             {

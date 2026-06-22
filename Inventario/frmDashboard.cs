@@ -232,10 +232,7 @@ namespace Inventario
 
         private void iconButtonExibirEquipamentos_Click(object sender, EventArgs e)
         {
-            frmTelaEquipamentos telaEquipamentos = new frmTelaEquipamentos();
-            this.Hide();
-            telaEquipamentos.ShowDialog();
-            this.Show();
+            
         }
 
         private void iconButtonExibirLicencas_Click(object sender, EventArgs e)
@@ -245,10 +242,6 @@ namespace Inventario
 
         private void iconButtonExibirMaquinas_Click(object sender, EventArgs e)
         {
-            frmTelaMaquinas telaMaquinas = new frmTelaMaquinas();
-            this.Hide();
-            telaMaquinas.ShowDialog();
-            this.Show();
         }
 
        
