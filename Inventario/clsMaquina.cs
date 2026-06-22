@@ -127,7 +127,7 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("SELECT ID, NumeroFrota, TipoMaquina, Situacao, Frente, Observacao");
+                    sql.Append("SELECT ID, NumeroFrota, TipoMaquina, Situacao, Frente, Observacao FROM tbMaquinas");
                     sql.Append(" WHERE ID = @Codigo");
                     cmd.Parameters.Add(new SqlParameter("@Codigo", Codigo));
                     cmd.CommandText = sql.ToString();
@@ -159,7 +159,7 @@ namespace Inventario
                     conexao.Open();
 
                     sql.Append("SELECT ID, NumeroFrota, TipoMaquina, Situacao, Frente, Observacao FROM tbMaquinas");
-                    sql.Append(" WHERE NumeroFrota LIKE = @NumeroFrota");
+                    sql.Append(" WHERE NumeroFrota LIKE @NumeroFrota");
                     sql.Append(" ORDER BY NumeroFrota");
                     // Aqui a gente converte o número para string e gruda o '%' no final (pesquisa pelo número inicial)
                     cmd.Parameters.Add(new SqlParameter("@NumeroFrota", NumeroFrota.ToString() + "%"));
@@ -226,7 +226,7 @@ namespace Inventario
                     conexao.Open();
 
                     sql.Append("SELECT ID, NumeroFrota, TipoMaquina, Situacao, Frente, Observacao FROM tbMaquinas");
-                    sql.Append(" WHERE Situacao LIKE = @Situacao");
+                    sql.Append(" WHERE Situacao = @Situacao");
                     sql.Append(" ORDER BY Situacao");
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
 

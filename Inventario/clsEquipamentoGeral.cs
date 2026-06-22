@@ -70,6 +70,7 @@ namespace Inventario
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@LicencaAti", LicencaAti));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
                     cmd.Parameters.Add(new SqlParameter("@DataAtivacao", DataAtivacao));
                     cmd.Parameters.Add(new SqlParameter("@DataVencimento", DataVencimento));
 

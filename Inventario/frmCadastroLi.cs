@@ -132,7 +132,7 @@ namespace Inventario
                             Convert.ToDouble(txtValor.Text)
                             );
                         resetar();
-                        MessageBox.Show("Licença Cadastrado com sucesso!", "SalvLicença", MessageBoxButtons.OK);
+                        MessageBox.Show("Licença Cadastrado com sucesso!", "SalvLicença", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         carregar();
                         txtLicencaP.Focus();
                     }

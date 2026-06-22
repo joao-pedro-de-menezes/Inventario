@@ -76,6 +76,10 @@
             this.txtTipoLicenca = new MaterialSkin.Controls.MaterialTextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
+            this.lblValorP = new System.Windows.Forms.Label();
+            this.txtValorP = new System.Windows.Forms.TextBox();
+            this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.lblValor = new System.Windows.Forms.Label();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridEquipamentos.SuspendLayout();
@@ -179,7 +183,7 @@
             // 
             this.grbOpcoesP.Controls.Add(this.mbPesquisar);
             this.grbOpcoesP.Controls.Add(this.mbVoltar);
-            this.grbOpcoesP.Location = new System.Drawing.Point(527, 22);
+            this.grbOpcoesP.Location = new System.Drawing.Point(647, 34);
             this.grbOpcoesP.Name = "grbOpcoesP";
             this.grbOpcoesP.Size = new System.Drawing.Size(223, 71);
             this.grbOpcoesP.TabIndex = 4;
@@ -228,6 +232,8 @@
             // 
             // grbPesquisa
             // 
+            this.grbPesquisa.Controls.Add(this.txtValorP);
+            this.grbPesquisa.Controls.Add(this.lblValorP);
             this.grbPesquisa.Controls.Add(this.txtNSerieP);
             this.grbPesquisa.Controls.Add(this.lblNSerieP);
             this.grbPesquisa.Controls.Add(this.textBox1);
@@ -245,14 +251,14 @@
             this.grbPesquisa.Controls.Add(this.lblAtivacaoP);
             this.grbPesquisa.Location = new System.Drawing.Point(6, 6);
             this.grbPesquisa.Name = "grbPesquisa";
-            this.grbPesquisa.Size = new System.Drawing.Size(503, 110);
+            this.grbPesquisa.Size = new System.Drawing.Size(625, 110);
             this.grbPesquisa.TabIndex = 0;
             this.grbPesquisa.TabStop = false;
             this.grbPesquisa.Text = "Perquisar por:";
             // 
             // txtNSerieP
             // 
-            this.txtNSerieP.Location = new System.Drawing.Point(240, 32);
+            this.txtNSerieP.Location = new System.Drawing.Point(340, 31);
             this.txtNSerieP.Name = "txtNSerieP";
             this.txtNSerieP.Size = new System.Drawing.Size(134, 20);
             this.txtNSerieP.TabIndex = 16;
@@ -261,7 +267,7 @@
             // 
             this.lblNSerieP.AutoSize = true;
             this.lblNSerieP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNSerieP.Location = new System.Drawing.Point(237, 17);
+            this.lblNSerieP.Location = new System.Drawing.Point(337, 16);
             this.lblNSerieP.Name = "lblNSerieP";
             this.lblNSerieP.Size = new System.Drawing.Size(58, 13);
             this.lblNSerieP.TabIndex = 15;
@@ -269,7 +275,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(216, 81);
+            this.textBox1.Location = new System.Drawing.Point(160, 79);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(158, 20);
             this.textBox1.TabIndex = 14;
@@ -278,7 +284,7 @@
             // 
             this.lblLocali.AutoSize = true;
             this.lblLocali.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocali.Location = new System.Drawing.Point(213, 66);
+            this.lblLocali.Location = new System.Drawing.Point(157, 64);
             this.lblLocali.Name = "lblLocali";
             this.lblLocali.Size = new System.Drawing.Size(79, 13);
             this.lblLocali.TabIndex = 13;
@@ -309,14 +315,14 @@
             // cmbTipoP
             // 
             this.cmbTipoP.FormattingEnabled = true;
-            this.cmbTipoP.Location = new System.Drawing.Point(103, 32);
+            this.cmbTipoP.Location = new System.Drawing.Point(160, 31);
             this.cmbTipoP.Name = "cmbTipoP";
             this.cmbTipoP.Size = new System.Drawing.Size(121, 21);
             this.cmbTipoP.TabIndex = 11;
             // 
             // mskVencimentoP
             // 
-            this.mskVencimentoP.Location = new System.Drawing.Point(399, 81);
+            this.mskVencimentoP.Location = new System.Drawing.Point(499, 80);
             this.mskVencimentoP.Mask = "00/00/0000";
             this.mskVencimentoP.Name = "mskVencimentoP";
             this.mskVencimentoP.Size = new System.Drawing.Size(75, 20);
@@ -335,7 +341,7 @@
             // 
             // mskAtivacaoP
             // 
-            this.mskAtivacaoP.Location = new System.Drawing.Point(399, 29);
+            this.mskAtivacaoP.Location = new System.Drawing.Point(499, 28);
             this.mskAtivacaoP.Mask = "00/00/0000";
             this.mskAtivacaoP.Name = "mskAtivacaoP";
             this.mskAtivacaoP.Size = new System.Drawing.Size(75, 20);
@@ -346,7 +352,7 @@
             // 
             this.lblTipoEquipamentoP.AutoSize = true;
             this.lblTipoEquipamentoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoEquipamentoP.Location = new System.Drawing.Point(100, 17);
+            this.lblTipoEquipamentoP.Location = new System.Drawing.Point(157, 16);
             this.lblTipoEquipamentoP.Name = "lblTipoEquipamentoP";
             this.lblTipoEquipamentoP.Size = new System.Drawing.Size(113, 13);
             this.lblTipoEquipamentoP.TabIndex = 3;
@@ -355,7 +361,7 @@
             // lblVencimentoP
             // 
             this.lblVencimentoP.AutoSize = true;
-            this.lblVencimentoP.Location = new System.Drawing.Point(396, 65);
+            this.lblVencimentoP.Location = new System.Drawing.Point(496, 64);
             this.lblVencimentoP.Name = "lblVencimentoP";
             this.lblVencimentoP.Size = new System.Drawing.Size(92, 13);
             this.lblVencimentoP.TabIndex = 10;
@@ -381,7 +387,7 @@
             // lblAtivacaoP
             // 
             this.lblAtivacaoP.AutoSize = true;
-            this.lblAtivacaoP.Location = new System.Drawing.Point(396, 16);
+            this.lblAtivacaoP.Location = new System.Drawing.Point(496, 15);
             this.lblAtivacaoP.Name = "lblAtivacaoP";
             this.lblAtivacaoP.Size = new System.Drawing.Size(78, 13);
             this.lblAtivacaoP.TabIndex = 7;
@@ -596,7 +602,9 @@
             this.grbCampos.Controls.Add(this.mskAtivacao);
             this.grbCampos.Controls.Add(this.txtNumeroLicenca);
             this.grbCampos.Controls.Add(this.txtTipoLicenca);
+            this.grbCampos.Controls.Add(this.lblValor);
             this.grbCampos.Controls.Add(this.lblCodigo);
+            this.grbCampos.Controls.Add(this.materialTextBox1);
             this.grbCampos.Controls.Add(this.txtCodigo);
             this.grbCampos.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.grbCampos.Location = new System.Drawing.Point(30, 6);
@@ -768,6 +776,50 @@
             this.txtCodigo.Text = "";
             this.txtCodigo.TrailingIcon = null;
             // 
+            // lblValorP
+            // 
+            this.lblValorP.AutoSize = true;
+            this.lblValorP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorP.Location = new System.Drawing.Point(337, 64);
+            this.lblValorP.Name = "lblValorP";
+            this.lblValorP.Size = new System.Drawing.Size(40, 13);
+            this.lblValorP.TabIndex = 15;
+            this.lblValorP.Text = "Valor:";
+            // 
+            // txtValorP
+            // 
+            this.txtValorP.Location = new System.Drawing.Point(340, 79);
+            this.txtValorP.Name = "txtValorP";
+            this.txtValorP.Size = new System.Drawing.Size(134, 20);
+            this.txtValorP.TabIndex = 16;
+            // 
+            // materialTextBox1
+            // 
+            this.materialTextBox1.AnimateReadOnly = false;
+            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox1.Depth = 0;
+            this.materialTextBox1.Enabled = false;
+            this.materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTextBox1.LeadingIcon = null;
+            this.materialTextBox1.Location = new System.Drawing.Point(204, 46);
+            this.materialTextBox1.MaxLength = 50;
+            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox1.Multiline = false;
+            this.materialTextBox1.Name = "materialTextBox1";
+            this.materialTextBox1.Size = new System.Drawing.Size(187, 50);
+            this.materialTextBox1.TabIndex = 2;
+            this.materialTextBox1.Text = "";
+            this.materialTextBox1.TrailingIcon = null;
+            // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Location = new System.Drawing.Point(201, 30);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(111, 13);
+            this.lblValor.TabIndex = 3;
+            this.lblValor.Text = "Valor do Equipamento";
+            // 
             // frmCadastroEq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -846,5 +898,9 @@
         private System.Windows.Forms.Label lblPesquisar;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private System.Windows.Forms.DataGridView dgvLi;
+        private System.Windows.Forms.TextBox txtValorP;
+        private System.Windows.Forms.Label lblValorP;
+        private System.Windows.Forms.Label lblValor;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
     }
 }

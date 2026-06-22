@@ -14,6 +14,11 @@ namespace Inventario
 {
     public partial class frmCadastroMa : MaterialForm
     {
+
+        string Tfrente = "Digite a Frente";
+        string Tfrota = "Digite a Frota";
+
+
         private readonly MaterialSkinManager materialSkinManager;
         public frmCadastroMa()
         {
@@ -36,8 +41,122 @@ namespace Inventario
 
         private void frmCadastroMa_Load(object sender, EventArgs e)
         {
-
+            mbtnCadastrar_Atualizar.Tag = "Novo";
+            mRadioInativo.Checked = false;
+            txtCodigo.Visible = false;
+            carregarCmb();
+            
         }
+
+        private void mbtnCadastrar_Click(object sender, EventArgs e)
+        {
+            //Validações da FROTA
+            if (string.IsNullOrWhiteSpace(mtxtFrota.Text) || mtxtFrota.Text == Tfrota)
+            {
+                MessageBox.Show("O campo Frota é obrigatório.", "Frota", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mtxtFrota.Focus();
+                return;
+            }
+            else if (!mtxtFrota.Text.All(char.IsDigit)) //Verifica se o usuario colou letras com o CTRL V 
+            {
+                MessageBox.Show("O campo Frota só aceita números inteiros (Ex: 102).", "Erro de Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mtxtFrota.Focus();
+                return;
+            }
+
+            //Validações da FRENTE 
+            else if (string.IsNullOrWhiteSpace(mtxtFrente.Text) || mtxtFrente.Text == Tfrente)
+            {
+                MessageBox.Show("O campo Frente é obrigatório.", "Frente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mtxtFrente.Focus();
+                return;
+            }
+            else if (!mtxtFrente.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("O campo Frente só aceita números inteiros.", "Erro de Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mtxtFrente.Focus();
+                return;
+            }
+
+            //Validação do TIPO 
+            else if (mcmbTipo.SelectedIndex == -1 || mcmbTipo.SelectedIndex == 5) 
+            {
+                MessageBox.Show("Por favor, selecione uma opção válida no ComboBox.", "Opção Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mcmbTipo.Focus();
+                return;
+            }
+
+            //tag Novo
+            if (Convert.ToString(mbtnCadastrar_Atualizar.Tag) == "Novo")
+            {
+                if (MessageBox.Show("Deseja realmente salvar esta máquina?", "Salvar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        clsMaquina maquina = new clsMaquina();
+                        maquina.SalvarMaquina(
+                            Convert.ToInt32(mtxtFrota.Text),
+                            mcmbTipo.SelectedIndex.ToString(),
+                            "A",
+                            Convert.ToInt32(mtxtFrente.Text),
+                            txtObservacao.Text
+                            );
+                        resetar();
+                        MessageBox.Show("Máquina cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        carregar();
+                        mtxtFrota.Focus();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao salvar Máquina {ex}", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        throw;
+                    }
+                }
+            }
+            else
+            {
+                if (Convert.ToString(mbtnCadastrar_Atualizar.Tag) == "Editar")
+                {
+                    if (MessageBox.Show($"Deseja realmente editar Máquina?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        string situacao = "";
+                        if (mRadioAtivo.Checked)
+                        {
+                            situacao = "A";
+                        }
+                        else if (mRadioInativo.Checked)
+                        {
+                            situacao = "I";
+                        }
+
+                        try
+                        {
+                            clsMaquina maquina = new clsMaquina();
+                            maquina.EditarMaquina(
+                                Convert.ToInt32(txtCodigo.Text),
+                                Convert.ToInt32(mtxtFrota.Text),
+                                mcmbTipo.SelectedIndex.ToString(),
+                                situacao,
+                                Convert.ToInt32(mtxtFrente.Text),
+                                txtObservacao.Text
+                                );
+                            resetar();
+                            MessageBox.Show("Máquina editada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            carregar();
+                            mtxtFrota.Focus();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Erro ao editar Máquina {ex}", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            throw;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
@@ -91,5 +210,115 @@ namespace Inventario
         {
             this.Dispose();
         }
+
+        private void resetar()
+        {
+            //Método resetar
+            foreach (Control ctl in grbCampos.Controls)
+            {
+                if (ctl is MaterialTextBox)
+                    ctl.Text = "";
+ 
+            }
+
+            mRadioInativo.Enabled = false;
+            txtCodigo.Visible = false;
+            txtCodigo.Visible = false;
+            mbtnCadastrar_Atualizar.Tag = "Novo";
+            mbtnCadastrar_Atualizar.Text = "Cadastrar";
+        }
+
+        public void carregar()
+        {
+            if (string.IsNullOrEmpty(mtxtFrota.Text))
+            {
+                mtxtFrente.LimparBtns(Tfrente);
+                mtxtFrota.LimparBtns(Tfrota);
+                mbtnCadastrar_Atualizar.Text = "Cadastrar";
+                mRadioAtivo.Checked = true;
+                mRadioInativo.Enabled = false;
+                lblCodigo.Visible = false;
+                txtCodigo.Visible = false;
+            }
+        }
+
+        private void carregarCmb()
+        {
+            mcmbTipo.Text = "Teste";
+            mcmbTipo.Items.Add("BOMBEIRO");
+            mcmbTipo.Items.Add("VINHAÇA");
+            mcmbTipo.Items.Add("CAMINHÃO CANA");
+            mcmbTipo.Items.Add("TRATOR");
+            mcmbTipo.Items.Add("COLHEDORA");
+            mcmbTipo.Items.Add("");
+            mcmbTipo.SelectedIndex = 5;
+        }
+
+        private void mbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mbtnPesquisar_Click(object sender, EventArgs e)
+        {
+            tabCntrCadastro.SelectedIndex = 0;
+        }
+
+        private void mbPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string situacao = "";
+                if (mRadioAtivo.Checked)
+                {
+                    situacao = "A";
+                }
+                else if (mRadioInativo.Checked)
+                {
+                    situacao = "I";
+                }
+                clsMaquina maquina = new clsMaquina();
+                if (!string.IsNullOrEmpty(txtCodigoP.Text))
+                {
+                    dgvMaquinas.DataSource = maquina.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));
+                }
+                else if (!string.IsNullOrEmpty(txtFrotaP.Text))
+                {
+                    dgvMaquinas.DataSource = maquina.PesquisaFrota(Convert.ToInt16(txtFrotaP.Text));
+                }
+                else if (mRadioAtivo.Checked || mRadioInativo.Checked)
+                {
+                    dgvMaquinas.DataSource = maquina.PesquisaSituacao(situacao);
+                }
+                else if (!string.IsNullOrEmpty(txtFrenteP.Text))
+                {
+                    dgvMaquinas.DataSource = maquina.PesquisaFrente(Convert.ToInt16(txtFrenteP.Text));
+                }
+                else if (!string.IsNullOrEmpty(txtTipoMaquinaP.Text))
+                {
+                    dgvMaquinas.DataSource = maquina.PesquisaMaquina(txtTipoMaquinaP.Text);
+                }
+                else
+                {
+                    if (MessageBox.Show("Nenhum parâmetro passado deseja fazer uma busca geral dos usuários?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        dgvMaquinas.DataSource = maquina.PesquisaTodos();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Erro ao fazer busca {ex}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void mtxtFrota_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+    
 }
