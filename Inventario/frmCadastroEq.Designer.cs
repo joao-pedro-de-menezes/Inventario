@@ -502,7 +502,7 @@
             this.grbOpcoes.Controls.Add(this.mbtnCancelar);
             this.grbOpcoes.Controls.Add(this.mbtnPesquisar);
             this.grbOpcoes.Controls.Add(this.mbtnCadastrar);
-            this.grbOpcoes.Location = new System.Drawing.Point(30, 470);
+            this.grbOpcoes.Location = new System.Drawing.Point(30, 528);
             this.grbOpcoes.Name = "grbOpcoes";
             this.grbOpcoes.Size = new System.Drawing.Size(398, 69);
             this.grbOpcoes.TabIndex = 17;
