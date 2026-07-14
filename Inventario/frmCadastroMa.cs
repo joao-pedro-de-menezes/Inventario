@@ -47,7 +47,7 @@ namespace Inventario
             txtCodigo.Visible = false;
             carregarCmb();
             carregar();
-            
+
         }
 
         private void mbtnCadastrar_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace Inventario
             }
 
             //Validação do TIPO 
-            else if (mcmbTipo.SelectedIndex == -1 || mcmbTipo.SelectedIndex == 5) 
+            else if (mcmbTipo.SelectedIndex == -1 || mcmbTipo.SelectedIndex == 5)
             {
                 MessageBox.Show("Por favor, selecione uma opção válida no ComboBox.", "Opção Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 mcmbTipo.Focus();
@@ -178,7 +178,7 @@ namespace Inventario
 
         private void mtxtFrente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
                 MessageBox.Show("A Frente deve ter apenas numeros inteiros.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -220,7 +220,7 @@ namespace Inventario
             {
                 if (ctl is MaterialTextBox)
                     ctl.Text = "";
- 
+
             }
 
             mRadioInativo.Enabled = false;
@@ -269,6 +269,7 @@ namespace Inventario
 
         private void mbPesquisar_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 string situacao = "";
@@ -301,13 +302,15 @@ namespace Inventario
                 {
                     dgvMaquinas.DataSource = maquina.PesquisaMaquina(txtTipoMaquinaP.Text);
                 }
-                
-                if (MessageBox.Show("Nenhum parâmetro passado deseja fazer uma busca geral dos usuários?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                FormatarGrid();
+
+                if (MessageBox.Show("Nenhum parâmetro foi colocado deseja fazer uma pesquisa geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     dgvMaquinas.DataSource = maquina.PesquisaTodos();
                 }
 
                 
+
             }
             catch (Exception ex)
             {
@@ -321,6 +324,37 @@ namespace Inventario
         {
 
         }
-    }
+
+        private void dgvMaquinas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        private void FormatarGrid()
+        {
+            if (dgvMaquinas.Columns.Count > 0)
+            {
+                dgvMaquinas.Columns["ID"].HeaderText = "Código";
+                dgvMaquinas.Columns["NumeroFrota"].HeaderText = "Nº da Frota";
+                dgvMaquinas.Columns["TipoMaquina"].HeaderText = "Equipamento";
+                dgvMaquinas.Columns["Situacao"].HeaderText = "Status";
+                dgvMaquinas.Columns["Frente"].HeaderText = "Frente";
+                dgvMaquinas.Columns["Observacao"].HeaderText = "Observações";
+
+                // AllCells faz com que a coluna se ajuste ao tamanho do conteúdo.
+                dgvMaquinas.Columns["ID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvMaquinas.Columns["Situacao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                // Fill faz todas as colunas pegarem um espaço igual.
+                dgvMaquinas.Columns["NumeroFrota"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvMaquinas.Columns["TipoMaquina"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvMaquinas.Columns["Frente"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvMaquinas.Columns["Observacao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+        }
     
+    }
 }
+
+    

@@ -221,41 +221,49 @@ namespace Inventario
 
         private void mbPesquisar_Click(object sender, EventArgs e)
         {
-            //ACABAR DE FAZER
-            clsLicenca licenca = new clsLicenca();
-            if (!string.IsNullOrEmpty(txtCodigoP.Text))
+            try
             {
-                dgvLicenca.DataSource = licenca.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));
-                txtCodigoP.Focus();
-                return;
-             
-            }
-            else if (!string.IsNullOrEmpty(txtNumeroSerieP.Text))
-            {
-                dgvLicenca.DataSource = licenca.PesquisaNumero(txtNumeroSerieP.Text);
+                clsLicenca licenca = new clsLicenca();
+                if (!string.IsNullOrEmpty(txtCodigoP.Text))
+                {
+                    dgvLicenca.DataSource = licenca.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));
+                }
+                else if (!string.IsNullOrEmpty(txtNumeroSerieP.Text))
+                {
+                    dgvLicenca.DataSource = licenca.PesquisaNumero(txtNumeroSerieP.Text);
+                }
+                else if (!string.IsNullOrEmpty(txtLicencaP.Text))
+                {
+                    dgvLicenca.DataSource = licenca.PesquisaTipo(txtLicencaP.Text);
+                }
+                else if (mskAtivacaoP.MaskCompleted && !mskVencimentoP.MaskCompleted)
+                {
+                    MessageBox.Show("Para fazer a pesquisa de data, a ativação e o vencimento devem ser preenchidas");
+                }
+                else if (mskAtivacaoP.MaskCompleted && mskVencimentoP.MaskCompleted)
+                {
+                    dgvLicenca.DataSource = licenca.PesquisaData(Convert.ToDateTime(mskAtivacaoP.Text), Convert.ToDateTime(mskVencimentoP.Text));
+                }
+
                 
-            }
-            else if (!string.IsNullOrEmpty(txtLicencaP.Text))
-            {
-                dgvLicenca.DataSource = licenca.PesquisaTipo(txtLicencaP.Text);
-            }
-            else if (mskAtivacaoP.MaskCompleted && !mskVencimentoP.MaskCompleted)
-            {
-                MessageBox.Show("Para fazer a pesquisa de data, a ativação e o vencimento devem ser preenchidas");
-            }
-            else if (mskAtivacaoP.MaskCompleted && mskVencimentoP.MaskCompleted)
-            {
-                dgvLicenca.DataSource = licenca.PesquisaData(Convert.ToDateTime(mskAtivacaoP.Text), Convert.ToDateTime(mskVencimentoP.Text));
-            }
-            else
-            {
-                if (MessageBox.Show("Nenhum parâmetro foi colocado deseja fazer uma pesquisa geral?", "Parametro", MessageBoxButtons.YesNo , MessageBoxIcon.Warning) == DialogResult.Yes)
+
+                if (MessageBox.Show("Nenhum parâmetro foi colocado deseja fazer uma pesquisa geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     dgvLicenca.DataSource = licenca.PesquisaTodos();
                 }
+                FormatarGrid();
+
             }
-           
-                
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao pesquisar Licença {ex}", "PesquisarLi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw;
+            }
+
+
+
+
+
 
         }
 
@@ -347,5 +355,32 @@ namespace Inventario
         {
             this.Dispose();
         }
+
+        private void FormatarGrid()
+        {
+            if (dgvLicenca.Columns.Count > 0)
+            {
+                dgvLicenca.Columns["ID"].HeaderText = "Código";
+                dgvLicenca.Columns["TipoLicenca"].HeaderText = "Tipo de Licença";
+                dgvLicenca.Columns["NumeroSerie"].HeaderText = "Nº de Série";
+                dgvLicenca.Columns["DataAtivacao"].HeaderText = "Ativação";
+                dgvLicenca.Columns["DataVencimento"].HeaderText = "Vencimento";
+                dgvLicenca.Columns["Situacao"].HeaderText = "Status";
+                dgvLicenca.Columns["Valor"].HeaderText = "Valor";
+
+                dgvLicenca.Columns["Valor"].DefaultCellStyle.Format = "C2"; // C2 para deixar 2 casas antes da virgula
+
+                dgvLicenca.Columns["ID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvLicenca.Columns["DataAtivacao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvLicenca.Columns["DataVencimento"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvLicenca.Columns["Situacao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvLicenca.Columns["Valor"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                dgvLicenca.Columns["TipoLicenca"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvLicenca.Columns["NumeroSerie"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+        }
+
+        
     }
 }

@@ -40,6 +40,8 @@
             this.mbPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.mbVoltar = new MaterialSkin.Controls.MaterialButton();
             this.grbPesquisa = new System.Windows.Forms.GroupBox();
+            this.txtValorP = new System.Windows.Forms.TextBox();
+            this.lblValorP = new System.Windows.Forms.Label();
             this.txtNSerieP = new System.Windows.Forms.TextBox();
             this.lblNSerieP = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -74,12 +76,10 @@
             this.mskAtivacao = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.txtNumeroLicenca = new MaterialSkin.Controls.MaterialTextBox();
             this.txtTipoLicenca = new MaterialSkin.Controls.MaterialTextBox();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
-            this.lblValorP = new System.Windows.Forms.Label();
-            this.txtValorP = new System.Windows.Forms.TextBox();
-            this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
             this.lblValor = new System.Windows.Forms.Label();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridEquipamentos.SuspendLayout();
@@ -209,6 +209,7 @@
             this.mbPesquisar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbPesquisar.UseAccentColor = false;
             this.mbPesquisar.UseVisualStyleBackColor = true;
+            this.mbPesquisar.Click += new System.EventHandler(this.mbPesquisar_Click);
             // 
             // mbVoltar
             // 
@@ -255,6 +256,23 @@
             this.grbPesquisa.TabIndex = 0;
             this.grbPesquisa.TabStop = false;
             this.grbPesquisa.Text = "Perquisar por:";
+            // 
+            // txtValorP
+            // 
+            this.txtValorP.Location = new System.Drawing.Point(340, 79);
+            this.txtValorP.Name = "txtValorP";
+            this.txtValorP.Size = new System.Drawing.Size(134, 20);
+            this.txtValorP.TabIndex = 16;
+            // 
+            // lblValorP
+            // 
+            this.lblValorP.AutoSize = true;
+            this.lblValorP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorP.Location = new System.Drawing.Point(337, 64);
+            this.lblValorP.Name = "lblValorP";
+            this.lblValorP.Size = new System.Drawing.Size(40, 13);
+            this.lblValorP.TabIndex = 15;
+            this.lblValorP.Text = "Valor:";
             // 
             // txtNSerieP
             // 
@@ -749,6 +767,15 @@
             this.txtTipoLicenca.Text = "";
             this.txtTipoLicenca.TrailingIcon = null;
             // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Location = new System.Drawing.Point(201, 30);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(111, 13);
+            this.lblValor.TabIndex = 3;
+            this.lblValor.Text = "Valor do Equipamento";
+            // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
@@ -757,6 +784,24 @@
             this.lblCodigo.Size = new System.Drawing.Size(81, 13);
             this.lblCodigo.TabIndex = 3;
             this.lblCodigo.Text = "Código Licença";
+            // 
+            // materialTextBox1
+            // 
+            this.materialTextBox1.AnimateReadOnly = false;
+            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox1.Depth = 0;
+            this.materialTextBox1.Enabled = false;
+            this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTextBox1.LeadingIcon = null;
+            this.materialTextBox1.Location = new System.Drawing.Point(204, 46);
+            this.materialTextBox1.MaxLength = 50;
+            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox1.Multiline = false;
+            this.materialTextBox1.Name = "materialTextBox1";
+            this.materialTextBox1.Size = new System.Drawing.Size(187, 50);
+            this.materialTextBox1.TabIndex = 2;
+            this.materialTextBox1.Text = "";
+            this.materialTextBox1.TrailingIcon = null;
             // 
             // txtCodigo
             // 
@@ -775,50 +820,6 @@
             this.txtCodigo.TabIndex = 2;
             this.txtCodigo.Text = "";
             this.txtCodigo.TrailingIcon = null;
-            // 
-            // lblValorP
-            // 
-            this.lblValorP.AutoSize = true;
-            this.lblValorP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorP.Location = new System.Drawing.Point(337, 64);
-            this.lblValorP.Name = "lblValorP";
-            this.lblValorP.Size = new System.Drawing.Size(40, 13);
-            this.lblValorP.TabIndex = 15;
-            this.lblValorP.Text = "Valor:";
-            // 
-            // txtValorP
-            // 
-            this.txtValorP.Location = new System.Drawing.Point(340, 79);
-            this.txtValorP.Name = "txtValorP";
-            this.txtValorP.Size = new System.Drawing.Size(134, 20);
-            this.txtValorP.TabIndex = 16;
-            // 
-            // materialTextBox1
-            // 
-            this.materialTextBox1.AnimateReadOnly = false;
-            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Enabled = false;
-            this.materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox1.LeadingIcon = null;
-            this.materialTextBox1.Location = new System.Drawing.Point(204, 46);
-            this.materialTextBox1.MaxLength = 50;
-            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox1.Multiline = false;
-            this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.Size = new System.Drawing.Size(187, 50);
-            this.materialTextBox1.TabIndex = 2;
-            this.materialTextBox1.Text = "";
-            this.materialTextBox1.TrailingIcon = null;
-            // 
-            // lblValor
-            // 
-            this.lblValor.AutoSize = true;
-            this.lblValor.Location = new System.Drawing.Point(201, 30);
-            this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(111, 13);
-            this.lblValor.TabIndex = 3;
-            this.lblValor.Text = "Valor do Equipamento";
             // 
             // frmCadastroEq
             // 

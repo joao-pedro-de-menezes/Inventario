@@ -70,5 +70,10 @@ namespace Inventario
                 }
             }
         }
+
+        private void mbPesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

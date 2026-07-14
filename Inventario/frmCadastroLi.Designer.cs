@@ -36,7 +36,9 @@
             this.mbPesquisar = new MaterialSkin.Controls.MaterialButton();
             this.mbVoltar = new MaterialSkin.Controls.MaterialButton();
             this.grbPesquisa = new System.Windows.Forms.GroupBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.txtNumeroSerieP = new System.Windows.Forms.TextBox();
+            this.lblValor = new System.Windows.Forms.Label();
             this.lblNumeroSerieP = new System.Windows.Forms.Label();
             this.mskVencimentoP = new System.Windows.Forms.MaskedTextBox();
             this.mskAtivacaoP = new System.Windows.Forms.MaskedTextBox();
@@ -60,14 +62,12 @@
             this.mskVencimento = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.mskAtivacao = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.txtNumeroLicenca = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtValorLicenca = new MaterialSkin.Controls.MaterialTextBox();
             this.txtTipoLicenca = new MaterialSkin.Controls.MaterialTextBox();
+            this.lblValorEditar = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
-            this.lblValor = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.txtValorLicenca = new MaterialSkin.Controls.MaterialTextBox();
-            this.lblValorEditar = new System.Windows.Forms.Label();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridLicencas.SuspendLayout();
@@ -203,6 +203,14 @@
             this.grbPesquisa.TabStop = false;
             this.grbPesquisa.Text = "Perquisar por:";
             // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(216, 32);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(100, 20);
+            this.txtValor.TabIndex = 7;
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroSerieP_KeyPress);
+            // 
             // txtNumeroSerieP
             // 
             this.txtNumeroSerieP.Location = new System.Drawing.Point(101, 32);
@@ -211,12 +219,23 @@
             this.txtNumeroSerieP.TabIndex = 7;
             this.txtNumeroSerieP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroSerieP_KeyPress);
             // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValor.Location = new System.Drawing.Point(213, 13);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(40, 13);
+            this.lblValor.TabIndex = 6;
+            this.lblValor.Text = "Valor:";
+            // 
             // lblNumeroSerieP
             // 
             this.lblNumeroSerieP.AutoSize = true;
+            this.lblNumeroSerieP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroSerieP.Location = new System.Drawing.Point(98, 13);
             this.lblNumeroSerieP.Name = "lblNumeroSerieP";
-            this.lblNumeroSerieP.Size = new System.Drawing.Size(74, 13);
+            this.lblNumeroSerieP.Size = new System.Drawing.Size(87, 13);
             this.lblNumeroSerieP.TabIndex = 6;
             this.lblNumeroSerieP.Text = "Número Série:";
             // 
@@ -241,9 +260,10 @@
             // lblVencimentoP
             // 
             this.lblVencimentoP.AutoSize = true;
+            this.lblVencimentoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVencimentoP.Location = new System.Drawing.Point(324, 68);
             this.lblVencimentoP.Name = "lblVencimentoP";
-            this.lblVencimentoP.Size = new System.Drawing.Size(92, 13);
+            this.lblVencimentoP.Size = new System.Drawing.Size(108, 13);
             this.lblVencimentoP.TabIndex = 5;
             this.lblVencimentoP.Text = "Data Vencimento:";
             // 
@@ -257,18 +277,20 @@
             // lblTipoP
             // 
             this.lblTipoP.AutoSize = true;
+            this.lblTipoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoP.Location = new System.Drawing.Point(6, 68);
             this.lblTipoP.Name = "lblTipoP";
-            this.lblTipoP.Size = new System.Drawing.Size(72, 13);
+            this.lblTipoP.Size = new System.Drawing.Size(85, 13);
             this.lblTipoP.TabIndex = 3;
             this.lblTipoP.Text = "Tipo Licença:";
             // 
             // lblAtivacaoP
             // 
             this.lblAtivacaoP.AutoSize = true;
+            this.lblAtivacaoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAtivacaoP.Location = new System.Drawing.Point(324, 16);
             this.lblAtivacaoP.Name = "lblAtivacaoP";
-            this.lblAtivacaoP.Size = new System.Drawing.Size(78, 13);
+            this.lblAtivacaoP.Size = new System.Drawing.Size(92, 13);
             this.lblAtivacaoP.TabIndex = 2;
             this.lblAtivacaoP.Text = "Data Ativação:";
             // 
@@ -283,9 +305,10 @@
             // lblCodigoP
             // 
             this.lblCodigoP.AutoSize = true;
+            this.lblCodigoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigoP.Location = new System.Drawing.Point(6, 16);
             this.lblCodigoP.Name = "lblCodigoP";
-            this.lblCodigoP.Size = new System.Drawing.Size(43, 13);
+            this.lblCodigoP.Size = new System.Drawing.Size(50, 13);
             this.lblCodigoP.TabIndex = 0;
             this.lblCodigoP.Text = "Código:";
             // 
@@ -559,6 +582,23 @@
             this.txtNumeroLicenca.TrailingIcon = null;
             this.txtNumeroLicenca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroLicenca_KeyPress);
             // 
+            // txtValorLicenca
+            // 
+            this.txtValorLicenca.AnimateReadOnly = false;
+            this.txtValorLicenca.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtValorLicenca.Depth = 0;
+            this.txtValorLicenca.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtValorLicenca.LeadingIcon = null;
+            this.txtValorLicenca.Location = new System.Drawing.Point(204, 46);
+            this.txtValorLicenca.MaxLength = 50;
+            this.txtValorLicenca.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtValorLicenca.Multiline = false;
+            this.txtValorLicenca.Name = "txtValorLicenca";
+            this.txtValorLicenca.Size = new System.Drawing.Size(187, 50);
+            this.txtValorLicenca.TabIndex = 4;
+            this.txtValorLicenca.Text = "";
+            this.txtValorLicenca.TrailingIcon = null;
+            // 
             // txtTipoLicenca
             // 
             this.txtTipoLicenca.AnimateReadOnly = false;
@@ -575,6 +615,15 @@
             this.txtTipoLicenca.TabIndex = 4;
             this.txtTipoLicenca.Text = "";
             this.txtTipoLicenca.TrailingIcon = null;
+            // 
+            // lblValorEditar
+            // 
+            this.lblValorEditar.AutoSize = true;
+            this.lblValorEditar.Location = new System.Drawing.Point(201, 30);
+            this.lblValorEditar.Name = "lblValorEditar";
+            this.lblValorEditar.Size = new System.Drawing.Size(87, 13);
+            this.lblValorEditar.TabIndex = 3;
+            this.lblValorEditar.Text = "Valor da Licença";
             // 
             // lblCodigo
             // 
@@ -615,49 +664,6 @@
             this.tbSelecionar.Size = new System.Drawing.Size(398, 48);
             this.tbSelecionar.TabIndex = 2;
             this.tbSelecionar.Text = "materialTabSelector1";
-            // 
-            // lblValor
-            // 
-            this.lblValor.AutoSize = true;
-            this.lblValor.Location = new System.Drawing.Point(213, 13);
-            this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(34, 13);
-            this.lblValor.TabIndex = 6;
-            this.lblValor.Text = "Valor:";
-            // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(216, 32);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(100, 20);
-            this.txtValor.TabIndex = 7;
-            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroSerieP_KeyPress);
-            // 
-            // txtValorLicenca
-            // 
-            this.txtValorLicenca.AnimateReadOnly = false;
-            this.txtValorLicenca.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtValorLicenca.Depth = 0;
-            this.txtValorLicenca.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtValorLicenca.LeadingIcon = null;
-            this.txtValorLicenca.Location = new System.Drawing.Point(204, 46);
-            this.txtValorLicenca.MaxLength = 50;
-            this.txtValorLicenca.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtValorLicenca.Multiline = false;
-            this.txtValorLicenca.Name = "txtValorLicenca";
-            this.txtValorLicenca.Size = new System.Drawing.Size(187, 50);
-            this.txtValorLicenca.TabIndex = 4;
-            this.txtValorLicenca.Text = "";
-            this.txtValorLicenca.TrailingIcon = null;
-            // 
-            // lblValorEditar
-            // 
-            this.lblValorEditar.AutoSize = true;
-            this.lblValorEditar.Location = new System.Drawing.Point(201, 30);
-            this.lblValorEditar.Name = "lblValorEditar";
-            this.lblValorEditar.Size = new System.Drawing.Size(87, 13);
-            this.lblValorEditar.TabIndex = 3;
-            this.lblValorEditar.Text = "Valor da Licença";
             // 
             // frmCadastroLi
             // 

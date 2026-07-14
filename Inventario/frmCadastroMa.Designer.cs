@@ -36,6 +36,9 @@
             this.mbtnPesquisarP = new MaterialSkin.Controls.MaterialButton();
             this.mbVoltar = new MaterialSkin.Controls.MaterialButton();
             this.grbPesquisa = new System.Windows.Forms.GroupBox();
+            this.rdbInativo = new System.Windows.Forms.RadioButton();
+            this.rdbAtivo = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtFrenteP = new System.Windows.Forms.TextBox();
             this.txtFrotaP = new System.Windows.Forms.TextBox();
             this.lblFrente = new System.Windows.Forms.Label();
@@ -60,9 +63,6 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
-            this.rdbInativo = new System.Windows.Forms.RadioButton();
-            this.rdbAtivo = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridMaquinas.SuspendLayout();
@@ -123,6 +123,7 @@
             this.dgvMaquinas.ReadOnly = true;
             this.dgvMaquinas.Size = new System.Drawing.Size(798, 394);
             this.dgvMaquinas.TabIndex = 0;
+            this.dgvMaquinas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaquinas_CellContentClick);
             // 
             // grbOpcoesP
             // 
@@ -196,6 +197,38 @@
             this.grbPesquisa.TabIndex = 0;
             this.grbPesquisa.TabStop = false;
             this.grbPesquisa.Text = "Perquisar por:";
+            // 
+            // rdbInativo
+            // 
+            this.rdbInativo.AutoSize = true;
+            this.rdbInativo.Location = new System.Drawing.Point(204, 87);
+            this.rdbInativo.Name = "rdbInativo";
+            this.rdbInativo.Size = new System.Drawing.Size(79, 17);
+            this.rdbInativo.TabIndex = 14;
+            this.rdbInativo.TabStop = true;
+            this.rdbInativo.Text = "Desativado";
+            this.rdbInativo.UseVisualStyleBackColor = true;
+            // 
+            // rdbAtivo
+            // 
+            this.rdbAtivo.AutoSize = true;
+            this.rdbAtivo.Location = new System.Drawing.Point(137, 87);
+            this.rdbAtivo.Name = "rdbAtivo";
+            this.rdbAtivo.Size = new System.Drawing.Size(61, 17);
+            this.rdbAtivo.TabIndex = 16;
+            this.rdbAtivo.TabStop = true;
+            this.rdbAtivo.Text = "Ativado";
+            this.rdbAtivo.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(182, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Situação:";
             // 
             // txtFrenteP
             // 
@@ -519,38 +552,6 @@
             this.tbSelecionar.Size = new System.Drawing.Size(398, 48);
             this.tbSelecionar.TabIndex = 11;
             this.tbSelecionar.Text = "materialTabSelector1";
-            // 
-            // rdbInativo
-            // 
-            this.rdbInativo.AutoSize = true;
-            this.rdbInativo.Location = new System.Drawing.Point(204, 87);
-            this.rdbInativo.Name = "rdbInativo";
-            this.rdbInativo.Size = new System.Drawing.Size(79, 17);
-            this.rdbInativo.TabIndex = 14;
-            this.rdbInativo.TabStop = true;
-            this.rdbInativo.Text = "Desativado";
-            this.rdbInativo.UseVisualStyleBackColor = true;
-            // 
-            // rdbAtivo
-            // 
-            this.rdbAtivo.AutoSize = true;
-            this.rdbAtivo.Location = new System.Drawing.Point(137, 87);
-            this.rdbAtivo.Name = "rdbAtivo";
-            this.rdbAtivo.Size = new System.Drawing.Size(61, 17);
-            this.rdbAtivo.TabIndex = 16;
-            this.rdbAtivo.TabStop = true;
-            this.rdbAtivo.Text = "Ativado";
-            this.rdbAtivo.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(182, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Situação:";
             // 
             // frmCadastroMa
             // 
