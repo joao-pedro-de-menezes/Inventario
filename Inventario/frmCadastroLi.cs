@@ -123,13 +123,22 @@ namespace Inventario
                     try
                     {
                         clsLicenca licenca = new clsLicenca();
+                        string situacao = "";
+                        if (mRadioAtivo.Checked)
+                        {
+                            situacao = "A";
+                        }
+                        else if (mRadioInativo.Checked)
+                        {
+                            situacao = "I";
+                        }
                         licenca.SalvarLicenca(
                             txtTipoLicenca.Text, 
                             (txtNumeroLicenca.Text), 
                             Convert.ToDateTime(mskAtivacao.Text), 
                             Convert.ToDateTime(mskVencimento.Text), 
-                            "A",
-                            Convert.ToDouble(txtValor.Text)
+                            situacao,
+                            Convert.ToDouble(txtValorLicenca.Text)
                             );
                         resetar();
                         MessageBox.Show("Licença Cadastrado com sucesso!", "SalvLicença", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -226,7 +235,7 @@ namespace Inventario
                 clsLicenca licenca = new clsLicenca();
                 if (!string.IsNullOrEmpty(txtCodigoP.Text))
                 {
-                    dgvLicenca.DataSource = licenca.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));
+                    dgvLicenca.DataSource = licenca.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));                 
                 }
                 else if (!string.IsNullOrEmpty(txtNumeroSerieP.Text))
                 {
@@ -244,7 +253,7 @@ namespace Inventario
                 {
                     dgvLicenca.DataSource = licenca.PesquisaData(Convert.ToDateTime(mskAtivacaoP.Text), Convert.ToDateTime(mskVencimentoP.Text));
                 }
-
+                
                 
 
                 if (MessageBox.Show("Nenhum parâmetro foi colocado deseja fazer uma pesquisa geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -306,8 +315,9 @@ namespace Inventario
                     txtNumeroLicenca.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[2].Value);
                     mskAtivacao.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[3].Value);
                     mskVencimento.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[4].Value);
+                    txtValorLicenca.Text = Convert.ToString(dgvLicenca.CurrentRow.Cells[6].Value);
 
-                
+
                     string situacao = dgvLicenca.CurrentRow.Cells[5].Value.ToString();
                     if (situacao == "A")
                     {
@@ -381,6 +391,6 @@ namespace Inventario
             }
         }
 
-        
+     
     }
 }

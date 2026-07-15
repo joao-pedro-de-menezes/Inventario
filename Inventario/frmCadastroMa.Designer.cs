@@ -124,6 +124,7 @@
             this.dgvMaquinas.Size = new System.Drawing.Size(798, 394);
             this.dgvMaquinas.TabIndex = 0;
             this.dgvMaquinas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaquinas_CellContentClick);
+            this.dgvMaquinas.DoubleClick += new System.EventHandler(this.dgvMaquinas_DoubleClick);
             // 
             // grbOpcoesP
             // 

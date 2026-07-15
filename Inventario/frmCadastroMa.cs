@@ -130,10 +130,10 @@ namespace Inventario
                         {
                             situacao = "I";
                         }
-
                         try
                         {
                             clsMaquina maquina = new clsMaquina();
+                            
                             maquina.EditarMaquina(
                                 Convert.ToInt32(txtCodigo.Text),
                                 Convert.ToInt32(mtxtFrota.Text),
@@ -269,7 +269,7 @@ namespace Inventario
 
         private void mbPesquisar_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
                 string situacao = "";
@@ -309,7 +309,7 @@ namespace Inventario
                     dgvMaquinas.DataSource = maquina.PesquisaTodos();
                 }
 
-                
+
 
             }
             catch (Exception ex)
@@ -353,7 +353,46 @@ namespace Inventario
                 dgvMaquinas.Columns["Observacao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
-    
+
+        private void dgvMaquinas_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt16(dgvMaquinas.CurrentRow.Cells[0].Value) > 0)
+                {
+                    mRadioInativo.Enabled = true;
+                    tabCntrCadastro.SelectedIndex = 1;
+
+                    txtCodigo.Text = Convert.ToString(dgvMaquinas.CurrentRow.Cells[0].Value);
+                    mtxtFrota.Text = Convert.ToString(dgvMaquinas.CurrentRow.Cells[1].Value);
+                    mcmbTipo.Text = Convert.ToString(dgvMaquinas.CurrentRow.Cells[2].Value);
+                    mtxtFrente.Text = Convert.ToString(dgvMaquinas.CurrentRow.Cells[4].Value);
+                    txtObservacao.Text = Convert.ToString(dgvMaquinas.CurrentRow.Cells[5].Value);
+
+
+                    string situacao = dgvMaquinas.CurrentRow.Cells[3].Value.ToString();
+                    if (situacao == "A")
+                    {
+                        mRadioAtivo.Checked = true;
+                    }
+
+                    else if (situacao == "I")
+                    {
+                        mRadioInativo.Checked = true;
+                    }
+
+                    mbtnCadastrar_Atualizar.Text = "Editar";
+                    mbtnCadastrar_Atualizar.Tag = "Editar";
+                    txtCodigo.Visible = true;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERRO, {ex}");
+                throw;
+            }
+        }
     }
 }
 
