@@ -111,6 +111,7 @@ namespace Inventario
             {
                 MessageBox.Show("A data de vencimento deve ser maior que a data de ativação, verifique as datas", "maior válida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 mskVencimento.Focus();
+                return;
             }
 
 
@@ -233,47 +234,60 @@ namespace Inventario
             try
             {
                 clsLicenca licenca = new clsLicenca();
+
+
+                bool tudoVazio = string.IsNullOrEmpty(txtCodigoP.Text) &&
+                         string.IsNullOrEmpty(txtNumeroSerieP.Text) &&
+                         string.IsNullOrEmpty(txtLicencaP.Text) &&
+                         !mskAtivacaoP.MaskCompleted &&
+                         !mskVencimentoP.MaskCompleted;
+                if (tudoVazio)
+                {
+                    // Se não digitou nada, pergunta se quer ver tudo
+                    if (MessageBox.Show("Nenhum parâmetro foi colocado. Deseja fazer uma pesquisa geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        dgvLicenca.DataSource = licenca.PesquisaTodos();
+                        FormatarGrid();
+                    }
+                    return; // O 'return' faz o código parar aqui se ele entrou neste IF
+                }
+                else
+                {
+      
+
                 if (!string.IsNullOrEmpty(txtCodigoP.Text))
                 {
                     dgvLicenca.DataSource = licenca.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));                 
                 }
-                else if (!string.IsNullOrEmpty(txtNumeroSerieP.Text))
+                if (!string.IsNullOrEmpty(txtNumeroSerieP.Text))
                 {
                     dgvLicenca.DataSource = licenca.PesquisaNumero(txtNumeroSerieP.Text);
                 }
-                else if (!string.IsNullOrEmpty(txtLicencaP.Text))
+                 if (!string.IsNullOrEmpty(txtLicencaP.Text))
                 {
                     dgvLicenca.DataSource = licenca.PesquisaTipo(txtLicencaP.Text);
                 }
-                else if (mskAtivacaoP.MaskCompleted && !mskVencimentoP.MaskCompleted)
+
+                if (mskAtivacaoP.MaskCompleted && !mskVencimentoP.MaskCompleted)
                 {
                     MessageBox.Show("Para fazer a pesquisa de data, a ativação e o vencimento devem ser preenchidas");
                 }
-                else if (mskAtivacaoP.MaskCompleted && mskVencimentoP.MaskCompleted)
+                 if (mskAtivacaoP.MaskCompleted && mskVencimentoP.MaskCompleted)
                 {
                     dgvLicenca.DataSource = licenca.PesquisaData(Convert.ToDateTime(mskAtivacaoP.Text), Convert.ToDateTime(mskVencimentoP.Text));
-                }
-                
-                
 
-                if (MessageBox.Show("Nenhum parâmetro foi colocado deseja fazer uma pesquisa geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    dgvLicenca.DataSource = licenca.PesquisaTodos();
                 }
+                }
+
                 FormatarGrid();
-
+           //PAREI AQUI EHDIN
+           
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao pesquisar Licença {ex}", "PesquisarLi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 throw;
             }
-
-
-
-
-
-
         }
 
         private void txtNumeroSerieP_KeyPress(object sender, KeyPressEventArgs e)

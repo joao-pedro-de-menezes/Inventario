@@ -71,7 +71,8 @@ namespace Inventario
                     NumeroSerie INT NOT NULL,
                     DataAtivacao DATE NOT NULL,
                     DataVencimento DATE NOT NULL,   
-                    Situacao CHAR(1) NULL DEFAULT 'A'
+                    Situacao CHAR(1) NULL DEFAULT 'A',
+                    Valor DECIMAL (12,2) NULL
                     )";
                     using (SqlCommand cmd = new SqlCommand(CriartbLicencas, conexao))
                     {
@@ -82,33 +83,19 @@ namespace Inventario
                     string CriartbEquipamentosL = @" IF OBJECT_ID('tbEquipamentosL', 'U') IS NULL
                     CREATE TABLE tbEquipamentosL (
                     ID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
-                    TipoEquipamento VARCHAR(50) NOT NULL,
-                    NumeroSerie INT NOT NULL, 
-                    Modelo VARCHAR(50) NOT NULL,
-                    DataAquisicao DATE NOT NULL,
-                    Localizacao VARCHAR(50) NOT NULL,
-                    Frente INT NOT NULL
+                    TipoEquipamento VARCHAR(50) NULL,
+                    NumeroSerie INT NULL, 
+                    Modelo VARCHAR(50) NULL,
+                    DataAquisicao DATE NULL,
+                    Localizacao VARCHAR(50) NULL,
+                    Frente INT NULL,    
+                    Valor DECIMAL (12,2) NULL
                     )";
                     using (SqlCommand cmd = new SqlCommand(CriartbEquipamentosL, conexao))
                     {
                         cmd.ExecuteNonQuery();
                     }
 
-                    conexao.ChangeDatabase("bdInventario");
-                    string CriartbEquipamentosN = @" IF OBJECT_ID('tbEquipamentosN', 'U') IS NULL
-                    CREATE TABLE tbEquipamentosN (
-                    ID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
-                    TipoEquipamento VARCHAR(50) NOT NULL,
-                    NumeroSerie INT NOT NULL,
-                    Modelo VARCHAR(50) NOT NULL,
-                    DataAquisicao DATE NOT NULL,
-                    Localizacao VARCHAR(50) NOT NULL,
-                    Frente INT NOT NULL
-                    )";
-                    using (SqlCommand cmd = new SqlCommand(CriartbEquipamentosN, conexao))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
                 }
 
 

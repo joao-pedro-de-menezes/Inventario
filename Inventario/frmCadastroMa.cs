@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -302,13 +303,15 @@ namespace Inventario
                 {
                     dgvMaquinas.DataSource = maquina.PesquisaMaquina(txtTipoMaquinaP.Text);
                 }
-                FormatarGrid();
-
-                if (MessageBox.Show("Nenhum parâmetro foi colocado deseja fazer uma pesquisa geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                else
                 {
-                    dgvMaquinas.DataSource = maquina.PesquisaTodos();
-                }
+                        if (MessageBox.Show("Nenhum parâmetro foi colocado deseja fazer uma pesquisa geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        dgvMaquinas.DataSource = maquina.PesquisaTodos();
+                    }
 
+                }
+                FormatarGrid();
 
 
             }
