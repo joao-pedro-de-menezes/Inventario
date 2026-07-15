@@ -242,7 +242,102 @@ namespace Inventario
                 }
         }
 
+        public DataTable PesquisaValor(int Valor)
+        {
+            DataTable dtLocal = new DataTable();
+
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+                    sql.Append("SELECT ID, TipoLicenca, NumeroSerie, DataAtivacao, DataVencimento, Situacao, Valor FROM tbLicencas");
+                    sql.Append(" WHERE Valor = @Valor");
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+
+                    dtLocal.Load(cmd.ExecuteReader());
+                    return dtLocal;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar licenças por Valor {ex.Message}", "Valor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+                finally
+                {
+                    conexao.Close();
+                }
+        }
 
 
+        public DataTable PesquisaAvancada(string ID, string NumeroSerie, string TipoLicenca, string Valor, string Situacao, string DataAtivacao,string DataVencimento)
+        {
+            // O 1=1 é um macete do SQL. Como é sempre verdade, podemos ir adicionando "AND" depois dele sem dar erro de sintaxe.
+            string sql = "SELECT * FROM tbLicencas WHERE 1=1 ";
+
+            // Vai construindo o SQL dinamicamente
+            if (!string.IsNullOrEmpty(ID))
+                sql += " AND ID = @ID";
+
+            if (!string.IsNullOrEmpty(NumeroSerie))
+                sql += " AND NumeroSerie LIKE @NumeroSerie";
+
+            if (!string.IsNullOrEmpty(TipoLicenca))
+                sql += " AND TipoLicenca LIKE @TipoLicenca";
+
+            if (!string.IsNullOrEmpty(Valor))
+                sql += " AND Valor = @Valor"; 
+
+            if (!string.IsNullOrEmpty(Situacao))
+                sql += " AND Situacao = @Situacao"; 
+            DateTime dataAtivValida = DateTime.MinValue;
+            DateTime dataVencValida = DateTime.MinValue;
+            bool datasSaoValidas = DateTime.TryParse(DataAtivacao, out dataAtivValida) && DateTime.TryParse(DataVencimento, out dataVencValida);
+
+            // 2. Só adiciona o BETWEEN no SQL se as datas realmente forem válidas!
+            if (datasSaoValidas)
+            {
+                sql += " AND DataAtivacao BETWEEN @DataAtivacao AND @DataVencimento";
+            }
+
+            using (SqlConnection con = new SqlConnection(clsConexao.StringConexao)) // Use sua classe de conexão
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    // Agora preenche os parâmetros (isso evita falhas de segurança/SQL Injection)
+                    if (!string.IsNullOrEmpty(ID))
+                        cmd.Parameters.AddWithValue("@ID", Convert.ToInt32(ID));
+
+                    if (!string.IsNullOrEmpty(NumeroSerie))
+                        cmd.Parameters.AddWithValue("@NumeroSerie", "%" + NumeroSerie + "%");
+
+                    if (!string.IsNullOrEmpty(TipoLicenca))
+                        cmd.Parameters.AddWithValue("@TipoLicenca", "%" + TipoLicenca + "%");
+
+                    if (!string.IsNullOrEmpty(Valor))
+                        cmd.Parameters.AddWithValue("@Valor", Convert.ToDecimal(Valor)); // Converte para Decimal/Dinheiro
+
+                    if (!string.IsNullOrEmpty(Situacao))
+                        cmd.Parameters.AddWithValue("@Situacao", Situacao);
+
+                    // Só cria os parâmetros se a validação lá de cima tiver dado certo
+                    if (datasSaoValidas)
+                    {
+                        cmd.Parameters.AddWithValue("@DataAtivacao", dataAtivValida);
+                        cmd.Parameters.AddWithValue("@DataVencimento", dataVencValida);
+                    }
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Retorna a tabela filtrada exatamente com o que o usuário combinou!
+                    return dt;
+                }
+            }
+        }
     }
 }

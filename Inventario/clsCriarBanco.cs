@@ -68,7 +68,7 @@ namespace Inventario
                     CREATE TABLE tbLicencas (
                     ID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
                     TipoLicenca VARCHAR(50) NOT NULL,       
-                    NumeroSerie INT NOT NULL,
+                    NumeroSerie VARCHAR(150) NOT NULL,
                     DataAtivacao DATE NOT NULL,
                     DataVencimento DATE NOT NULL,   
                     Situacao CHAR(1) NULL DEFAULT 'A',

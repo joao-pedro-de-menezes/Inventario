@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,7 @@ namespace Inventario
         //Variaveis nomes
         string Tlicenca = "Tipo Licença";
         string Tnumero = "Número Licença";
+        string Tvalor = "Valor Licença";
 
         private readonly MaterialSkinManager materialSkinManager;
         public frmCadastroLi()
@@ -65,6 +67,7 @@ namespace Inventario
             {
                 txtTipoLicenca.LimparBtns(Tlicenca);
                 txtNumeroLicenca.LimparBtns(Tnumero);
+                txtValorLicenca.LimparBtns(Tvalor);
                 mbtnCadastrar.Text = "Cadastrar";
                 mRadioAtivo.Checked = true;
                 mRadioInativo.Enabled = false;
@@ -113,6 +116,12 @@ namespace Inventario
                 mskVencimento.Focus();
                 return;
             }
+            else if (string.IsNullOrEmpty(txtValorLicenca.Text))
+            {
+                MessageBox.Show("O valor da Licença deve ser preenchido", "Valor", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNumeroLicenca.Focus();
+                return;
+            }
 
 
 
@@ -135,7 +144,7 @@ namespace Inventario
                         }
                         licenca.SalvarLicenca(
                             txtTipoLicenca.Text, 
-                            (txtNumeroLicenca.Text), 
+                            txtNumeroLicenca.Text, 
                             Convert.ToDateTime(mskAtivacao.Text), 
                             Convert.ToDateTime(mskVencimento.Text), 
                             situacao,
@@ -233,14 +242,24 @@ namespace Inventario
         {
             try
             {
+                string situacao = "";
+                if (checkAtivo.Checked)
+                {
+                    situacao = "A";
+                } else if (checkInativo.Checked)
+                {
+                    situacao = "I";
+                }
                 clsLicenca licenca = new clsLicenca();
-
 
                 bool tudoVazio = string.IsNullOrEmpty(txtCodigoP.Text) &&
                          string.IsNullOrEmpty(txtNumeroSerieP.Text) &&
                          string.IsNullOrEmpty(txtLicencaP.Text) &&
                          !mskAtivacaoP.MaskCompleted &&
-                         !mskVencimentoP.MaskCompleted;
+                         !mskVencimentoP.MaskCompleted &&
+                         string.IsNullOrEmpty(txtValor.Text) &&
+                         !checkAtivo.Checked &&
+                         !checkInativo.Checked;
                 if (tudoVazio)
                 {
                     // Se não digitou nada, pergunta se quer ver tudo
@@ -253,34 +272,61 @@ namespace Inventario
                 }
                 else
                 {
-      
-
-                if (!string.IsNullOrEmpty(txtCodigoP.Text))
-                {
-                    dgvLicenca.DataSource = licenca.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));                 
-                }
-                if (!string.IsNullOrEmpty(txtNumeroSerieP.Text))
-                {
-                    dgvLicenca.DataSource = licenca.PesquisaNumero(txtNumeroSerieP.Text);
-                }
-                 if (!string.IsNullOrEmpty(txtLicencaP.Text))
-                {
-                    dgvLicenca.DataSource = licenca.PesquisaTipo(txtLicencaP.Text);
+                    dgvLicenca.DataSource = licenca.PesquisaAvancada(txtCodigoP.Text, txtNumeroSerieP.Text, txtLicencaP.Text, txtValor.Text, situacao, mskAtivacaoP.Text, mskVencimentoP.Text);
                 }
 
-                if (mskAtivacaoP.MaskCompleted && !mskVencimentoP.MaskCompleted)
-                {
-                    MessageBox.Show("Para fazer a pesquisa de data, a ativação e o vencimento devem ser preenchidas");
-                }
-                 if (mskAtivacaoP.MaskCompleted && mskVencimentoP.MaskCompleted)
-                {
-                    dgvLicenca.DataSource = licenca.PesquisaData(Convert.ToDateTime(mskAtivacaoP.Text), Convert.ToDateTime(mskVencimentoP.Text));
+                /*
+                    bool tudoVazio = string.IsNullOrEmpty(txtCodigoP.Text) &&
+                             string.IsNullOrEmpty(txtNumeroSerieP.Text) &&
+                             string.IsNullOrEmpty(txtLicencaP.Text) &&
+                             !mskAtivacaoP.MaskCompleted &&
+                             !mskVencimentoP.MaskCompleted &&
+                             string.IsNullOrEmpty(txtValor.Text);
+                    if (tudoVazio)
+                    {
+                        // Se não digitou nada, pergunta se quer ver tudo
+                        if (MessageBox.Show("Nenhum parâmetro foi colocado. Deseja fazer uma pesquisa geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            dgvLicenca.DataSource = licenca.PesquisaTodos();
+                            FormatarGrid();
+                        }
+                        return; // O 'return' faz o código parar aqui se ele entrou neste IF
+                    }
+                    else
+                    {
 
-                }
-                }
+
+                    if (!string.IsNullOrEmpty(txtCodigoP.Text))
+                    {
+                        dgvLicenca.DataSource = licenca.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));                 
+                    }
+                    if (!string.IsNullOrEmpty(txtNumeroSerieP.Text))
+                    {
+                        dgvLicenca.DataSource = licenca.PesquisaNumero(txtNumeroSerieP.Text);
+                    }
+                     if (!string.IsNullOrEmpty(txtLicencaP.Text))
+                    {
+                        dgvLicenca.DataSource = licenca.PesquisaTipo(txtLicencaP.Text);
+                    }
+
+                    if (mskAtivacaoP.MaskCompleted && !mskVencimentoP.MaskCompleted)
+                    {
+                        MessageBox.Show("Para fazer a pesquisa de data, a ativação e o vencimento devem ser preenchidas");
+                    }
+                     if (mskAtivacaoP.MaskCompleted && mskVencimentoP.MaskCompleted)
+                    {
+                        dgvLicenca.DataSource = licenca.PesquisaData(Convert.ToDateTime(mskAtivacaoP.Text), Convert.ToDateTime(mskVencimentoP.Text));
+
+                    }
+
+                        if (!string.IsNullOrEmpty(txtValor.Text))
+                        {
+                            dgvLicenca.DataSource = licenca.PesquisaValor(Convert.ToInt16(txtValor.Text));
+                        }
+                    } */
 
                 FormatarGrid();
-           //PAREI AQUI EHDIN
+
            
             }
             catch (Exception ex)
@@ -405,6 +451,20 @@ namespace Inventario
             }
         }
 
-     
+        private void checkAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkAtivo.Checked)
+            {
+                checkInativo.Checked = false;
+            }
+        }
+
+        private void checkInativo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkInativo.Checked)
+            {
+                checkAtivo.Checked = false;
+            }
+        }
     }
 }

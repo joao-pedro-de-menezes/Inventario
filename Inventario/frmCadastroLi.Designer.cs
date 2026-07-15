@@ -68,6 +68,9 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
+            this.label2 = new System.Windows.Forms.Label();
+            this.checkAtivo = new System.Windows.Forms.CheckBox();
+            this.checkInativo = new System.Windows.Forms.CheckBox();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridLicencas.SuspendLayout();
@@ -184,6 +187,9 @@
             // 
             // grbPesquisa
             // 
+            this.grbPesquisa.Controls.Add(this.checkInativo);
+            this.grbPesquisa.Controls.Add(this.checkAtivo);
+            this.grbPesquisa.Controls.Add(this.label2);
             this.grbPesquisa.Controls.Add(this.txtValor);
             this.grbPesquisa.Controls.Add(this.txtNumeroSerieP);
             this.grbPesquisa.Controls.Add(this.lblValor);
@@ -271,7 +277,7 @@
             // 
             this.txtLicencaP.Location = new System.Drawing.Point(6, 84);
             this.txtLicencaP.Name = "txtLicencaP";
-            this.txtLicencaP.Size = new System.Drawing.Size(210, 20);
+            this.txtLicencaP.Size = new System.Drawing.Size(142, 20);
             this.txtLicencaP.TabIndex = 2;
             // 
             // lblTipoP
@@ -572,7 +578,7 @@
             this.txtNumeroLicenca.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtNumeroLicenca.LeadingIcon = null;
             this.txtNumeroLicenca.Location = new System.Drawing.Point(8, 172);
-            this.txtNumeroLicenca.MaxLength = 50;
+            this.txtNumeroLicenca.MaxLength = 21;
             this.txtNumeroLicenca.MouseState = MaterialSkin.MouseState.OUT;
             this.txtNumeroLicenca.Multiline = false;
             this.txtNumeroLicenca.Name = "txtNumeroLicenca";
@@ -665,6 +671,38 @@
             this.tbSelecionar.TabIndex = 2;
             this.tbSelecionar.Text = "materialTabSelector1";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(213, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Situação:";
+            // 
+            // checkAtivo
+            // 
+            this.checkAtivo.AutoSize = true;
+            this.checkAtivo.Location = new System.Drawing.Point(179, 84);
+            this.checkAtivo.Name = "checkAtivo";
+            this.checkAtivo.Size = new System.Drawing.Size(50, 17);
+            this.checkAtivo.TabIndex = 20;
+            this.checkAtivo.Text = "Ativo";
+            this.checkAtivo.UseVisualStyleBackColor = true;
+            this.checkAtivo.CheckedChanged += new System.EventHandler(this.checkAtivo_CheckedChanged);
+            // 
+            // checkInativo
+            // 
+            this.checkInativo.AutoSize = true;
+            this.checkInativo.Location = new System.Drawing.Point(244, 84);
+            this.checkInativo.Name = "checkInativo";
+            this.checkInativo.Size = new System.Drawing.Size(58, 17);
+            this.checkInativo.TabIndex = 21;
+            this.checkInativo.Text = "Inativo";
+            this.checkInativo.UseVisualStyleBackColor = true;
+            this.checkInativo.CheckedChanged += new System.EventHandler(this.checkInativo_CheckedChanged);
+            // 
             // frmCadastroLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -737,5 +775,8 @@
         private System.Windows.Forms.TextBox txtValor;
         private MaterialSkin.Controls.MaterialTextBox txtValorLicenca;
         private System.Windows.Forms.Label lblValorEditar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkInativo;
+        private System.Windows.Forms.CheckBox checkAtivo;
     }
 }
