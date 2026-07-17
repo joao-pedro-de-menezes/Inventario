@@ -315,7 +315,7 @@ namespace Inventario
 
             using (SqlConnection con = new SqlConnection(clsConexao.StringConexao)) // Use sua classe de conexão
             {
-                //Adicionando parâmetros
+                //Adicionando parâmetros poderia fazer do jeito comun, mas aqui ele verifica 1 por 1 que se ta preenchido e passa pra executar
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     // Agora preenche os parâmetros (isso evita falhas de segurança/SQL Injection)
