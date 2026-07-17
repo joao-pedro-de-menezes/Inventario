@@ -273,10 +273,11 @@ namespace Inventario
                 }
         }
 
-
+        //Pesquisa tudo
         public DataTable PesquisaAvancada(string ID, string NumeroSerie, string TipoLicenca, string Valor, string Situacao, string DataAtivacao,string DataVencimento)
         {
             // O 1=1 é um macete do SQL. Como é sempre verdade, podemos ir adicionando "AND" depois dele sem dar erro de sintaxe.
+            //Aqui ta passando os comandos do sql Server pra quando o tiverem preenchidas la no código
             string sql = "SELECT * FROM tbLicencas WHERE 1=1 ";
 
             // Vai construindo o SQL dinamicamente
@@ -294,8 +295,12 @@ namespace Inventario
 
             if (!string.IsNullOrEmpty(Situacao))
                 sql += " AND Situacao = @Situacao"; 
+
+
+            //ZERANDO VARIÁVEIS
             DateTime dataAtivValida = DateTime.MinValue;
             DateTime dataVencValida = DateTime.MinValue;
+            //VERIFICANDO SE SÃO VÁLIDAS
             bool datasSaoValidas = DateTime.TryParse(DataAtivacao, out dataAtivValida) && DateTime.TryParse(DataVencimento, out dataVencValida);
 
             // 2. Só adiciona o BETWEEN no SQL se as datas realmente forem válidas!
@@ -304,8 +309,13 @@ namespace Inventario
                 sql += " AND DataAtivacao BETWEEN @DataAtivacao AND @DataVencimento";
             }
 
+
+
+
+
             using (SqlConnection con = new SqlConnection(clsConexao.StringConexao)) // Use sua classe de conexão
             {
+                //Adicionando parâmetros
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     // Agora preenche os parâmetros (isso evita falhas de segurança/SQL Injection)
@@ -330,6 +340,7 @@ namespace Inventario
                         cmd.Parameters.AddWithValue("@DataAtivacao", dataAtivValida);
                         cmd.Parameters.AddWithValue("@DataVencimento", dataVencValida);
                     }
+
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
