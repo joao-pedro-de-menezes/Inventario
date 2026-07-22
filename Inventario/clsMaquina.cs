@@ -137,7 +137,7 @@ namespace Inventario
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao pesquisar licenças por Codigo {ex.Message}", "Codigo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Erro ao pesquisar máquinas por Codigo {ex.Message}", "Codigo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
                 finally
@@ -277,6 +277,59 @@ namespace Inventario
                 {
                     conexao.Close();
                 }
+        }
+
+        public DataTable PesquisaAvancada(string ID, string NumeroFrota, string TipoMaquina, string Situacao, string Frente)
+        {
+            // O 1=1 é um macete do SQL. Como é sempre verdade, podemos ir adicionando "AND" depois dele sem dar erro de sintaxe.
+            //Aqui ta passando os comandos do sql Server pra quando o tiverem preenchidas la no código
+            string sql = "SELECT * FROM tbMaquinas WHERE 1=1 ";
+
+            // Vai construindo o SQL dinamicamente
+            if (!string.IsNullOrEmpty(ID))
+                sql += " AND ID = @ID";
+
+            if (!string.IsNullOrEmpty(NumeroFrota))
+                sql += " AND NumeroFrota LIKE @NumeroFrota";
+
+            if (!string.IsNullOrEmpty(TipoMaquina))
+                sql += " AND TipoMaquina LIKE @TipoMaquina";
+
+            if (!string.IsNullOrEmpty(Situacao))
+                sql += " AND Situacao = @Situacao";
+
+            if (!string.IsNullOrEmpty(Frente))
+                sql += " AND Frente = @Frente";
+
+            using (SqlConnection con = new SqlConnection(clsConexao.StringConexao)) // Use sua classe de conexão
+            {
+                //Adicionando parâmetros poderia fazer do jeito comun, mas aqui ele verifica 1 por 1 que se ta preenchido e passa pra executar
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    // Agora preenche os parâmetros (isso evita falhas de segurança/SQL Injection)
+                    if (!string.IsNullOrEmpty(ID))
+                        cmd.Parameters.AddWithValue("@ID", Convert.ToInt32(ID));
+
+                    if (!string.IsNullOrEmpty(NumeroFrota))
+                        cmd.Parameters.AddWithValue("@NumeroFrota", Convert.ToInt32(NumeroFrota));
+
+                    if (!string.IsNullOrEmpty(TipoMaquina))
+                        cmd.Parameters.AddWithValue("@TipoMaquina", "%" + TipoMaquina + "%");
+
+                    if (!string.IsNullOrEmpty(Situacao))
+                        cmd.Parameters.AddWithValue("@Situacao", Situacao); 
+
+                    if (!string.IsNullOrEmpty(Frente))
+                        cmd.Parameters.AddWithValue("@Frente", Convert.ToInt32(Frente));
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Retorna a tabela filtrada exatamente com o que o usuário combinou!
+                    return dt;
+                }
+            }
         }
     }
 }

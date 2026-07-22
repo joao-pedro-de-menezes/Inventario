@@ -36,8 +36,6 @@
             this.mbtnPesquisarP = new MaterialSkin.Controls.MaterialButton();
             this.mbVoltar = new MaterialSkin.Controls.MaterialButton();
             this.grbPesquisa = new System.Windows.Forms.GroupBox();
-            this.rdbInativo = new System.Windows.Forms.RadioButton();
-            this.rdbAtivo = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFrenteP = new System.Windows.Forms.TextBox();
             this.txtFrotaP = new System.Windows.Forms.TextBox();
@@ -63,6 +61,8 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
+            this.checkInativo = new System.Windows.Forms.CheckBox();
+            this.checkAtivo = new System.Windows.Forms.CheckBox();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridMaquinas.SuspendLayout();
@@ -181,8 +181,8 @@
             // 
             // grbPesquisa
             // 
-            this.grbPesquisa.Controls.Add(this.rdbInativo);
-            this.grbPesquisa.Controls.Add(this.rdbAtivo);
+            this.grbPesquisa.Controls.Add(this.checkInativo);
+            this.grbPesquisa.Controls.Add(this.checkAtivo);
             this.grbPesquisa.Controls.Add(this.label1);
             this.grbPesquisa.Controls.Add(this.txtFrenteP);
             this.grbPesquisa.Controls.Add(this.txtFrotaP);
@@ -198,28 +198,6 @@
             this.grbPesquisa.TabIndex = 0;
             this.grbPesquisa.TabStop = false;
             this.grbPesquisa.Text = "Perquisar por:";
-            // 
-            // rdbInativo
-            // 
-            this.rdbInativo.AutoSize = true;
-            this.rdbInativo.Location = new System.Drawing.Point(204, 87);
-            this.rdbInativo.Name = "rdbInativo";
-            this.rdbInativo.Size = new System.Drawing.Size(79, 17);
-            this.rdbInativo.TabIndex = 14;
-            this.rdbInativo.TabStop = true;
-            this.rdbInativo.Text = "Desativado";
-            this.rdbInativo.UseVisualStyleBackColor = true;
-            // 
-            // rdbAtivo
-            // 
-            this.rdbAtivo.AutoSize = true;
-            this.rdbAtivo.Location = new System.Drawing.Point(137, 87);
-            this.rdbAtivo.Name = "rdbAtivo";
-            this.rdbAtivo.Size = new System.Drawing.Size(61, 17);
-            this.rdbAtivo.TabIndex = 16;
-            this.rdbAtivo.TabStop = true;
-            this.rdbAtivo.Text = "Ativado";
-            this.rdbAtivo.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -554,6 +532,26 @@
             this.tbSelecionar.TabIndex = 11;
             this.tbSelecionar.Text = "materialTabSelector1";
             // 
+            // checkInativo
+            // 
+            this.checkInativo.AutoSize = true;
+            this.checkInativo.Location = new System.Drawing.Point(216, 87);
+            this.checkInativo.Name = "checkInativo";
+            this.checkInativo.Size = new System.Drawing.Size(58, 17);
+            this.checkInativo.TabIndex = 23;
+            this.checkInativo.Text = "Inativo";
+            this.checkInativo.UseVisualStyleBackColor = true;
+            // 
+            // checkAtivo
+            // 
+            this.checkAtivo.AutoSize = true;
+            this.checkAtivo.Location = new System.Drawing.Point(151, 87);
+            this.checkAtivo.Name = "checkAtivo";
+            this.checkAtivo.Size = new System.Drawing.Size(50, 17);
+            this.checkAtivo.TabIndex = 22;
+            this.checkAtivo.Text = "Ativo";
+            this.checkAtivo.UseVisualStyleBackColor = true;
+            // 
             // frmCadastroMa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,8 +617,8 @@
         private System.Windows.Forms.TextBox txtObservacao;
         private MaterialSkin.Controls.MaterialTextBox mtxtFrota;
         private MaterialSkin.Controls.MaterialTextBox mtxtFrente;
-        private System.Windows.Forms.RadioButton rdbInativo;
-        private System.Windows.Forms.RadioButton rdbAtivo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkInativo;
+        private System.Windows.Forms.CheckBox checkAtivo;
     }
 }

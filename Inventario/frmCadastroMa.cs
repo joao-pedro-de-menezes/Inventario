@@ -274,51 +274,42 @@ namespace Inventario
             try
             {
                 string situacao = "";
-                if (rdbAtivo.Checked)
+                if (checkAtivo.Checked)
                 {
                     situacao = "A";
                 }
-                else if (rdbInativo.Checked)
+                else if (checkInativo.Checked)
                 {
                     situacao = "I";
                 }
                 clsMaquina maquina = new clsMaquina();
-                if (!string.IsNullOrEmpty(txtCodigoP.Text))
+
+                bool tudoVazio = string.IsNullOrEmpty(txtCodigoP.Text) &&
+                         string.IsNullOrEmpty(txtFrotaP.Text) &&
+                         string.IsNullOrEmpty(txtTipoMaquinaP.Text) &&
+                         string.IsNullOrEmpty(txtFrenteP.Text) &&
+                         !checkAtivo.Checked &&
+                         !checkInativo.Checked;
+                if (tudoVazio)
                 {
-                    dgvMaquinas.DataSource = maquina.PesquisaCodigo(Convert.ToInt16(txtCodigoP.Text));
-                }
-                else if (!string.IsNullOrEmpty(txtFrotaP.Text))
-                {
-                    dgvMaquinas.DataSource = maquina.PesquisaFrota(Convert.ToInt16(txtFrotaP.Text));
-                }
-                else if (mRadioAtivo.Checked || mRadioInativo.Checked)
-                {
-                    dgvMaquinas.DataSource = maquina.PesquisaSituacao(situacao);
-                }
-                else if (!string.IsNullOrEmpty(txtFrenteP.Text))
-                {
-                    dgvMaquinas.DataSource = maquina.PesquisaFrente(Convert.ToInt16(txtFrenteP.Text));
-                }
-                else if (!string.IsNullOrEmpty(txtTipoMaquinaP.Text))
-                {
-                    dgvMaquinas.DataSource = maquina.PesquisaMaquina(txtTipoMaquinaP.Text);
+                    // Se não digitou nada, pergunta se quer ver tudo
+                    if (MessageBox.Show("Nenhum parâmetro foi colocado. Deseja fazer uma pesquisa geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        dgvMaquinas.DataSource = maquina.PesquisaTodos();
+                        FormatarGrid();
+                    }
+                    return; // O 'return' faz o código parar aqui se ele entrou neste IF
                 }
                 else
                 {
-                        if (MessageBox.Show("Nenhum parâmetro foi colocado deseja fazer uma pesquisa geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        dgvMaquinas.DataSource = maquina.PesquisaTodos();
-                    }
-
+                    dgvMaquinas.DataSource = maquina.PesquisaAvancada(txtCodigoP.Text, txtFrotaP.Text, txtTipoMaquinaP.Text, txtFrenteP.Text, situacao);
                 }
                 FormatarGrid();
-
-
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show($"Erro ao fazer busca {ex}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao pesquisar máquina {ex}", "PesquisaMa", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
