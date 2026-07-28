@@ -89,8 +89,13 @@ namespace Inventario
                     Localizacao VARCHAR(50) NULL,
                     Frente INT NULL,    
                     Valor DECIMAL (12,2) NULL,
-                    LicencaAti VARCHAR(100) NULL,
-                    Situacao CHAR(1) NULL
+                    LicencaAti INT NULL,
+                    Situacao CHAR(1) NULL,
+                    NumeroLicenca varchar(150) NULL,
+                    
+                    CONSTRAINT FK_tbEquipamentosL_tbLicencas
+                    FOREIGN KEY (LicencaAti) REFERENCES tbLicencas(ID)
+
                     )";
                     using (SqlCommand cmd = new SqlCommand(CriartbEquipamentosL, conexao))
                     {

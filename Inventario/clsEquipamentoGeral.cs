@@ -553,7 +553,7 @@ namespace Inventario
 
 
         // Passamos o Tipo do Equipamento e usamos o DateTime? (que aceita null)
-        public void SalvarEquipamento(string TipoEquipamento, string NumeroSerie, string Marca, string Situacao, double Valor, string LicencaAti)
+        public void SalvarEquipamento(string TipoEquipamento, string NumeroSerie, string Marca, string Situacao, double Valor, string LicencaAti, string NumeroLicenca)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
             {
@@ -563,13 +563,14 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("INSERT INTO tbEquipamentosL (TipoEquipamento, NumeroSerie, Marca, Situacao, Valor, LicencaAti)");
-                    sql.Append(" VALUES (@TipoEquipamento, @NumeroSerie, @Marca, @Situacao, @Valor, @LicencaAti)");
+                    sql.Append("INSERT INTO tbEquipamentosL (TipoEquipamento, NumeroSerie, Marca, Situacao, Valor, LicencaAti, NumeroLicenca)");
+                    sql.Append(" VALUES (@TipoEquipamento, @NumeroSerie, @Marca, @Situacao, @Valor, @LicencaAti, @NumeroLicenca)");
 
                     cmd.Parameters.Add(new SqlParameter("@TipoEquipamento", TipoEquipamento));
                     cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
                     cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
+                    cmd.Parameters.Add(new SqlParameter("@NumeroLicenca", NumeroLicenca));
 
                     if (Marca == "" || Marca == null)
                     {
@@ -602,7 +603,7 @@ namespace Inventario
         }
 
 
-        public void EditarEquipamento(int ID, string TipoEquipamento, string NumeroSerie, string Marca, string Situacao, double Valor, string LicencaAti)
+        public void EditarEquipamento(int ID, string TipoEquipamento, string NumeroSerie, string Marca, string Situacao, double Valor, string LicencaAti, string NumeroLicenca)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -611,7 +612,7 @@ namespace Inventario
                     cmd.Parameters.Clear();
                     conexao.Open();
 
-                    sql.Append("UPDATE tbEquipamentosL SET TipoEquipamento = @TipoEquipamento, NumeroSerie = @NumeroSerie, Marca = @Marca, Situacao = @Situacao, Valor = @Valor, LicencaAti = @LicencaAti");
+                    sql.Append("UPDATE tbEquipamentosL SET TipoEquipamento = @TipoEquipamento, NumeroSerie = @NumeroSerie, Marca = @Marca, Situacao = @Situacao, Valor = @Valor, LicencaAti = @LicencaAti, NumeroLicenca = @NumeroLicenca");
                     sql.Append(" WHERE ID = @ID");
 
                     cmd.Parameters.Add(new SqlParameter("@ID", ID));
@@ -621,6 +622,8 @@ namespace Inventario
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
                     cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
                     cmd.Parameters.Add(new SqlParameter("@LicencaAti", LicencaAti));
+                    cmd.Parameters.Add(new SqlParameter("@NumeroLicenca", NumeroLicenca));
+
 
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;

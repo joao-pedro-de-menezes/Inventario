@@ -16,6 +16,11 @@ namespace Inventario
     {
         private readonly MaterialSkinManager materialSkinManager;
 
+        string Ttipo = "Tipo Equipamento";
+        string Tnumero = "Número de Serie";
+        string Tmarca = "Marca do Equipamento";
+        string TcodigoLi = "Codigo de Licença";
+
         public frmCadastroEq()
         {
             InitializeComponent();
@@ -31,13 +36,15 @@ namespace Inventario
         private void frmCadastroEq_Load(object sender, EventArgs e)
         {
             mbtnCadastrar.Tag = "Novo";
-            txtCodigo.Visible = false;
+            txtCodigoLi.Visible = false;
 
             mSwithLi.Checked = false;
             dgvLi.Enabled = false;
             mTxtPesquisa.Enabled = false;
             mbtnPesquisarLi.Enabled = false;
             carregarCmb();
+            resetar();
+            
         }
 
         private void mbtnCadastrar_Click(object sender, EventArgs e)
@@ -97,8 +104,10 @@ namespace Inventario
                             "", // Deixando vazio por enquanto até você criar a caixinha de Marca
                             ObterLetraSituacao(cmbSituacao.Text),
                             valorEquipamento,
+                            txtCodigoLi.Text,
                             txtNumeroLicenca.Text
                         );
+                        
 
                         resetar();
                         MessageBox.Show("Equipamento cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -118,13 +127,15 @@ namespace Inventario
                     {
                         clsEquipamentoGeral equipamento = new clsEquipamentoGeral();
                         equipamento.EditarEquipamento(
-                            Convert.ToInt32(txtCodigo.Text),
+                            Convert.ToInt32(mtxtCodigo.Text),
                             txtTipoEquipamento.Text,
                             txtNumeroSerie.Text,
                             "",
                             ObterLetraSituacao(cmbSituacao.Text),
                             valorEquipamento,
+                            txtCodigoLi.Text,
                             txtNumeroLicenca.Text
+                            
                         );
 
                         resetar();
@@ -146,7 +157,8 @@ namespace Inventario
                 if (ctl is MaterialTextBox)
                     ctl.Text = "";
             }
-            txtCodigo.Visible = false;
+            txtCodigoLi.Visible = false;
+            lblCodigo.Visible = false;
 
             mbtnCadastrar.Tag = "Novo";
             mbtnCadastrar.Text = "Cadastrar";
@@ -156,8 +168,17 @@ namespace Inventario
             mTxtPesquisa.Enabled = false;
             mbtnPesquisarLi.Enabled = false;
 
-            cmbSituacao.SelectedIndex = 0;
-            cmbSituacaoP.SelectedIndex = 0;
+            cmbSituacao.SelectedIndex = 4;
+            cmbSituacaoP.SelectedIndex = 4;
+
+            txtTipoEquipamento.LimparBtns(Ttipo);
+            txtNumeroSerie.LimparBtns(Tnumero);
+            txtMarca.LimparBtns(Tmarca);
+            txtCodigoLi.LimparBtns(TcodigoLi);
+            mtxtCodigo.Visible = false;
+
+            dgvLi.DataSource = null;
+
         }
 
         private void mbtnCancelar_Click(object sender, EventArgs e)
@@ -308,23 +329,24 @@ namespace Inventario
         {
             // Parte de Cadastro
             cmbSituacao.Items.Clear();
-            cmbSituacao.Items.Add("");
+           
             cmbSituacao.Items.Add("Em Estoque");
             cmbSituacao.Items.Add("Em Campo");
             cmbSituacao.Items.Add("Em Manutenção");
-            cmbSituacao.Items.Add("Quebrado");
+            cmbSituacao.Items.Add("Quebrado"); 
+             cmbSituacao.Items.Add("");
 
-            cmbSituacao.SelectedIndex = 0;
+            cmbSituacao.SelectedIndex = 4;
 
             // Parte de Pesquisa
             cmbSituacaoP.Items.Clear();
-            cmbSituacaoP.Items.Add("");
             cmbSituacaoP.Items.Add("Em Estoque");
             cmbSituacaoP.Items.Add("Em Campo");
             cmbSituacaoP.Items.Add("Em Manutenção");
             cmbSituacaoP.Items.Add("Quebrado");
+            cmbSituacaoP.Items.Add("");
 
-            cmbSituacaoP.SelectedIndex = 0;
+            cmbSituacaoP.SelectedIndex = 4;
         }       
 
         // Método para traduzir o texto do ComboBox para a letra que vai pro banco
@@ -345,18 +367,48 @@ namespace Inventario
                 if (dgvLi.CurrentRow != null && dgvLi.Rows.Count > 0)
                 {
                     // Pega o ID da licença (Coluna 0) da linha selecionada
-                    string licencaSelecionada = dgvLi.CurrentRow.Cells[0].Value.ToString();
+                    string CodigoSelecionado = dgvLi.CurrentRow.Cells[0].Value.ToString();
+                    string licencaSelecionada = dgvLi.CurrentRow.Cells[2].Value.ToString();
 
                     // Joga o ID direto na caixinha de texto que a gente criou e bloqueia o usuário de digitar lá
                     txtNumeroLicenca.Text = licencaSelecionada;
+                    txtCodigoLi.Text = CodigoSelecionado;
+                    txtCodigoLi.Visible = true;
 
                     MessageBox.Show($"Licença selecionada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao selecionar a licença: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void mbtnCancelar_Click_1(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Você está redefinindo todos os campos deseja continuar? (Isso resetará todos os campos)", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                FormatarGrid();
+                resetar();
+                if (mSwithLi.Checked)
+                {
+                    mSwithLi.Checked = false;
+                }
+
+            }
+           
+        }
+
+        private void mbtnPesquisar_Click_1(object sender, EventArgs e)
+        {
+            tabCntrCadastro.SelectedIndex = 0;
+        }
+
+        private void dgvEquipamentos_DoubleClick(object sender, EventArgs e)
+        {
+
         }
     }
 }
