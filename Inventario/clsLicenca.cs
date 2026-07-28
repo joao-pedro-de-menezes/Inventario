@@ -350,5 +350,37 @@ namespace Inventario
                 }
             }
         }
+
+        // Aqui é um tipo de pesquisa que funciona tudo dentro de um campo de pesquisa só.
+        public DataTable PesquisaFiltrada(string termo)
+        {
+            DataTable dtLocal = new DataTable();
+
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+            {
+                try
+                {
+                    conexao.Open();
+
+                    // O "OR" permite que a pessoa digite o Tipo da Licença (Ex: Windows) 
+                    // ou o Número de Série (Ex: 1234) na mesma caixinha e o SQL acha!
+                    string sqlComando = "SELECT * FROM tbLicencas WHERE TipoLicenca LIKE @termo OR NumeroSerie LIKE @termo";
+
+                    using (SqlCommand comando = new SqlCommand(sqlComando, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@termo", "%" + termo + "%");
+
+                        SqlDataAdapter da = new SqlDataAdapter(comando);
+                        da.Fill(dtLocal);
+                    }
+                    return dtLocal;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao filtrar licenças: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+            }
+        }
     }
 }

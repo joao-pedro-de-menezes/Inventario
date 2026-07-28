@@ -36,6 +36,8 @@
             this.mbtnPesquisarP = new MaterialSkin.Controls.MaterialButton();
             this.mbVoltar = new MaterialSkin.Controls.MaterialButton();
             this.grbPesquisa = new System.Windows.Forms.GroupBox();
+            this.checkInativo = new System.Windows.Forms.CheckBox();
+            this.checkAtivo = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFrenteP = new System.Windows.Forms.TextBox();
             this.txtFrotaP = new System.Windows.Forms.TextBox();
@@ -61,8 +63,6 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
-            this.checkInativo = new System.Windows.Forms.CheckBox();
-            this.checkAtivo = new System.Windows.Forms.CheckBox();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridMaquinas.SuspendLayout();
@@ -199,6 +199,26 @@
             this.grbPesquisa.TabStop = false;
             this.grbPesquisa.Text = "Perquisar por:";
             // 
+            // checkInativo
+            // 
+            this.checkInativo.AutoSize = true;
+            this.checkInativo.Location = new System.Drawing.Point(216, 87);
+            this.checkInativo.Name = "checkInativo";
+            this.checkInativo.Size = new System.Drawing.Size(58, 17);
+            this.checkInativo.TabIndex = 23;
+            this.checkInativo.Text = "Inativo";
+            this.checkInativo.UseVisualStyleBackColor = true;
+            // 
+            // checkAtivo
+            // 
+            this.checkAtivo.AutoSize = true;
+            this.checkAtivo.Location = new System.Drawing.Point(151, 87);
+            this.checkAtivo.Name = "checkAtivo";
+            this.checkAtivo.Size = new System.Drawing.Size(50, 17);
+            this.checkAtivo.TabIndex = 22;
+            this.checkAtivo.Text = "Ativo";
+            this.checkAtivo.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -323,6 +343,7 @@
             this.mbtnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnCancelar.UseAccentColor = false;
             this.mbtnCancelar.UseVisualStyleBackColor = true;
+            this.mbtnCancelar.Click += new System.EventHandler(this.mbtnCancelar_Click);
             // 
             // mbtnPesquisar
             // 
@@ -531,26 +552,6 @@
             this.tbSelecionar.Size = new System.Drawing.Size(398, 48);
             this.tbSelecionar.TabIndex = 11;
             this.tbSelecionar.Text = "materialTabSelector1";
-            // 
-            // checkInativo
-            // 
-            this.checkInativo.AutoSize = true;
-            this.checkInativo.Location = new System.Drawing.Point(216, 87);
-            this.checkInativo.Name = "checkInativo";
-            this.checkInativo.Size = new System.Drawing.Size(58, 17);
-            this.checkInativo.TabIndex = 23;
-            this.checkInativo.Text = "Inativo";
-            this.checkInativo.UseVisualStyleBackColor = true;
-            // 
-            // checkAtivo
-            // 
-            this.checkAtivo.AutoSize = true;
-            this.checkAtivo.Location = new System.Drawing.Point(151, 87);
-            this.checkAtivo.Name = "checkAtivo";
-            this.checkAtivo.Size = new System.Drawing.Size(50, 17);
-            this.checkAtivo.TabIndex = 22;
-            this.checkAtivo.Text = "Ativo";
-            this.checkAtivo.UseVisualStyleBackColor = true;
             // 
             // frmCadastroMa
             // 

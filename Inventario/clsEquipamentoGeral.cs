@@ -15,9 +15,9 @@ namespace Inventario
     {
         SqlCommand cmd = new SqlCommand();
         StringBuilder sql = new StringBuilder();
-        DataTable dt = new DataTable();
 
-        public void SalvarMonitor(int NumeroSerie, string LicencaAti, string Situacao, double Valor, DateTime DataAtivacao, DateTime DataVencimento)
+
+        /*public void SalvarMonitor(int NumeroSerie, string LicencaAti, string Situacao, double Valor, DateTime DataAtivacao, DateTime DataVencimento)
         {
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
                 try
@@ -548,6 +548,216 @@ namespace Inventario
                 {
                     conexao.Close();
                 }
+        }*/
+
+
+
+        // Passamos o Tipo do Equipamento e usamos o DateTime? (que aceita null)
+        public void SalvarEquipamento(string TipoEquipamento, string NumeroSerie, string Marca, string Situacao, double Valor, string LicencaAti)
+        {
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+            {
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+
+                    sql.Append("INSERT INTO tbEquipamentosL (TipoEquipamento, NumeroSerie, Marca, Situacao, Valor, LicencaAti)");
+                    sql.Append(" VALUES (@TipoEquipamento, @NumeroSerie, @Marca, @Situacao, @Valor, @LicencaAti)");
+
+                    cmd.Parameters.Add(new SqlParameter("@TipoEquipamento", TipoEquipamento));
+                    cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
+                    cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
+
+                    if (Marca == "" || Marca == null)
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@Marca", DBNull.Value));
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@Marca", Marca));
+                    }
+
+                    if (LicencaAti == "" || LicencaAti == null)
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@LicencaAti", DBNull.Value));
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@LicencaAti", LicencaAti));
+                    }
+
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao salvar Equipamento: {ex.Message}", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+            }
+        }
+
+
+        public void EditarEquipamento(int ID, string TipoEquipamento, string NumeroSerie, string Marca, string Situacao, double Valor, string LicencaAti)
+        {
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+
+                    sql.Append("UPDATE tbEquipamentosL SET TipoEquipamento = @TipoEquipamento, NumeroSerie = @NumeroSerie, Marca = @Marca, Situacao = @Situacao, Valor = @Valor, LicencaAti = @LicencaAti");
+                    sql.Append(" WHERE ID = @ID");
+
+                    cmd.Parameters.Add(new SqlParameter("@ID", ID));
+                    cmd.Parameters.Add(new SqlParameter("@TipoEquipamento", TipoEquipamento));
+                    cmd.Parameters.Add(new SqlParameter("@NumeroSerie", NumeroSerie));
+                    cmd.Parameters.Add(new SqlParameter("@Marca", Marca));
+                    cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
+                    cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
+                    cmd.Parameters.Add(new SqlParameter("@LicencaAti", LicencaAti));
+
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao editar Equipamento: {ex.Message}", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+                finally
+                {
+                    conexao.Close();
+                }
+        }
+
+        public DataTable PesquisaTodos()
+        {
+
+            DataTable dtLocal = new DataTable();
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+            {
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+
+                    sql.Append("SELECT * FROM tbEquipamentosL");
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    dtLocal.Load(cmd.ExecuteReader());
+                    return dtLocal;
+
+
+                    // Aqui você pode retornar o DataTable ou fazer algo com ele
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar Equipamentos: {ex.Message}", "Pesquisar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+            }
+        }
+
+        public DataTable PesquisaPorID(int Codigo)
+        {
+            DataTable dtLocal = new DataTable();
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+            {
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+
+                    sql.Append("SELECT ID, TipoEquipamento, NumeroSerie, Marca, Situacao, Valor, LicencaAti FROM tbEquipamentosL");
+                    sql.Append(" WHERE ID = @Codigo");
+                    cmd.Parameters.Add(new SqlParameter("@Codigo", Codigo));
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    dtLocal.Load(cmd.ExecuteReader());
+                    return dtLocal;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar Equipamento por ID: {ex.Message}", "Pesquisar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+            }
+        }
+
+        public DataTable PesquisaAvancada(string ID, string TipoEquipamento, string NumeroSerie, string Marca, string Situacao, string Valor, string LicencaAti)
+        {
+            // O 1=1 é um macete do SQL. Como é sempre verdade, podemos ir adicionando "AND" depois dele sem dar erro de sintaxe.
+            //Aqui ta passando os comandos do sql Server pra quando o tiverem preenchidas la no código
+            string sql = "SELECT * FROM tbEquipamentosL WHERE 1=1 ";
+
+            // Vai construindo o SQL dinamicamente
+            if (!string.IsNullOrEmpty(ID))
+                sql += " AND ID = @ID";
+
+            if (!string.IsNullOrEmpty(TipoEquipamento))
+                sql += " AND TipoEquipamento LIKE @TipoEquipamento";
+
+            if (!string.IsNullOrEmpty(NumeroSerie))
+                sql += " AND NumeroSerie LIKE @NumeroSerie";
+
+            if (!string.IsNullOrEmpty(Marca))
+                sql += " AND Marca LIKE @Marca";
+
+            if (!string.IsNullOrEmpty(Situacao))
+                sql += " AND Situacao = @Situacao";
+
+            if (!string.IsNullOrEmpty(Valor))
+                sql += " AND Valor = @Valor";
+
+            if (!string.IsNullOrEmpty(LicencaAti))
+                sql += " AND LicencaAti LIKE @LicencaAti";
+
+            using (SqlConnection con = new SqlConnection(clsConexao.StringConexao)) // Use sua classe de conexão
+            {
+                //Adicionando parâmetros poderia fazer do jeito comun, mas aqui ele verifica 1 por 1 que se ta preenchido e passa pra executar
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    // Agora preenche os parâmetros (isso evita falhas de segurança/SQL Injection)
+                    if (!string.IsNullOrEmpty(ID))
+                        cmd.Parameters.AddWithValue("@ID", Convert.ToInt32(ID));
+
+                    if (!string.IsNullOrEmpty(TipoEquipamento))
+                        cmd.Parameters.AddWithValue("@TipoEquipamento", "%" + TipoEquipamento + "%");
+
+                    if (!string.IsNullOrEmpty(NumeroSerie))
+                        cmd.Parameters.AddWithValue("@NumeroSerie", "%" + NumeroSerie + "%");
+
+                    if (!string.IsNullOrEmpty(Marca))
+                        cmd.Parameters.AddWithValue("@Marca", "%" + Marca + "%");
+
+                    if (!string.IsNullOrEmpty(Situacao))
+                        cmd.Parameters.AddWithValue("@Situacao", Situacao);
+
+                    if (!string.IsNullOrEmpty(Valor))
+                        cmd.Parameters.AddWithValue("@Valor", Convert.ToDouble(Valor));
+
+                    if (!string.IsNullOrEmpty(LicencaAti))
+                        cmd.Parameters.AddWithValue("@LicencaAti", "%" + LicencaAti + "%");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Retorna a tabela filtrada exatamente com o que o usuário combinou!
+                    return dt;
+                }
+            }
         }
     }
 }
+
