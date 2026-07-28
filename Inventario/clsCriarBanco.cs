@@ -84,12 +84,13 @@ namespace Inventario
                     CREATE TABLE tbEquipamentosL (
                     ID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
                     TipoEquipamento VARCHAR(50) NULL,
-                    NumeroSerie INT NULL, 
-                    Modelo VARCHAR(50) NULL,
-                    DataAquisicao DATE NULL,
+                    NumeroSerie VARCHAR(50) NOT NULL, 
+                    Marca VARCHAR(50) NULL,
                     Localizacao VARCHAR(50) NULL,
                     Frente INT NULL,    
-                    Valor DECIMAL (12,2) NULL
+                    Valor DECIMAL (12,2) NULL,
+                    LicencaAti VARCHAR(100) NULL,
+                    Situacao CHAR(1) NULL
                     )";
                     using (SqlCommand cmd = new SqlCommand(CriartbEquipamentosL, conexao))
                     {

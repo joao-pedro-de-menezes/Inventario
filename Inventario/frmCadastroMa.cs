@@ -387,6 +387,11 @@ namespace Inventario
                 throw;
             }
         }
+
+        private void mbtnCancelar_Click(object sender, EventArgs e)
+        {
+            resetar();
+        }
     }
 }
 
