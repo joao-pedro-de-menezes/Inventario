@@ -329,7 +329,7 @@ namespace Inventario
                         cmd.Parameters.AddWithValue("@TipoLicenca", "%" + TipoLicenca + "%");
 
                     if (!string.IsNullOrEmpty(Valor))
-                        cmd.Parameters.AddWithValue("@Valor", Convert.ToDecimal(Valor)); // Converte para Decimal/Dinheiro
+                        cmd.Parameters.AddWithValue("@Valor", Convert.ToString(Valor)); // Converte para Decimal/Dinheiro
 
                     if (!string.IsNullOrEmpty(Situacao))
                         cmd.Parameters.AddWithValue("@Situacao", Situacao);
