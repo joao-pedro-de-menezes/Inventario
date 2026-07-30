@@ -408,7 +408,37 @@ namespace Inventario
 
         private void dgvEquipamentos_DoubleClick(object sender, EventArgs e)
         {
+            /*
+            cmbSituacao.Items.Add("Em Estoque");
+            cmbSituacao.Items.Add("Em Campo");
+            cmbSituacao.Items.Add("Em Manutenção");
+            cmbSituacao.Items.Add("Quebrado");
+            cmbSituacao.Items.Add("");
+            */
+            try
+            {
+                if (Convert.ToInt16(dgvEquipamentos.CurrentRow.Cells[0].Value)>0)
+                {
+                    mtxtCodigo.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[0]);
+                    txtTipoEquipamento.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[1]);
+                    txtNumeroSerie.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[2]);
+                    txtMarca.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[3]);
+                    cmbSituacao.SelectedIndex = Convert.ToInt16(dgvEquipamentos.CurrentRow.Cells[4]);
+                    txtValor.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[5]);
+                    txtNumeroLicenca.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[6]);
 
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void mbVoltar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
