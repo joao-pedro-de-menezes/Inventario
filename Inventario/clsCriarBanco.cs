@@ -86,7 +86,7 @@ namespace Inventario
                     TipoEquipamento VARCHAR(50) NULL,
                     NumeroSerie VARCHAR(50) NOT NULL, 
                     Marca VARCHAR(50) NULL,
-                    Localizacao VARCHAR(50) NULL,
+                    Localizacao VARCHAR(50) NULL,       
                     Frente INT NULL,    
                     Valor DECIMAL (12,2) NULL,
                     LicencaAti INT NULL,

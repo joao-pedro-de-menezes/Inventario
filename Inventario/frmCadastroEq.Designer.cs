@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbSelecionar = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabCntrCadastro = new MaterialSkin.Controls.MaterialTabControl();
             this.tbSelecao = new System.Windows.Forms.TabPage();
@@ -66,6 +66,7 @@
             this.grbSituacao = new System.Windows.Forms.GroupBox();
             this.cmbSituacao = new MaterialSkin.Controls.MaterialComboBox();
             this.grbCampos = new System.Windows.Forms.GroupBox();
+            this.mtxtFrente = new MaterialSkin.Controls.MaterialTextBox();
             this.mtxtCodigo = new MaterialSkin.Controls.MaterialTextBox();
             this.mSwithLi = new MaterialSkin.Controls.MaterialSwitch();
             this.txtNumeroLicenca = new MaterialSkin.Controls.MaterialTextBox();
@@ -76,7 +77,6 @@
             this.lblValor = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigoLi = new MaterialSkin.Controls.MaterialTextBox();
-            this.mtxtFrente = new MaterialSkin.Controls.MaterialTextBox();
             this.tabCntrCadastro.SuspendLayout();
             this.tbSelecao.SuspendLayout();
             this.grbGridEquipamentos.SuspendLayout();
@@ -145,34 +145,34 @@
             this.dgvEquipamentos.AllowUserToAddRows = false;
             this.dgvEquipamentos.AllowUserToDeleteRows = false;
             this.dgvEquipamentos.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEquipamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvEquipamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEquipamentos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEquipamentos.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvEquipamentos.Location = new System.Drawing.Point(5, 16);
             this.dgvEquipamentos.Name = "dgvEquipamentos";
             this.dgvEquipamentos.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEquipamentos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipamentos.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvEquipamentos.Size = new System.Drawing.Size(984, 465);
             this.dgvEquipamentos.TabIndex = 0;
             this.dgvEquipamentos.DoubleClick += new System.EventHandler(this.dgvEquipamentos_DoubleClick);
@@ -487,7 +487,7 @@
             this.mbtnCancelar.Name = "mbtnCancelar";
             this.mbtnCancelar.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbtnCancelar.Size = new System.Drawing.Size(114, 36);
-            this.mbtnCancelar.TabIndex = 4;
+            this.mbtnCancelar.TabIndex = 8;
             this.mbtnCancelar.Text = "Cancelar";
             this.mbtnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnCancelar.UseAccentColor = false;
@@ -507,7 +507,7 @@
             this.mbtnPesquisar.Name = "mbtnPesquisar";
             this.mbtnPesquisar.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbtnPesquisar.Size = new System.Drawing.Size(100, 36);
-            this.mbtnPesquisar.TabIndex = 3;
+            this.mbtnPesquisar.TabIndex = 9;
             this.mbtnPesquisar.Text = "Pesquisar";
             this.mbtnPesquisar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnPesquisar.UseAccentColor = false;
@@ -528,7 +528,7 @@
             this.mbtnCadastrar.Name = "mbtnCadastrar";
             this.mbtnCadastrar.NoAccentTextColor = System.Drawing.Color.Empty;
             this.mbtnCadastrar.Size = new System.Drawing.Size(114, 36);
-            this.mbtnCadastrar.TabIndex = 2;
+            this.mbtnCadastrar.TabIndex = 7;
             this.mbtnCadastrar.Text = "Cadastrar";
             this.mbtnCadastrar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.mbtnCadastrar.UseAccentColor = false;
@@ -542,7 +542,7 @@
             this.grbSituacao.Location = new System.Drawing.Point(30, 429);
             this.grbSituacao.Name = "grbSituacao";
             this.grbSituacao.Size = new System.Drawing.Size(398, 93);
-            this.grbSituacao.TabIndex = 16;
+            this.grbSituacao.TabIndex = 18;
             this.grbSituacao.TabStop = false;
             this.grbSituacao.Text = "Situação";
             // 
@@ -566,7 +566,7 @@
             this.cmbSituacao.Name = "cmbSituacao";
             this.cmbSituacao.Size = new System.Drawing.Size(380, 49);
             this.cmbSituacao.StartIndex = 0;
-            this.cmbSituacao.TabIndex = 0;
+            this.cmbSituacao.TabIndex = 6;
             // 
             // grbCampos
             // 
@@ -587,6 +587,24 @@
             this.grbCampos.Size = new System.Drawing.Size(398, 417);
             this.grbCampos.TabIndex = 15;
             this.grbCampos.TabStop = false;
+            // 
+            // mtxtFrente
+            // 
+            this.mtxtFrente.AnimateReadOnly = false;
+            this.mtxtFrente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mtxtFrente.Depth = 0;
+            this.mtxtFrente.Enabled = false;
+            this.mtxtFrente.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mtxtFrente.LeadingIcon = null;
+            this.mtxtFrente.Location = new System.Drawing.Point(128, 272);
+            this.mtxtFrente.MaxLength = 50;
+            this.mtxtFrente.MouseState = MaterialSkin.MouseState.OUT;
+            this.mtxtFrente.Multiline = false;
+            this.mtxtFrente.Name = "mtxtFrente";
+            this.mtxtFrente.Size = new System.Drawing.Size(262, 50);
+            this.mtxtFrente.TabIndex = 0;
+            this.mtxtFrente.Text = "";
+            this.mtxtFrente.TrailingIcon = null;
             // 
             // mtxtCodigo
             // 
@@ -617,7 +635,7 @@
             this.mSwithLi.Name = "mSwithLi";
             this.mSwithLi.Ripple = true;
             this.mSwithLi.Size = new System.Drawing.Size(221, 37);
-            this.mSwithLi.TabIndex = 6;
+            this.mSwithLi.TabIndex = 5;
             this.mSwithLi.Text = "Cadastrar com Licença";
             this.mSwithLi.UseVisualStyleBackColor = true;
             this.mSwithLi.CheckedChanged += new System.EventHandler(this.mSwithLi_CheckedChanged);
@@ -636,7 +654,7 @@
             this.txtNumeroLicenca.Multiline = false;
             this.txtNumeroLicenca.Name = "txtNumeroLicenca";
             this.txtNumeroLicenca.Size = new System.Drawing.Size(383, 50);
-            this.txtNumeroLicenca.TabIndex = 5;
+            this.txtNumeroLicenca.TabIndex = 0;
             this.txtNumeroLicenca.Text = "";
             this.txtNumeroLicenca.TrailingIcon = null;
             // 
@@ -670,7 +688,7 @@
             this.txtNumeroSerie.Multiline = false;
             this.txtNumeroSerie.Name = "txtNumeroSerie";
             this.txtNumeroSerie.Size = new System.Drawing.Size(383, 50);
-            this.txtNumeroSerie.TabIndex = 4;
+            this.txtNumeroSerie.TabIndex = 3;
             this.txtNumeroSerie.Text = "";
             this.txtNumeroSerie.TrailingIcon = null;
             // 
@@ -687,7 +705,7 @@
             this.txtValor.Multiline = false;
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(185, 50);
-            this.txtValor.TabIndex = 4;
+            this.txtValor.TabIndex = 1;
             this.txtValor.Text = "";
             this.txtValor.TrailingIcon = null;
             // 
@@ -704,7 +722,7 @@
             this.txtTipoEquipamento.Multiline = false;
             this.txtTipoEquipamento.Name = "txtTipoEquipamento";
             this.txtTipoEquipamento.Size = new System.Drawing.Size(383, 50);
-            this.txtTipoEquipamento.TabIndex = 4;
+            this.txtTipoEquipamento.TabIndex = 2;
             this.txtTipoEquipamento.Text = "";
             this.txtTipoEquipamento.TrailingIcon = null;
             // 
@@ -740,27 +758,9 @@
             this.txtCodigoLi.Multiline = false;
             this.txtCodigoLi.Name = "txtCodigoLi";
             this.txtCodigoLi.Size = new System.Drawing.Size(100, 50);
-            this.txtCodigoLi.TabIndex = 2;
+            this.txtCodigoLi.TabIndex = 0;
             this.txtCodigoLi.Text = "";
             this.txtCodigoLi.TrailingIcon = null;
-            // 
-            // mtxtFrente
-            // 
-            this.mtxtFrente.AnimateReadOnly = false;
-            this.mtxtFrente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mtxtFrente.Depth = 0;
-            this.mtxtFrente.Enabled = false;
-            this.mtxtFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mtxtFrente.LeadingIcon = null;
-            this.mtxtFrente.Location = new System.Drawing.Point(128, 272);
-            this.mtxtFrente.MaxLength = 50;
-            this.mtxtFrente.MouseState = MaterialSkin.MouseState.OUT;
-            this.mtxtFrente.Multiline = false;
-            this.mtxtFrente.Name = "mtxtFrente";
-            this.mtxtFrente.Size = new System.Drawing.Size(262, 50);
-            this.mtxtFrente.TabIndex = 8;
-            this.mtxtFrente.Text = "";
-            this.mtxtFrente.TrailingIcon = null;
             // 
             // frmCadastroEq
             // 

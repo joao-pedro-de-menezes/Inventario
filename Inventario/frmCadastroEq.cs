@@ -19,7 +19,7 @@ namespace Inventario
         string Ttipo = "Tipo Equipamento";
         string Tnumero = "Número de Serie";
         string Tmarca = "Marca do Equipamento";
-        string TcodigoLi = "Codigo de Licença";
+
 
         public frmCadastroEq()
         {
@@ -37,6 +37,8 @@ namespace Inventario
         {
             mbtnCadastrar.Tag = "Novo";
             txtCodigoLi.Visible = false;
+            mtxtFrente.Visible = false;
+            txtNumeroLicenca.Visible = false;
 
             mSwithLi.Checked = false;
             dgvLi.Enabled = false;
@@ -53,33 +55,40 @@ namespace Inventario
             // ==========================================
             // VALIDAÇÕES OBRIGATÓRIAS
             // ==========================================
-            if (string.IsNullOrWhiteSpace(txtTipoEquipamento.Text))
+            if (txtTipoEquipamento.Text == Ttipo)
             {
                 MessageBox.Show("O campo Tipo de Equipamento é obrigatório.", "Tipo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTipoEquipamento.Focus();
                 return;
             }
 
-            else if (string.IsNullOrWhiteSpace(txtNumeroSerie.Text))
+         if (txtNumeroSerie.Text == Tnumero)
             {
                 MessageBox.Show("O Número de Série é obrigatório.", "N° Série", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNumeroSerie.Focus();
-                return;
+                return; 
             }
 
             // Validação blindada do Valor
-            else if (!double.TryParse(txtValor.Text, out valorEquipamento))
+         if (!double.TryParse(txtValor.Text, out valorEquipamento))
             {
                 MessageBox.Show("O campo Valor deve conter apenas números válidos.", "Valor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtValor.Focus();
                 return;
             }
+         if (cmbSituacao.SelectedIndex == 4)
+            {
+                MessageBox.Show("Você deve selecioanr a situação", "Situação Obrigatória", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbSituacao.Focus();
+                return; 
+            }
+         
 
             // Validação da Licença Obrigatória (Se a chavinha estiver ligada)
             if (mSwithLi.Checked == true)
             {
                 // Verifica se a caixinha que recebe o clique do grid está vazia
-                if (string.IsNullOrWhiteSpace(txtNumeroLicenca.Text))
+                if (string.IsNullOrEmpty(txtNumeroLicenca.Text))
                 {
                     MessageBox.Show("Você marcou que o equipamento tem licença. Por favor, pesquise e selecione uma licença no grid (dando um duplo clique) antes de salvar!", "Licença Obrigatória", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     mTxtPesquisa.Focus();
@@ -101,7 +110,7 @@ namespace Inventario
                         equipamento.SalvarEquipamento(
                             txtTipoEquipamento.Text,
                             txtNumeroSerie.Text,
-                            "", // Deixando vazio por enquanto até você criar a caixinha de Marca
+                            txtMarca.Text, // Deixando vazio por enquanto até você criar a caixinha de Marca
                             ObterLetraSituacao(cmbSituacao.Text),
                             valorEquipamento,
                             txtCodigoLi.Text,
@@ -130,7 +139,7 @@ namespace Inventario
                             Convert.ToInt32(mtxtCodigo.Text),
                             txtTipoEquipamento.Text,
                             txtNumeroSerie.Text,
-                            "",
+                            txtMarca.Text,
                             ObterLetraSituacao(cmbSituacao.Text),
                             valorEquipamento,
                             txtCodigoLi.Text,
@@ -159,6 +168,9 @@ namespace Inventario
             }
             txtCodigoLi.Visible = false;
             lblCodigo.Visible = false;
+            txtCodigoLi.Visible = false;
+            mtxtFrente.Visible = false;
+            txtNumeroLicenca.Visible = false;
 
             mbtnCadastrar.Tag = "Novo";
             mbtnCadastrar.Text = "Cadastrar";
@@ -174,7 +186,6 @@ namespace Inventario
             txtTipoEquipamento.LimparBtns(Ttipo);
             txtNumeroSerie.LimparBtns(Tnumero);
             txtMarca.LimparBtns(Tmarca);
-            txtCodigoLi.LimparBtns(TcodigoLi);
             mtxtCodigo.Visible = false;
 
             dgvLi.DataSource = null;
@@ -357,6 +368,7 @@ namespace Inventario
             else if (textoCombo == "Em Manutenção") return "M";
             else if (textoCombo == "Quebrado") return "Q";
             else return ""; // Se tiver vazio
+
         }
 
         private void dgvLi_DoubleClick(object sender, EventArgs e)
@@ -374,6 +386,8 @@ namespace Inventario
                     txtNumeroLicenca.Text = licencaSelecionada;
                     txtCodigoLi.Text = CodigoSelecionado;
                     txtCodigoLi.Visible = true;
+                    mtxtFrente.Visible = true;
+                    txtNumeroLicenca.Visible = true;
 
                     MessageBox.Show($"Licença selecionada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -407,7 +421,7 @@ namespace Inventario
         }
 
         private void dgvEquipamentos_DoubleClick(object sender, EventArgs e)
-        {
+         {
             /*
             cmbSituacao.Items.Add("Em Estoque");
             cmbSituacao.Items.Add("Em Campo");
@@ -415,24 +429,54 @@ namespace Inventario
             cmbSituacao.Items.Add("Quebrado");
             cmbSituacao.Items.Add("");
             */
+         
+
+            string letraSituacao = ObterLetraSituacao(cmbSituacaoP.Text);
+      
+
+
+
             try
             {
                 if (Convert.ToInt16(dgvEquipamentos.CurrentRow.Cells[0].Value)>0)
                 {
-                    mtxtCodigo.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[0]);
-                    txtTipoEquipamento.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[1]);
-                    txtNumeroSerie.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[2]);
-                    txtMarca.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[3]);
-                    cmbSituacao.SelectedIndex = Convert.ToInt16(dgvEquipamentos.CurrentRow.Cells[4]);
-                    txtValor.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[5]);
-                    txtNumeroLicenca.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[6]);
+                    mtxtCodigo.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[0].Value);
+                    txtTipoEquipamento.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[1].Value);
+                    txtNumeroSerie.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[2].Value);
+                    txtMarca.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[3].Value);
+                    letraSituacao = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[8].Value);
+                    if (letraSituacao == "E")
+                        cmbSituacao.SelectedIndex = 0;
+                    else if (letraSituacao == "C")
+                        cmbSituacao.SelectedIndex = 1;
+                    else if (letraSituacao == "M")
+                        cmbSituacao.SelectedIndex = 2;
+                    else if (letraSituacao == "Q")
+                        cmbSituacao.SelectedIndex = 3;
+                    txtValor.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[6].Value);
+                    
+
+                }
+                tabCntrCadastro.SelectedIndex = 1;
+                lblCodigo.Visible = true;
+                mtxtCodigo.Visible = true;
+                mbtnCadastrar.Tag = "Editar";
+                mbtnCadastrar.Text = "Editar";
+                if (!string.IsNullOrEmpty(Convert.ToString(dgvEquipamentos.CurrentRow.Cells[7].Value)))
+                {
+                    txtCodigoLi.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[7].Value);
+                    txtNumeroLicenca.Text = Convert.ToString(dgvEquipamentos.CurrentRow.Cells[9].Value);
+                    txtCodigoLi.Visible = true;
+                    mtxtFrente.Visible = true;
+                    txtNumeroLicenca.Visible = true;
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show($"Eerro ao puxar Equipamentos: {ex.Message}", "Puxar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 

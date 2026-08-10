@@ -621,8 +621,26 @@ namespace Inventario
                     cmd.Parameters.Add(new SqlParameter("@Marca", Marca));
                     cmd.Parameters.Add(new SqlParameter("@Situacao", Situacao));
                     cmd.Parameters.Add(new SqlParameter("@Valor", Valor));
-                    cmd.Parameters.Add(new SqlParameter("@LicencaAti", LicencaAti));
-                    cmd.Parameters.Add(new SqlParameter("@NumeroLicenca", NumeroLicenca));
+
+                    //Para que o editar funcione sem lincença tem que colocar DBNull, que permite que os valores sejam passados sendo nulos
+                    if (string.IsNullOrEmpty(LicencaAti) || LicencaAti == "0")
+                    {
+                        // Se não tem licença selecionada, envia um "nulo" oficial do banco de dados
+                        cmd.Parameters.Add(new SqlParameter("@LicencaAti", DBNull.Value));
+                    }
+                    else
+                    {
+                        // Se tem licença, converte o texto para Número (INT) para não dar conflito na Foreign Key
+                        cmd.Parameters.Add(new SqlParameter("@LicencaAti", Convert.ToInt32(LicencaAti)));
+                    }
+                    if (string.IsNullOrEmpty(NumeroLicenca))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@NumeroLicenca", DBNull.Value));
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@NumeroLicenca", NumeroLicenca));
+                    }
 
 
                     cmd.CommandText = sql.ToString();
