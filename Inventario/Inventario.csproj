@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="clsConexao.cs" />
     <Compile Include="clsCriarBanco.cs" />
+    <Compile Include="clsDash.cs" />
     <Compile Include="clsEquipamentoGeral.cs" />
     <Compile Include="clsGuardarUsu.cs" />
     <Compile Include="clsLicenca.cs" />

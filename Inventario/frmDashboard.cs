@@ -83,6 +83,7 @@ namespace Inventario
             // Garante que o texto do usuário fique por cima de tudo
             lblUsuarioLogado.BringToFront();
             carregarBtn();
+            atualizarDash();
       
 
         }
@@ -332,5 +333,23 @@ namespace Inventario
             grbDados.Visible = true;
 
         }
+
+        private void atualizarDash()
+        {
+            try
+            {
+                clsDash dash = new clsDash();
+                mlblNTotalMquinas.Text = dash.ContarMaquinas().ToString();
+                mlblTotalEqui.Text = dash.ContarEquipamentos().ToString();
+                mlblLiVencidas.Text = dash.ContarLicenasVenc().ToString();
+
+            }
+            catch (Exception ex )
+            {
+
+                throw;
+            }
+        }
+
     }
 }

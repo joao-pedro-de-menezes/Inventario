@@ -272,7 +272,7 @@ namespace Inventario
                 {
                     if (MessageBox.Show("Nenhum parâmetro foi passado, deseja fazer busca geral?", "Pesquisa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
-                            dgvLi.DataSource = licenca.PesquisaTodos();
+                            dgvLi.DataSource = licenca.PesquisaTodosA();
                         return;
                     }
                 }

@@ -593,6 +593,17 @@ namespace Inventario
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
                     cmd.ExecuteNonQuery();
+
+                    if (LicencaAti != "" && LicencaAti != null)
+                    {
+                        string sqlUpdatae = "UPDATE tbLicencas set Situacao = 'U' WHERE ID = @IDLicenca";
+
+                        using (SqlCommand cmdUpdate = new SqlCommand(sqlUpdatae, conexao))
+                        {
+                            cmdUpdate.Parameters.Add(new SqlParameter("@IDLicenca", LicencaAti));
+                            cmdUpdate.ExecuteNonQuery();
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -646,6 +657,17 @@ namespace Inventario
                     cmd.CommandText = sql.ToString();
                     cmd.Connection = conexao;
                     cmd.ExecuteNonQuery();
+
+                   /*( if (LicencaAti != "" && LicencaAti != null)
+                    {
+                        string sqlUpdatae = "UPDATE tbLicencas set Situacao = 'U' WHERE ID @IDLicenca";
+
+                        using (SqlCommand cmdUpdate = new SqlCommand(sqlUpdatae, conexao))
+                        {
+                            cmdUpdate.Parameters.Add(new SqlParameter("@IDLicenca", LicencaAti));
+                            cmdUpdate.ExecuteNonQuery();
+                        }
+                    }*/
 
                 }
                 catch (Exception ex)

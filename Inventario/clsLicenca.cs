@@ -364,12 +364,11 @@ namespace Inventario
 
                     // O "OR" permite que a pessoa digite o Tipo da Licença (Ex: Windows) 
                     // ou o Número de Série (Ex: 1234) na mesma caixinha e o SQL acha!
-                    string sqlComando = "SELECT * FROM tbLicencas WHERE TipoLicenca LIKE @termo OR NumeroSerie LIKE @termo";
+                    string sqlComando = "SELECT * FROM tbLicencas WHERE Situacao = 'A' AND (TipoLicenca LIKE @termo OR NumeroSerie LIKE @termo)";
 
                     using (SqlCommand comando = new SqlCommand(sqlComando, conexao))
                     {
                         comando.Parameters.AddWithValue("@termo", "%" + termo + "%");
-
                         SqlDataAdapter da = new SqlDataAdapter(comando);
                         da.Fill(dtLocal);
                     }
@@ -381,6 +380,34 @@ namespace Inventario
                     throw;
                 }
             }
+        }
+
+        public DataTable PesquisaTodosA()
+        {
+            DataTable dtLocal = new DataTable();
+
+            using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
+                try
+                {
+                    sql.Clear();
+                    cmd.Parameters.Clear();
+                    conexao.Open();
+
+                    sql.Append("SELECT * FROM tbLicencas WHERE Situacao = 'A'");
+                    cmd.CommandText = sql.ToString();
+                    cmd.Connection = conexao;
+                    dtLocal.Load(cmd.ExecuteReader());
+                    return dtLocal;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao pesquisar licenças {ex.Message}", "Pesquisar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+                finally
+                {
+                    conexao.Close();
+                }
         }
     }
 }

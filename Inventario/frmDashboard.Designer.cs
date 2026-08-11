@@ -40,7 +40,7 @@
             this.mlblTotalMaquinas = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
             this.iconeInstaladas = new FontAwesome.Sharp.IconPictureBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.mlblTotalEqui = new MaterialSkin.Controls.MaterialLabel();
             this.mlblTotalInstaladas = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
@@ -49,7 +49,7 @@
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.mlblLiVencidas = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
@@ -263,7 +263,7 @@
             // 
             this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard5.Controls.Add(this.iconeInstaladas);
-            this.materialCard5.Controls.Add(this.materialLabel1);
+            this.materialCard5.Controls.Add(this.mlblTotalEqui);
             this.materialCard5.Controls.Add(this.mlblTotalInstaladas);
             this.materialCard5.Depth = 0;
             this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -272,7 +272,7 @@
             this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard5.Name = "materialCard5";
             this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard5.Size = new System.Drawing.Size(135, 100);
+            this.materialCard5.Size = new System.Drawing.Size(165, 100);
             this.materialCard5.TabIndex = 2;
             // 
             // iconeInstaladas
@@ -290,18 +290,18 @@
             this.iconeInstaladas.TabIndex = 1;
             this.iconeInstaladas.TabStop = false;
             // 
-            // materialLabel1
+            // mlblTotalEqui
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel1.Location = new System.Drawing.Point(70, 45);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(39, 41);
-            this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "23";
+            this.mlblTotalEqui.AutoSize = true;
+            this.mlblTotalEqui.Depth = 0;
+            this.mlblTotalEqui.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.mlblTotalEqui.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.mlblTotalEqui.Location = new System.Drawing.Point(70, 45);
+            this.mlblTotalEqui.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mlblTotalEqui.Name = "mlblTotalEqui";
+            this.mlblTotalEqui.Size = new System.Drawing.Size(39, 41);
+            this.mlblTotalEqui.TabIndex = 0;
+            this.mlblTotalEqui.Text = "23";
             // 
             // mlblTotalInstaladas
             // 
@@ -311,9 +311,9 @@
             this.mlblTotalInstaladas.Location = new System.Drawing.Point(9, 14);
             this.mlblTotalInstaladas.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblTotalInstaladas.Name = "mlblTotalInstaladas";
-            this.mlblTotalInstaladas.Size = new System.Drawing.Size(120, 19);
+            this.mlblTotalInstaladas.Size = new System.Drawing.Size(148, 19);
             this.mlblTotalInstaladas.TabIndex = 0;
-            this.mlblTotalInstaladas.Text = "Total Instaladas:";
+            this.mlblTotalInstaladas.Text = "Total Equipamentos:";
             // 
             // materialCard2
             // 
@@ -389,11 +389,11 @@
             // 
             this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard3.Controls.Add(this.iconPictureBox3);
-            this.materialCard3.Controls.Add(this.materialLabel4);
+            this.materialCard3.Controls.Add(this.mlblLiVencidas);
             this.materialCard3.Controls.Add(this.materialLabel5);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(326, 51);
+            this.materialCard3.Location = new System.Drawing.Point(345, 55);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
@@ -416,18 +416,18 @@
             this.iconPictureBox3.TabIndex = 1;
             this.iconPictureBox3.TabStop = false;
             // 
-            // materialLabel4
+            // mlblLiVencidas
             // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel4.Location = new System.Drawing.Point(107, 45);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(39, 41);
-            this.materialLabel4.TabIndex = 0;
-            this.materialLabel4.Text = "47";
+            this.mlblLiVencidas.AutoSize = true;
+            this.mlblLiVencidas.Depth = 0;
+            this.mlblLiVencidas.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.mlblLiVencidas.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.mlblLiVencidas.Location = new System.Drawing.Point(107, 45);
+            this.mlblLiVencidas.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mlblLiVencidas.Name = "mlblLiVencidas";
+            this.mlblLiVencidas.Size = new System.Drawing.Size(39, 41);
+            this.mlblLiVencidas.TabIndex = 0;
+            this.mlblLiVencidas.Text = "47";
             // 
             // materialLabel5
             // 
@@ -529,9 +529,9 @@
             // 
             this.pnlSubLicencas.BackColor = System.Drawing.Color.MidnightBlue;
             this.pnlSubLicencas.Controls.Add(this.iconButtonCadastrarLicencas);
-            this.pnlSubLicencas.Location = new System.Drawing.Point(303, 393);
+            this.pnlSubLicencas.Location = new System.Drawing.Point(313, 393);
             this.pnlSubLicencas.Name = "pnlSubLicencas";
-            this.pnlSubLicencas.Size = new System.Drawing.Size(120, 42);
+            this.pnlSubLicencas.Size = new System.Drawing.Size(137, 42);
             this.pnlSubLicencas.TabIndex = 5;
             this.pnlSubLicencas.Visible = false;
             // 
@@ -543,7 +543,7 @@
             this.iconButtonCadastrarLicencas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonCadastrarLicencas.Location = new System.Drawing.Point(3, 4);
             this.iconButtonCadastrarLicencas.Name = "iconButtonCadastrarLicencas";
-            this.iconButtonCadastrarLicencas.Size = new System.Drawing.Size(114, 31);
+            this.iconButtonCadastrarLicencas.Size = new System.Drawing.Size(131, 31);
             this.iconButtonCadastrarLicencas.TabIndex = 0;
             this.iconButtonCadastrarLicencas.Text = "Procurar e Cadastrar";
             this.iconButtonCadastrarLicencas.UseVisualStyleBackColor = true;
@@ -554,7 +554,7 @@
             this.pnlSubEquipamentos.Controls.Add(this.iconButtonCadastrarEquipamentos);
             this.pnlSubEquipamentos.Location = new System.Drawing.Point(168, 393);
             this.pnlSubEquipamentos.Name = "pnlSubEquipamentos";
-            this.pnlSubEquipamentos.Size = new System.Drawing.Size(129, 42);
+            this.pnlSubEquipamentos.Size = new System.Drawing.Size(142, 42);
             this.pnlSubEquipamentos.TabIndex = 6;
             this.pnlSubEquipamentos.Visible = false;
             // 
@@ -566,7 +566,7 @@
             this.iconButtonCadastrarEquipamentos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonCadastrarEquipamentos.Location = new System.Drawing.Point(3, 4);
             this.iconButtonCadastrarEquipamentos.Name = "iconButtonCadastrarEquipamentos";
-            this.iconButtonCadastrarEquipamentos.Size = new System.Drawing.Size(123, 31);
+            this.iconButtonCadastrarEquipamentos.Size = new System.Drawing.Size(136, 31);
             this.iconButtonCadastrarEquipamentos.TabIndex = 0;
             this.iconButtonCadastrarEquipamentos.Text = "Procurar e Cadastrar";
             this.iconButtonCadastrarEquipamentos.UseVisualStyleBackColor = true;
@@ -575,9 +575,9 @@
             // pnlSubMaquinas
             // 
             this.pnlSubMaquinas.Controls.Add(this.iconButtonCadastrarMaquinas);
-            this.pnlSubMaquinas.Location = new System.Drawing.Point(429, 393);
+            this.pnlSubMaquinas.Location = new System.Drawing.Point(453, 393);
             this.pnlSubMaquinas.Name = "pnlSubMaquinas";
-            this.pnlSubMaquinas.Size = new System.Drawing.Size(122, 42);
+            this.pnlSubMaquinas.Size = new System.Drawing.Size(133, 42);
             this.pnlSubMaquinas.TabIndex = 2;
             this.pnlSubMaquinas.Visible = false;
             // 
@@ -589,7 +589,7 @@
             this.iconButtonCadastrarMaquinas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonCadastrarMaquinas.Location = new System.Drawing.Point(3, 4);
             this.iconButtonCadastrarMaquinas.Name = "iconButtonCadastrarMaquinas";
-            this.iconButtonCadastrarMaquinas.Size = new System.Drawing.Size(116, 31);
+            this.iconButtonCadastrarMaquinas.Size = new System.Drawing.Size(127, 31);
             this.iconButtonCadastrarMaquinas.TabIndex = 0;
             this.iconButtonCadastrarMaquinas.Text = "Procurar e Cadastrar";
             this.iconButtonCadastrarMaquinas.UseVisualStyleBackColor = true;
@@ -672,7 +672,7 @@
         private MaterialSkin.Controls.MaterialLabel mlblNTotalMquinas;
         private FontAwesome.Sharp.IconPictureBox iconeTotalMaquinas;
         private MaterialSkin.Controls.MaterialCard materialCard5;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel mlblTotalEqui;
         private MaterialSkin.Controls.MaterialLabel mlblTotalInstaladas;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
@@ -680,7 +680,7 @@
         private MaterialSkin.Controls.MaterialLabel mlblEquipamentoReserva;
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialLabel mlblLiVencidas;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private FontAwesome.Sharp.IconButton iconButton1;
         private MaterialSkin.Controls.MaterialCard materialCard4;
