@@ -133,7 +133,7 @@ namespace Inventario
                 if (this.MdiChildren.Length == 1)
                 {
                     cadastroUsu.FormClosed += Reativar;
-                }
+                } 
                 cadastroUsu.Show();
                 EsconderSubMenus();
                 titulo();
@@ -329,9 +329,10 @@ namespace Inventario
 
         private void Reativar(object sender, FormClosedEventArgs e)
         {
-            //Método legal par reativar coisas quando for abrir outra tela na dash
-            grbDados.Visible = true;
+        
+                grbDados.Visible = true;
 
+            //Método legal par reativar coisas quando for abrir outra tela na dash
         }
 
         private void atualizarDash()

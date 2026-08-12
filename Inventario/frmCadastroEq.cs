@@ -484,5 +484,10 @@ namespace Inventario
         {
             this.Close();
         }
+
+        private void frmCadastroEq_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
