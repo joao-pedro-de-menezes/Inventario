@@ -18,7 +18,7 @@ namespace Inventario
       
         public int ContarMaquinas()
         {
-            //Variável que armazena qtdedsadsadsa
+            //Variável que armazena qtde
             int total = 0;
             using (SqlConnection conexao = new SqlConnection(clsConexao.StringConexao))
             {
