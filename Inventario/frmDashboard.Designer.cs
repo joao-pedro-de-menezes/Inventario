@@ -57,12 +57,6 @@
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.lblUsuarioLogado = new MaterialSkin.Controls.MaterialLabel();
-            this.pnlSubLicencas = new System.Windows.Forms.Panel();
-            this.iconButtonCadastrarLicencas = new FontAwesome.Sharp.IconButton();
-            this.pnlSubEquipamentos = new System.Windows.Forms.Panel();
-            this.iconButtonCadastrarEquipamentos = new FontAwesome.Sharp.IconButton();
-            this.pnlSubMaquinas = new System.Windows.Forms.Panel();
-            this.iconButtonCadastrarMaquinas = new FontAwesome.Sharp.IconButton();
             this.lblTitulo = new MaterialSkin.Controls.MaterialLabel();
             this.grbDados = new System.Windows.Forms.GroupBox();
             this.pnlMenu.SuspendLayout();
@@ -76,9 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             this.materialCard4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
-            this.pnlSubLicencas.SuspendLayout();
-            this.pnlSubEquipamentos.SuspendLayout();
-            this.pnlSubMaquinas.SuspendLayout();
             this.grbDados.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -525,76 +516,6 @@
             this.lblUsuarioLogado.TabIndex = 4;
             this.lblUsuarioLogado.Text = "Carregando...";
             // 
-            // pnlSubLicencas
-            // 
-            this.pnlSubLicencas.BackColor = System.Drawing.Color.MidnightBlue;
-            this.pnlSubLicencas.Controls.Add(this.iconButtonCadastrarLicencas);
-            this.pnlSubLicencas.Location = new System.Drawing.Point(313, 393);
-            this.pnlSubLicencas.Name = "pnlSubLicencas";
-            this.pnlSubLicencas.Size = new System.Drawing.Size(137, 42);
-            this.pnlSubLicencas.TabIndex = 5;
-            this.pnlSubLicencas.Visible = false;
-            // 
-            // iconButtonCadastrarLicencas
-            // 
-            this.iconButtonCadastrarLicencas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButtonCadastrarLicencas.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButtonCadastrarLicencas.IconColor = System.Drawing.Color.Black;
-            this.iconButtonCadastrarLicencas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonCadastrarLicencas.Location = new System.Drawing.Point(3, 4);
-            this.iconButtonCadastrarLicencas.Name = "iconButtonCadastrarLicencas";
-            this.iconButtonCadastrarLicencas.Size = new System.Drawing.Size(131, 31);
-            this.iconButtonCadastrarLicencas.TabIndex = 0;
-            this.iconButtonCadastrarLicencas.Text = "Procurar e Cadastrar";
-            this.iconButtonCadastrarLicencas.UseVisualStyleBackColor = true;
-            this.iconButtonCadastrarLicencas.Click += new System.EventHandler(this.iconButtonCadastrarLicencas_Click);
-            // 
-            // pnlSubEquipamentos
-            // 
-            this.pnlSubEquipamentos.Controls.Add(this.iconButtonCadastrarEquipamentos);
-            this.pnlSubEquipamentos.Location = new System.Drawing.Point(168, 393);
-            this.pnlSubEquipamentos.Name = "pnlSubEquipamentos";
-            this.pnlSubEquipamentos.Size = new System.Drawing.Size(142, 42);
-            this.pnlSubEquipamentos.TabIndex = 6;
-            this.pnlSubEquipamentos.Visible = false;
-            // 
-            // iconButtonCadastrarEquipamentos
-            // 
-            this.iconButtonCadastrarEquipamentos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButtonCadastrarEquipamentos.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButtonCadastrarEquipamentos.IconColor = System.Drawing.Color.Black;
-            this.iconButtonCadastrarEquipamentos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonCadastrarEquipamentos.Location = new System.Drawing.Point(3, 4);
-            this.iconButtonCadastrarEquipamentos.Name = "iconButtonCadastrarEquipamentos";
-            this.iconButtonCadastrarEquipamentos.Size = new System.Drawing.Size(136, 31);
-            this.iconButtonCadastrarEquipamentos.TabIndex = 0;
-            this.iconButtonCadastrarEquipamentos.Text = "Procurar e Cadastrar";
-            this.iconButtonCadastrarEquipamentos.UseVisualStyleBackColor = true;
-            this.iconButtonCadastrarEquipamentos.Click += new System.EventHandler(this.iconButtonCadastrarEquipamentos_Click);
-            // 
-            // pnlSubMaquinas
-            // 
-            this.pnlSubMaquinas.Controls.Add(this.iconButtonCadastrarMaquinas);
-            this.pnlSubMaquinas.Location = new System.Drawing.Point(453, 393);
-            this.pnlSubMaquinas.Name = "pnlSubMaquinas";
-            this.pnlSubMaquinas.Size = new System.Drawing.Size(133, 42);
-            this.pnlSubMaquinas.TabIndex = 2;
-            this.pnlSubMaquinas.Visible = false;
-            // 
-            // iconButtonCadastrarMaquinas
-            // 
-            this.iconButtonCadastrarMaquinas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButtonCadastrarMaquinas.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButtonCadastrarMaquinas.IconColor = System.Drawing.Color.Black;
-            this.iconButtonCadastrarMaquinas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonCadastrarMaquinas.Location = new System.Drawing.Point(3, 4);
-            this.iconButtonCadastrarMaquinas.Name = "iconButtonCadastrarMaquinas";
-            this.iconButtonCadastrarMaquinas.Size = new System.Drawing.Size(127, 31);
-            this.iconButtonCadastrarMaquinas.TabIndex = 0;
-            this.iconButtonCadastrarMaquinas.Text = "Procurar e Cadastrar";
-            this.iconButtonCadastrarMaquinas.UseVisualStyleBackColor = true;
-            this.iconButtonCadastrarMaquinas.Click += new System.EventHandler(this.iconButtonCadastrarMaquinas_Click);
-            // 
             // lblTitulo
             // 
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
@@ -630,11 +551,8 @@
             this.ClientSize = new System.Drawing.Size(1238, 667);
             this.Controls.Add(this.grbDados);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.pnlSubMaquinas);
-            this.Controls.Add(this.pnlSubEquipamentos);
             this.Controls.Add(this.lblUsuarioLogado);
             this.Controls.Add(this.pnlMenu);
-            this.Controls.Add(this.pnlSubLicencas);
             this.IsMdiContainer = true;
             this.Name = "frmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -657,9 +575,6 @@
             this.materialCard4.ResumeLayout(false);
             this.materialCard4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
-            this.pnlSubLicencas.ResumeLayout(false);
-            this.pnlSubEquipamentos.ResumeLayout(false);
-            this.pnlSubMaquinas.ResumeLayout(false);
             this.grbDados.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -691,12 +606,6 @@
         private MaterialSkin.Controls.MaterialLabel lblUsuarioLogado;
         private FontAwesome.Sharp.IconPictureBox iconeInstaladas;
         private MaterialSkin.Controls.MaterialButton mbtnAdmin;
-        private System.Windows.Forms.Panel pnlSubLicencas;
-        private FontAwesome.Sharp.IconButton iconButtonCadastrarLicencas;
-        private System.Windows.Forms.Panel pnlSubEquipamentos;
-        private FontAwesome.Sharp.IconButton iconButtonCadastrarEquipamentos;
-        private System.Windows.Forms.Panel pnlSubMaquinas;
-        private FontAwesome.Sharp.IconButton iconButtonCadastrarMaquinas;
         private MaterialSkin.Controls.MaterialButton mbtnEquipamentos;
         private MaterialSkin.Controls.MaterialButton mbtnLicenca;
         private MaterialSkin.Controls.MaterialButton mbtnMaquinas;

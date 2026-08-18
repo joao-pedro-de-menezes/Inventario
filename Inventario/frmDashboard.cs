@@ -69,9 +69,9 @@ namespace Inventario
         private void frmDashboard_Load(object sender, EventArgs e) // Ajeitar pra ficar paralelo com os botões do menu !!!!!!!!
         {
             titulo();
-            pnlSubEquipamentos.Location = new Point(168, 150); // Define a posição do submenu de equipamentos
+           /* pnlSubEquipamentos.Location = new Point(168, 150); // Define a posição do submenu de equipamentos
             pnlSubLicencas.Location = new Point(168, 203); 
-            pnlSubMaquinas.Location = new Point(168, 242);
+            pnlSubMaquinas.Location = new Point(168, 242);*/
 
             TipoUsu();
             //Log aqui é o log fazendo a magia negra
@@ -144,42 +144,45 @@ namespace Inventario
 
         private void EsconderSubMenus()
         {
-            pnlSubEquipamentos.Visible = false;
+           /* pnlSubEquipamentos.Visible = false;
             pnlSubLicencas.Visible = false;
             pnlSubMaquinas.Visible = false;
-           // pnlSubConfig.Visible = false;
+           // pnlSubConfig.Visible = false;*/
         }
 
         private void iconButtonCadastrarEquipamentos_Click(object sender, EventArgs e)
         {
-            Form TelaEqAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroEq);
-            if (TelaEqAber != null)
-            {
-                EsconderSubMenus();
-                titulo();
-                TelaEqAber.BringToFront();
-                TelaEqAber.Focus();
-            }
-            else
-            {
-                frmCadastroEq cadastroeq = new frmCadastroEq();
-                cadastroeq.MdiParent = this;
-                grbDados.Visible = false;
-                if (this.MdiChildren.Length == 1)
-                {
-                    cadastroeq.FormClosed += Reativar;
-                }
-                cadastroeq.Show();
-                EsconderSubMenus();
-                titulo();
-            }
+
+            
+
+            /* Form TelaEqAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroEq);
+             if (TelaEqAber != null)
+             {
+                 EsconderSubMenus();
+                 titulo();
+                 TelaEqAber.BringToFront();
+                 TelaEqAber.Focus();
+             }
+             else
+             {
+                 frmCadastroEq cadastroeq = new frmCadastroEq();
+                 cadastroeq.MdiParent = this;
+                 grbDados.Visible = false;
+                 if (this.MdiChildren.Length == 1)
+                 {
+                     cadastroeq.FormClosed += Reativar;
+                 }
+                 cadastroeq.Show();
+                 EsconderSubMenus();
+                 titulo();
+             }*/
         }
 
         private void iconButtonCadastrarLicencas_Click(object sender, EventArgs e)
         {
             
             //Comando para pegar tela aberta e armazenar na váriavel, esses FirstOrDefault é arrow function pra ler o array da memória e busca os parâmetros que foi passado, no caso o => é arrow function então ele ta falando "Busque na memória a tela aberta cujo o nome é frmCadastroMa e me retorna ela dentro desta variável TelaMaqAber
-            Form TelaLiAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroLi);
+            /*Form TelaLiAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroLi);
             if (TelaLiAber != null)
             {
                 EsconderSubMenus();
@@ -199,7 +202,7 @@ namespace Inventario
                 cadastroli.Show();
                 EsconderSubMenus();
                 titulo();
-            }
+            }*/
 
 
         }
@@ -207,7 +210,7 @@ namespace Inventario
         private void iconButtonCadastrarMaquinas_Click(object sender, EventArgs e)
         {
             //Comando para pegar tela aberta e armazenar na váriavel, esses FirstOrDefault é arrow function pra ler o array da memória e busca os parâmetros que foi passado, no caso o => é arrow function então ele ta falando "Busque na memória a tela aberta cujo o nome é frmCadastroMa e me retorna ela dentro desta variável TelaMaqAber
-            Form TelaMaqAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroMa);
+            /*Form TelaMaqAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroMa);
             if (TelaMaqAber != null)
             {
                 EsconderSubMenus();
@@ -227,7 +230,7 @@ namespace Inventario
                 maq.Show();
                 EsconderSubMenus();
                 titulo();
-            }
+            }*/
             
         }
 
@@ -249,7 +252,28 @@ namespace Inventario
 
         private void mbtnLicenca_Click(object sender, EventArgs e)
         {
-            bool EstavaAberto = pnlSubLicencas.Visible; // Verifica se o submenu já estava aberto
+            Form TelaLiAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroLi);
+            if (TelaLiAber != null)
+            {
+                EsconderSubMenus();
+                titulo();
+                TelaLiAber.BringToFront();
+                TelaLiAber.Focus();
+            }
+            else
+            {
+                frmCadastroLi cadastroli = new frmCadastroLi();
+                cadastroli.MdiParent = this;
+                grbDados.Visible = false;
+                if (this.MdiChildren.Length == 1)
+                {
+                    cadastroli.FormClosed += Reativar;
+                }
+                cadastroli.Show();
+                EsconderSubMenus();
+                titulo();
+            }
+            /*bool EstavaAberto = pnlSubLicencas.Visible; // Verifica se o submenu já estava aberto
             EsconderSubMenus();
 
             if (EstavaAberto == false)
@@ -265,14 +289,35 @@ namespace Inventario
 
         private void mbtnMaquinas_Click(object sender, EventArgs e)
         {
-            bool EstavaAberto = pnlSubMaquinas.Visible;
+            Form TelaMaqAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroMa);
+            if (TelaMaqAber != null)
+            {
+                EsconderSubMenus();
+                titulo();
+                TelaMaqAber.BringToFront();
+                TelaMaqAber.Focus();
+            }
+            else
+            {
+                frmCadastroMa maq = new frmCadastroMa();
+                maq.MdiParent = this;
+                grbDados.Visible = false;
+                if (this.MdiChildren.Length == 1)
+                {
+                    maq.FormClosed += Reativar;
+                }
+                maq.Show();
+                EsconderSubMenus();
+                titulo();
+            }
+            /*bool EstavaAberto = pnlSubMaquinas.Visible;
             EsconderSubMenus();
 
             if (EstavaAberto == false)
             {
                 pnlSubMaquinas.Visible = true;
                 pnlSubMaquinas.BringToFront();
-            }
+            }*/
         }
 
         private void carregarBtn()
@@ -288,6 +333,29 @@ namespace Inventario
 
         private void mbtnEquipamentos_Click(object sender, EventArgs e)
         {
+
+            Form TelaEqAber = this.MdiChildren.FirstOrDefault(f => f is frmCadastroEq);
+            if (TelaEqAber != null)
+            {
+                EsconderSubMenus();
+                titulo();
+                TelaEqAber.BringToFront();
+                TelaEqAber.Focus();
+            }
+            else
+            {
+                frmCadastroEq cadastroeq = new frmCadastroEq();
+                cadastroeq.MdiParent = this;
+                grbDados.Visible = false;
+                if (this.MdiChildren.Length == 1)
+                {
+                    cadastroeq.FormClosed += Reativar;
+                }
+                cadastroeq.Show();
+                EsconderSubMenus();
+                titulo();
+            }
+            /*
             bool EstavaAberto = pnlSubEquipamentos.Visible;
             EsconderSubMenus();
 
@@ -295,7 +363,7 @@ namespace Inventario
             {
                 pnlSubEquipamentos.Visible = true;
                 pnlSubEquipamentos.BringToFront();
-            }
+            }*/
         }
 
 
@@ -345,9 +413,9 @@ namespace Inventario
                 mlblLiVencidas.Text = dash.ContarLicenasVenc().ToString();
 
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
-
+                MessageBox.Show($"Ocorreu um erro ao atualizar o dashboard: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
         }
