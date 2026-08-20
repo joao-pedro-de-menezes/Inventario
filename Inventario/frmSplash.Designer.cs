@@ -35,7 +35,7 @@
             // tmrSplash
             // 
             this.tmrSplash.Enabled = true;
-            this.tmrSplash.Interval = 3000;
+            this.tmrSplash.Interval = 5000;
             this.tmrSplash.Tick += new System.EventHandler(this.tmrSplash_Tick);
             // 
             // frmSplash
@@ -43,8 +43,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.BackgroundImage = global::Inventario.Properties.Resources.Captura_de_tela_2026_04_24_001546;
-            this.ClientSize = new System.Drawing.Size(476, 351);
+            this.BackgroundImage = global::Inventario.Properties.Resources.Logo_Vortex;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(504, 368);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
